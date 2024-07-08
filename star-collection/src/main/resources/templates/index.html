@@ -26,26 +26,7 @@
 <body>
 
 	<!--header -->
-	<header id="banner">
-		<a href="./"><img src="/images/Peepville.svg" width="250" height="150" alt="PeepPea" style="background-color: #b9a8b2; padding: 5px;"></a>
-		<div style="display: flex; justify-content: center; align-items: center;">
-		</div>
-		<nav aria-label="Site">
-			<ul>
-				<li><a href="./" aria-current="page">Home</a></li>
-				<li>
-					<a href="Product-List.html">Plog Posts</a>
-				</li>
-				<li>
-					<a href="Static-About.html">Pea</a>
-				</li>
-				<li><a href="Contact-Us.html">Peep</a></li>
-			</ul>
-			<button type="button"><img src="/images/icon-menu.svg" width="30" height="24"
-					alt="Site Navigation Panel"></button>
-		</nav>
-		<a href="#"><img src="/images/icon-user-v01-white.svg" width="36" height="36" alt="Account"></a>
-	</header>
+	<div th:replace="~{fragments.html :: header}"/>
 	<!-- /header -->
 
 	<main id="main">
@@ -59,7 +40,7 @@
 				<ul class="splide__list">
 
 					<!-- 1 -->
-					<li class="splide__slide Peep-Pea" style="background-color: #aec6cf;">
+					<li class="splide__slide Peep-Pea" style="background-color: #5dadca85;">
 						<div class="wrapper">
 							<img src="/images/logo-peep.svg" width="250" height="150" alt="Logo of PeepPea!" style="padding-left: 10px;">
 							<a href="Peep-List.html" class="button lg solid gold">Peep Peep ._.</a>
@@ -81,7 +62,8 @@
 					<li class="splide__slide fan">
 						<div class="wrapper">
 							<h2>More PeepPea!</h2>
-							<p>Nala doesnt like Peep<br> I dont really talk to cooper much.</p>
+							<p>Nala doesnt like Peep </p><br> 
+							<p>Nala doesnt really do much imo.</p>
 							<a href="Peep-List.html" class="button lg solid gold">PeepPeas #1 on foenum</a>
 						</div>
 						<img src="/images/hero-nala.jpg" srcset="/images/hero-nala.jpg 1x, /images/hero-nala@2x.jpg 2x, /images/hero-nala@3x.jpg 3x" width="750" height="565" alt="">
@@ -98,33 +80,33 @@
 					aria-labelledby="more-Peepville name-Peepville">See all characters <span class="arrow"
 						aria-hidden="true">&rarr;</span></a>
 			</header>
-			<dl class="char-list" style="background-color: #a8d5ba">
+			<dl class="char-list" style="background-color: #a8d5ba1f">
 				<div data-full-img="/images/characters/Peepville-Nala.svg" class="character-container">
-					<dt id="name-Nala">Nala</dt>
+					<dt id="name-Nala" class="title">Nala</dt>
+					<dd class="title">Forensic Accountant</dd>
 					<dd class="avatar"><img src="/images/characters/avatar-Peepville-Nala.png"
 							srcset="/images/characters/avatar-Peepville-Nala.png 1x, /images/characters/avatar-Peepville-Nala.svg 2x"
 							width="200" height="200" alt="Avatar of Nala"></dd>
 					<dd class="desc">Nala is a computational genius who performs calculations for various Peepville businesses and organizations. In her spare time, Nala has been noodling on thecreation of the perfect web browser that will make all other browsers obsolete. We're rooting for you, Nala!</dd>
 					<dd><a href="characters/Character-Detail-Nala.html" id="more-Nala" aria-labelledby="more-Nala name-Nala">See bio and products</a></dd>
-					<dd class="title job-title">Forensic Accountant</dd>
 				</div>
 				<div data-full-img="/images/characters/Peepville-PeepPea.svg">
-					<dt id="name-PeepPea">PeepPea</dt>
+					<dt id="name-PeepPea" class="title">PeepPea</dt>
+					<dd class="title">Queen of Peepville</dd>
 					<dd class="avatar"><img src="/images/characters/avatar-Peepville-PeepPea.png"
 							srcset="/images/characters/avatar-Peepville-PeepPea.png 1x, /images/characters/avatar-Peepville-PeepPea.svg 2x"
 							width="200" height="200" alt="Avatar of PeepPea"></dd>
 					<dd class="desc">PeepPea is well-loved. All hail peepPea and those opposed will be sent to the realm of burning, far past the trenches of demise, a fate 1000 times worse than being sent to what is commonly known the shadow realm.</dd>
 					<dd><a href="characters/Character-Detail-PeepPea.html" id="more-PeepPea" aria-labelledby="more-PeepPea name-PeepPea">See bio and products</a></dd>
-					<dd class="title job-title">Queen of Peepville <br> Return of the PeepPeas</dd>
 				</div>
 				<div data-full-img="/images/characters/Peepville-Cooper.svg">
-					<dt id="name-Cooper">Cooper</dt>
+					<dt id="name-Cooper" class="title">Cooper</dt>
+					<dd class="title">Dog</dd>
 					<dd class="avatar"><img src="/images/characters/avatar-Peepville-Cooper.png"
 							srcset="/images/characters/avatar-Peepville-Cooper.png 1x, /images/characters/avatar-Peepville-Cooper.svg 2x"
 							width="200" height="200" alt="Avatar of Cooper"></dd>
 					<dd class="desc">Cooper is inquisitive and creative, and always conjuring up ways to improve Peepville and the lives of its inhabitants. He's been at the forefront of many inventions, but has a special affinity for improving the world through alternative energy and green living. Cooper's engineering collaborations with the City of Peepville have helped the city reduce its energy consumption year over year, and he's twice been awarded keys to Peepville, ong.</dd>
 					<dd><a href="characters/Character-Detail-Cooper.html" id="more-Cooper" aria-labelledby="more-Cooper name-Cooper">See bio and products</a></dd>
-					<dd class="title job-title">Dog</dd>
 				</div>
 			</dl>
 		</section><!-- / .collection.Peepville -->
@@ -204,33 +186,7 @@
 			</dl>
 		</section><!-- / .collection.PeepPea-Blogs -->
 
-		<footer id="continfo">
-			<nav aria-label="Supplementary">
-				<ul>
-					<li><a href="./">Home</a></li>
-					<li><a href="Product-List.html">Products</a></li>
-					<li><a href="Static-About.html">About</a></li>
-					<li><a href="Contact-Us.html">Contact</a></li>
-				</ul>
-			</nav>
-			<figure>
-				<figcaption>Follow us</figcaption>
-				<ul>
-					<li><a href="#" target="_blank"><img src="/images/icon-instagram-white.svg" width="30" height="30"
-								alt="Instagram"></a></li>
-					<li><a href="#" target="_blank"><img src="/images/icon-facebook-white.svg" width="30" height="30"
-								alt="Facebook"></a></li>
-					<li><a href="#" target="_blank"><img src="/images/icon-twitter-white.svg" width="30" height="30"
-								alt="Twitter"></a></li>
-					<li><a href="#" target="_blank"><img src="/images/icon-youtube-white.svg" width="30" height="30"
-								alt="YouTube"></a></li>
-				</ul>
-			</figure>
-			<img src="/images/logo-peep.svg" width="120" height="65" alt="Logo of Big Star Collectibles">
-			<p><small>&copy; Peep Pea, LLC (no clue what LLC stands for mb). &nbsp;|&nbsp; <a href="#">Privacy</a>
-					&nbsp;|&nbsp; <a href="#">Terms</a></small></p>
-			<p><small>This is a fictitious company, "PeepPea", created by Drew Erskine ._.</small></p>
-		</footer>
+<div th:replace="~{fragments.html :: footer}"/>
 
 		<div id="quick-view" role="dialog" aria-modal="true" aria-labelledby="label-quick-view"
 			aria-describedby="desc-quick-view">

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+	<!--header -->
+	<header id="banner" style="padding: .4em; padding-left: 1.3em;">
+		<a href="./"><img src="/images/Peepville.svg" width="250" height="150" alt="PeepPea" style="background-color: #b9a8b2a9; padding: 1.3em;"></a>
+		<div style="display: flex; justify-content: center; align-items: center;">
+		</div>
+		<nav aria-label="Site">
+			<ul>
+				<li><a href="./" aria-current="page">Home</a></li>
+				<li>
+					<a href="Product-List.html">Plog Posts</a>
+				</li>
+				<li>
+					<a href="Static-About.html">Pea</a>
+				</li>
+				<li><a href="Contact-Us.html">Peep</a></li>
+			</ul>
+			<button type="button"><img src="/images/icon-menu.svg" width="30" height="24"
+					alt="Site Navigation Panel"></button>
+		</nav>
+		<a th:href="@{/newUser}"><img src="/images/icon-user-v01-white.svg" width="36" height="36" alt="Account"></a>
+        
+	</header>
+	<!-- /header -->
+
+    <footer id="continfo">
+        <nav aria-label="Supplementary">
+            <ul>
+                <li><a href="./">Home</a></li>
+                <li><a href="Product-List.html">Products</a></li>
+                <li><a href="Static-About.html">About</a></li>
+                <li><a href="Contact-Us.html">Contact</a></li>
+            </ul>
+        </nav>
+        <figure>
+            <figcaption>Follow us</figcaption>
+            <ul>
+                <li><a href="#" target="_blank"><img src="/images/icon-instagram-white.svg" width="30" height="30"
+                            alt="Instagram"></a></li>
+                <li><a href="#" target="_blank"><img src="/images/icon-facebook-white.svg" width="30" height="30"
+                            alt="Facebook"></a></li>
+                <li><a href="#" target="_blank"><img src="/images/icon-twitter-white.svg" width="30" height="30"
+                            alt="Twitter"></a></li>
+                <li><a href="#" target="_blank"><img src="/images/icon-youtube-white.svg" width="30" height="30"
+                            alt="YouTube"></a></li>
+            </ul>
+        </figure>
+        <img src="/images/logo-peep.svg" width="120" height="65" alt="Logo of Big Star Collectibles">
+        <p><small>&copy; Peep Pea, LLC (no clue what LLC stands for mb). &nbsp;|&nbsp; <a href="#">Privacy</a>
+                &nbsp;|&nbsp; <a href="#">Terms</a></small></p>
+        <p><small>This is a fictitious company, "PeepPea", created by Drew Erskine ._.</small></p>
+    </footer>
+</body>
+</html>

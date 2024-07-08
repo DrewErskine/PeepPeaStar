@@ -156,6 +156,7 @@ html {
 	--color-grape: #733682;
 	--color-purpleviolet: #863690;
 	--color-violet: #2E1760;
+	--color-offwhiteviolet: #d7c6eb;
 	--color-dark: #191919;
 	--color-gray: #666;
 	--color-silver: #999;
@@ -1891,7 +1892,7 @@ body {
 		padding-bottom: 1.5rem;
 		margin: 0 -21px;
 		font-weight: 400;
-		font-size: 3rem;
+		font-size: 1.3rem;
 	}
 
 	.char-list .avatar>img {
