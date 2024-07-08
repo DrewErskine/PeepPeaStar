@@ -15,7 +15,7 @@
        3.4. modal dialog
        3.5. form elements
        3.6. breadcrumb
-       3.7. product list
+       3.7. blog list
        3.8. rating
        3.9. radio menu widget
        3.10. character list
@@ -24,7 +24,7 @@
     6. banner
        6.1. My Shopping Cart panel
     7. main content
-       7.1. products
+       7.1. blogs
     8. content info
     9. responsive (1024px)
    10. responsive ( 991px)
@@ -629,7 +629,7 @@ main>nav[aria-label="Breadcrumb"] {
 
 
 
-/*  3.7. product list
+/*  3.7. blog list
 -------------------------------------------------------*/
 
 .prod-list {
@@ -1419,10 +1419,10 @@ body {
 /*  7. main content
 -------------------------------------------------------*/
 
-/*  7.1. products
+/*  7.1. blogs
 -------------------------------------------------------*/
 
-#products {
+#blogs {
 	display: grid;
 	grid-template-columns: 260px 40px 1fr auto;
 	grid-template-areas:
@@ -1434,30 +1434,30 @@ body {
 	width: var(--width-center-section);
 }
 
-#character+#products {
+#character+#blogs {
 	padding-top: 40px;
 }
 
-#products h1 {
+#blogs h1 {
 	position: absolute;
 	left: -5000px;
 }
 
-#products>header {
+#blogs>header {
 	display: contents;
 }
 
-#products header>nav {
+#blogs header>nav {
 	/* breadcrumb */
 	grid-area: Breadcrumb;
 }
 
-:is(#products header > nav, #products header > h1 + p)+p {
-	/* sentence of "[number] products" for mobile */
+:is(#blogs header > nav, #blogs header > h1 + p)+p {
+	/* sentence of "[number] blogs" for mobile */
 	display: none;
 }
 
-#products header>h1+p {
+#blogs header>h1+p {
 	/* sentence of "You searched for [keyword]" */
 	grid-area: Breadcrumb;
 	margin: -0.9rem 0 -0.6rem;
@@ -1465,7 +1465,7 @@ body {
 	font-size: 2.6rem;
 }
 
-#products header p>mark {
+#blogs header p>mark {
 	font-style: italic;
 	font-weight: 500;
 	background-color: transparent;
@@ -1601,7 +1601,7 @@ body {
 	border-color: inherit;
 }
 
-#products header>.radio-menu-widget {
+#blogs header>.radio-menu-widget {
 	position: relative;
 	z-index: 5;
 	grid-area: Sort-by;
@@ -1675,19 +1675,19 @@ body {
 	color: var(--color-purpleviolet);
 }
 
-#products header .radio-menu-widget+button {
+#blogs header .radio-menu-widget+button {
 	/* "Filter by" modal trigger for mobile */
 	display: none;
 }
 
-#products .prod-list {
+#blogs .prod-list {
 	grid-area: Prod-list;
 	margin-top: 21px;
 	padding-top: 40px;
 	border-top: 1px solid var(--color-border);
 }
 
-#products>nav {
+#blogs>nav {
 	/* pagination */
 	--color-link-static: var(--color-dark);
 	--color-link-hover: var(--color-dark);
@@ -1699,23 +1699,23 @@ body {
 	border-top: 1px solid var(--color-border);
 }
 
-#products>nav>ul {
+#blogs>nav>ul {
 	display: flex;
 	justify-content: center;
 	cursor: default;
 }
 
-#products>nav li {
+#blogs>nav li {
 	display: flex;
 	justify-content: center;
 }
 
-#products>nav li+li {
+#blogs>nav li+li {
 	margin-left: -1px;
 }
 
-#products>nav li>a,
-#products>nav li>span {
+#blogs>nav li>a,
+#blogs>nav li>span {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -1727,38 +1727,38 @@ body {
 	border: 1px solid var(--color-border);
 }
 
-#products>nav li[aria-hidden="true"]>a {
+#blogs>nav li[aria-hidden="true"]>a {
 	--color-link-static: var(--color-inactive);
 	--color-link-hover: var(--color-inactive);
 	--color-link-background-hover: transparent;
 	cursor: default;
 }
 
-#products>nav li>a[aria-current="page"] {
+#blogs>nav li>a[aria-current="page"] {
 	position: relative;
 	font-weight: 700;
 	border-color: currentColor;
 }
 
-#products>nav li>a:is(.prev, .next) {
+#blogs>nav li>a:is(.prev, .next) {
 	padding: 0 15px;
 	font-size: 1.6rem;
 }
 
-#products>nav li:first-child>a {
+#blogs>nav li:first-child>a {
 	border-radius: 6px 0 0 6px;
 }
 
-#products>nav li:last-child>a {
+#blogs>nav li:last-child>a {
 	border-radius: 0 6px 6px 0;
 }
 
-#products>nav a>svg {
+#blogs>nav a>svg {
 	margin-top: 1px;
 	fill: var(--color-dark);
 }
 
-#products>nav [aria-hidden="true"]>a>svg {
+#blogs>nav [aria-hidden="true"]>a>svg {
 	fill: var(--color-inactive);
 }
 
@@ -2162,9 +2162,9 @@ body {
 	}
 
 
-	/*  7.1. products  */
+	/*  7.1. blogs  */
 
-	#products {
+	#blogs {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
@@ -2172,17 +2172,17 @@ body {
 		padding-bottom: 46px;
 	}
 
-	#character+#products {
+	#character+#blogs {
 		padding-top: 30px;
 	}
 
-	#products header>nav {
+	#blogs header>nav {
 		/* breadcrumb */
 		width: 100%;
 	}
 
-	:is(#products header > nav, #products header > h1 + p)+p {
-		/* sentence of "[number] Products" for mobile */
+	:is(#blogs header > nav, #blogs header > h1 + p)+p {
+		/* sentence of "[number] blogs" for mobile */
 		display: block;
 		margin: 0.8rem 0 21px;
 		padding-bottom: 16px;
@@ -2193,7 +2193,7 @@ body {
 		border-bottom: 1px solid var(--color-border);
 	}
 
-	#products header>h1+p {
+	#blogs header>h1+p {
 		/* sentence of "You searched for [keyword]" */
 		margin-bottom: -0.1rem;
 		width: 100%;
@@ -2230,14 +2230,14 @@ body {
 		display: flex;
 	}
 
-	#products header>.radio-menu-widget {
+	#blogs header>.radio-menu-widget {
 		display: flex;
 		align-items: center;
 		margin-right: 20px;
 		padding-left: 0;
 	}
 
-	#products header>.radio-menu-widget::after {
+	#blogs header>.radio-menu-widget::after {
 		content: "";
 		position: relative;
 		top: -0.1rem;
@@ -2268,7 +2268,7 @@ body {
 		right: 21px;
 	}
 
-	#products header .radio-menu-widget+button {
+	#blogs header .radio-menu-widget+button {
 		/* "Filter by" modal opener for mobile */
 		align-self: center;
 		display: flex;
@@ -2277,18 +2277,18 @@ body {
 		font-size: 1.4rem;
 	}
 
-	#products header .radio-menu-widget+button>svg {
+	#blogs header .radio-menu-widget+button>svg {
 		margin-left: 0.8rem;
 		fill: var(--color-purpleviolet);
 	}
 
-	#products .prod-list {
+	#blogs .prod-list {
 		margin-top: 39px;
 		padding-top: 0;
 		border-top-width: 0;
 	}
 
-	#products>nav {
+	#blogs>nav {
 		/* pagination */
 		width: 100%;
 	}
@@ -2342,7 +2342,7 @@ body {
 
 @media (max-width: 767px) {
 
-	/*  3.7. product list  */
+	/*  3.7. blog list  */
 
 	:where(:not(#also))>.prod-list {
 		grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -2393,9 +2393,9 @@ body {
 	}
 
 
-	/*  7.1 products  */
+	/*  7.1 blogs  */
 
-	#products>nav {
+	#blogs>nav {
 		/* pagination */
 		margin-right: calc(-1 * var(--dist-min-cont-edge));
 		margin-left: calc(-1 * var(--dist-min-cont-edge));
@@ -2404,7 +2404,7 @@ body {
 		width: calc(100% + 2 * var(--dist-min-cont-edge));
 	}
 
-	#products>nav li:not(:first-child):not(:last-child) {
+	#blogs>nav li:not(:first-child):not(:last-child) {
 		display: none;
 	}
 

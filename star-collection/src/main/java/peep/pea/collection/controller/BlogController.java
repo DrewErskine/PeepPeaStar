@@ -31,7 +31,7 @@ public class BlogController {
     @PostMapping("/search")
     public String search(@RequestParam("searchString") String keyword, Model model){
 
-        List<Blog> blogs = blogRepository.searchByName(keyword);
+        List<Blog> blogs = blogRepository.searchByTitle(keyword);
         model.addAttribute("blogs", blogs);
         model.addAttribute("searchedFor", keyword);
 
@@ -52,11 +52,11 @@ public class BlogController {
 
         logger.info("Getting all blogs, using spring executor thread");
         try{
-            Thread.sleep(6000);
+            Thread.sleep(3000);
         }
         catch (InterruptedException exception){
             throw new RuntimeException();
         }
-        return  null;
+        return  blogRepository.findAll();
     }
 }

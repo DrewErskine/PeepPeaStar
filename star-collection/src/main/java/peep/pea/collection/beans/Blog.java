@@ -1,24 +1,46 @@
 package peep.pea.collection.beans;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Column;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+import java.util.Date;
 
 @Entity
+@Table(name = "peeppea_blog")
 public class Blog {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String name;
-    private String description;
+    @Column(name = "title", nullable = false)
+    private String title;
+
+    @Column(name = "content")
+    private String content;
+
+    @Column(name = "likes", nullable = false)
     private int likes;
+
+    @Column(name = "no_of_comments", nullable = false)
     private int noOfComments;
-    private String color;
+
+    @Column(name = "user_id", nullable = false)
     private int userId;
+
+    @Column(name = "image_path")
     private String imagePath;
 
-    private int price;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "date_created", nullable = false, updatable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private Date dateCreated;
 
+    // Getters and Setters
     public int getId() {
         return id;
     }
@@ -27,27 +49,27 @@ public class Blog {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getDescription() {
-        return description;
+    public String getContent() {
+        return content;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setContent(String content) {
+        this.content = content;
     }
 
-    public int getlikes() {
+    public int getLikes() {
         return likes;
     }
 
-    public void setlikes(int likes) {
+    public void setLikes(int likes) {
         this.likes = likes;
     }
 
@@ -59,19 +81,11 @@ public class Blog {
         this.noOfComments = noOfComments;
     }
 
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public int getuserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setuserId(int userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 
@@ -83,11 +97,11 @@ public class Blog {
         this.imagePath = imagePath;
     }
 
-    public int getPrice() {
-        return price;
+    public Date getDateCreated() {
+        return dateCreated;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setDateCreated(Date dateCreated) {
+        this.dateCreated = dateCreated;
     }
 }

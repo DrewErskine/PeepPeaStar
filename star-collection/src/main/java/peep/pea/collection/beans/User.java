@@ -1,12 +1,11 @@
 package peep.pea.collection.beans;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
+import java.util.Date;
 
 @Entity
+@Table(name = "\"peeppea_user\"")
 public class User {
 
     @Id
@@ -22,6 +21,12 @@ public class User {
     private String name;
 
     private String message;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "date_registered", nullable = false, updatable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private Date dateRegistered;
+
+    // Getters and Setters
 
     public Long getId() {
         return id;
@@ -53,5 +58,13 @@ public class User {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public Date getDateRegistered() {
+        return dateRegistered;
+    }
+
+    public void setDateRegistered(Date dateRegistered) {
+        this.dateRegistered = dateRegistered;
     }
 }

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<title>Peep Pea Blogs</title>
+
+	<!-- favicons -->
+	<link rel="icon" sizes="57x57" href="/images/favicons/catFavicon.png">
+	<meta name="msapplication-TileColor" content="#d4d4d8">
+	<meta name="theme-color" content="#f4f1ec">
+	<meta name="description" content="Welcome to Peep Peas #1 Star, your ticket 2 Peepville.">
+
+	<!-- stylesheets -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,500;1,700&family=Roboto:wght@700&display=swap">
+	<link rel="stylesheet" href="css/plugins.css">
+	<link rel="stylesheet" href="css/common.css?ver=2209301853">
+</head>
+<body>
+
+    <div id="skip">
+        <a href="#main">Skip to main content</a>
+    </div>
+
+    <div th:replace="~{fragments.html :: header}"/>
+
+    <main id="main">
+
+        <section id="blogs">
+            <header>
+                <h1>Blogs</h1>
+                <p th:text="${blogs.size()} + ' Blogs'"></p>
+                <div id="wrapper-in-prod-header">
+                    <button type="button"><img src="images/icon-xmark.svg" width="26" height="26" alt="Close"></button>
+                    <p th:text="${blogs.size()} + ' Blogs'"></p>
+                    <section>
+                        <header>
+                            <h2 id="label-filter-by">Filter by:</h2>
+                            <a role="button" tabindex="0">Clear filters</a>
+                        </header>
+                        <details>
+                            <summary>Blog type</summary>
+                            <ul>
+                                <li>
+                                    <input id="filter-type-all" type="checkbox">
+                                    <label for="filter-type-all">All <span class="visually-hidden">blog types</span></label>
+                                </li>
+                            </ul>
+                        </details>
+                    </section>
+                </div><!-- / #wrapper-in-prod-header -->
+            </header>
+            <dl class="prod-list">
+                <div th:each="blog : ${blogs}">
+                    <dt th:text="${blog.title}"><a href="#"></a></dt>
+                    <dd><a th:href="@{/blog-detail/{id}(id=${blog.id})}" role="presentation" tabindex="-1"><img th:src="@{${blog.imagePath}}" style="padding: 0 7.143%;"></a></dd>
+                    <dd class="likes-comments">
+                        <span th:text="'Likes: ' + ${blog.likes}"></span>
+                        <span th:text="'Comments: ' + ${blog.noOfComments}"></span>
+                    </dd>
+                    <dd th:text="${blog.dateCreated}" class="date"></dd>
+                    <dd th:text="${blog.content}" class="desc"></dd>
+                </div>
+            </dl>
+        </section><!-- / #blogs -->
+    </main>
+
+    <div th:replace="~{fragments.html :: footer}"></div>
+    <script src="js/plugins.js?ver=2209212222"></script>
+    <script src="js/main.js?ver=2209301853"></script>
+
+</body>
+</html>

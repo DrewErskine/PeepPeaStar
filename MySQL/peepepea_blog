@@ -1,0 +1,19 @@
+CREATE TABLE IF NOT EXISTS "peeppea_blog" (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    content TEXT,
+    likes INT DEFAULT 0,
+    no_of_comments INT DEFAULT 0,
+    user_id INT NOT NULL,
+    image_path VARCHAR(255),
+    date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
+);
+
+INSERT INTO "peeppea_blog" (title, content, user_id, image_path)
+VALUES ('Peep Pea! - dev post', 'Hi, my name is Drew Erskine. Im a solo developer driven by creating innovative web applications using technologies like Spring Boot 3, Java 21, React, PostgreSQL, Docker, and cloud services such as AWS. This is my personal blog where Ill share insights, updates, and musings about my journey in web development. Welcome to PeepPea.com!', 1, 'images/dev-blog.png');
+
+INSERT INTO "peeppea_blog" (title, content, user_id, image_path)
+VALUES ('PeepPea the Goat', 'All hail PeepPea, the revered feline of our household! Those who oppose her might will be banished to the realm of burning, a place far beyond the trenches of demise, enduring a fate a thousand times worse than the mythical shadow realm. Let the stories of her reign be a warning to the unwary.', 2, 'images/peeppea-realm.png');
+
+INSERT INTO "peeppea_blog" (title, content, user_id, image_path)
+VALUES ('Nala', 'Today, Cooper tried to bite me, thinking he could catch me off guard—little does he know, I am Nala, swift as a snake. Watch me dash one way, then whirl around 180 degrees seven times, only to speed off in the same direction I came from. You cant catch me. Nala!', 3, 'images/nala-genius.png');
