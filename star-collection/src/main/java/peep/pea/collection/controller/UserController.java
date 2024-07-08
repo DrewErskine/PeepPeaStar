@@ -35,6 +35,7 @@ public class UserController {
 
         User savedUser = userRepository.save(user);
         if(savedUser != null){
+            model.addAttribute("name", savedUser.getName());
             model.addAttribute("userSaved", true);
         }
         return "register-user";
