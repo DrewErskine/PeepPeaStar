@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-PeepPeaStarApplication<star-collection>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "peep.pea.collection.PeepPeaStarApplication",
+            "projectName": "star-collection",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
