@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<title>Delores Mug | Big Star Collectibles</title>
+
+	<!-- favicons -->
+	<link rel="apple-touch-icon" sizes="57x57" href="images/favicons/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="images/favicons/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/favicons/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="images/favicons/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/favicons/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="images/favicons/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="images/favicons/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="images/favicons/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="images/favicons/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="images/favicons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="images/favicons/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16x16.png">
+	<link rel="manifest" href="images/favicons/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="images/favicons/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+
+	<!-- stylesheets -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,500;1,700&family=Roboto:wght@700&display=swap">
+	<link rel="stylesheet" href="css/plugins.css">
+	<link rel="stylesheet" href="css/common.css?ver=2209301853">
+	<link rel="stylesheet" href="css/product.css?ver=2209301557">
+</head>
+<body>
+
+	<div id="skip">
+		<a href="#main">Skip to main content</a>
+	</div>
+
+	<div th:replace="~{fragments.html :: header}"/>
+
+	<main id="main">
+
+		<section id="product" itemscope itemtype="https://schema.org/Product">
+			<header>
+				<div class="wrapper">
+					<img th:src="${product.imagePath}" style="padding: 0 9.917%;">
+				</div>
+				<h1 th:text="${product.name}" itemprop="name"></h1>
+				<b itemprop="offers" itemscope itemtype="https://schema.org/Offer"><data value="USD" itemprop="priceCurrency"></data><data th:text="${#numbers.formatCurrency(product.price)}" itemprop="price"></data></b>
+				<p class="rating" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+					<img th:each="i : ${#numbers.sequence(0, product.rating - 1, 1)}" src="images/icon-rating-star-purpleviolet.svg" width="16" height="16" alt="">
+					<img th:each="i : ${#numbers.sequence(0, 5 - product.rating - 1, 1)}" src="images/icon-rating-star-purpleviolet.svg" width="16" height="16" alt="" class="nonscoring">
+
+					(<span th:text="${product.noOfReviews}"></span>)
+				</p>
+				<p>Product ID: <span th:text="${product.id}" itemprop="productID"></span></p>
+			</header>
+			<p th:text="${product.description}" itemprop="description"></p>
+      <form method="post">
+        <fieldset>
+          <legend>Colors:</legend>
+          <div>
+            <label>
+              <img th:text="${product.imagePath}" width="80" height="80" alt="" itemprop="image" style="padding: 0 13.925%;">
+              <span th:text="${product.color}"/>
+            </label>
+          </div>
+
+        </fieldset>
+				<div>
+
+					<label for="product-qty">Quantity:</label>
+					<div class="qty-widget">
+						<input type="hidden" th:name="productId" th:value="${product.id}"/>
+						<input th:name="quantity" id="product-qty" type="number" min="1" value="1" required>
+
+					</div>
+				</div>
+				<div>
+					<button type="submit" class="button lg solid gold">Add to cart</button>
+				</div>
+			</form>
+		</section><!-- / #product -->
+
+	</main>
+
+	<div th:replace="~{fragments.html :: footer}"/>
+
+	<script src="js/plugins.js?ver=2209212222"></script>
+	<script src="js/main.js?ver=2209301853"></script>
+
+</body>
+</html>

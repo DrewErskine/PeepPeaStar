@@ -1,5 +1,4 @@
-/* Blog Stylesheet */
-
+/* General Blog Styles */
 body {
     font-family: 'Ubuntu', sans-serif;
     background-color: #f4f4f4;
@@ -23,6 +22,7 @@ header h1 {
     margin-bottom: 20px;
 }
 
+/* Blog List Styles */
 .blog-list {
     display: flex;
     flex-direction: column;
@@ -42,13 +42,13 @@ header h1 {
     flex-shrink: 0;
     width: 150px;
     height: 150px;
+    border-radius: 6px;
 }
 
 .blog-post-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 6px;
 }
 
 .blog-post-content {
@@ -81,7 +81,27 @@ header h1 {
     margin-right: 15px;
 }
 
-/* Responsive adjustments */
+/* Comment Section Styles */
+.comments form {
+    margin-top: 20px;
+}
+
+.comments textarea {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+.comments button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Responsive Adjustments */
 @media (max-width: 768px) {
     main#main {
         width: 95%;

@@ -32,11 +32,15 @@ public class BlogController {
     }
 
     @GetMapping("/blog/{id}")
-    public String blogDetail(@PathVariable("id") int blogId, Model model) {
-        Blog blog = blogRepository.findById(blogId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Blog not found"));
-        model.addAttribute("blog", blog);
-        return "blog";
+    public String getBlogDetails(@PathVariable("id") int id, Model model) {
+        return blogRepository.findById(id)
+            .map(blog -> {
+                model.addAttribute("blog", blog);
+                return "blog-detail";
+            })
+            .orElse("redirect:/blogs");
     }
+    
 
     @PostMapping("/search")
     public String search(@RequestParam("searchString") String keyword, Model model){
