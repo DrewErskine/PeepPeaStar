@@ -4,12 +4,15 @@ import peep.pea.collection.beans.Blog;
 import peep.pea.collection.dao.BlogRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.async.DeferredResult;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.concurrent.Executor;
@@ -26,6 +29,13 @@ public class BlogController {
     public BlogController(BlogRepository blogRepository, Executor asyncExecutor) {
         this.asyncExecutor = asyncExecutor;
         this.blogRepository = blogRepository;
+    }
+
+    @GetMapping("/blog/{id}")
+    public String blogDetail(@PathVariable("id") int blogId, Model model) {
+        Blog blog = blogRepository.findById(blogId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Blog not found"));
+        model.addAttribute("blog", blog);
+        return "blog";
     }
 
     @PostMapping("/search")
