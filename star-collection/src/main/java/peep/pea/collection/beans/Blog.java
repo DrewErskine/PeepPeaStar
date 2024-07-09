@@ -23,7 +23,7 @@ public class Blog {
 
     @Column(name = "content")
     private String content;
-
+    
     @Column(name = "likes", nullable = false)
     private int likes;
 
@@ -55,14 +55,6 @@ public class Blog {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
     }
 
     public int getLikes() {

@@ -1,7 +1,7 @@
 /* Blog Stylesheet */
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     background-color: #f4f4f4;
     color: #333;
     margin: 0;
@@ -13,13 +13,14 @@ main#main {
     margin: 20px auto;
     background-color: #fff;
     padding: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
     color: #333;
     font-size: 24px;
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .blog-post {
@@ -32,10 +33,11 @@ header h1 {
     border-bottom: none;
 }
 
-.blog-post h2 {
+.blog-post dt a {
     font-size: 20px;
     color: #000;
     margin-bottom: 10px;
+    display: block;
 }
 
 .blog-post img {
@@ -46,7 +48,7 @@ header h1 {
     margin: 0 auto 20px auto;
 }
 
-.blog-post p {
+.blog-post .desc {
     font-size: 16px;
     line-height: 1.6;
     color: #666;
@@ -70,11 +72,19 @@ header h1 {
         padding: 10px;
     }
 
-    .blog-post h2 {
+    header h1 {
+        font-size: 20px;
+    }
+
+    .blog-post dt a {
         font-size: 18px;
     }
 
-    .blog-post p {
+    .blog-post .desc {
         font-size: 14px;
+    }
+
+    .blog-info {
+        font-size: 12px;
     }
 }
