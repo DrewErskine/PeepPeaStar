@@ -20,8 +20,9 @@ public class HomeController {
         return "/characters/"+charName;
     }
 
-    @GetMapping("/about")
-    public String displayAbout(){
-        return "about";
+    @GetMapping("/aboutPeepPea")
+    public String aboutPeepPea(Model model) {
+        model.addAttribute("pageTitle", "About PeepPea");
+        return "about-peeppea";
     }
 }

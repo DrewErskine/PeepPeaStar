@@ -23,29 +23,34 @@
     <div th:replace="~{fragments.html :: header}"></div>
 
     <main class="blog-detail-main">
-        <header class="blog-detail-header">
-            <h1 th:text="${blog.title}">Blog Title</h1>
-        </header>
         <div class="blog-detail-content">
-            <img th:src="@{/images/user/1/nala-genius.jpg}" alt="Blog Image" th:if="${blog.imagePath}" style="max-width: 33%;">
+            <div class="blog-image">
+                <!-- Dynamically bind image path using Thymeleaf -->
+                <img th:src="@{'/' + ${blog.imagePath}}" alt="Blog Image" th:if="${blog.imagePath}">
+            </div>
             <div class="blog-text">
-                <div class="blog-metadata">
-                    <span th:text="'Date: ' + ${#dates.format(blog.dateCreated, 'dd MMM yyyy')}"></span>
-                    <span th:text="'Likes: ' + ${blog.likes}"></span>
-                    <span th:text="'Comments: ' + ${blog.noOfComments}"></span>
-                </div>
-                <p th:text="${blog.content}">Blog content</p>
+                <header class="blog-detail-header">
+                    <h1 th:text="${blog.title}">Blog Title</h1>
+                    <div class="blog-metadata">
+                        <span th:text="'Date: ' + ${#dates.format(blog.dateCreated, 'dd MMM yyyy')}"></span>
+                        <span th:text="'Likes: ' + ${blog.likes}"></span>
+                        <span th:text="'Comments: ' + ${blog.noOfComments}"></span>
+                    </div>
+                </header>
+                <p th:text="${blog.content}" style="font-size: 2em;">Blog content</p>
             </div>
         </div>
-
-        <section class="comments">
-            <h2>Comments</h2>
-            <form method="post" action="/addComment">
-                <textarea name="comment" placeholder="Leave a comment" required></textarea>
-                <button type="submit">Submit</button>
-            </form>
-        </section>
     </main>
+    <section class="post-comment">
+        <h2>Comments</h2>
+        <form method="post" action="/addComment">
+            <textarea name="comment" placeholder="Leave a comment" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+    <section class="comments">
+        <div th:each="comment : ${coments}" class="blog-post"></div>
+    </section>
 
     <div th:replace="~{fragments.html :: footer}"></div>
     <script src="/js/plugins.js?ver=2209212222"></script>
