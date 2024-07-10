@@ -31,8 +31,6 @@
                 <h1>Blogs</h1>
                 <p th:text="${blogs.size()} + ' Blogs'"></p>
                 <div id="wrapper-in-blog-header">
-                    <button type="button"><img src="images/icon-xmark.svg" width="26" height="26" alt="Close"></button>
-                    <p th:text="${blogs.size()} + ' Blogs'"></p>
                     <section>
                         <header>
                             <h2 id="label-filter-by">Filter by:</h2>
@@ -48,6 +46,13 @@
                             </ul>
                         </details>
                     </section>
+                    <div id="search-widget">
+                        <form th:method="post" th:action="@{/search}" role="search" class="search-form">
+                            <label for="search-input" class="visually-hidden">Search</label>
+                            <input id="search-input" th:name="searchString" type="search" aria-label="Enter search term" placeholder="Search&hellip;" required>
+                            <button type="submit">Search</button>
+                        </form>
+                    </div><!-- / #search-widget -->                    
                 </div><!-- / #wrapper-in-blog-header -->
             </header>
             <dl class="blog-list">

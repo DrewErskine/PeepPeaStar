@@ -108,6 +108,33 @@ section.comments {
     cursor: pointer;
 }
 
+#search-widget {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+#search-input {
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#search-widget button {
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#search-widget button:hover {
+    background-color: #0056b3;
+}
+
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .blog-detail-content {

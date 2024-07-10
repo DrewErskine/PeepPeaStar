@@ -16,9 +16,9 @@ public class User {
     @Email(message = "Should be a well-formed email address")
     private String email;
 
-    @NotEmpty(message = "Name cannot be empty")
+    @NotEmpty(message = "username cannot be empty")
     @Size(min = 3, max = 20, message = "Size must be between 3 and 20")
-    private String name;
+    private String username;
 
     @NotEmpty(message = "Password cannot be empty")
     @Size(min = 6, max = 20, message = "Size must be between 6 and 20")
@@ -48,12 +48,12 @@ public class User {
         this.email = email;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -64,11 +64,11 @@ public class User {
         this.password = password;
     }
 
-    public String getBio() {  // Getter for bio
+    public String getBio() {
         return bio;
     }
 
-    public void setBio(String bio) {  // Setter for bio
+    public void setBio(String bio) {  
         this.bio = bio;
     }
 

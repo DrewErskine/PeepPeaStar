@@ -1,38 +1,9 @@
 /*-----------------------------------------------------
 
-    Title :  Big Star Collectibles
-    Usage :  common styles
-    Edited:  2022-09-30
-
--------------------------------------------------------
-
-    1. reset
-    2. variables
-    3. default
-       3.1. typography
-       3.2. utilities
-       3.3. buttons
-       3.4. modal dialog
-       3.5. form elements
-       3.6. breadcrumb
-       3.7. blog list
-       3.8. rating
-       3.9. radio menu widget
-       3.10. character list
-    4. containers
-    5. skip link
-    6. banner
-       6.1. My Shopping Cart panel
-    7. main content
-       7.1. blogs
-    8. content info
-    9. responsive (1024px)
-   10. responsive ( 991px)
-   11. responsive ( 767px)
+    Title :  Peep Pea Star
+    Usage :  common style
 
 -------------------------------------------------------*/
-
-
 
 /*  1. reset
 -------------------------------------------------------*/
@@ -2407,5 +2378,4 @@ body {
 	#blogs>nav li:not(:first-child):not(:last-child) {
 		display: none;
 	}
-
 }
