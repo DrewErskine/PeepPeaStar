@@ -14,7 +14,7 @@ public class HomeController {
     public String displayHome(Model model) {
         return "index";
     }
-    
+
     @GetMapping("/getCharacter/{charname}")
     public String getCharacter(@PathVariable("charname") String charName){
         return "/characters/"+charName;

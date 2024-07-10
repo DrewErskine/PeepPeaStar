@@ -17,10 +17,14 @@ public class User {
     private String email;
 
     @NotEmpty(message = "Name cannot be empty")
-    @Size(min = 1, max = 20, message = "Size must be between 1 and 20")
+    @Size(min = 3, max = 20, message = "Size must be between 3 and 20")
     private String name;
 
-    private String message;
+    @NotEmpty(message = "Password cannot be empty")
+    @Size(min = 6, max = 20, message = "Size must be between 6 and 20")
+    private String password;
+
+    private String bio;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "date_registered", nullable = false, updatable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
@@ -52,12 +56,20 @@ public class User {
         this.name = name;
     }
 
-    public String getMessage() {
-        return message;
+    public String getPassword() {
+        return password;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getBio() {  // Getter for bio
+        return bio;
+    }
+
+    public void setBio(String bio) {  // Setter for bio
+        this.bio = bio;
     }
 
     public Date getDateRegistered() {
