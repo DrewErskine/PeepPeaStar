@@ -12,7 +12,7 @@ public class UserRegistrationDto {
 
     @NotEmpty(message = "Name cannot be empty")
     @Size(min = 3, max = 20, message = "Name must be between 3 and 20 characters")
-    private String username;
+    private String name;
 
     @NotEmpty(message = "Password cannot be empty")
     @Size(min = 6, max = 20, message = "Password must be between 6 and 20 characters")
@@ -32,12 +32,12 @@ public class UserRegistrationDto {
         this.email = email;
     }
 
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPassword() {

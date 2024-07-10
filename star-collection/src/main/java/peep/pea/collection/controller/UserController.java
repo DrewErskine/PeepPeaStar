@@ -39,7 +39,7 @@ public class UserController {
         }
 
         User user = new User();
-        user.setUsername(userDto.getUsername());
+        user.setName(userDto.getName());
         user.setEmail(userDto.getEmail());
         user.setPassword(passwordEncoder.encode(userDto.getPassword()));
 
@@ -55,7 +55,7 @@ public class UserController {
         if (authentication != null && authentication.isAuthenticated()
                 && !"anonymousUser".equals(authentication.getPrincipal())) {
             // Redirect to a specific user page if authenticated
-            return "redirect:/peep-user-page";
+            return "redirect:/peep-user-page"; // Ensure this endpoint exists and is not protected by security
         } else {
             // Redirect to login page if not authenticated
             return "redirect:/register-user";

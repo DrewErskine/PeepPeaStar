@@ -5,6 +5,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+
+
 @Controller
 public class HomeController {
 
@@ -14,18 +16,13 @@ public class HomeController {
     }
 
     @GetMapping("/getCharacter/{charname}")
-    public String getCharacter(@PathVariable("charname") String charName) {
-        return "/characters/" + charName;
+    public String getCharacter(@PathVariable("charname") String charName){
+        return "/characters/"+charName;
     }
 
     @GetMapping("/aboutPeepPea")
     public String aboutPeepPea(Model model) {
         model.addAttribute("pageTitle", "About PeepPea");
         return "about-peeppea";
-    }
-
-    @GetMapping("/contact")
-    public String displayContact() {
-        return "contact-us";
     }
 }

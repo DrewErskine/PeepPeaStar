@@ -19,20 +19,22 @@ public class SecurityConfig {
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-            .csrf(csrf -> csrf.disable())
-            .authorizeHttpRequests(authz -> authz
-                .requestMatchers("/", "/home", "/login", "/login-user", "/user-register", "/contact-peeppea", "/aboutPeepPea", "/peepuser-account", "/blog/{id}", "/blog-list", "/getAllBlogs", "/register-user", "/about", "/css/**", "/js/**", "/images/**", "/resources/**")
-                .permitAll()
-                .requestMatchers("/newBlog", "/saveBlog", "/peep-user-page")
-                .authenticated()
-                .anyRequest().authenticated())
-            .formLogin(form -> form
-                .loginPage("/login-user")
-                .defaultSuccessUrl("/home", true)
-                .permitAll())
-            .logout(logout -> logout
-                .logoutSuccessUrl("/login-user?logout")
-                .permitAll());
+                .csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/", "/home", "/login", "/register", "/contact-peeppea", "/peepuser-account", "/aboutPeepPea", "/peepuser-account", 
+                                "/blog/{id}", "/blog-list", "/getAllBlogs",
+                                "/register-user",
+                                "/about", "/css/**", "/js/**", "/images/**")
+                        .permitAll()
+                        .requestMatchers("/newBlog", "/saveBlog", "/peep-user-page").authenticated()
+                        .anyRequest().authenticated())
+                .formLogin(form -> form
+                        .loginPage("/login-user")
+                        .defaultSuccessUrl("/home", true)
+                        .permitAll())
+                .logout(logout -> logout
+                        .logoutSuccessUrl("/login-user?logout")
+                        .permitAll());
         return http.build();
     }
 
@@ -45,15 +47,15 @@ public class SecurityConfig {
     UserDetailsService userDetailsService(PasswordEncoder passwordEncoder) {
         User.UserBuilder users = User.builder().passwordEncoder(passwordEncoder::encode);
         UserDetails drew = users
-            .username("drew")
-            .password("peeppea33")
-            .roles("USER")
-            .build();
+                .username("drew")
+                .password("peeppea33")
+                .roles("USER")
+                .build();
         UserDetails peeppea = users
-            .username("peeppea")
-            .password("peeppea33")
-            .roles("USER")
-            .build();
+                .username("peeppea")
+                .password("peeppea33")
+                .roles("USER")
+                .build();
         return new InMemoryUserDetailsManager(drew, peeppea);
     }
 }
