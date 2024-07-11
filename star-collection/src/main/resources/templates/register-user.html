@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
-  <title>Contact us | Big Star Collectibles</title>
+  <title>Contact us | Peep Pea Collectibles</title>
 
-	<!-- favicons -->
-	<link rel="icon" sizes="57x57" href="/images/favicons/catFavicon.png">
-	<meta name="msapplication-TileColor" content="#d4d4d8">
-	<meta name="theme-color" content="#f4f1ec">
-	<meta name="description" content="Welcome to Peep Peas #1 Star, your ticket 2 Peepville.">
+  <!-- favicons -->
+  <link rel="icon" sizes="57x57" href="/images/favicons/catFavicon.png">
+  <meta name="msapplication-TileColor" content="#d4d4d8">
+  <meta name="theme-color" content="#f4f1ec">
+  <meta name="description" content="Welcome to Peep Peas #1 Star, your ticket to Peepville.">
 
   <!-- stylesheets -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,55 +42,52 @@
 <div th:replace="~{fragments.html :: header}"/>
 <!-- /header -->
 
-
-
 <main id="main">
-
   <div id="wrapper-about">
-
     <section id="contact">
-
       <div class="wrapper">
         <h1>Register with us</h1>
         <p th:if="${userSaved}" th:text="'User created, Welcome ' + ${name}" class="success"/>
         <form th:method="post" th:action="@{/saveUser}" th:object="${user}" novalidate>
           <div>
-            <label for="contact-email">Your email <span aria-hidden="true">*</span></label>
+            <label for="contact-email">Email: <span aria-hidden="true">*</span></label>
             <span class="single-line">
-                                <input th:field="*{email}" id="contact-email" type="email" required>
-                            </span>
-            <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" th:errorclass="error"/>
+              <input th:field="*{email}" id="contact-email" type="email" required>
+            </span>
+            <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error"/>
           </div>
           <div>
-            <label for="contact-name">Your name <span aria-hidden="true">*</span></label>
+            <label for="user-name">Name: <span aria-hidden="true">*</span></label>
             <span class="single-line">
-                                <input th:field="*{name}" id="contact-name" type="text" required>
-                            </span>
-            <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" th:errorclass="error"/>
+              <input th:field="*{name}" id="user-name" type="text" required>
+            </span>
+            <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error"/>
           </div>
           <div>
-            <label   for="contact-message">Message </label>
-            <textarea th:field="*{message}" id="contact-message"></textarea>
-            <p th:if="${#fields.hasErrors('message')}" th:errors="*{message}" th:errorclass="error"/>
+            <label for="user-password">Password: <span aria-hidden="true">*</span></label>
+            <span class="single-line">
+              <input th:field="*{password}" id="user-password" type="password" required>
+            </span>
+            <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error"/>
           </div>
           <div>
             <button type="submit" class="button lg solid gold">Submit</button>
           </div>
         </form>
       </div>
-
+      
 
       <section id="hq" itemprop="branchOf" itemscope itemtype="https://schema.org/Corporation">
         <h2>Headquarters</h2>
         <p>
-          <span itemprop="name">Big Star Headquarters</span><br>
+          <span itemprop="name">Peep Pea Headquarters</span><br>
           <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
 							<span itemprop="streetAddress">123 Rode Road</span><br>
 							<span itemprop="addressLocality">Los Angeles</span>, <span itemprop="addressRegion">CA</span> <span
             itemprop="postalCode">90000</span>
 						</span>
         </p>
-        <a href="tel:888-111-1111" aria-label="Phone number of Big Star Headquarters: 8 8 8. 1 1 1. 1 1 1 1."><span
+        <a href="tel:888-111-1111" aria-label="Phone number of Peep Pea Headquarters: 8 8 8. 1 1 1. 1 1 1 1."><span
           itemprop="telephone">(888) 111-1111</span></a>
         <figure>
           <figcaption>Follow us</figcaption>
@@ -142,24 +139,14 @@
         <h2>Retail locations</h2>
         <dl>
           <div itemscope itemtype="https://schema.org/LocalBusiness" itemref="hq">
-            <dt itemprop="name">Big Star Houston</dt>
-            <dd itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-              <span itemprop="streetAddress">678 Lasso Lane</span><br>
-              <span itemprop="addressLocality">Houston</span>, <span itemprop="addressRegion">TX</span> <span
-              itemprop="postalCode">76543</span>
-            </dd>
-            <dd><a href="tel:888-666-6666" aria-label="Phone number of Big Star Houston: 8 8 8. 6 6 6. 6 6 6 6."><span
-              itemprop="telephone">(888) 666-6666</span></a></dd>
-          </div>
-          <div itemscope itemtype="https://schema.org/LocalBusiness" itemref="hq">
-            <dt itemprop="name">Big Star New York City</dt>
+            <dt itemprop="name">Peep Pea New York City</dt>
             <dd itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
               <span itemprop="streetAddress">789 Cart Court</span><br>
               <span itemprop="addressLocality">New York City</span>, <span itemprop="addressRegion">NY</span> <span
               itemprop="postalCode">12345</span>
             </dd>
             <dd><a href="tel:888-777-7777"
-                   aria-label="Phone number of Big Star New York City: 8 8 8. 7 7 7. 7 7 7 7."><span
+                   aria-label="Phone number of Peep Pea New York City: 8 8 8. 7 7 7. 7 7 7 7."><span
               itemprop="telephone">(888) 777-7777</span></a></dd>
           </div>
         </dl>
@@ -167,11 +154,17 @@
     </section><!-- / #contact -->
 
     <nav aria-label="Category">
+      <div>
+        <nav aria-label="oldUser">
+          <h1>Already have an account?</h1>
+          <li><a th:href="@{/oldUser}" class="button lg solid gold" style="text-align: center;">Login Here</a></li>
+        </nav>
+      </div>
       <ul>
-        <li><a href="about.html">About Big Star Collectibles</a></li>
-        <li><a href="#">Our story</a></li>
-        <li><a href="#">Our team</a></li>
-        <li><a href="#">FAQ</a></li>
+        <li><a th:href="@{/about}">About Peep Pea Star</a></li>
+        <li><a th:href="@{/story}">Peep Pea story</a></li>
+        <li><a th:href="@{/army}">Peep Pea Army</a></li>
+        <li><a th:href="@{/faq}">FAQ</a></li>
       </ul>
     </nav>
 

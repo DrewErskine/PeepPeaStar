@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Peep User Page</title>
+    <!-- Include your CSS and other resources -->
+</head>
+<body>
+    <div th:replace="~{fragments.html :: header}"></div>
+    <main>
+        <h1>Welcome to the Peep User Page</h1>
+        <p>This page is only accessible to logged-in users.</p>
+    </main>
+    <div th:replace="~{fragments.html :: footer}"></div>
+</body>
+</html>

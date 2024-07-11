@@ -1,21 +1,9 @@
 /*-----------------------------------------------------
 
-    Title :  Big Star Collectibles
-    Usage :  about pages
-    Edited:  2022-09-22
+    Title :  Peep Pea Star
+    Edited:  07-10-24
 
 -------------------------------------------------------
-
-    1. wrapper
-    2. about pages content
-       2.1. Contact us
-    3. category navigation
-    4. responsive ( 991px)
-
--------------------------------------------------------*/
-
-
-
 /*  1. wrapper
 -------------------------------------------------------*/
 
@@ -298,6 +286,42 @@
 
 /*  3. category navigation
 -------------------------------------------------------*/
+
+/* Old User Navigation Styles */
+nav[aria-label="oldUser"] {
+    --color-link-static: var(--color-dark);
+    --color-link-hover: var(--color-red); /* Example of changing color */
+    --text-deco-line: none;
+    --color-link-background-hover: transparent;
+    position: relative; /* Changed from sticky to relative */
+    top: auto; /* Removed sticky positioning */
+    width: 100%; /* Full width for better distinction */
+    border-bottom: 2px solid var(--color-red); /* Thicker and different colored border */
+    background-color: var(--color-light-grey); /* Light background for the section */
+    padding: 10px 20px; /* Added padding for better spacing */
+}
+
+[aria-label="oldUser"] li {
+    border-top: 1px solid var(--color-red); /* Consistent color with section border */
+}
+
+[aria-label="oldUser"] a {
+    display: block;
+    padding: 10px; /* Increased padding for better clickability */
+    cursor: pointer;
+    font-size: 1.4rem; /* Slightly smaller font for distinction */
+    color: var(--color-red); /* Red color links for visual distinction */
+}
+
+[aria-label="oldUser"] a:hover {
+    background-color: var(--color-link-hover); /* Hover effect for links */
+}
+
+/* Ensure these variables are defined or replace them with actual color values */
+:root {
+    --color-red: #ff0000;
+    --color-light-grey: #f0f0f0;
+}
 
 nav[aria-label="Category"] {
 	--color-link-static: var(--color-dark);
