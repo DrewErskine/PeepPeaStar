@@ -109,15 +109,11 @@ else if (document.querySelector('#contact'))
           errorMessage = 'Valid email required';
           break;
 
-        case 'contact-name':
+        case 'user-name':
           errorMessage = 'Name is required';
           break;
 
-        case 'contact-topic':
-          errorMessage = 'Please select a topic';
-          break;
-
-        case 'contact-message':
+        case 'user-password':
           errorMessage = 'Please write a message';
           break;
       }

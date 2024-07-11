@@ -21,7 +21,7 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/", "/home", "/login", "/register", "/contact-peeppea", "/peepuser-account", "/aboutPeepPea", "/peepuser-account", 
+                        .requestMatchers("/", "/home", "/login-user", "/register-user", "/contact-peeppea", "/peepuser-account", "/aboutPeepPea", "/peepuser-account", "/newUser",  
                                 "/blog/{id}", "/blog-list", "/getAllBlogs",
                                 "/register-user",
                                 "/about", "/css/**", "/js/**", "/images/**")

@@ -31,9 +31,14 @@ public class UserController {
         return "register-user";
     }
 
+    @GetMapping("/oldUser")
+    public String displayLoginForm(Model model) {
+        model.addAttribute("user", new UserRegistrationDto());
+        return "login-user";
+    }
+
     @PostMapping("/saveUser")
-    public String saveUser(@ModelAttribute("user") @Valid UserRegistrationDto userDto, BindingResult result,
-            Model model) {
+    public String saveUser(@ModelAttribute("user") @Valid UserRegistrationDto userDto, BindingResult result, Model model) {
         if (result.hasErrors()) {
             return "register-user";
         }
@@ -46,7 +51,7 @@ public class UserController {
         userRepository.save(user);
 
         model.addAttribute("userSaved", true);
-        return "redirect:/login";
+        return "peep-user-page";
     }
 
     @GetMapping("/peepuser-account")
@@ -54,11 +59,9 @@ public class UserController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication != null && authentication.isAuthenticated()
                 && !"anonymousUser".equals(authentication.getPrincipal())) {
-            // Redirect to a specific user page if authenticated
-            return "redirect:/peep-user-page"; // Ensure this endpoint exists and is not protected by security
+            return "peep-user-page";
         } else {
-            // Redirect to login page if not authenticated
-            return "redirect:/register-user";
+            return "login-user";
         }
     }
 }
