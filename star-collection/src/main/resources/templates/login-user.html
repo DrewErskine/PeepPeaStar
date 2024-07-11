@@ -44,14 +44,9 @@
   <div th:replace="~{fragments.html :: header}" />
   <!-- /header -->
 
-
-
   <main id="main">
-
     <div id="wrapper-about">
-
       <section id="contact">
-
         <div class="wrapper">
           <h1>Login</h1>
           <p th:if="${userSaved}" th:text="'User created, Welcome ' + ${name}" class="success" />
@@ -71,7 +66,7 @@
               <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" th:errorclass="error" />
             </div>
             <div>
-              <button type="submit" class="button lg solid gold">Submit</button>
+              <button type="submit" class="button lg solid peeppeaplue">Submit</button>
             </div>
           </form>
         </div>
@@ -157,7 +152,7 @@
         <div>
           <nav aria-label="oldUser">
             <h1>Need an account?</h1>
-            <li><a th:href="@{/newUser}" class="button lg solid gold" style="text-align: center;">Register Here</a></li>
+            <li><a th:href="@{/newUser}" class="button lg solid peeppeaplue" style="text-align: center;">Register Here</a></li>
           </nav>
         </div>
         <ul>
@@ -168,7 +163,7 @@
         </ul>
       </nav>
 
-    </div><!-- / #wrapper-about -->
+    </div><!-- / #wrapper-login -->
 
   </main>
 

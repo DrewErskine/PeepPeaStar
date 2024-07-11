@@ -22,7 +22,6 @@ public class HomeController {
 
     @GetMapping("/aboutPeepPea")
     public String aboutPeepPea(Model model) {
-        model.addAttribute("pageTitle", "About PeepPea");
         return "about-peeppea";
     }
 }

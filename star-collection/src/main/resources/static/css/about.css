@@ -1,9 +1,24 @@
 /*-----------------------------------------------------
-
     Title :  Peep Pea Star
     Edited:  07-10-24
-
 -------------------------------------------------------
+
+
+
+/*  0. About colors definitions yay
+-------------------------------------------------------*/
+:root {
+    --color-offwhiteviolet: #f5f5dc9c; /* Border for White or Coldmorning */
+    --color-coldmorning: #e5e5e5; /* Background Main Color */
+    --color-peeppeaplue: #467798; /* Main Color */
+    --color-tidalwave: #355d78; /* Border for Peeppeaplue */
+    --color-babe: #e07b7b; /* Accent for Peeppeaplue */
+    --color-chinesebellflower: #495ba7; /* Secondary Accent or Header Text */
+    --color-seacaller: #40858C; /* Link Hover or Active State */
+    --color-aquasea: #66A3A6; /* Button Hover or Highlight */
+    --color-battleship: #9a6847; /* Warning or Alert Messages */
+}
+
 /*  1. wrapper
 -------------------------------------------------------*/
 
@@ -22,82 +37,132 @@
 /*  2. about pages content
 -------------------------------------------------------*/
 
+#about h1 {
+    font-size: 4.5rem;
+    font-weight: 700;
+    color: var(--color-seacaller);
+    background-color: var(--color-coldmorning);
+    padding: 20px 40px;
+    border-radius: 5px;
+    border-bottom: 4px solid var(--color-chinesebellflower);
+    box-shadow: 0 4px 6px var(--color-aquasea);
+    text-align: center;
+    margin: 20px 0;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Subtitles (h2) styles */
+#about h2 {
+    font-size: 3.2rem;
+    font-weight: 600;
+    color: var(--color-aquasea);
+    padding: 10px 20px;
+    border-left: 5px solid var(--color-peeppeaplue);
+    background-color: rgba(255, 255, 255, 0.8);
+    margin: 15px 0;
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
+}
+
+.tab {
+    display: inline-block;
+    margin-left: 4em;
+    padding: 1.3em;
+}
+
+/* Hover effects */
+#about h1:hover, #about h2:hover {
+    transform: scale(1.01);
+    box-shadow: 0 6px 8px var(--color-chinesebellflower);
+}
+
+/* Responsive design adjustments */
+@media (max-width: 991px) {
+    #wrapper-about {
+        flex-direction: column;
+    }
+
+    #about h1, #about h2 {
+        text-align: left; /* Align text to left for smaller screens */
+    }
+}
+
 #wrapper-about>section {
-	width: calc(100% - 300px);
+    width: calc(100% - 300px);
 }
 
 #wrapper-about>section:not(#contact) {
-	font-size: 2rem;
+    font-size: 2rem;
 }
 
 #wrapper-about section:not(#contact)>img {
-	display: block;
-	margin: 0 auto 46px;
-	text-align: center;
+    display: block;
+    margin: 0 auto 46px;
+    text-align: center;
 }
 
 #wrapper-about>section h1 {
-	font-weight: 400;
-	font-size: 4rem;
+    font-weight: 400;
+    font-size: 4rem;
 }
 
 #wrapper-about>section:not(#contact) h1~h1 {
-	margin-top: 5.5rem;
+    margin-top: 5.5rem;
 }
 
 #wrapper-about>section:not(#contact) h1~h1+p {
-	margin-top: 0.6rem;
+    margin-top: 0.6rem;
 }
 
 #wrapper-about>section:not(#contact)>section:first-of-type,
 #wrapper-about>section:not(#contact)>h2:first-of-type {
-	margin-top: -0.6rem;
+    margin-top: -0.6rem;
 }
 
 #wrapper-about>section:not(#contact) h2 {
-	margin-top: 5.2rem;
-	font-weight: 300;
-	font-size: 3.2rem;
+    margin-top: 5.2rem;
+    font-weight: 300;
+    font-size: 3.2rem;
 }
 
 #wrapper-about>section:not(#contact) p {
-	margin-top: 0.9rem;
+    margin-top: 0.9rem;
 }
 
 #wrapper-about>section:not(#contact) ul,
 #wrapper-about>section:not(#contact) ol {
-	counter-reset: item-number;
-	margin-top: 0.9rem;
-	padding-left: 3rem;
+    counter-reset: item-number;
+    margin-top: 0.9rem;
 }
 
 #wrapper-about>section:not(#contact) li {
-	position: relative;
+    position: relative;
 }
 
 #wrapper-about>section:not(#contact) ul>li::before {
-	content: "";
-	position: absolute;
-	top: 1rem;
-	left: -1.8rem;
-	width: 0.6rem;
-	height: 0.6rem;
-	background-color: var(--color-body);
-	border-radius: 50%;
-	clip-path: circle(50%);
+    content: "";
+    position: absolute;
+    top: 1rem;
+    left: -1.8rem;
+    width: 0.6rem;
+    height: 0.6rem;
+    background-color: var(--color-body);
+    border-radius: 50%;
+    clip-path: circle(50%);
 }
 
 #wrapper-about>section:not(#contact) ol>li::before {
-	content: counter(item-number) ".";
-	counter-increment: item-number;
-	position: absolute;
-	top: 0.09rem;
-	right: calc(100% + 0.7rem);
-	color: var(--color-dark);
-	font-weight: 700;
-	font-family: Roboto, sans-serif;
-	text-align: right;
+    content: counter(item-number) ".";
+    counter-increment: item-number;
+    position: absolute;
+    top: 0.09rem;
+    right: calc(100% + 0.7rem);
+    color: var(--color-offwhiteviolet); 
+    font-weight: 700;
+    font-family: Roboto, sans-serif;
+    text-align: right;
 }
+
 
 
 
@@ -155,8 +220,8 @@
 }
 
 #contact .dragged-over {
-	background-color: #EBDAED;
-	border-color: var(--color-purpleviolet);
+	background-color: var(--color-coldmorning);
+	border-color: var(--color-seacaller);
 }
 
 #contact .drop-zone>p {
@@ -189,7 +254,7 @@
 	font-weight: 400;
 	font-size: 2rem;
 	text-align: center;
-	background-color: #EFEFEF;
+	background-color: var(--color-coldmorning);
 	border: 1px solid #767676;
 	border-radius: 4px;
 	transition-property: color, background-color;
@@ -282,6 +347,36 @@
 	margin-top: 2.5rem;
 }
 
+/* 2.3. Bird battle
+-------------------------------------------------------*/
+#observationsTitle {
+    color: #333; /* Darker shade for better readability */
+    font-family: 'Arial', sans-serif; /* Change as per your preferred font */
+}
+
+.centered-line {
+    display: block;
+    text-align: center;
+    color: #b15d5d; /* A stand-out color for dramatic effect */
+    margin: 10px 0; /* Top and bottom spacing */
+    font-weight: bold; /* Make the text bold */
+	font-size: 1.3em;
+}
+
+.peeppea-stats {
+    display: block;
+    text-align: center;
+    color: #1b1b1b; /* A stand-out color for dramatic effect */
+    margin: 3px 0; /* Top and bottom spacing */
+    font-weight: 500; /* Make the text bold */
+	font-size: .5em;
+}
+
+.centered-line::before {
+	font-size: 3em;
+    content: '🐦'; /* Adding a bird emoji as an icon before the text */
+    padding-right: .3em; /* Space between the icon and text */
+}
 
 
 /*  3. category navigation
@@ -319,13 +414,13 @@ nav[aria-label="oldUser"] {
 
 /* Ensure these variables are defined or replace them with actual color values */
 :root {
-    --color-red: #ff0000;
+    --color-red: #FF6F61;
     --color-light-grey: #f0f0f0;
 }
 
 nav[aria-label="Category"] {
 	--color-link-static: var(--color-dark);
-	--color-link-hover: var(--color-purpleviolet);
+	--color-link-hover: var(--color-seacaller);
 	--text-deco-line: none;
 	--color-link-background-hover: transparent;
 	position: sticky;
@@ -350,6 +445,19 @@ nav[aria-label="Category"] {
 	font-weight: 500;
 }
 
+/*  4. Company-info ( 991px)
+-------------------------------------------------------*/
+
+.company-info {
+    color: rgba(0, 0, 0, 0.7); 
+    font-weight: 300;
+    font-size: 1.3rem;
+}
+
+.company-info h2 {
+    font-size: 1.8rem;
+    font-weight: 400;
+}
 
 
 /*  4. responsive ( 991px)
@@ -442,10 +550,62 @@ nav[aria-label="Category"] {
 	}
 
 
-	/*  3. category navigation  */
+	/*  3. sidebar navigation  */
 
 	nav[aria-label="Category"] {
 		display: none;
 	}
 
+	.about-peeppea-sidebar {
+		padding: 1.3em;
+		padding-top: 30em;
+	}
+	
+	.about-peeppea-sidebar h1 {
+		font-size: 1.5em;
+		margin-bottom: 1em;
+	}
+	
+	.about-peeppea-sidebar ul {
+		list-style-type: none;
+		padding: 0;
+	}
+	
+	.about-peeppea-sidebar ul li {
+		margin-bottom: 0.5em;
+	}
+	
+	.about-peeppea-sidebar ul li a {
+		color: #40858C;
+		text-decoration: none;
+		font-weight: bold;
+	}
+	
+	.about-peeppea-sidebar ul li a:hover {
+		text-decoration: underline;
+	}
+
+	.button.solid.peeppeaPlue {
+		--color-background-static: var(#467798);
+		--color-background-hover: #9a6847;
+		color: var(--color-dark);
+	}
+	
+	.peeppea-account-button {
+		background-color: #467798; /* Change this to the color you prefer */
+		border: none;
+		color: white;
+		padding: 10px 20px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin-top: 1em;
+		cursor: pointer;
+		border-radius: 4px;
+	}
+	
+	.peeppea-account-button:hover {
+		background-color: #9a6847; /* Slightly darker shade for hover effect */
+	}
 }

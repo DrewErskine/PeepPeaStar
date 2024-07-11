@@ -4,6 +4,18 @@
     Edited:  07-10-24
 
 -------------------------------------------------------
+
+/*  0. Extra colors definitions yay
+-------------------------------------------------------*/
+:root {
+	--color-peeppeaplue: #467798;
+    --color-seacaller: #40858C;
+    --color-AquaSea: #66A3A6;
+    --color-battleship: #9a6847;
+    --color-offwhiteviolet: #f5f5dc9c;
+	--color-tidalwave: #355d78;
+}
+
 /*  1. reset
 -------------------------------------------------------*/
 
@@ -122,7 +134,8 @@ html {
 	--padding-inline-center-content: max(var(--dist-min-cont-edge), (100% - var(--width-content)) / 2);
 	--width-center-section: min(var(--width-content), 100% - var(--dist-min-cont-edge) * 2);
 	--color-body: #666;
-	--color-gold: #f9c658;
+	--color-peeppeaplue: #467798;
+	--color-gold: #fbd78a;
 	--color-grape: #733682;
 	--color-purpleviolet: #863690;
 	--color-violet: #2E1760;
@@ -267,9 +280,9 @@ a:is(:hover, :focus) {
 }
 
 
-/*  solid - gold  */
+/*  solid - peeppeaplue  */
 
-.button.solid.gold {
+.button.solid.peeppeaplue {
 	--color-background-static: var(--color-gold);
 	--color-background-hover: #E5B244;
 	color: var(--color-dark);
@@ -944,8 +957,7 @@ body {
 	column-gap: 10px;
 	padding: 0 30px 0 40px;
 	min-height: 80px;
-	background-color: #40858C;
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.16);
+	background-color: var(--color-tidalwave);
 }
 
 #banner>a {
@@ -1194,196 +1206,13 @@ body {
 	font-size: 10px;
 	line-height: 1;
 	text-align: center;
-	background-color: var(--color-gold);
+	background-color: var(--color-peeppeaplue);
 	border-radius: 20px;
 }
 
 #nav-panel {
 	display: none;
 }
-
-
-
-/*  6.1. My Shopping Cart panel
--------------------------------------------------------*/
-
-#cart-panel {
-	position: fixed;
-	top: 0;
-	right: 0;
-	z-index: 100;
-	display: flex;
-	flex-direction: column;
-	padding: 22px 20px 30px;
-	width: 481px;
-	height: 100%;
-	overflow: auto;
-	background-color: #fff;
-	border-left: 1px solid var(--color-border);
-	transform: translateX(100%);
-	transition-property: transform;
-}
-
-.active>#cart-panel {
-	transform: none;
-}
-
-#cart-panel>button {
-	/* Close */
-	position: absolute;
-	top: 21px;
-	right: 20px;
-	display: flex;
-	opacity: 0.9;
-}
-
-#cart-panel>h1 {
-	flex-shrink: 0;
-	padding-bottom: 1.3rem;
-	font-weight: 400;
-	font-size: 2.6rem;
-	border-bottom: 1px solid var(--color-border);
-}
-
-#cart-panel h1>small {
-	margin-left: 0.2rem;
-	color: var(--color-gray);
-	font-size: 2rem;
-}
-
-#cart-panel table {
-	flex-grow: 1;
-	display: flex;
-	flex-direction: column;
-	margin-top: 31px;
-	width: 100%;
-}
-
-#cart-panel thead {
-	position: absolute;
-	left: -5000px;
-}
-
-#cart-panel tbody>tr {
-	display: grid;
-	grid-template-columns: 80px 20px auto 1fr 20px 76px 10px 12px;
-	grid-template-rows: auto auto 1fr;
-	grid-template-areas:
-		"Image . Name     Name       . Total . Action"
-		"Image . Details  Details    . Total . Action"
-		"Image . Quantity Unit-Price . Total . Action";
-	margin-bottom: 30px;
-}
-
-#cart-panel tr .image {
-	grid-area: Image;
-}
-
-#cart-panel tr .image>a {
-	position: relative;
-	display: block;
-	padding-top: 100%;
-	width: 100%;
-	overflow: hidden;
-	background-color: var(--color-whitesmoke);
-	border-radius: 4px;
-}
-
-#cart-panel tr .image img {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-}
-
-#cart-panel tr .name {
-	--color-link-static: var(--color-heading);
-	--color-link-hover: var(--color-heading);
-	--text-deco-line: none;
-	--color-link-background-hover: transparent;
-	grid-area: Name;
-	font-weight: 400;
-	font-size: 1.8rem;
-}
-
-#cart-panel tr .dets {
-	grid-area: Details;
-	margin-top: 0.1rem;
-	font-size: 1.4rem;
-}
-
-#cart-panel tr .qty {
-	grid-area: Quantity;
-	font-size: 1.4rem;
-}
-
-#cart-panel tr .qty::before {
-	content: "Quantity: ";
-}
-
-#cart-panel tr .unit {
-	grid-area: Unit-Price;
-	font-size: 1.4rem;
-}
-
-#cart-panel tr .unit::before {
-	content: "\00a0@ ";
-}
-
-#cart-panel tr .total {
-	grid-area: Total;
-	color: var(--color-dark);
-	font-weight: 400;
-	font-size: 1.8rem;
-	text-align: right;
-}
-
-#cart-panel tr .action {
-	grid-area: Action;
-	opacity: 0.6;
-	padding-top: 6px;
-}
-
-#cart-panel tfoot {
-	margin-top: auto;
-	color: var(--color-dark);
-	font-weight: 400;
-	font-size: 1.8rem;
-	text-align: right;
-}
-
-#cart-panel tfoot>tr {
-	display: block;
-}
-
-#cart-panel tfoot>tr>td {
-	display: block;
-	margin: 0 -20px;
-	padding: 19px 20px 0;
-	border-top: 1px solid var(--color-border);
-}
-
-#cart-panel>footer {
-	display: flex;
-	flex-wrap: wrap;
-	column-gap: 20px;
-	margin-top: 37px;
-}
-
-#cart-panel footer>.button {
-	width: calc((100% - 20px) / 2);
-	font-size: 2rem;
-}
-
-#cart-panel footer>p {
-	margin-top: 2.5rem;
-	width: 100%;
-	color: var(--color-dark);
-	font-size: 2rem;
-	text-align: center;
-}
-
 
 
 /*  7. main content
@@ -1887,7 +1716,7 @@ body {
 	}
 
 	#banner::before {
-		/* preload font to prevent FOUT (Flash of unstyled text) */
+
 		content: "abc";
 		position: absolute;
 		top: -5000px;

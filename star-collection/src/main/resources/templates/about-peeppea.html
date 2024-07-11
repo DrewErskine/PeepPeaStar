@@ -1,65 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>About PeepPea | Drew Erskine's Portfolio</title>
-
-	<!-- favicons -->
-	<link rel="icon" sizes="57x57" href="/images/favicons/catFavicon.png">
-	<meta name="msapplication-TileColor" content="#d4d4d8">
-	<meta name="theme-color" content="#f4f1ec">
-
-	<!-- stylesheets -->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,500;1,700&display=swap">
-	<link rel="stylesheet" href="css/plugins.css">
-	<link rel="stylesheet" href="css/common.css?ver=2209301853">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>About PeepPea | Drew Erskine's Portfolio</title>
+    <link rel="icon" th:href="@{/images/favicons/catFavicon.png}" sizes="57x57">
+    <meta name="msapplication-TileColor" content="#d4d4d8">
+    <meta name="theme-color" content="#f4f1ec">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" th:href="@{/css/plugins.css}">
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/about.css}">
 </head>
+
 <body>
 
-	<div th:replace="~{fragments.html :: header}"/>
+    <!--header -->
+    <div th:replace="~{fragments.html :: header}" />
+    <!-- /header -->
 
-	<main id="main">
-		<div id="wrapper-about">
-			<section id="about">
-				<img src="images/logo-big-star-H-purple.svg" width="298" alt="Logo of Big Star Collectibles">
-				<h1>About PeepPea - Drew Erskine's Assistant</h1>
-				<p>Welcome to the whimsical world of PeepPea, Drew's loyal cat and silent partner in the journey of technology and development. While Drew taps away at the keyboard, creating modular systems and intricate codes using Spring Boot 3, Java 21, React, and more, I, PeepPea, oversee the operations from comfy couches and sunny window sills.</p>
-				<p>Nala, the supposed spy with too much energy, often tries to distract me with her antics, believing she's on some covert mission. Meanwhile, Cooper, the adventurous canine of the household, occasionally causes mayhem, like that time he made Drew trip and fall. But worry not, Drew always bounces back, ready to tackle the next challenge.</p>
-				<p>From the deep ends of PostgreSQL databases to the heights of AWS cloud deployments, my days are filled with fascinating observations of Drew's coding adventures. Whether it's the dumb 'click clacks' on the keyboard or the intense focus sessions before a screen, every day here is a learning experience.</p>
-				<p>So, let me guide you through our daily escapades and give you a paw's view of what it's like to live and breathe code. And remember, any opposition to my reign over the household might lead you to a fate far worse than the mythical shadow realm!</p>
-				<section>
-					<h2>PeepPea's Observations</h2>
-					<ul>
-						<li>The complex systems Drew develops are as intricate as my plans to catch that elusive red laser dot.</li>
-						<li>React might be all about components, but in this house, I'm the central component!</li>
-						<li>Every deployment is a chance for treats – if only Drew could understand my hints.</li>
-					</ul>
-				</section>
-				<section>
-					<h2>Get In Touch</h2>
-					<p>Interested in learning more about our projects or in need of a developer who understands the fine art of coding and cat management? Contact Drew today:</p>
-					<ul>
-						<li>Email: <a href="mailto:D.Murphy.Erskine@gmail.com">D.Murphy.Erskine@gmail.com</a></li>
-						<li>Resume: <a href="\PeepPeaStar\star-collection\src\main\resources\static\resume-drewerskine\Resume.DrewErskine.pdf" target="_blank">Download Resume</a></li>
-						<li>GitHub: <a href="https://github.com/DrewErskine" target="_blank">DrewErskine</a></li>
-						<li>LinkedIn: <a href="https://www.linkedin.com/in/drew-erskine/" target="_blank">LinkedIn</a></li>
-						<li>Online Resume: <a href="https://drewerskine.github.io/DrewErskine-Resume/" target="_blank">Drew Erskine's Resume</a></li>
-					</ul>
-				</section>
-				<section>
-					<h2>© Peep Pea, LLC</h2>
-					<p>Founded in the imaginative and ever-creative corners of Drew's mind, © Peep Pea, LLC operates out of Grand Rapids, Michigan. This "organization" prides itself on innovative solutions in cat welfare and technological advancements, all while managing a high-energy spy named Nala and a dog inventor, Cooper.</p>
-				</section>
-			</section>
-		</div>
-	</main>
+    <main id="main">
+        <article id="wrapper-about" style="padding-top: 2.3em;">
+            <section id="about">
+                <img th:src="@{/images/about-peeppea.jpg}" alt="Logo of Big Star Collectibles" width="298">
+                <h1>About PeepPea - Drew Erskine's Assistant</h1>
+                <p>Welcome to the whimsical world of PeepPea, Drew's loyal cat and silent partner in the journey of
+                    technology and development. While Drew taps away at the keyboard, creating modular systems and
+                    intricate codes using Spring Boot 3, Java 21, React, and more, I, PeepPea, oversee the operations
+                    from comfy couches and sunny window sills.</p><br>
+                <p>Nala, the supposed spy with too much energy, often tries to distract me with her antics, believing
+                    she's on some covert mission. Meanwhile, Cooper, the adventurous canine of the household,
+                    occasionally causes mayhem, like that time he made Drew trip and fall off a chair. But worry not, I
+                    "LMAO"'d.</p><br>
+                <p>From the deep ends of PostgreSQL databases to the heights of AWS cloud deployments, my days are
+                    filled with fascinating observations of Drew's coding adventures. Whether it's the dumb 'click
+                    clacks' or drawlings of moon characters in his stack of connected papers, I still have no clue whats
+                    going on.</p><br>
+                <section>
+                    <h2>PeepPea's Observations</h2>
+                    <ul>
+                        <li>React might be all about components, but in this house, I'm the central component MWAHAHA!
+                        </li>
+                        <li>Every deployment is a chance for treats – if only Drew could understand my hints.</li>
+                        <li>If they would just let me outside, I SWEAR I could catch that bird. <span
+                                class="centered-line">BIRD WOULD BE DONE.</span> <span class="peeppea-stats">I'm 3'3",
+                                1.5 meter vert, and a LEAN 13 pounds. PERIOD. RPE 8 bench at like .3 of a plate right
+                                now. ik. dont talk about it... ego liftings cringe. Respect PeepPea!</span></li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Get In Touch</h2>
+                    <p>Interested in learning more about our projects or in need of a developer who understands full
+                        stack java development and cat management? Contact my servant/butler/personal assistan Drew:</p>
+                    <ul>
+                        <li>Email: <a th:href="'mailto:D.Murphy.Erskine@gmail.com'">D.Murphy.Erskine@gmail.com</a></li>
+                        <li>Resume: <a th:href="@{/static/resume-drewerskine/Resume.DrewErskine.pdf}"
+                                target="_blank">Download Resume</a></li>
+                        <li>GitHub: <a th:href="'https://github.com/DrewErskine'" target="_blank">DrewErskine</a></li>
+                        <li>LinkedIn: <a th:href="'https://www.linkedin.com/in/drew-erskine/'"
+                                target="_blank">LinkedIn</a></li>
+                        <li>Online Resume: <a th:href="'https://drewerskine.github.io/DrewErskine-Resume/'"
+                                target="_blank">Drew Erskine's Resume</a></li>
+                    </ul>
+                </section>
+                <section aria-labelledby="companyInfoTitle" class="company-info">
+                    <h2 id="companyInfoTitle">© Peep Pea, LLC</h2>
+                    <p>Founded in the imaginative corners of Drew's mind, © Peep Pea, LLC operates out of Grand Rapids,
+                        Michigan.</p>
+                    <p>This organization excels in cat welfare and tech innovations.</p>
+                    <ul>
+                        <div>
+                            <strong>Leadership:</strong><br>
+                            <div><span class="tab"></span>Guided by a high-energy spy named Nala and a dog inventor,Cooper.</div>
+                            </div>
+                        </div>
+                        <div>
+                            <strong>Mission:</strong><br>
+                            <div><span class="tab"></span>Committed to groundbreaking solutions in animal welfare and software development.</div>
+                        </div>
+                    </ul>
+                </section>
+            </section>
+            <nav aria-label="Category" class="about-peeppea-sidebar">
+                <div>
+                    <nav aria-label="oldUser">
+                        <h1>Need an account?</h1>
+                        <li><a th:href="@{/peepuser}" class="button lg solid peeppeaplue peeppea-account-button">Account</a></li>
+                    </nav>
+                </div>
+                <ul>
+                    <li><a th:href="@{/about}">About Peep Pea Star</a></li>
+                    <li><a th:href="@{/story}">Peep Pea story</a></li>
+                    <li><a th:href="@{/army}">Peep Pea Army</a></li>
+                    <li><a th:href="@{/faq}">FAQ</a></li>
+                </ul>
+            </nav>
+            </div><!-- / #wrapper-about -->
+        </article>
+    </main>
 
-	<div th:replace="~{fragments.html :: footer}"></div>
+    <div th:replace="~{fragments.html :: footer}" />
 
-	<script src="js/plugins.js"></script>
-	<script src="js/main.js"></script>
+    <script th:src="@{/js/plugins.js}"></script>
+    <script th:src="@{/js/main.js}"></script>
 </body>
+
 </html>
