@@ -33,7 +33,7 @@ public class UserController {
 
     @GetMapping("/oldUser")
     public String displayLoginForm(Model model) {
-        model.addAttribute("user", new UserRegistrationDto());
+        model.addAttribute("user", new User());
         return "login-user";
     }
 
@@ -54,7 +54,7 @@ public class UserController {
         return "peep-user-page";
     }
 
-    @GetMapping("/peepuser-account")
+    @GetMapping("/peepuser")
     public String redirectToPeepUserPage() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication != null && authentication.isAuthenticated()
