@@ -253,6 +253,19 @@ a:is(:hover, :focus) {
     color: white;
 }
 
+/* Peeppeaplue button specific styling */
+.button.bordered.peeppeaplue-buttons {
+    background-color: var(--color-parisgreen);
+    border: 3px solid var(--color-babe);
+    color: white;
+}
+
+.button.bordered.peeppeaplue-buttons:hover {
+    background-color: var(--color-tidalwave);
+    border-color: var(--color-peeppeaplue);
+    transform: scale(1.05);
+}
+
 .button.bordered.peeppeaplue-buttons:hover {
     background-color: var(--color-tidalwave);
     border-color: var(--color-peeppeaplue);
@@ -307,59 +320,6 @@ a:is(:hover, :focus) {
     transform: scale(1.04);
 }
 
-/* Parisgreen button specific styling */
-.button.bordered.parisgreen-buttons {
-    background-color: var(--color-peeppeaplue);
-    border: 3px solid var(--color-greekgarden);
-    color: var(--color-dark);
-}
-
-.button.bordered.parisgreen-buttons:hover {
-    background-color: var(--color-mistyrose);
-    border-color: var(--color-calicodress);
-    color: white;
-    transform: scale(1.04);
-}
-
-/* Peeppeaplue button specific styling */
-.button.bordered.peeppeaplue-buttons {
-    background-color: var(--color-parisgreen);
-    border: 3px solid var(--color-babe);
-    color: white;
-}
-
-.button.bordered.peeppeaplue-buttons:hover {
-    background-color: var(--color-tidalwave);
-    border-color: var(--color-peeppeaplue);
-    transform: scale(1.05);
-}
-
-/* Seacaller button specific styling */
-.button.bordered.seacaller-buttons {
-    background-color: var(--color-calicodress);
-    border: 3px solid var(--color-seacaller);
-    color: white;
-}
-
-.button.bordered.seacaller-buttons:hover {
-    background-color: var(--color-aquasea);
-    border-color: var(--color-seacaller);
-    transform: scale(1.05);
-}
-
-/* Frenchtoast button specific styling */
-.button.bordered.frenchtoast-buttons {
-    background-color: var(--color-frenchtoast);
-    border: 3px solid var(--color-calicodress);
-    color: white;
-}
-
-.button.bordered.frenchtoast-buttons:hover {
-    background-color: var(--color-battleship);
-    border-color: var(--color-frenchtoast);
-    transform: scale(1.02);
-}
-
 /* Dragonlord Purple button specific styling */
 .button.bordered.dragonlordpurple-buttons {
     background-color: var(--color-peeppeaplue);
@@ -371,6 +331,45 @@ a:is(:hover, :focus) {
     background-color: var(--color-aquasea);
     border-color: var(--color-crushedviolets);
     transform: scale(1.04);
+}
+
+/* Enhanced Parisgreen button specific styling */
+.button.bordered.parisgreen-buttons {
+    background-color: var(--color-calicodress);
+    border: 3px solid var(--color-seacaller); /* Similar border color to Seacaller */
+    color: white;
+    border-radius: 5px; /* Slightly rounded corners */
+    padding: 15px 30px; /* Increased padding for better size */
+    font-size: 1.4em; /* Increased font size */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added a subtle shadow */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.button.bordered.parisgreen-buttons:hover {
+    background-color: var(--color-aquasea); /* Similar hover background color to Seacaller */
+    border-color: var(--color-seacaller); /* Change border color on hover */
+    color: white; /* Maintain white text color on hover */
+    transform: scale(1.1); /* Slightly enlarge the button on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Enhance the shadow on hover */
+}
+
+/* Enhanced Seacaller button specific styling */
+.button.bordered.seacaller-buttons {
+    background-color: var(--color-seacaller);
+    border: 3px solid var(--color-crushedviolets); /* Increased border size */
+    color: white;
+    border-radius: 5px; /* Slightly rounded corners */
+    padding: 15px 30px; /* Increased padding for better size */
+    font-size: 1.4em; /* Increased font size */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added a subtle shadow */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.button.bordered.seacaller-buttons:hover {
+    background-color: var(--color-aquasea); /* Lighter color for hover state */
+    border-color: var(--color-crushedviolets); /* Change border color on hover */
+    transform: scale(1.1); /* Slightly enlarge the button on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Enhance the shadow on hover */
 }
 
 /* Bordered Buttons */
@@ -390,19 +389,6 @@ a:is(:hover, :focus) {
 /* Hover effect for all buttons */
 .button:hover {
 	transform: scale(1.02);
-}
-
-/* Specific styles for bordered seacaller button */
-.button.bordered.seacaller-buttons {
-	background-color: var(--color-seacaller);
-	border: 2px solid var(--color-aquasea);
-	color: white;
-}
-
-.button.bordered.seacaller-buttons:hover {
-	background-color: var(--color-aquasea);
-	border-color: var(--color-tidalwave);
-	color: white;
 }
 
 /* Button Hover Styles for See All Sections */
