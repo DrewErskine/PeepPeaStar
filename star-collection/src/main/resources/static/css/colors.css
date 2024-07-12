@@ -1,0 +1,16 @@
+:root {
+    --color-offwhiteviolet: #f5f5dc9c; /* Border for White or Coldmorning */
+    --color-coldmorning: #e5e5e5; /* Background Main Color */
+    --color-peeppeaplue: #467798; /* Main Color */
+    --color-tidalwave: #355d78; /* Border for Peeppeaplue */
+    --color-babe: #e07b7b; /* Accent for Peeppeaplue */
+    --color-chinesebellflower: #495ba7; /* Secondary Accent or Header Text */
+    --color-seacaller: #40858C; /* Link Hover or Active State */
+    --color-aquasea: #66A3A6; /* Button Hover or Highlight */
+    --color-battleship: #9a6847; /* Warning or Alert Messages */
+    --color-mistyrose: #ffe4e1; /* Background Highlight or Subtle Accents */
+    --color-parisgreen: #4cd583; /* Success Messages or Positive Action Indicators */
+    --color-frenchtoast: #de8321; /* Highlight or Call-to-Action Elements */
+    --color-greekgarden: #8bcc8e; /* Pastel Green for Soft Accents */
+    --color-dragonlordpurple: #5e42d0; /* Dark Purple for Emphasis */
+}

@@ -5,24 +5,12 @@
 
 -------------------------------------------------------
 
-/*  0. Extra colors definitions yay
+/*-----------------------------------------------------
+    Colors - @import url('variables.css');
 -------------------------------------------------------*/
-:root {
-    --color-offwhiteviolet: #f5f5dc9c; /* Border for White or Coldmorning */
-    --color-coldmorning: #e5e5e5; /* Background Main Color */
-    --color-peeppeaplue: #467798; /* Main Color */
-    --color-tidalwave: #355d78; /* Border for Peeppeaplue */
-    --color-babe: #e07b7b; /* Accent for Peeppeaplue */
-    --color-chinesebellflower: #495ba7; /* Secondary Accent or Header Text */
-    --color-seacaller: #40858C; /* Link Hover or Active State */
-    --color-aquasea: #66A3A6; /* Button Hover or Highlight */
-    --color-battleship: #9a6847; /* Warning or Alert Messages */
-    --color-mistyrose: #ffe4e1; /* Background Highlight or Subtle Accents */
-    --color-parisgreen: #4cd583; /* Success Messages or Positive Action Indicators */
-    --color-frenchtoast: #de8321; /* Highlight or Call-to-Action Elements */
-}
+@import url('colors.css');
 
-
+/*-----------------------------------------------------
 /*  1. reset
 -------------------------------------------------------*/
 
@@ -143,7 +131,6 @@ html {
 	--color-body: #666;
 	--color-peeppeaplue: #467798;
 	--color-gold: #fbd78a;
-	--color-grape: #733682;
 	--color-violet: #2E1760;
 	--color-offwhiteviolet: #d7c6eb;
 	--color-dark: #191919;
@@ -318,10 +305,10 @@ a:is(:hover, :focus) {
 
 /*  bordered - grape  */
 :where(.button.bordered).grape {
-	--color-background-hover: #FFF8E1;
-	background-color: #c5afd4;
-	color: var(--color-grape);
-	border: 1px solid var(--color-grape);
+    --color-background-hover: var(--color-mistyrose); /* Assuming mistyrose as a light background color */
+    background-color: var(--color-chinesebellflower);
+    color: var(--color-peeppeaplue); /* Assuming peeppeaplue as a matching text color */
+    border: 1px solid var(--color-chinesebellflower); /* Border color */
 }
 
 
@@ -870,16 +857,19 @@ main>nav[aria-label="Breadcrumb"] {
 
 #quick-view h1 {
 	font-weight: 400;
-	font-size: 6rem;
+	font-size: 3.3rem;
+	margin-bottom: 20px;
 }
 
 #quick-view header>p {
+	padding-top: 10px; 
+    border-top: 1px solid var(--color-coldmorning);
 	margin-top: 0.2rem;
 	font-size: 2rem;
 }
 
 #quick-view .wrapper>p {
-	margin-top: 1.1rem;
+	margin-top: 3em;
 	font-size: 1.6rem;
 }
 
@@ -901,7 +891,6 @@ main>nav[aria-label="Breadcrumb"] {
 	max-width: 100%;
 	max-height: 100%;
 }
-
 
 
 /*  4. containers
@@ -1183,7 +1172,7 @@ body {
 	padding: 0 10px 1px;
 	min-width: 104px;
 	height: 38px;
-	color: var(--color-grape);
+	color: var(--color-aquasea);
 	font-weight: 500;
 	font-size: 2rem;
 	border: 2px solid;
@@ -1431,7 +1420,7 @@ body {
 }
 
 :is(:hover, :focus, [aria-expanded="true"])#btn-sort-by {
-	color: var(--color-grape);
+	color: var(--color-aquasea);
 	fill: var(--color-chinesebellflower);
 }
 
@@ -1962,7 +1951,7 @@ body {
 		padding: 0 10px 1px;
 		width: 48px;
 		height: 32px;
-		color: var(--color-grape);
+		color: var(--color-aquasea);
 		font-weight: 500;
 		font-size: 2rem;
 		border: 2px solid;

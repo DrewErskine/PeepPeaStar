@@ -1,13 +1,19 @@
 /*-----------------------------------------------------
-
     Title :  Peep Pea Star
     Edited:  07-10-24
-
 -------------------------------------------------------
-/* General Blog Styles */
+/*-----------------------------------------------------
+    Colors - @import url('colors.css');
+-------------------------------------------------------*/
+@import url('colors.css');
+
+/*-----------------------------------------------------
+    1. General Blog Styles
+-------------------------------------------------------*/
+
 body {
     font-family: 'Ubuntu', sans-serif;
-    background-color: #f4f4f4;
+    background-color: var(--color-coldmorning);
     color: #333;
     margin: 0;
     padding: 0;
@@ -21,7 +27,7 @@ main.blog-detail-main {
     width: 80%;
     margin: 20px auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: var(--color-offwhiteviolet);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     max-width: 1200px;
 }
@@ -44,7 +50,7 @@ header h1 {
 
 .blog-image {
     flex: 1;
-    max-width: 40%; /* Adjusted for better proportion */
+    max-width: 40%;
     padding: 20px;
 }
 
@@ -76,21 +82,24 @@ p {
     margin-top: 20px;
 }
 
-/* Comment Section Styles */
+/*-----------------------------------------------------
+    2. Comment Section Styles
+-------------------------------------------------------*/
+
 section.post-comment,
 section.comments {
     padding: 20px;
     margin: 20px auto;
     max-width: 1200px;
-    background-color: #f9f9f9;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    background-color: var(--color-coldmorning);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .post-comment h2,
 .comments h2 {
     color: #333;
     padding-bottom: 10px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid var(--color-chinesebellflower);
 }
 
 .comments form {
@@ -101,12 +110,12 @@ section.comments {
     width: 100%;
     height: 100px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--color-chinesebellflower);
     border-radius: 4px;
 }
 
 .comments button {
-    background-color: #0056b3;
+    background-color: var(--color-peeppeaplue);
     color: white;
     border: none;
     padding: 10px 20px;
@@ -114,7 +123,10 @@ section.comments {
     cursor: pointer;
 }
 
-/* Responsive Adjustments */
+/*-----------------------------------------------------
+    3. Responsive Adjustments
+-------------------------------------------------------*/
+
 @media (max-width: 768px) {
     .blog-detail-content {
         flex-direction: column;
