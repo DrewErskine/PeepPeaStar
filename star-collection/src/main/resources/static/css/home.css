@@ -28,7 +28,6 @@
     height: 100%;
 }
 
-
 #hero:hover .splide__arrow,
 #hero :focus-within>.splide__arrow {
     opacity: 1;
@@ -94,23 +93,35 @@
 }
 
 #hero .splide__pagination {
+    margin-top: 1.3em;
+    background-color: rgba(53, 93, 120, 0.33); /* Darker background with lowered opacity */
     position: absolute;
-    bottom: 20px;
-    left: 0;
-    gap: 14px;
-    width: 100%;
+    left: 45%;
+    gap: 2em;
+    width: 10%;
+    padding-bottom: 1.3em;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px; /* Added border radius for smoother edges */
+    padding: 10px; /* Added padding for better appearance */
 }
 
 #hero .splide__pagination__page {
     display: block;
     width: 16px;
     height: 16px;
-    background-color: rgba(102, 102, 102, 0.3);
+    background-color: rgba(70, 119, 152, 0.7); /* Consistent with main color and lowered opacity */
+    border: 2px solid var(--color-chinesebellflower); /* Added border */
     border-radius: 50%;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
 }
 
 #hero :is(:hover, :focus, .is-active).splide__pagination__page {
-    background-color: var(--color-chinesebellflower);
+    background-color: var(--color-aquasea); /* Highlight for active state */
+    transform: scale(1.2); /* Slightly enlarge the active button */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhance the shadow on hover/active */
+    border-color: var(--color-crushedviolets); /* Change border color on active/hover */
 }
 
 /* Hero - Peep-Pea */
@@ -120,7 +131,7 @@
 
 #hero .Peep-Pea>.wrapper {
     top: 77px;
-    left: calc(var(--padding-inline-center-content) + (100% - 2 * var (--padding-inline-center-content)) * 0.1195);
+    left: calc(var(--padding-inline-center-content) + (100% - 2 * var(--padding-inline-center-content)) * 0.1195);
     width: 298px;
 }
 
@@ -250,7 +261,7 @@
 
 /* Base styles for buttons */
 .button {
-    background-color: var(--color-peeppeablue);
+    background-color: var(--color-peeppeaplue);
     display: inline-block;
     padding: 10px 20px;
     font-size: 16px;
@@ -258,7 +269,7 @@
     text-align: center;
     text-decoration: none;
     border-radius: 4px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
     cursor: pointer;
 }
 
@@ -274,64 +285,102 @@
     color: white;
 }
 
-/* Gold button specific styling */
-.gold {
-    background-color: var(--color-mistyrose);
-    border: 2px solid var(--color-babe);
-}
-
 /* Mistyrose button specific styling */
 .mistyrose-buttons {
     background-color: var(--color-mistyrose);
     border: 2px solid var(--color-babe);
+    color: var(--color-dark);
+}
+
+.mistyrose-buttons:hover {
+    background-color: var(--color-babe);
+    border-color: var(--color-mistyrose);
+    color: white;
+    transform: scale(1.1);
 }
 
 /* Coldmorning button specific styling */
 .coldmorning-buttons {
-    background-color: var(--color-coldmorning);
+    background-color: var(--color-aquasea);
     border: 2px solid var(--color-peeppeaplue);
+    color: var(--color-dark);
 }
 
-/* Peeppeablue button specific styling */
-.peeppeablue-buttons {
+.coldmorning-buttons:hover {
     background-color: var(--color-peeppeaplue);
-    border: 2px solid var(--color-tidalwave);
-}
-
-/* Seacaller button specific styling */
-.seacaller-buttons {
-    background-color: var(--color-seacaller);
-    border: 2px solid var(--color-aquasea);
-}
-
-/* Frenchtoast button specific styling */
-.frenchtoast-buttons {
-    background-color: var(--color-frenchtoast);
-    border: 2px solid var(--color-battleship);
+    border-color: var(--color-aquasea);
+    color: white;
+    transform: scale(1.1);
 }
 
 /* Parisgreen button specific styling */
 .parisgreen-buttons {
     background-color: var(--color-parisgreen);
     border: 2px solid var(--color-greekgarden);
+    color: var(--color-dark);
+}
+
+.parisgreen-buttons {
+    background-color: var(--color-parisgreen);
+    border: 2px solid var(--color-greekgarden);
+    color: var(--color-dark);
+}
+
+/* calicodress button specific styling */
+.calicodress-buttons {
+    background-color: var(--color-calicodress);
+    border: 2px solid var(--color-aquasea);
+    color: var(--color-light)
+}
+
+.calicodress-buttons:hover {
+    background-color: var(--crushedviolets);
+    border-color: var(--dragonlordpurple);
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Peeppeaplue button specific styling */
+.peeppeaplue-buttons {
+    background-color: var(--color-peeppeaplue);
+    border: 2px solid var(--color-tidalwave);
+    color: white;
+}
+
+.peeppeaplue-buttons:hover {
+    background-color: var(--color-tidalwave);
+    border-color: var(--color-peeppeaplue);
+    transform: scale(1.05);
+}
+
+/* Seacaller button specific styling */
+.seacaller-buttons {
+    background-color: var(--color-seacaller);
+    border: 2px solid var(--color-aquasea);
+    color: white;
+}
+
+.seacaller-buttons:hover {
+    background-color: var(--color-aquasea);
+    border-color: var(--color-seacaller);
+    transform: scale(1.05);
+}
+
+/* Frenchtoast button specific styling */
+.frenchtoast-buttons {
+    background-color: var(--color-frenchtoast);
+    border: 2px solid var(--color-battleship);
+    color: white;
+}
+
+.frenchtoast-buttons:hover {
+    background-color: var(--color-battleship);
+    border-color: var(--color-frenchtoast);
+    transform: scale(1.05);
 }
 
 /* Hover effect for buttons */
 .button:hover {
-    background-color: var(--color-tidalwave); 
-    transform: scale(1.05);
-}
-
-/* Specific styles for PeepPeaPals button */
-.PeepPeaPals {
-    background-color: var(--color-seacaller);
-    color: white;
-    border: 2px solid var(--color-tidalwave);
-}
-
-/* Hover effect for PeepPeaPals button */
-.PeepPeaPals:hover {
-    background-color: var(--color-tidalwave);
     transform: scale(1.05);
 }
 
@@ -342,7 +391,6 @@
     color: white;
 }
 
-/* Hover effect for bordered seacaller button */
 .button.bordered.seacaller-buttons:hover {
     background-color: var(--color-aquasea);
     border-color: var(--color-tidalwave);

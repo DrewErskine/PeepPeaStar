@@ -1,146 +1,101 @@
 /*-----------------------------------------------------
-    Title :  Peep Pea Star
-    Edited:  07-10-24
--------------------------------------------------------
-/*-----------------------------------------------------
-    Colors - @import url('colors.css');
--------------------------------------------------------*/
-@import url('colors.css');
-
-/*-----------------------------------------------------
-    1. General Blog Styles
+    Blog Section
 -------------------------------------------------------*/
 
-body {
-    font-family: 'Ubuntu', sans-serif;
-    background-color: var(--color-coldmorning);
-    color: #333;
-    margin: 0;
-    padding: 0;
+/* Blog List Container */
+#blogs {
+    display: grid;
+    grid-template-areas:
+        "blog-list";
+    margin-top: 21px;
+    padding-top: 40px;
+    border-top: 1px solid var(--color-border);
 }
 
-main.blog-detail-main {
+/* Blog List Pagination */
+#blogs>nav {
+    --color-link-static: var(--color-dark);
+    --color-link-hover: var(--color-dark);
+    --color-link-background-hover: var(--color-whitesmoke);
+    --text-deco-line: none;
+    grid-area: Pagination;
+    margin: 38px 0 -25px;
+    padding-top: 40px;
+    border-top: 1px solid var(--color-border);
+}
+
+#blogs>nav>ul {
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
-    width: 80%;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: var(--color-offwhiteviolet);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    max-width: 1200px;
+    cursor: default;
 }
 
-header.blog-detail-header {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-header h1 {
-    color: #333;
-    font-size: 24px;
-}
-
-.blog-detail-content {
+#blogs>nav li {
     display: flex;
-    width: 100%;
+    justify-content: center;
 }
 
-.blog-image {
-    flex: 1;
-    max-width: 40%;
-    padding: 20px;
+#blogs>nav li+li {
+    margin-left: -1px;
 }
 
-.blog-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
-.blog-text {
-    flex: 2;
-    padding: 20px;
+#blogs>nav li>a,
+#blogs>nav li>span {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    column-gap: 12px;
+    padding: 0 10px;
+    min-width: 44px;
+    min-height: 44px;
+    font-size: 2rem;
+    border: 1px solid var(--color-border);
 }
 
-.blog-metadata {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 20px;
+/* Disabled Pagination Links */
+#blogs>nav li[aria-hidden="true"]>a {
+    --color-link-static: var(--color-inactive);
+    --color-link-hover: var(--color-inactive);
+    --color-link-background-hover: transparent;
+    cursor: default;
 }
 
-.blog-metadata span {
-    display: block;
-    margin-top: 5px;
+#blogs>nav li>a[aria-current="page"] {
+    position: relative;
+    font-weight: 700;
+    border-color: currentColor;
 }
 
-p {
-    margin-top: 20px;
+/* Pagination Navigation (Previous and Next) */
+#blogs>nav li>a:is(.prev, .next) {
+    padding: 0 15px;
+    font-size: 1.6rem;
 }
 
-/*-----------------------------------------------------
-    2. Comment Section Styles
--------------------------------------------------------*/
-
-section.post-comment,
-section.comments {
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 1200px;
-    background-color: var(--color-coldmorning);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+#blogs>nav li:first-child>a {
+    border-radius: 6px 0 0 6px;
 }
 
-.post-comment h2,
-.comments h2 {
-    color: #333;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--color-chinesebellflower);
+#blogs>nav li:last-child>a {
+    border-radius: 0 6px 6px 0;
 }
 
-.comments form {
-    margin-top: 20px;
+/* SVG Styles for Pagination */
+#blogs>nav a>svg {
+    margin-top: 1px;
+    fill: var(--color-dark);
 }
 
-.comments textarea {
-    width: 100%;
-    height: 100px;
-    margin-bottom: 10px;
-    border: 1px solid var(--color-chinesebellflower);
-    border-radius: 4px;
+#blogs>nav [aria-hidden="true"]>a>svg {
+    fill: var(--color-inactive);
 }
 
-.comments button {
-    background-color: var(--color-peeppeaplue);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
+/* Blog List */
+#blogs .blog-list {
+    grid-area: blog-list;
 }
 
-/*-----------------------------------------------------
-    3. Responsive Adjustments
--------------------------------------------------------*/
-
-@media (max-width: 768px) {
-    .blog-detail-content {
-        flex-direction: column;
-    }
-
-    .blog-image, .blog-text {
-        width: 100%;
-    }
-
-    header h1 {
-        font-size: 20px;
-    }
-
-    .comments, .post-comment {
-        width: 95%;
-    }
+/* Filter Button (Mobile) */
+#blogs header .radio-menu-widget+button {
+    display: none;
 }

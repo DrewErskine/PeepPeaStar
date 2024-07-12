@@ -1,11 +1,4 @@
 /*-----------------------------------------------------
-
-    Title :  Peep Pea Star
-    Edited:  07-10-24
-
--------------------------------------------------------
-
-/*-----------------------------------------------------
     Colors - @import url('variables.css');
 -------------------------------------------------------*/
 @import url('colors.css');
@@ -117,8 +110,6 @@ button {
 	overflow: visible;
 }
 
-
-
 /*  2. variables
 -------------------------------------------------------*/
 
@@ -128,32 +119,21 @@ html {
 	--width-gutter: 20px;
 	--padding-inline-center-content: max(var(--dist-min-cont-edge), (100% - var(--width-content)) / 2);
 	--width-center-section: min(var(--width-content), 100% - var(--dist-min-cont-edge) * 2);
-	--color-body: #666;
-	--color-peeppeaplue: #467798;
-	--color-gold: #fbd78a;
-	--color-violet: #2E1760;
-	--color-offwhiteviolet: #d7c6eb;
-	--color-dark: #191919;
-	--color-gray: #666;
-	--color-silver: #999;
-	--color-whitesmoke: #f5f5f5;
+	--color-body: var(--color-gray);
 	--color-heading: var(--color-dark);
-	--color-link-static: var(--color-peeppeablue);
-	--color-link-hover: var(--color-color-tidalwave);
+	--color-link-static: var(--color-peeppeaplue);
+	--color-link-hover: var(--color-tidalwave);
 	--color-danger: #c00;
-	--color-border: #ccc;
+	--color-border: var(--color-coldmorning);
 	--color-inactive: #767676;
 	--text-deco-line: underline;
 	--text-deco-color-static: transparent;
 	--text-deco-color-hover: currentColor;
 	--color-link-background-hover: #EAE1EC;
-	--color-placeholder: #666;
+	--color-placeholder: var(--color-gray);
 	--font-body: Ubuntu, sans-serif;
-	--trans-dur: 250ms;
+	--trans-dur: 150ms;
 }
-
-
-
 
 /*  3. default
 -------------------------------------------------------*/
@@ -170,8 +150,6 @@ html {
 .button>[aria-hidden="true"].arrow::before {
 	content: "\00a0";
 }
-
-
 
 /*  3.1. typography
 -------------------------------------------------------*/
@@ -222,8 +200,6 @@ a:is(:hover, :focus) {
 	color: var(--color-placeholder);
 }
 
-
-
 /*  3.2. utilities
 -------------------------------------------------------*/
 
@@ -236,90 +212,206 @@ a:is(:hover, :focus) {
 	overflow: hidden;
 }
 
-
-
-/*  3.3. buttons
+/*-----------------------------------------------------
+    3.5. Buttons
 -------------------------------------------------------*/
 
+/* Base styles for buttons */
 .button {
-	flex-shrink: 0;
-	display: inline-flex;
-	justify-content: center;
-	align-items: center;
-	padding: 0 1.6rem;
-	height: 46px;
-	font-weight: 400;
-	font-size: 2rem;
-	text-decoration-line: none;
-	border-radius: 4px;
+	display: inline-block;
+	padding: 10px 20px;
+	font-size: 16px;
+	font-weight: bold;
 	text-align: center;
+	text-decoration: none;
+	border-radius: 4px;
+	transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+	cursor: pointer;
 }
 
-.button.lg {
-	font-weight: 700;
-	font-size: 2.2rem;
-	height: 60px;
+/* Large button specific styling */
+.lg {
+	padding: 15px 30px;
 }
 
-
-
-/*  solid  */
-
-:where(.button).solid {
+/* Solid Buttons */
+.button.solid {
 	background-color: var(--color-background-static);
+	color: var(--color-text);
 }
 
-.button:is(:hover, :focus, .active).solid {
+.button.solid:hover,
+.button.solid:focus,
+.button.solid.active {
 	background-color: var(--color-background-hover);
 }
 
-
-/*  solid - peeppeaplue  */
-
+/* Solid PeepPeaPlue */
 .button.solid.peeppeaplue {
-	--color-background-static: var(--color-gold);
-	--color-background-hover: #E5B244;
-	color: var(--color-dark);
+    --color-background-static: var(--color-peeppeaplue);
+    --color-background-hover: var(--color-tidalwave);
+    color: white;
 }
 
+.button.bordered.peeppeaplue-buttons:hover {
+    background-color: var(--color-tidalwave);
+    border-color: var(--color-peeppeaplue);
+    transform: scale(1.05);
+}
 
-/*  solid - white  */
+.button.bordered.calicodress-buttons {
+    background-color: var(--color-calicodress);
+    border: 2px solid var(--color-aquasea);
+    color: var(--color-light);
+}
 
+.button.bordered.calicodress-buttons:hover {
+    background-color: var(--color-crushedviolets);
+    border-color: var(--color-dragonlordpurple);
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Solid White */
 .button.solid.white {
-	--color-background-static: #fff;
-	--color-background-hover: #EBEBEB;
+    --color-background-static: #fff;
+    --color-background-hover: #EBEBEB;
+    color: var(--color-dark);
+}
+
+/* Mistyrose button specific styling */
+.button.bordered.mistyrose-buttons {
+    background-color: var(--color-mistyrose);
+    border: 3px solid var(--color-babe);
+    color: var(--color-dark);
+}
+
+.button.bordered.mistyrose-buttons:hover {
+    background-color: var(--color-babe);
+    border-color: var(--color-mistyrose);
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Coldmorning button specific styling */
+.button.bordered.coldmorning-buttons {
+    background-color: var(--color-coldmorning);
+    border: 3px solid var(--color-peeppeaplue);
+    color: var(--color-dark);
+}
+
+.button.bordered.coldmorning-buttons:hover {
+    background-color: var(--color-peeppeaplue);
+    border-color: var(--color-chinesebellflower);
+    color: white;
+    transform: scale(1.04);
+}
+
+/* Parisgreen button specific styling */
+.button.bordered.parisgreen-buttons {
+    background-color: var(--color-peeppeaplue);
+    border: 3px solid var(--color-greekgarden);
+    color: var(--color-dark);
+}
+
+.button.bordered.parisgreen-buttons:hover {
+    background-color: var(--color-mistyrose);
+    border-color: var(--color-calicodress);
+    color: white;
+    transform: scale(1.04);
+}
+
+/* Peeppeaplue button specific styling */
+.button.bordered.peeppeaplue-buttons {
+    background-color: var(--color-parisgreen);
+    border: 3px solid var(--color-babe);
+    color: white;
+}
+
+.button.bordered.peeppeaplue-buttons:hover {
+    background-color: var(--color-tidalwave);
+    border-color: var(--color-peeppeaplue);
+    transform: scale(1.05);
+}
+
+/* Seacaller button specific styling */
+.button.bordered.seacaller-buttons {
+    background-color: var(--color-calicodress);
+    border: 3px solid var(--color-seacaller);
+    color: white;
+}
+
+.button.bordered.seacaller-buttons:hover {
+    background-color: var(--color-aquasea);
+    border-color: var(--color-seacaller);
+    transform: scale(1.05);
+}
+
+/* Frenchtoast button specific styling */
+.button.bordered.frenchtoast-buttons {
+    background-color: var(--color-frenchtoast);
+    border: 3px solid var(--color-calicodress);
+    color: white;
+}
+
+.button.bordered.frenchtoast-buttons:hover {
+    background-color: var(--color-battleship);
+    border-color: var(--color-frenchtoast);
+    transform: scale(1.02);
+}
+
+/* Dragonlord Purple button specific styling */
+.button.bordered.dragonlordpurple-buttons {
+    background-color: var(--color-peeppeaplue);
+    border: 3px solid var(--color-dragonlordpurple);
+    color: white;
+}
+
+.button.bordered.dragonlordpurple-buttons:hover {
+    background-color: var(--color-aquasea);
+    border-color: var(--color-crushedviolets);
+    transform: scale(1.04);
+}
+
+/* Bordered Buttons */
+.button.bordered {
+	background-color: transparent;
+	border: 1px solid var(--color-border);
+	color: var(--color-text);
+}
+
+.button.bordered:hover,
+.button.bordered:focus,
+.button.bordered.active {
+	background-color: var(--color-background-hover);
 	color: var(--color-dark);
 }
 
-
-/*  bordered  */
-
-:where(.button).bordered {
-	background-color: transparent;
+/* Hover effect for all buttons */
+.button:hover {
+	transform: scale(1.02);
 }
 
-.button:is(:hover, :focus, .active).bordered {
-	background-color: var(--color-background-hover);
+/* Specific styles for bordered seacaller button */
+.button.bordered.seacaller-buttons {
+	background-color: var(--color-seacaller);
+	border: 2px solid var(--color-aquasea);
+	color: white;
 }
 
-
-/*  bordered - grape  */
-:where(.button.bordered).grape {
-    --color-background-hover: var(--color-mistyrose); /* Assuming mistyrose as a light background color */
-    background-color: var(--color-chinesebellflower);
-    color: var(--color-peeppeaplue); /* Assuming peeppeaplue as a matching text color */
-    border: 1px solid var(--color-chinesebellflower); /* Border color */
+.button.bordered.seacaller-buttons:hover {
+	background-color: var(--color-aquasea);
+	border-color: var(--color-tidalwave);
+	color: white;
 }
 
-
-/* bordered - violet */
-:where(.button.bordered).violet {
-    --color-background-hover: var(--color-coldmorning);
-    color: var(--color-chinesebellflower);
-    border: 1px solid var(--color-chinesebellflower);
+/* Button Hover Styles for See All Sections */
+#more-Peepville:hover,
+#more-PeepPea-Blogs:hover {
+	background-color: var(--color-peeppeaplue);
+	color: white;
+	border-color: var(--color-tidalwave);
 }
-
-
 
 /*  modal dialog
 -------------------------------------------------------*/
@@ -353,8 +445,6 @@ a:is(:hover, :focus) {
 .dialog-backdrop>div {
 	margin: auto;
 }
-
-
 
 /*  3.5. form elements
 -------------------------------------------------------*/
@@ -434,9 +524,8 @@ form [type="radio"]+label::before {
 }
 
 form [type="radio"]:checked+label::before {
-    background-color: var(--color-chinesebellflower); 
+	background-color: var(--color-chinesebellflower);
 }
-
 
 form [type="radio"]:not(:checked)+label:hover::before {
 	border-color: var(--color-gray);
@@ -456,8 +545,8 @@ form [type="checkbox"]+label>svg>rect {
 }
 
 form [type="checkbox"]:checked+label>svg>rect {
-    stroke: var(--color-chinesebellflower); 
-    fill: var(--color-chinesebellflower);
+	stroke: var(--color-chinesebellflower);
+	fill: var(--color-chinesebellflower);
 }
 
 form [type="checkbox"]:not(:checked)+label:hover>svg>rect {
@@ -582,8 +671,6 @@ textarea {
 	text-align: center;
 }
 
-
-
 /*  3.6. breadcrumb
 -------------------------------------------------------*/
 
@@ -604,8 +691,6 @@ main>nav[aria-label="Breadcrumb"] {
 [aria-label="Breadcrumb"] li>span[aria-hidden]::after {
 	content: "\00a0";
 }
-
-
 
 /*  3.7. blog list
 -------------------------------------------------------*/
@@ -702,37 +787,6 @@ main>nav[aria-label="Breadcrumb"] {
 	font-size: 1.6rem;
 }
 
-
-
-/*  3.8. rating
--------------------------------------------------------*/
-
-.rating {
-	display: flex;
-	font-weight: 400;
-	font-size: 1.3rem;
-}
-
-.rating>img {
-	position: relative;
-	top: 0.1rem;
-	margin-right: 5px;
-}
-
-.rating> :nth-last-of-type(2)+img {
-	margin-right: 10px;
-}
-
-.rating>img.nonscoring {
-	opacity: 0.3;
-}
-
-.rating>a {
-	margin-left: 1.4rem;
-}
-
-
-
 /*  radio menu widget
 -------------------------------------------------------*/
 
@@ -740,11 +794,7 @@ main>nav[aria-label="Breadcrumb"] {
 	display: none;
 }
 
-
-
-/*  Peeople list
--------------------------------------------------------*/
-
+/* Peeople List */
 .char-list {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -752,20 +802,20 @@ main>nav[aria-label="Breadcrumb"] {
 }
 
 .char-list>div {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-    line-height: 1.149;
-    text-align: center;
-    border-radius: 6px;
-    min-height: 400px;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20px;
+	line-height: 1.149;
+	text-align: center;
+	border-radius: 6px;
+	min-height: 400px;
 }
 
 .char-list>div:is(:hover, :focus-within) {
-	background-color: #EBEBEB;
+	background-color: var(--color-whitesmoke);
 }
 
 .char-list dt {
@@ -773,7 +823,7 @@ main>nav[aria-label="Breadcrumb"] {
 	font-weight: 700;
 	font-size: 2rem;
 	text-decoration: underline;
-	color: #0f2746;
+	color: var(--color-heading);
 }
 
 .char-list .title {
@@ -784,13 +834,13 @@ main>nav[aria-label="Breadcrumb"] {
 }
 
 .char-list .job-title {
-    padding-bottom: 1.5rem;
-    margin: 0 -21px;
-    font-weight: 400;
-    font-size: 1.69rem;
-    width: 100%;
-    text-align: center;
-    margin-top: auto;
+	padding-bottom: 1.5rem;
+	margin: 0 -21px;
+	font-weight: 400;
+	font-size: 1.69rem;
+	width: 100%;
+	text-align: center;
+	margin-top: auto;
 }
 
 .char-list .avatar {
@@ -817,14 +867,13 @@ main>nav[aria-label="Breadcrumb"] {
 }
 
 .char-list .modal-opener {
-	--color-background-hover: #FFF8E1;
+	--color-background-hover: var(--color-mistyrose);
 	position: absolute;
 	top: 195px;
 	margin-left: -71px;
 	width: 142px;
 	opacity: 0;
-	--color-background-hover: #FFF8E1;
-	background-color: #B57EDC;
+	background-color: var(--color-chinesebellflower);
 }
 
 .char-list>div:is(:hover, :focus-within) .modal-opener {
@@ -862,8 +911,8 @@ main>nav[aria-label="Breadcrumb"] {
 }
 
 #quick-view header>p {
-	padding-top: 10px; 
-    border-top: 1px solid var(--color-coldmorning);
+	padding-top: 10px;
+	border-top: 1px solid var(--color-coldmorning);
 	margin-top: 0.2rem;
 	font-size: 2rem;
 }
@@ -892,7 +941,6 @@ main>nav[aria-label="Breadcrumb"] {
 	max-height: 100%;
 }
 
-
 /*  4. containers
 -------------------------------------------------------*/
 
@@ -903,11 +951,7 @@ body {
 	text-size-adjust: none;
 }
 
-
-
-/*  5. skip link
--------------------------------------------------------*/
-
+/* Skip Link */
 #skip {
 	--text-deco-line: none;
 	position: fixed;
@@ -939,11 +983,7 @@ body {
 	pointer-events: auto;
 }
 
-
-
-/*  6. banner
--------------------------------------------------------*/
-
+/* Banner */
 #banner {
 	--text-deco-line: none;
 	--color-link-background-hover: transparent;
@@ -1012,7 +1052,7 @@ body {
 	color: var(--color-link-hover);
 }
 
-#banner nav>ul>li>a:not(:only-child)::before,
+#banner nav>ul>li>a:not(:only-child::before),
 #banner nav~a::before,
 :is(#banner, #search-widget)>button::before {
 	content: "";
@@ -1067,7 +1107,7 @@ body {
 
 #banner nav .wrapper>figure>ul {
 	--color-link-static: var(--color-body);
-	--color-link-hover: var(--color-color-chinesebellflower);
+	--color-link-hover: var(--color-chinesebellflower);
 	display: grid;
 	grid-auto-flow: column;
 	grid-template-rows: repeat(5, 1fr);
@@ -1101,11 +1141,11 @@ body {
 #banner nav li>figure li>a {
 	/* social links */
 	display: flex;
-	fill: #666;
+	fill: var(--color-gray);
 }
 
 #banner nav li>figure a:is(:hover, :focus)>svg {
-	fill: #191919;
+	fill: var(--color-dark);
 }
 
 #banner nav>button {
@@ -1211,13 +1251,9 @@ body {
 	display: none;
 }
 
+/* Main Content */
 
-/*  7. main content
--------------------------------------------------------*/
-
-/*  7.1. blogs
--------------------------------------------------------*/
-
+/* Blogs */
 #blogs {
 	display: grid;
 	grid-template-columns: 260px 40px 1fr auto;
@@ -1244,17 +1280,14 @@ body {
 }
 
 #blogs header>nav {
-	/* breadcrumb */
 	grid-area: Breadcrumb;
 }
 
 :is(#blogs header > nav, #blogs header > h1 + p)+p {
-	/* sentence of "[number] blogs" for mobile */
 	display: none;
 }
 
 #blogs header>h1+p {
-	/* sentence of "You searched for [keyword]" */
 	grid-area: Breadcrumb;
 	margin: -0.9rem 0 -0.6rem;
 	color: var(--color-heading);
@@ -1268,133 +1301,130 @@ body {
 }
 
 #wrapper-in-blog-header {
-	grid-area: Sidebar;
+    grid-area: Sidebar;
 }
 
-#wrapper-in-blog-header>button {
-	/* Close (mobile modal) */
-	display: none;
+#wrapper-in-blog-header > button {
+    display: none;
 }
 
-#wrapper-in-blog-header>p {
-	margin-bottom: 2.1rem;
-	color: var(--color-heading);
-	font-weight: 700;
-	font-size: 1.4rem;
+#wrapper-in-blog-header > p {
+    margin-bottom: 2.1rem;
+    color: var(--color-heading);
+    font-weight: 700;
+    font-size: 1.4rem;
 }
 
-#wrapper-in-blog-header section>header {
-	display: flex;
-	justify-content: space-between;
-	align-items: baseline;
-	padding-bottom: 4rem;
-	border-bottom: 1px solid var(--color-border);
+#wrapper-in-blog-header section > header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid var(--color-border);
 }
 
-#wrapper-in-blog-header section header>h2 {
-	color: inherit;
-	font-weight: 300;
-	font-size: 2rem;
+#wrapper-in-blog-header section header > h2 {
+    color: inherit;
+    font-weight: 300;
+    font-size: 2rem;
 }
 
-#wrapper-in-blog-header section header>a {
-	/* Clear filters */
-	--color-link-static: #641864;
-	--color-link-hover: #641864;
-	position: relative;
-	top: -0.2rem;
-	font-size: 1.4rem;
+#wrapper-in-blog-header section header > a {
+    /* Clear filters */
+    --color-link-static: var(--color-chinesebellflower);
+    --color-link-hover: var(--color-chinesebellflower);
+    position: relative;
+    top: -0.2rem;
+    font-size: 1.4rem;
 }
 
 #wrapper-in-blog-header details {
-	border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
 }
 
 #wrapper-in-blog-header summary {
-	position: relative;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 1.5rem 30px 1.6rem 0;
-	cursor: pointer;
-	color: var(--color-heading);
-	font-size: 1.6rem;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 30px 1.6rem 0;
+    cursor: pointer;
+    color: var(--color-heading);
+    font-size: 1.6rem;
 }
 
 #wrapper-in-blog-header summary::before {
-	content: "";
-	position: absolute;
-	top: calc(50% - 5px);
-	right: 16px;
-	height: 12px;
-	border-right: 2px solid;
-	transition-property: opacity;
-	transition-duration: var(--trans-dur);
+    content: "";
+    position: absolute;
+    top: calc(50% - 5px);
+    right: 16px;
+    height: 12px;
+    border-right: 2px solid;
+    transition-property: opacity;
+    transition-duration: var(--trans-dur);
 }
 
-#wrapper-in-blog-header .open>summary::before {
-	opacity: 0;
+#wrapper-in-blog-header .open > summary::before {
+    opacity: 0;
 }
 
 #wrapper-in-blog-header summary::after {
-	content: "";
-	position: absolute;
-	top: 50%;
-	right: 11px;
-	width: 12px;
-	border-top: 2px solid;
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 11px;
+    width: 12px;
+    border-top: 2px solid;
 }
 
 #wrapper-in-blog-header summary:is(:hover, :focus, [open] > summary) {
-	color: var(--color-color-chinesebellflower);
+    color: var(--color-chinesebellflower);
 }
 
 #wrapper-in-blog-header details .content {
-	transition-property: height;
+    transition-property: height;
 }
 
 #wrapper-in-blog-header details ul {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 10px;
-	padding-bottom: 27px;
-	font-size: 1.3rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-bottom: 27px;
+    font-size: 1.3rem;
 }
 
 #wrapper-in-blog-header details li {
-	position: relative;
+    position: relative;
 }
 
-#wrapper-in-blog-header details li>input {
-	position: absolute;
-	top: 0;
-	left: 0;
-	opacity: 0;
-	width: 100%;
-	height: 100%;
-	pointer-events: none;
+#wrapper-in-blog-header details li > input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
 }
 
-#wrapper-in-blog-header details li>label {
-	display: block;
-	padding: 6px 15px 7px;
-	cursor: pointer;
-	border: 1px solid var(--color-border);
-	border-radius: 50px;
+#wrapper-in-blog-header details li > label {
+    display: block;
+    padding: 6px 15px 7px;
+    cursor: pointer;
+    border: 1px solid var(--color-border);
+    border-radius: 50px;
 }
 
 @media (hover: hover) and (pointer: fine) {
-
-	/* for non-touch devices */
-	#wrapper-in-blog-header details label:hover {
-		color: var(--color-color-chinesebellflower);
-		border-color: inherit;
-	}
+    #wrapper-in-blog-header details label:hover {
+        color: var(--color-chinesebellflower);
+        border-color: inherit;
+    }
 }
 
-#wrapper-in-blog-header details :is(:focus, :checked)+label {
-	color: var(--color-chinesebellflower);
-	border-color: inherit;
+#wrapper-in-blog-header details :is(:focus, :checked) + label {
+    color: var(--color-chinesebellflower);
+    border-color: inherit;
 }
 
 #blogs header>.radio-menu-widget {
@@ -1468,9 +1498,9 @@ body {
 }
 
 #menu-sort-by li[aria-checked="true"] {
-    color: var(--color-chinesebellflower); /* Updated to match your color scheme */
+	color: var(--color-chinesebellflower);
+	/* Updated to match your color scheme */
 }
-
 
 #blogs header .radio-menu-widget+button {
 	/* "Filter by" modal trigger for mobile */
@@ -1559,8 +1589,6 @@ body {
 	fill: var(--color-inactive);
 }
 
-
-
 /*  8. content info
 -------------------------------------------------------*/
 
@@ -1569,7 +1597,7 @@ body {
 	position: relative;
 	margin-top: 100px;
 	padding: 44px var(--padding-inline-center-content) 46px;
-	background-color: #312D32;
+	background-color: var(--color-dark);
 }
 
 #continfo nav {
@@ -1633,7 +1661,79 @@ body {
 	margin-top: 1.1rem;
 }
 
+/*-----------------------------------------------------
+    Footer Styles
+-------------------------------------------------------*/
 
+#continfo {
+	--color-link-background-hover: transparent;
+	position: relative;
+	margin-top: 100px;
+	padding: 44px var(--padding-inline-center-content) 46px;
+	background-color: var(--color-tidalwave);
+	/* Use the predefined color variable */
+}
+
+#continfo nav {
+	--text-deco-line: none;
+	position: absolute;
+	top: 64px;
+	right: var(--padding-inline-center-content);
+}
+
+#continfo nav>ul {
+	--color-link-static: rgba(255, 255, 255, 0.6);
+	--color-link-hover: #fff;
+	display: flex;
+	column-gap: 51px;
+	font-weight: 700;
+	font-size: 1.8rem;
+}
+
+#continfo>figure {
+	position: absolute;
+	top: 132px;
+	right: var(--padding-inline-center-content);
+}
+
+#continfo figcaption {
+	position: absolute;
+	left: -5000px;
+}
+
+#continfo figure>ul {
+	display: flex;
+	column-gap: 30px;
+}
+
+#continfo figure li>a {
+	/* social links */
+	display: flex;
+	opacity: 0.5;
+}
+
+#continfo figure li>a:is(:hover, :focus) {
+	opacity: 1;
+}
+
+#continfo>img {
+	display: block;
+	margin-bottom: 24px;
+}
+
+#continfo>p {
+	--color-link-static: #fff;
+	--color-link-hover: #fff;
+	--text-deco-color-static: currentColor;
+	--text-deco-color-hover: transparent;
+	margin-right: 300px;
+	color: #fff;
+	font-size: 1.4rem;
+}
+
+#continfo p+p {
+	margin-top: 1.1rem;
+}
 
 /*  9. responsive (1024px)
 -------------------------------------------------------*/
@@ -1646,9 +1746,18 @@ body {
 		display: none;
 	}
 
+	/* Footer adjustments */
+	#continfo nav {
+		top: 40px;
+		right: var(--padding-inline-center-content);
+	}
+
+	#continfo>figure {
+		top: 100px;
+		right: var(--padding-inline-center-content);
+	}
+
 }
-
-
 
 /* 10. responsive ( 991px)
 -------------------------------------------------------*/
@@ -1660,7 +1769,6 @@ body {
 	main>nav[aria-label="Breadcrumb"] {
 		padding-top: 40px;
 	}
-
 
 	/*  3.10. character list  */
 
@@ -1705,7 +1813,6 @@ body {
 		display: none;
 	}
 
-
 	/*  6. banner  */
 
 	#banner {
@@ -1714,7 +1821,6 @@ body {
 	}
 
 	#banner::before {
-
 		content: "abc";
 		position: absolute;
 		top: -5000px;
@@ -1753,9 +1859,7 @@ body {
 		--color-link-static: var(--color-heading);
 		--color-link-hover: var(--color-heading);
 		--text-deco-line: none;
-		--color-link-background-hover:
-			/*#e2e2e2*/
-			transparent;
+		--color-link-background-hover: transparent;
 		position: fixed;
 		top: 0;
 		right: 0;
@@ -1883,7 +1987,7 @@ body {
 	#nav-panel li>figure a {
 		/* social links */
 		display: flex;
-		fill: #666;
+		fill: var(--color-gray);
 	}
 
 	#nav-panel>a,
@@ -1957,7 +2061,6 @@ body {
 		border: 2px solid;
 		border-radius: 36px;
 	}
-
 
 	/*  7.1. blogs  */
 
@@ -2065,31 +2168,103 @@ body {
 		right: 21px;
 	}
 
-	#blogs header .radio-menu-widget+button {
-		/* "Filter by" modal opener for mobile */
-		align-self: center;
-		display: flex;
-		align-items: center;
-		font-weight: 400;
-		font-size: 1.4rem;
+	/* Blog List Container */
+	#blogs {
+		display: grid;
+		grid-template-areas:
+			"blog-list";
+		margin-top: 21px;
+		padding-top: 40px;
+		border-top: 1px solid var(--color-border);
 	}
 
-	#blogs header .radio-menu-widget+button>svg {
-		margin-left: 0.8rem;
-		fill: var(--color-chinesebellflower);
-	}
-
-	#blogs .blog-list {
-		margin-top: 39px;
-		padding-top: 0;
-		border-top-width: 0;
-	}
-
+	/* Blog List Pagination */
 	#blogs>nav {
-		/* pagination */
-		width: 100%;
+		--color-link-static: var(--color-dark);
+		--color-link-hover: var(--color-dark);
+		--color-link-background-hover: var(--color-whitesmoke);
+		--text-deco-line: none;
+		grid-area: Pagination;
+		margin: 38px 0 -25px;
+		padding-top: 40px;
+		border-top: 1px solid var(--color-border);
 	}
 
+	#blogs>nav>ul {
+		display: flex;
+		justify-content: center;
+		cursor: default;
+	}
+
+	#blogs>nav li {
+		display: flex;
+		justify-content: center;
+	}
+
+	#blogs>nav li+li {
+		margin-left: -1px;
+	}
+
+	#blogs>nav li>a,
+	#blogs>nav li>span {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		column-gap: 12px;
+		padding: 0 10px;
+		min-width: 44px;
+		min-height: 44px;
+		font-size: 2rem;
+		border: 1px solid var(--color-border);
+	}
+
+	/* Disabled Pagination Links */
+	#blogs>nav li[aria-hidden="true"]>a {
+		--color-link-static: var(--color-inactive);
+		--color-link-hover: var(--color-inactive);
+		--color-link-background-hover: transparent;
+		cursor: default;
+	}
+
+	#blogs>nav li>a[aria-current="page"] {
+		position: relative;
+		font-weight: 700;
+		border-color: currentColor;
+	}
+
+	/* Pagination Navigation (Previous and Next) */
+	#blogs>nav li>a:is(.prev, .next) {
+		padding: 0 15px;
+		font-size: 1.6rem;
+	}
+
+	#blogs>nav li:first-child>a {
+		border-radius: 6px 0 0 6px;
+	}
+
+	#blogs>nav li:last-child>a {
+		border-radius: 0 6px 6px 0;
+	}
+
+	/* SVG Styles for Pagination */
+	#blogs>nav a>svg {
+		margin-top: 1px;
+		fill: var(--color-dark);
+	}
+
+	#blogs>nav [aria-hidden="true"]>a>svg {
+		fill: var(--color-inactive);
+	}
+
+	/* Blog List */
+	#blogs .blog-list {
+		grid-area: blog-list;
+	}
+
+	/* Filter Button (Mobile) */
+	#blogs header .radio-menu-widget+button {
+		display: none;
+	}
 
 	/*  8. content info  */
 
@@ -2130,79 +2305,37 @@ body {
 		margin-top: 1rem;
 	}
 
-}
-
-
-
-/* 11. responsive ( 767px)
--------------------------------------------------------*/
-
-@media (max-width: 767px) {
-
-	/*  3.7. blog list  */
-
-	:where(:not(#also))>.blog-list {
-		grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-		gap: 38px 15px;
+	/* Footer adjustments */
+	#continfo {
+		display: flex;
+		flex-direction: column;
+		padding: 40px var(--padding-inline-center-content);
+		background-color: var(--color-tidalwave);
 	}
 
-	:where(:not(#also))>.blog-list dt {
-		margin-top: 0.7rem;
-		margin-bottom: 0.7rem;
-		font-size: 1.3rem;
+	#continfo nav {
+		position: static;
+		align-self: center;
+		width: 100%;
+		text-align: center;
 	}
 
-	:where(:not(#also))>.blog-list dt+dd>a {
-		border-radius: 4px;
+	#continfo nav>ul {
+		justify-content: center;
+		margin-top: 20px;
+		font-size: 1.6rem;
+		column-gap: 20px;
 	}
 
-	:where(:not(#also))>.blog-list dt+dd>a::after {
-		border-radius: 4px;
+	#continfo>figure {
+		position: static;
+		align-self: center;
+		margin-top: 20px;
 	}
 
-	:where(:not(#also))>.blog-list .offer {
-		margin-top: 0.7rem;
-		font-size: 1.4rem;
-	}
-
-	:where(:not(#also))>.blog-list .desc {
-		margin-top: 0.7rem;
-		font-size: 1.1rem;
-		line-height: 1.25;
-	}
-
-
-	/*  3.8. rating  */
-
-	:where(:not(#also))>.blog-list .rating {
-		font-size: 0.7428rem;
-	}
-
-	:where(:not(#also))>.blog-list .rating>img {
-		top: 0;
-		margin-right: 3px;
-		width: 9px;
-		height: 9px;
-	}
-
-	:where(:not(#also))>.blog-list .rating> :nth-last-of-type(2)+img {
-		margin-right: 6px;
-	}
-
-
-	/*  7.1 blogs  */
-
-	#blogs>nav {
-		/* pagination */
-		margin-right: calc(-1 * var(--dist-min-cont-edge));
-		margin-left: calc(-1 * var(--dist-min-cont-edge));
-		padding-right: var(--dist-min-cont-edge);
-		padding-left: var(--dist-min-cont-edge);
-		width: calc(100% + 2 * var(--dist-min-cont-edge));
-	}
-
-	#blogs>nav li:not(:first-child):not(:last-child) {
-		display: none;
+	#continfo>p {
+		margin-right: 0;
+		text-align: center;
 	}
 
 }
