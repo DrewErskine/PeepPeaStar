@@ -3,7 +3,7 @@
  */
 if (document.querySelector('.char-list')) {
   for (const moreLink of document.querySelectorAll('.char-list dd > a')) {
-    moreLink.insertAdjacentHTML('afterend', '<button type="button" class="button bordered grape modal-opener">Quick view</button>');
+    moreLink.insertAdjacentHTML('afterend', '<button type="button" class="button bordered calicodress-buttons modal-opener">Quick view</button>');
   }
   const quickView = document.querySelector('#quick-view');
   quickView.style['display'] = 'none';

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Learn all about Cooper, the innovative engineer from Peepville.">
+	<title>Cooper | Peep Peas #1 Star</title>
+
+	<!-- favicons and stylesheets -->
+	<link rel="stylesheet" href="/css/plugins.css">
+	<link rel="stylesheet" href="/css/common.css?ver=2209301853">
+	<link rel="stylesheet" href="/css/character.css?ver=2209100051">
+</head>
+<body>
+
+	<div id="skip">
+		<a href="#main">Skip to main content</a>
+	</div>
+
+	<div th:replace="~{fragments.html :: header}"/>
+
+	<main id="main">
+
+		<section id="character">
+			<div class="wrapper">
+				<img src="/images/characters/Cooper.svg" alt="Full image of Cooper">
+				<blockquote>
+					<p>Innovation is the change that unlocks new value.</p>
+				</blockquote>
+			</div>
+			<header>
+				<h1>Cooper</h1>
+				<p>Chief Technology Officer</p>
+			</header>
+			<p>Cooper, with his boundless creativity and technical expertise, has been instrumental in driving Peepville's technological advancements. His pioneering work in sustainable technology has made him a key figure in the community.</p>
+			<dl>
+				<div>
+					<dt>Neighborhood of origin</dt>
+					<dd>South Peepville</dd>
+				</div>
+				<div>
+					<dt>Favorite food</dt>
+					<dd>Smoothies</dd>
+				</div>
+				<div>
+					<dt>Favorite music genre</dt>
+					<dd>Electronic Dance Music</dd>
+				</div>
+				<div>
+					<dt>Hobby</dt>
+					<dd>Robotics</dd>
+				</div>
+				<div>
+					<dt>Favorite film</dt>
+					<dd>Wall-E</dd>
+				</div>
+			</dl>
+		</section><!-- / #character -->
+	</main>
+
+	<div th:replace="~{fragments.html :: footer}"/>
+
+	<script src="../js/plugins.js?ver=2209212222"></script>
+	<script src="../js/main.js?ver=2209301853"></script>
+
+</body>
+</html>

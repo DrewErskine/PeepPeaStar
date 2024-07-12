@@ -2,232 +2,217 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="">
-	<title>Peep Peas #1 Star</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Welcome to Peep Peas #1 Star, your ticket to Peepville.">
+    <title>Peep Peas #1 Star</title>
 
-	<!-- favicons -->
-	<link rel="icon" sizes="57x57" href="/images/favicons/catFavicon.png">
-	<meta name="msapplication-TileColor" content="#d4d4d8">
-	<meta name="theme-color" content="#f4f1ec">
-	<meta name="description" content="Welcome to Peep Peas #1 Star, your ticket 2 Peepville.">
+    <!-- favicons -->
+    <link rel="icon" sizes="57x57" href="/images/favicons/catFavicon.png">
+    <meta name="msapplication-TileColor" content="#d4d4d8">
+    <meta name="theme-color" content="#f4f1ec">
 
-	<!-- stylesheets -->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="stylesheet"
-		href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,500;1,700&family=Roboto:wght@700&display=swap">
-	<link rel="stylesheet" href="/css/plugins.css">
-	<link rel="stylesheet" href="/css/common.css">
-	<link rel="stylesheet" href="/css/home.css">
+    <!-- stylesheets -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,500;1,700&family=Roboto:wght@700&display=swap">
+    <link rel="stylesheet" href="/css/plugins.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/home.css">
 </head>
 
 <body>
+    <!--header -->
+    <div th:replace="~{fragments.html :: header}" />
+    <!-- /header -->
 
-	<!--header -->
-	<div th:replace="~{fragments.html :: header}" />
-	<!-- /header -->
+    <main id="main">
+        <section id="hero" class="splide" aria-label="Hero section">
+            <div class="splide__arrows">
+                <button class="splide__arrow splide__arrow--prev">
+                    <img src="/images/icon-chevron-left-white.svg" alt="Previous">
+                </button>
+                <button class="splide__arrow splide__arrow--next">
+                    <img src="/images/icon-chevron-left-white.svg" alt="Next">
+                </button>
+            </div>
+            <div class="splide__track">
+                <ul class="splide__list">
+                    <!-- 1 -->
+                    <li class="splide__slide Peep-Pea">
+                        <div class="wrapper">
+                            <img src="/images/logo-peep.svg" width="350" height="200" alt="Logo of PeepPea!" class="logo">
+                            <a href="Peep-List.html" class="button bordered lg solid dragonlordpurple-buttons">Peep Peep ._.</a>
+                        </div>
+                        <img src="/images/hero-peep-pea.jpg"
+                            srcset="/images/hero-peep-pea.jpg 1x, /images/hero-peep-pea@2x.jpg 2x, /images/hero-peep-pea@3x.jpg 3x"
+                            width="600" height="550" alt="Hero Image of Peep Pea" class="hero-image" style="padding-bottom: 10%;">
+                    </li>
+        
+                    <!-- 2 -->
+                    <li class="splide__slide love">
+                        <div class="wrapper">
+                            <h2>I Love PeepPea!</h2>
+                            <p>PeepPea so cute.</p>
+                            <a href="Peep-List.html" class="button bordered lg solid coldmorning-buttons">PeepPea Sleep</a>
+                        </div>
+                        <img src="/images/hero-more.jpg"
+                            srcset="/images/hero-more.jpg 1x, /images/hero-more@2x.jpg 2x, /images/hero-more@3x.jpg 3x"
+                            width="502" height="367" alt="" style="padding-inline: 50px;">
+                    </li>
+        
+                    <!-- 3 -->
+                    <li class="splide__slide fan">
+                        <div class="wrapper">
+                            <h2>More PeepPea!</h2>
+                            <p>Nala doesn't like Peep</p>
+                            <p>Nala doesn't really do much imo.</p>
+                            <a th:href="Peep-List.html" class="button bordered mistyrose-buttons">PeepPeas #1 on foenum</a>
+                        </div>
+                        <img src="/images/hero-nala.jpg" srcset="/images/hero-nala.jpg 1x, /images/hero-nala@2x.jpg 2x, /images/hero-nala@3x.jpg 3x" width="750" height="565" alt="">
+                    </li>
+                </ul>
+            </div>
+        </section><!-- #hero -->
 
-	<main id="main">
+        <section class="collection Peepville">
+            <header>
+                <img src="/images/Cats.svg" width="420" height="420" alt="Logo of Peepville">
+                <h1>Explore <span id="name-Peepville">Peepville</span></h1>
+                <a href="characters/Collection-Peepville.html" class="button bordered parisgreen-buttons" id="more-Peepville" aria-labelledby="more-Peepville name-Peepville">See all characters <span class="arrow" aria-hidden="true">&rarr;</span></a>
+            </header>
+            <dl class="char-list" style="background-color: #a8d5ba1f">
+                <div data-full-img="/images/characters/Peepville-Nala.svg" class="character-container">
+                    <dt id="name-Nala" class="title">Nala</dt>
+                    <dd class="title">Forensic Accountant</dd>
+                    <dd class="avatar">
+                        <img src="/images/characters/avatar-Peepville-Nala.png" srcset="/images/characters/avatar-Peepville-Nala.png 1x, /images/characters/avatar-Peepville-Nala.svg 2x" width="200" height="200" alt="Avatar of Nala">
+                    </dd>
+                    <dd class="desc">
+                        Nala, a computational genius, leverages her intellect to aid Peepville's businesses. She is currently developing a revolutionary web browser aimed at redefining internet navigation.
+                    </dd>
+                    <dd>
+                        <a th:href="@{/getCharacter/{charname} (charname='Character-Detail-Nala')}" id="more-Nala" aria-labelledby="more-Nala name-Nala">See bio</a>
+                    </dd>
+                </div>
+                <div data-full-img="/images/characters/Peepville-PeepPea.svg">
+                    <dt id="name-PeepPea" class="title">PeepPea</dt>
+                    <dd class="title">Queen of Peepville</dd>
+                    <dd class="avatar">
+                        <img src="/images/characters/avatar-Peepville-PeepPea.png" srcset="/images/characters/avatar-Peepville-PeepPea.png 1x, /images/characters/avatar-Peepville-PeepPea.svg 2x" width="200" height="200" alt="Avatar of PeepPea">
+                    </dd>
+                    <dd class="desc">
+                        PeepPea, the cherished sovereign of Peepville, is revered for her wisdom and benevolence. Her leadership has ushered in an era of peace and prosperity across the land.
+                    </dd>
+                    <dd>
+                        <a th:href="@{/getCharacter/{charname} (charname='Character-Detail-PeepPea')}" id="more-PeepPea" aria-labelledby="more-PeepPea name-PeepPea">See bio</a>
+                    </dd>
+                </div>
+                <div data-full-img="/images/characters/Peepville-Cooper.svg">
+                    <dt id="name-Cooper" class="title">Cooper</dt>
+                    <dd class="title">Innovative Engineer</dd>
+                    <dd class="avatar">
+                        <img src="/images/characters/avatar-Peepville-Cooper.png" srcset="/images/characters/avatar-Peepville-Cooper.png 1x, /images/characters/avatar-Peepville-Cooper.svg 2x" width="200" height="200" alt="Avatar of Cooper">
+                    </dd>
+                    <dd class="desc">
+                        Cooper's ingenuity has led to numerous advancements in Peepville, especially in sustainable living and technology. His efforts have significantly enhanced the quality of life for all its residents.
+                    </dd>
+                    <dd>
+                        <a th:href="@{/getCharacter/{charname} (charname='Character-Detail-Cooper')}" id="more-Cooper" aria-labelledby="more-Cooper name-Cooper">See bio</a>
+                    </dd>
+                </div>
+            </dl>
+        </section> <!-- / .collection.Peepville -->        
 
-		<section id="hero" class="splide" aria-label="Hero section">
-			<div class="splide__arrows">
-				<button class="splide__arrow splide__arrow--prev">
-					<img src="/images/icon-chevron-left-white.svg" alt="Previous">
-				</button>
-				<button class="splide__arrow splide__arrow--next">
-					<img src="/images/icon-chevron-left-white.svg" alt="Next">
-				</button>
-			</div>
-			<div class="splide__track">
-				<ul class="splide__list">
-					<!-- 1 -->
-					<li class="splide__slide Peep-Pea">
-						<div class="wrapper">
-							<img src="/images/logo-peep.svg" width="350" height="200" alt="Logo of PeepPea!" class="logo">
-							<a href="Peep-List.html" class="button bordered lg solid dragonlordpurple-buttons">Peep Peep ._.</a>
-						</div>
-						<img src="/images/hero-peep-pea.jpg"
-							srcset="/images/hero-peep-pea.jpg 1x, /images/hero-peep-pea@2x.jpg 2x, /images/hero-peep-pea@3x.jpg 3x"
-							width="600" height="550" alt="Hero Image of Peep Pea" class="hero-image" style="padding-bottom: 10%;">
-					</li>
-		
-					<!-- 2 -->
-					<li class="splide__slide love">
-						<div class="wrapper">
-							<h2>I Love PeepPea!</h2>
-							<p>PeepPea so cute.</p>
-							<a href="Peep-List.html" class="button bordered lg solid coldmorning-buttons">PeepPea Sleep</a>
-						</div>
-						<img src="/images/hero-more.jpg"
-							srcset="/images/hero-more.jpg 1x, /images/hero-more@2x.jpg 2x, /images/hero-more@3x.jpg 3x"
-							width="502" height="367" alt="" style="padding-inline: 50px;">
-					</li>
-		
-					<!-- 3 -->
-					<li class="splide__slide fan">
-						<div class="wrapper">
-							<h2>More PeepPea!</h2>
-							<p>Nala doesn't like Peep</p>
-							<p>Nala doesn't really do much imo.</p>
-							<a th:href="Peep-List.html" class="button bordered mistyrose-buttons">PeepPeas #1 on foenum</a>
-						</div>
-						<img src="/images/hero-nala.jpg" srcset="/images/hero-nala.jpg 1x, /images/hero-nala@2x.jpg 2x, /images/hero-nala@3x.jpg 3x" width="750" height="565" alt="">
-					</li>
-				</ul>
-			</div>
-		</section><!-- #hero -->
+        <section class="collection PeepPea-Blogs">
+            <header>
+                <img src="/images/logo-peep.svg" width="220" height="220" alt="Logo of PeepPea Blog">
+                <h1>Explore <span id="name-PeepPea-Blogs">PeepPea Blog</span></h1>
+                <a th:href="@{/characters/Collection-PeepPeaBlogs}" class="button bordered seacaller-buttons" id="more-PeepPea-Blogs" aria-labelledby="more-PeepPea-Blogs name-PeepPea-Blogs">See all characters <span class="arrow" aria-hidden="true">&rarr;</span></a>
+            </header>
+            <dl class="char-list">
+                <!-- Blog Post: peeppeazzZ... -->
+                <div data-full-img="/images/characters/PeepPea-Blogs-PeepPeaNap.png">
+                    <dt id="name-PeepPeaNap" style="font-size: 13px; font-weight: bold;"></dt>
+                    <dd class="title">peeppeazzZ...</dd>
+                    <dd class="avatar">
+                        <img src="/images/characters/PeepPea-Blogs-PeepPeaNap.png"
+                            srcset="/images/characters/PeepPea-Blogs-PeepPeaNap.png 1x, /images/characters/PeepPea-Blogs-PeepPeaNap@2x.png 2x, /images/characters/PeepPea-Blogs-PeepPeaNap@3x.png 3x"
+                            width="400" height="275" alt="Avatar of PeepPeaNap">
+                    </dd>
+                    <dd class="desc">Had a long nap while human made dumb click clack again... Wonder what dumb human click clacking about rn.</dd>
+                    <dd><a th:href="@{/getCharacter/{charname} (charname='Character-Detail-PeepPeaNap')}" id="more-PeepPeaNap" aria-labelledby="more-PeepPeaNap name-PeepPeaNap">See more from PeepPea - Bio</a></dd>
+                    <dd class="author" style="font-size: 20px; font-weight: bold;">By: PeepPea</dd>
+                </div>
+        
+                <!-- Blog Post: The Reign Of PeepPea -->
+                <div data-full-img="/images/characters/PeepPea-Blogs-PeepPea.png">
+                    <dt id="name-QueenPeepPea" style="font-weight: bold;"></dt>
+                    <dd class="title">The Reign of PeepPea</dd>
+                    <dd class="avatar"><img src="/images/characters/PeepPea-Blogs-PeepPea.png"
+                            srcset="/images/characters/PeepPea-Blogs-PeepPea.png 1x, /images/characters/PeepPea-Blogs-PeepPea@2x.png 2x, /images/characters/PeepPea-Blogs-PeepPea@3x.png 3x"
+                            width="400" height="275" alt="Avatar of PeepPea"></dd>
+                    <dd class="desc">Join PeepPea as she chronicles her journey as the beloved queen of Peepville. From her rise to power to the challenges she faces, PeepPea offers a candid look into the life of royalty in Peepville.</dd>
+                    <dd><a th:href="@{/getCharacter/{charname} (charname='Character-Detail-PeepPea')}" id="more-PeepPea" aria-labelledby="more-PeepPea name-PeepPea">See more from PeepPea - Bio</a></dd>
+                    <dd class="author" style="font-size: 20px; font-weight: bold;">By: PeepPea</dd>
+                </div>
+        
+                <!-- Blog Post: New job as a Senior Java Software Engineer .-. -->
+                <div data-full-img="/images/characters/PeepPea-Blogs-Nala.png">
+                    <dt id="name-Nala" style="font-size: 13px; font-weight: bold;"></dt>
+                    <dd class="title">New job as a Senior Java Software Engineer .-.</dd>
+                    <dd class="avatar"><img src="/images/characters/PeepPea-Blogs-Nala.png"
+                            srcset="/images/characters/PeepPea-Blogs-Nala.png 1x, /images/characters/PeepPea-Blogs-Nala@2x.png 2x, /images/characters/PeepPea-Blogs-Nala@3x.png 3x"
+                            width="400" height="275" alt="Avatar of Nala"></dd>
+                    <dd class="desc">Nala is a computational genius who performs calculations for various Peepville businesses and organizations. In her spare time, Nala has been noodling on the creation of the perfect web browser that will make all other browsers obsolete. We're rooting for you, Nala!</dd>
+                    <dd><a th:href="@{/getCharacter/{charname} (charname='Character-Detail-Nala')}" id="more-Nala" aria-labelledby="more-Nala name-Nala">See more from Nala - Bio</a></dd>
+                    <dd class="author" style="font-size: 20px; font-weight: bold;">By: PeepPea</dd>
+                </div>
+        
+                <!-- Blog Post: PEEP PEA PROTECTOr -->
+                <div data-full-img="/images/characters/PeepPea-Blogs-PeepPeaCharge.png">
+                    <dt id="name-PeepPeaCharge" style="font-size: 13px; font-weight: bold;"></dt>
+                    <dd class="title">PEEP PEA PROTECTOr</dd>
+                    <dd class="avatar"><img src="/images/characters/PeepPea-Blogs-PeepPeaCharge.png"
+                            srcset="/images/characters/PeepPea-Blogs-PeepPeaCharge.png 1x, /images/characters/PeepPea-Blogs-PeepPeaCharge@2x.png 2x, /images/characters/PeepPea-Blogs-PeepPeaCharge@3x.png 3x"
+                            width="400" height="275" alt="Avatar of PeepPeaCharge"></dd>
+                    <dd class="desc">PeepPeaCharge RAWRRRRRRRRRRRRRRRRRR RAAAHHHHHHHHHHH RAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH.</dd>
+                    <dd><a th:href="@{/getCharacter/{charname} (charname='Character-Detail-PeepPeaCharge')}" id="more-PeepPeaCharge" aria-labelledby="more-PeepPeaCharge name-PeepPeaCharge">See more from Cooper - Bio</a></dd>
+                    <dd class="author" style="font-size: 20px; font-weight: bold;">By: Cooper</dd>
+                </div>
+            </dl>
+        </section> <!-- / .collection.PeepPea-Blogs -->
+        
 
-		<section class="collection Peepville">
-			<header>
-				<img src="/images/Cats.svg" width="420" height="420" alt="Logo of Peepville">
-				<h1>Explore <span id="name-Peepville">Peepville</span></h1>
-				<a href="characters/Collection-Peepville.html" class="button bordered parisgreen-buttons"id="more-Peepville" aria-labelledby="more-PeepPea-Blogs name-PeepPea-Blogs">See all characters <span class="arrow" aria-hidden="true">&rarr;</span></a>
-			</header>
-			<dl class="char-list" style="background-color: #a8d5ba1f">
-				<div data-full-img="/images/characters/Peepville-Nala.svg" class="character-container">
-					<dt id="name-Nala" class="title">Nala</dt>
-					<dd class="title">Forensic Accountant</dd>
-					<dd class="avatar"><img src="/images/characters/avatar-Peepville-Nala.png"
-							srcset="/images/characters/avatar-Peepville-Nala.png 1x, /images/characters/avatar-Peepville-Nala.svg 2x"
-							width="200" height="200" alt="Avatar of Nala"></dd>
-					<dd class="desc">Nala is a computational genius who performs calculations for various Peepville
-						businesses and organizations. In her spare time, Nala has been noodling on the creation of the
-						perfect web browser that will make all other browsers obsolete. We're rooting for you, Nala!
-					</dd>
-					<dd><a href="characters/Character-Detail-Nala.html" id="more-Nala"
-							aria-labelledby="more-Nala name-Nala">See bio</a></dd>
-				</div>
-				<div data-full-img="/images/characters/Peepville-PeepPea.svg">
-					<dt id="name-PeepPea" class="title">PeepPea</dt>
-					<dd class="title">Queen of Peepville</dd>
-					<dd class="avatar"><img src="/images/characters/avatar-Peepville-PeepPea.png"
-							srcset="/images/characters/avatar-Peepville-PeepPea.png 1x, /images/characters/avatar-Peepville-PeepPea.svg 2x"
-							width="200" height="200" alt="Avatar of PeepPea"></dd>
-					<dd class="desc">PeepPea is well-loved. All hail peepPea and those opposed will be sent to the realm
-						of burning, far past the trenches of demise, a fate 1000 times worse than being sent to what is
-						commonly known the shadow realm.</dd>
-					<dd><a href="characters/Character-Detail-PeepPea.html" id="more-PeepPea"
-							aria-labelledby="more-PeepPea name-PeepPea">See bio</a></dd>
-				</div>
-				<div data-full-img="/images/characters/Peepville-Cooper.svg">
-					<dt id="name-Cooper" class="title">Cooper</dt>
-					<dd class="title">Dog</dd>
-					<dd class="avatar"><img src="/images/characters/avatar-Peepville-Cooper.png"
-							srcset="/images/characters/avatar-Peepville-Cooper.png 1x, /images/characters/avatar-Peepville-Cooper.svg 2x"
-							width="200" height="200" alt="Avatar of Cooper"></dd>
-					<dd class="desc">Cooper is inquisitive and creative, and always conjuring up ways to improve
-						Peepville and the lives of its inhabitants. He's been at the forefront of many inventions, but
-						has a special affinity for improving the world through alternative energy and green living.
-						Cooper's engineering collaborations with the City of Peepville have helped the city reduce its
-						energy consumption year over year, and he's twice been awarded keys to Peepville, ong.</dd>
-					<dd><a href="characters/Character-Detail-Cooper.html" id="more-Cooper"
-							aria-labelledby="more-Cooper name-Cooper">See bio</a></dd>
-				</div>
-			</dl>
-		</section><!-- / .collection.Peepville -->
+        <!-- Footer -->
+        <div th:replace="~{fragments.html :: footer}" />
+        <!-- /footer -->
 
-		<section class="collection PeepPea-Blogs">
-			<header>
-				<img src="/images/logo-peep.svg" width="220" height="220" alt="Logo of PeepPea Blog">
-				<h1>Explore <span id="name-PeepPea-Blogs">PeepPea Blog</span></h1>
-				<a href="characters/Collection-PeepPeaBlogs.html" class="button bordered seacaller-buttons"id="more-PeepPea-Blogs" aria-labelledby="more-PeepPea-Blogs name-PeepPea-Blogs">See all characters <span class="arrow" aria-hidden="true">&rarr;</span></a>
-			</header>
-			<dl class="char-list">
-				<!-- Blog Post: peeppeazzZ... -->
-				<div data-full-img="/images/characters/PeepPea-Blogs-PeepPeaNap.png">
-					<dt id="name-PeepPeaNap" style="font-size: 13px; font-weight: bold;"></dt>
-					<dd class="title">peeppeazzZ...</dd>
-					<dd class="avatar">
-						<img src="/images/characters/PeepPea-Blogs-PeepPeaNap.png"
-							srcset="/images/characters/PeepPea-Blogs-PeepPeaNap.png 1x, /images/characters/PeepPea-Blogs-PeepPeaNap@2x.png 2x, /images/characters/PeepPea-Blogs-PeepPeaNap@3x.png 3x"
-							width="400" height="275" alt="Avatar of PeepPeaNap">
-					</dd>
-					<dd class="desc">Had a long nap while human made dumb click clack again... Wonder what dumb
-						human click clacking about rn.</dd>
-					<dd><a href="characters/Character-Detail-PeepPeaNap.html" id="more-PeepPeaNap"
-							aria-labelledby="more-PeepPeaNap name-PeepPeaNap">See more from PeepPea - Bio</a></dd>
-					<dd class="author" style="font-size: 20px; font-weight: bold;">By: PeepPea</dd>
-				</div>
+        <!-- Quick View Modal -->
+        <div id="quick-view" role="dialog" aria-modal="true" aria-labelledby="label-quick-view" aria-describedby="desc-quick-view">
+            <button type="button solid peeppeaplue"><img src="/images/icon-xmark.svg" width="24" height="24" alt="Close"></button>
+            <div class="wrapper">
+                <header>
+                    <h1 id="label-quick-view"></h1>
+                    <p id="desc-quick-view"></p>
+                </header>
+                <p></p>
+                <a href="" class="button bordered lg solid seacaller-buttons" id="more-quick-view" aria-labelledby="more-quick-view label-quick-view">See bio</a>
+            </div>
+            <div class="wrapper">
+                <img src="/images/logo-peep.svg" alt="">
+            </div>
+        </div><!-- / #quick-view -->
 
-				<!-- Blog Post: The Reign Of PeepPea -->
-				<div data-full-img="/images/characters/PeepPea-Blogs-PeepPea.png">
-					<dt id="name-QueenPeepPea" style="font-weight: bold;"></dt>
-					<dd class="title">The Reign of PeepPea</dd>
-					<!-- <p>Had a long nap while human made dumb click clack again...</p> -->
-					<dd class="avatar"><img src="/images/characters/PeepPea-Blogs-PeepPea.png"
-							srcset="/images/characters/PeepPea-Blogs-PeepPea.png 1x, /images/characters/PeepPea-Blogs-PeepPea@2x.png 2x, /images/characters/PeepPea-Blogs-PeepPea@3x.png 3x"
-							width="400" height="275" alt="Avatar of PeepPea"></dd>
-					<dd class="desc">Join PeepPea as she chronicles her journey as the beloved queen of Peepville. From
-						her rise to power to the challenges she faces, PeepPea offers a candid look into the life of
-						royalty in Peepville.</dd>
-					<dd><a href="characters/Character-Detail-PeepPea.html" id="more-PeepPea"
-							aria-labelledby="more-PeepPea name-PeepPea">See more from PeepPea - Bio</a></dd>
-					<dd class="author" style="font-size: 20px; font-weight: bold;">By: PeepPea</dd>
-				</div>
+        
 
-				<!-- Blog Post: New job as a Senior Java Software Engineer .-. -->
-				<div data-full-img="/images/characters/PeepPea-Blogs-Nala.png">
-					<dt id="name-Nala" style="font-size: 13px; font-weight: bold;"></dt>
-					<dd class="title">New job as a Senior Java Software Engineer .-.</dd>
-					<!-- <p>get the heck away from me and my tree rn!</p> -->
-					<dd class="avatar"><img src="/images/characters/PeepPea-Blogs-Nala.png"
-							srcset="/images/characters/PeepPea-Blogs-Nala.png 1x, /images/characters/PeepPea-Blogs-Nala@2x.png 2x, /images/characters/PeepPea-Blogs-Nala@3x.png 3x"
-							width="400" height="275" alt="Avatar of Nala"></dd>
-					<dd class="desc">Nala is a computational genius who performs calculations for various
-						Peepville businesses and organizations. In her spare time, Nala has been noodling on the
-						creation of the perfect web browser that will make all other browsers obsolete. We're rooting
-						for you, Nala!</dd>
-					<dd><a href="characters/Character-Detail-Nala.html" id="more-Nala"
-							aria-labelledby="more-Nala name-Nala">See more from Nala - Bio</a></dd>
-					<dd class="author" style="font-size: 20px; font-weight: bold;">By: PeepPea</dd>
-				</div>
+    </main>
 
-				<!-- Blog Post: PEEP PEA PROTECTOr -->
-				<div data-full-img="/images/characters/PeepPea-Blogs-PeepPeaCharge.png">
-					<dt id="name-PeepPeaCharge" style="font-size: 13px; font-weight: bold;"></dt>
-					<dd class="title">PEEP PEA PROTECTOr</dd>
-					<!-- <p> :p </p> -->
-					<dd class="avatar"><img src="/images/characters/PeepPea-Blogs-PeepPeaCharge.png"
-							srcset="/images/characters/PeepPea-Blogs-PeepPeaCharge.png 1x, /images/characters/PeepPea-Blogs-PeepPeaCharge@2x.png 2x, /images/characters/PeepPea-Blogs-PeepPeaCharge@3x.png 3x"
-							width="400" height="275" alt="Avatar of PeepPeaCharge"></dd>
-					<dd class="desc">PeepPeaCharge RAWRRRRRRRRRRRRRRRRRR RAAAHHHHHHHHHHH
-						RAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH.</dd>
-					<dd><a href="characters/Character-Detail-PeepPeaCharge.html" id="more-PeepPeaCharge"
-							aria-labelledby="more-PeepPeaCharge name-PeepPeaCharge">See more from Cooper - Bio</a></dd>
-					<dd class="author" style="font-size: 20px; font-weight: bold;">By: Cooper</dd>
-				</div>
-			</dl>
-		</section><!-- / .collection.PeepPea-Blogs -->
-
-		<div th:replace="~{fragments.html :: footer}" />
-
-		<div id="quick-view" role="dialog" aria-modal="true" aria-labelledby="label-quick-view"
-			aria-describedby="desc-quick-view">
-			<button type="button"><img src="/images/icon-xmark.svg" width="24" height="24" alt="Close"></button>
-			<div class="wrapper">
-				<header>
-					<h1 id="label-quick-view"></h1>
-
-					<p id="desc-quick-view"></p>
-				</header>
-				<p></p>
-				<a href="" class="button lg solid mistyrose-buttons" id="more-quick-view"
-					aria-labelledby="more-quick-view label-quick-view">See bio</a>
-			</div>
-			<div class="wrapper">
-				<img src="/images/logo-peep.svg" alt="">
-			</div>
-		</div><!-- / #quick-view -->
-
-		<script src="/js/plugins.js"></script>
-		<script src="/js/main.js"></script>
-		<script src="/js/homepage.js"></script>
-		<script src="/js/blogs.js"></script>
-		<script src="/js/characters.js"></script>
-
-	</main>
+    <!-- scripts -->
+    <script src="/js/plugins.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/homepage.js"></script>
+    <script src="/js/blogs.js"></script>
+    <script src="/js/characters.js"></script>
 </body>
-
 </html>

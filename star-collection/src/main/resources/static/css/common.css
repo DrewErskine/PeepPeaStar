@@ -213,37 +213,37 @@ a:is(:hover, :focus) {
 }
 
 /*-----------------------------------------------------
-    3.5. Buttons
+    Buttons
 -------------------------------------------------------*/
 
 /* Base styles for buttons */
 .button {
-	display: inline-block;
-	padding: 10px 20px;
-	font-size: 16px;
-	font-weight: bold;
-	text-align: center;
-	text-decoration: none;
-	border-radius: 4px;
-	transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
-	cursor: pointer;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+    cursor: pointer;
 }
 
 /* Large button specific styling */
 .lg {
-	padding: 15px 30px;
+    padding: 15px 30px;
 }
 
 /* Solid Buttons */
 .button.solid {
-	background-color: var(--color-background-static);
-	color: var(--color-text);
+    background-color: var(--color-background-static);
+    color: var(--color-text);
 }
 
 .button.solid:hover,
 .button.solid:focus,
 .button.solid.active {
-	background-color: var(--color-background-hover);
+    background-color: var(--color-background-hover);
 }
 
 /* Solid PeepPeaPlue */
@@ -251,6 +251,20 @@ a:is(:hover, :focus) {
     --color-background-static: var(--color-peeppeaplue);
     --color-background-hover: var(--color-tidalwave);
     color: white;
+}
+
+/* Base bordered button styling */
+.button.bordered {
+    background-color: transparent;
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+}
+
+.button.bordered:hover,
+.button.bordered:focus,
+.button.bordered.active {
+    background-color: var(--color-background-hover);
+    color: var(--color-dark);
 }
 
 /* Peeppeaplue button specific styling */
@@ -266,12 +280,7 @@ a:is(:hover, :focus) {
     transform: scale(1.05);
 }
 
-.button.bordered.peeppeaplue-buttons:hover {
-    background-color: var(--color-tidalwave);
-    border-color: var(--color-peeppeaplue);
-    transform: scale(1.05);
-}
-
+/* Calicodress button specific styling */
 .button.bordered.calicodress-buttons {
     background-color: var(--color-calicodress);
     border: 2px solid var(--color-aquasea);
@@ -335,8 +344,8 @@ a:is(:hover, :focus) {
 
 /* Enhanced Parisgreen button specific styling */
 .button.bordered.parisgreen-buttons {
-    background-color: var(--color-calicodress);
-    border: 3px solid var(--color-seacaller); /* Similar border color to Seacaller */
+    background-color: var(--color-peeppeaplue);
+    border: 3px solid var(--color-crushedviolets); /* Similar border color to Seacaller */
     color: white;
     border-radius: 5px; /* Slightly rounded corners */
     padding: 15px 30px; /* Increased padding for better size */
@@ -346,16 +355,16 @@ a:is(:hover, :focus) {
 }
 
 .button.bordered.parisgreen-buttons:hover {
-    background-color: var(--color-aquasea); /* Similar hover background color to Seacaller */
-    border-color: var(--color-seacaller); /* Change border color on hover */
-    color: white; /* Maintain white text color on hover */
-    transform: scale(1.1); /* Slightly enlarge the button on hover */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Enhance the shadow on hover */
+    background-color: var(--color-greekgarden);
+    border-color: var(--color-chinesebellflower);
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 
 /* Enhanced Seacaller button specific styling */
 .button.bordered.seacaller-buttons {
-    background-color: var(--color-seacaller);
+    background-color: var(--color-peeppeaplue);
     border: 3px solid var(--color-crushedviolets); /* Increased border size */
     color: white;
     border-radius: 5px; /* Slightly rounded corners */
@@ -367,36 +376,14 @@ a:is(:hover, :focus) {
 
 .button.bordered.seacaller-buttons:hover {
     background-color: var(--color-aquasea); /* Lighter color for hover state */
-    border-color: var(--color-crushedviolets); /* Change border color on hover */
+    border-color: var(--color-babe); /* Change border color on hover */
     transform: scale(1.1); /* Slightly enlarge the button on hover */
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Enhance the shadow on hover */
 }
 
-/* Bordered Buttons */
-.button.bordered {
-	background-color: transparent;
-	border: 1px solid var(--color-border);
-	color: var(--color-text);
-}
-
-.button.bordered:hover,
-.button.bordered:focus,
-.button.bordered.active {
-	background-color: var(--color-background-hover);
-	color: var(--color-dark);
-}
-
 /* Hover effect for all buttons */
 .button:hover {
-	transform: scale(1.02);
-}
-
-/* Button Hover Styles for See All Sections */
-#more-Peepville:hover,
-#more-PeepPea-Blogs:hover {
-	background-color: var(--color-peeppeaplue);
-	color: white;
-	border-color: var(--color-tidalwave);
+    transform: scale(1.02);
 }
 
 /*  modal dialog
@@ -780,6 +767,9 @@ main>nav[aria-label="Breadcrumb"] {
 	display: none;
 }
 
+/*  char list
+-------------------------------------------------------*/
+
 /* Peeople List */
 .char-list {
 	display: grid;
@@ -830,7 +820,7 @@ main>nav[aria-label="Breadcrumb"] {
 }
 
 .char-list .avatar {
-	padding-bottom: 2.5rem;
+	padding-bottom: 6.3rem;
 	order: -1;
 	display: flex;
 	justify-content: center;
@@ -860,6 +850,7 @@ main>nav[aria-label="Breadcrumb"] {
 	width: 142px;
 	opacity: 0;
 	background-color: var(--color-chinesebellflower);
+	margin-top: 2em;
 }
 
 .char-list>div:is(:hover, :focus-within) .modal-opener {
@@ -872,15 +863,15 @@ main>nav[aria-label="Breadcrumb"] {
 	padding: 60px;
 	width: min(980px, 100%);
 	min-height: 500px;
-	background-color: #fff;
-	border-radius: 6px;
+	background-color: var(--color-coldmorning);
+	border-radius: 1.3em;
 	filter: drop-shadow(0 10px 40px rgba(0, 0, 0, 0.4));
 }
 
 #quick-view>button {
 	/* Close */
 	position: absolute;
-	top: 20px;
+	top: 3em;
 	right: 20px;
 	display: flex;
 	opacity: 0.9;

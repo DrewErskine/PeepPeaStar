@@ -292,13 +292,6 @@
     transform: scale(1.05);
 }
 
-/* Button Hover Styles for See All Sections */
-#more-Peepville:hover, #more-PeepPea-Blogs:hover {
-    background-color: var(--color-peeppeaplue);
-    color: white;
-    border-color: var(--color-tidalwave);
-}
-
 /*-----------------------------------------------------
     4. Responsive (991px)
 -------------------------------------------------------*/

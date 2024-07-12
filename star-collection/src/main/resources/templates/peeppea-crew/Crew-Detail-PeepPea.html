@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Discover more about PeepPea, the beloved ruler of Peepville.">
+	<title>PeepPea | Peep Peas #1 Star</title>
+
+	<!-- favicons and stylesheets -->
+    <!-- favicons -->
+    <link rel="icon" sizes="57x57" href="/images/favicons/catFavicon.png">
+    <meta name="msapplication-TileColor" content="#d4d4d8">
+    <meta name="theme-color" content="#f4f1ec">
+
+	<link rel="stylesheet" href="/css/plugins.css">
+	<link rel="stylesheet" href="/css/common.css?ver=2209301853">
+	<link rel="stylesheet" href="/css/character.css?ver=2209100051">
+</head>
+<body>
+
+	<div id="skip">
+		<a href="#main">Skip to main content</a>
+	</div>
+
+	<div th:replace="~{fragments.html :: header}"/>
+
+	<main id="main">
+
+		<section id="character">
+			<div class="wrapper">
+				<img src="/images/characters/PeepPea.svg" alt="Full image of PeepPea">
+				<blockquote>
+					<p>With great power comes great responsibility.</p>
+				</blockquote>
+			</div>
+			<header>
+				<h1>PeepPea</h1>
+				<p>Queen of Peepville</p>
+			</header>
+			<p>PeepPea is not just the ruler of Peepville; she's also a visionary leader and a beloved icon. Her innovative policies have propelled Peepville into a new era of prosperity and harmony.</p>
+			<dl>
+				<div>
+					<dt>Neighborhood of origin</dt>
+					<dd>Central Peepville</dd>
+				</div>
+				<div>
+					<dt>Favorite food</dt>
+					<dd>Cheeseburgers</dd>
+				</div>
+				<div>
+					<dt>Favorite music genre</dt>
+					<dd>Pop</dd>
+				</div>
+				<div>
+					<dt>Hobby</dt>
+					<dd>Gardening</dd>
+				</div>
+				<div>
+					<dt>Favorite film</dt>
+					<dd>The Lion King</dd>
+				</div>
+			</dl>
+		</section><!-- / #character -->
+	</main>
+
+	<div th:replace="~{fragments.html :: footer}"/>
+
+	<script src="../js/plugins.js?ver=2209212222"></script>
+	<script src="../js/main.js?ver=2209301853"></script>
+
+</body>
+</html>
