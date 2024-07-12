@@ -20,53 +20,62 @@
 		href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,500;1,700&family=Roboto:wght@700&display=swap">
 	<link rel="stylesheet" href="/css/plugins.css">
 	<link rel="stylesheet" href="/css/common.css?ver=2209301853">
-	<link rel="stylesheet" href="/css/home.css?ver=2209301557">
+	<link rel="stylesheet" href="/css/home.css">
 </head>
 
 <body>
 
 	<!--header -->
-	<div th:replace="~{fragments.html :: header}"/>
+	<div th:replace="~{fragments.html :: header}" />
 	<!-- /header -->
 
 	<main id="main">
 
 		<section id="hero" class="splide" aria-label="Hero section">
 			<div class="splide__arrows">
-				<button class="splide__arrow splide__arrow--prev"><img src="/images/icon-chevron-left-white.svg" alt="Previous"></button>
-				<button class="splide__arrow splide__arrow--next"><img src="/images/icon-chevron-left-white.svg" alt="Next"></button>
+				<button class="splide__arrow splide__arrow--prev"><img src="/images/icon-chevron-left-white.svg"
+						alt="Previous"></button>
+				<button class="splide__arrow splide__arrow--next"><img src="/images/icon-chevron-left-white.svg"
+						alt="Next"></button>
 			</div>
 			<div class="splide__track">
 				<ul class="splide__list">
 
 					<!-- 1 -->
-					<li class="splide__slide Peep-Pea" style="background-color: #5dadca85;">
+					<li class="splide__slide Peep-Pea" style="background-color: var(--color-aquasea);">
 						<div class="wrapper">
-							<img src="/images/logo-peep.svg" width="250" height="150" alt="Logo of PeepPea!" style="padding-left: 10px;">
-							<a href="Peep-List.html" class="button lg solid gold">Peep Peep ._.</a>
+							<img src="/images/logo-peep.svg" width="250" height="150" alt="Logo of PeepPea!" class="logo">
+							<a href="Peep-List.html" class="button PeepPeaPals aquasea">Peep Peep ._.</a>
 						</div>
-						<img src="/images/hero-peep-pea" srcset="/images/hero-peep-pea.jpg 1x, /images/hero-peep-pea@2x.jpg 2x, /images/hero-peep-pea@3x.jpg 3x" width="400" height="400" alt="Hero Image of Peep Pea" style="padding-bottom: 50px;">
+						<img src="/images/hero-peep-pea.jpg"
+							srcset="/images/hero-peep-pea.jpg 1x, /images/hero-peep-pea@2x.jpg 2x, /images/hero-peep-pea@3x.jpg 3x"
+							width="400" height="400" alt="Hero Image of Peep Pea" class="hero-image" style="padding-bottom: 100px;">
 					</li>
+
 
 					<!-- 2 -->
 					<li class="splide__slide love">
 						<div class="wrapper">
 							<h2>I Love PeepPea!</h2>
 							<p>PeepPea so cute.</p>
-							<a href="Peep-List.html" class="button lg solid white">PeepPea Sleep</a>
+							<a href="Peep-List.html" class="button PeepPeaPals babe">PeepPea Sleep</a>
 						</div>
-						<img src="/images/hero-more.jpg" srcset="/images/hero-more.jpg 1x, /images/hero-more@2x.jpg 2x, /images/hero-more@3x.jpg 3x" width="502" height="367" alt="" style="padding-inline: 50px;">
+						<img src="/images/hero-more.jpg"
+							srcset="/images/hero-more.jpg 1x, /images/hero-more@2x.jpg 2x, /images/hero-more@3x.jpg 3x"
+							width="502" height="367" alt="" style="padding-inline: 50px;">
 					</li>
 
 					<!-- 3 -->
 					<li class="splide__slide fan">
 						<div class="wrapper">
 							<h2>More PeepPea!</h2>
-							<p>Nala doesnt like Peep </p><br> 
-							<p>Nala doesnt really do much imo.</p>
+							<p>Nala doesn't like Peep</p><br>
+							<p>Nala doesn't really do much imo.</p>
 							<a href="Peep-List.html" class="button lg solid gold">PeepPeas #1 on foenum</a>
 						</div>
-						<img src="/images/hero-nala.jpg" srcset="/images/hero-nala.jpg 1x, /images/hero-nala@2x.jpg 2x, /images/hero-nala@3x.jpg 3x" width="750" height="565" alt="">
+						<img src="/images/hero-nala.jpg"
+							srcset="/images/hero-nala.jpg 1x, /images/hero-nala@2x.jpg 2x, /images/hero-nala@3x.jpg 3x"
+							width="750" height="565" alt="">
 					</li>
 				</ul>
 			</div>
@@ -87,8 +96,12 @@
 					<dd class="avatar"><img src="/images/characters/avatar-Peepville-Nala.png"
 							srcset="/images/characters/avatar-Peepville-Nala.png 1x, /images/characters/avatar-Peepville-Nala.svg 2x"
 							width="200" height="200" alt="Avatar of Nala"></dd>
-					<dd class="desc">Nala is a computational genius who performs calculations for various Peepville businesses and organizations. In her spare time, Nala has been noodling on thecreation of the perfect web browser that will make all other browsers obsolete. We're rooting for you, Nala!</dd>
-					<dd><a href="characters/Character-Detail-Nala.html" id="more-Nala" aria-labelledby="more-Nala name-Nala">See bio</a></dd>
+					<dd class="desc">Nala is a computational genius who performs calculations for various Peepville
+						businesses and organizations. In her spare time, Nala has been noodling on thecreation of the
+						perfect web browser that will make all other browsers obsolete. We're rooting for you, Nala!
+					</dd>
+					<dd><a href="characters/Character-Detail-Nala.html" id="more-Nala"
+							aria-labelledby="more-Nala name-Nala">See bio</a></dd>
 				</div>
 				<div data-full-img="/images/characters/Peepville-PeepPea.svg">
 					<dt id="name-PeepPea" class="title">PeepPea</dt>
@@ -96,8 +109,11 @@
 					<dd class="avatar"><img src="/images/characters/avatar-Peepville-PeepPea.png"
 							srcset="/images/characters/avatar-Peepville-PeepPea.png 1x, /images/characters/avatar-Peepville-PeepPea.svg 2x"
 							width="200" height="200" alt="Avatar of PeepPea"></dd>
-					<dd class="desc">PeepPea is well-loved. All hail peepPea and those opposed will be sent to the realm of burning, far past the trenches of demise, a fate 1000 times worse than being sent to what is commonly known the shadow realm.</dd>
-					<dd><a href="characters/Character-Detail-PeepPea.html" id="more-PeepPea" aria-labelledby="more-PeepPea name-PeepPea">See bio</a></dd>
+					<dd class="desc">PeepPea is well-loved. All hail peepPea and those opposed will be sent to the realm
+						of burning, far past the trenches of demise, a fate 1000 times worse than being sent to what is
+						commonly known the shadow realm.</dd>
+					<dd><a href="characters/Character-Detail-PeepPea.html" id="more-PeepPea"
+							aria-labelledby="more-PeepPea name-PeepPea">See bio</a></dd>
 				</div>
 				<div data-full-img="/images/characters/Peepville-Cooper.svg">
 					<dt id="name-Cooper" class="title">Cooper</dt>
@@ -105,8 +121,13 @@
 					<dd class="avatar"><img src="/images/characters/avatar-Peepville-Cooper.png"
 							srcset="/images/characters/avatar-Peepville-Cooper.png 1x, /images/characters/avatar-Peepville-Cooper.svg 2x"
 							width="200" height="200" alt="Avatar of Cooper"></dd>
-					<dd class="desc">Cooper is inquisitive and creative, and always conjuring up ways to improve Peepville and the lives of its inhabitants. He's been at the forefront of many inventions, but has a special affinity for improving the world through alternative energy and green living. Cooper's engineering collaborations with the City of Peepville have helped the city reduce its energy consumption year over year, and he's twice been awarded keys to Peepville, ong.</dd>
-					<dd><a href="characters/Character-Detail-Cooper.html" id="more-Cooper" aria-labelledby="more-Cooper name-Cooper">See bio</a></dd>
+					<dd class="desc">Cooper is inquisitive and creative, and always conjuring up ways to improve
+						Peepville and the lives of its inhabitants. He's been at the forefront of many inventions, but
+						has a special affinity for improving the world through alternative energy and green living.
+						Cooper's engineering collaborations with the City of Peepville have helped the city reduce its
+						energy consumption year over year, and he's twice been awarded keys to Peepville, ong.</dd>
+					<dd><a href="characters/Character-Detail-Cooper.html" id="more-Cooper"
+							aria-labelledby="more-Cooper name-Cooper">See bio</a></dd>
 				</div>
 			</dl>
 		</section><!-- / .collection.Peepville -->
@@ -186,7 +207,7 @@
 			</dl>
 		</section><!-- / .collection.PeepPea-Blogs -->
 
-<div th:replace="~{fragments.html :: footer}"/>
+		<div th:replace="~{fragments.html :: footer}" />
 
 		<div id="quick-view" role="dialog" aria-modal="true" aria-labelledby="label-quick-view"
 			aria-describedby="desc-quick-view">

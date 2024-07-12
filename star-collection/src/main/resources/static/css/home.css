@@ -1,9 +1,24 @@
 /*-----------------------------------------------------
-
     Title :  Peep Pea Star
     Edited:  07-10-24
-
 -------------------------------------------------------
+/*  0. About colors definitions yay
+-------------------------------------------------------*/
+:root {
+    --color-offwhiteviolet: #f5f5dc9c; /* Border for White or Coldmorning */
+    --color-coldmorning: #e5e5e5; /* Background Main Color */
+    --color-peeppeaplue: #467798; /* Main Color */
+    --color-tidalwave: #355d78; /* Border for Peeppeaplue */
+    --color-babe: #e07b7b; /* Accent for Peeppeaplue */
+    --color-chinesebellflower: #495ba7; /* Secondary Accent or Header Text */
+    --color-seacaller: #40858C; /* Link Hover or Active State */
+    --color-aquasea: #66A3A6; /* Button Hover or Highlight */
+    --color-battleship: #9a6847; /* Warning or Alert Messages */
+    --color-mistyrose: #ffe4e1; /* Background Highlight or Subtle Accents */
+    --color-parisgreen: #4cd583; /* Success Messages or Positive Action Indicators */
+    --color-frenchtoast: #de8321; /* Highlight or Call-to-Action Elements */
+	--color-greekgarden: #8bcc8e; /* Greek Garden */
+}
 
 /*  1. hero
 -------------------------------------------------------*/
@@ -105,14 +120,12 @@
 }
 
 #hero :is(:hover, :focus, .is-active).splide__pagination__page {
-	background-color: var(--color-grape);
+	background-color: var(--color-chinesebellflower);
 }
 
-
 /*  Peep-Pea  */
-
 #hero .Peep-Pea {
-	background-color: var(--color-whitesmoke);
+	background-color: var(--color-offwhiteviolet);
 }
 
 #hero .Peep-Pea>.wrapper {
@@ -131,36 +144,33 @@
 	left: calc(var(--padding-inline-center-content) + (100% - 2 * var(--padding-inline-center-content)) * 0.549);
 }
 
-/*  Sale  */
-
-#hero .love  {
-	color: #000;
-	background-color: var(--color-gold);
+/*  Love  */
+#hero .love {
+	color: var(--color-aquasea);
+	background-color: var(--color-mistyrose);
 }
 
-#hero .love >.wrapper {
+#hero .love>.wrapper {
 	top: 105px;
 }
 
-#hero .love  .wrapper>p {
+#hero .love .wrapper>p {
 	margin-top: 1.2rem;
 }
 
-#hero .love  .wrapper>.button {
+#hero .love .wrapper>.button {
 	margin-top: 62px;
 }
 
-#hero .love >img {
+#hero .love>img {
 	position: absolute;
 	top: 47px;
 	left: calc(var(--padding-inline-center-content) + (100% - 2 * var(--padding-inline-center-content)) * 0.543);
 }
 
-
-/*  Gifts */
-
+/*  Fan  */
 #hero .fan {
-	color: #fff;
+	color:var(--color-greekgarden);
 	background-color: var(--color-offwhiteviolet);
 }
 
@@ -195,7 +205,6 @@
 
 /*  2. collections
 -------------------------------------------------------*/
-
 .collection {
 	position: relative;
 	padding: 40px var(--padding-inline-center-content) 31px;
@@ -212,7 +221,7 @@
 	left: 50%;
 	margin-left: calc(-1 * min(1440px, 100%) / 2);
 	width: min(1440px, 100%);
-	border-top: 1px solid #ECECEC;
+	border-top: 1px solid var(--color-coldmorning);
 }
 
 .collection>header {
@@ -243,10 +252,68 @@
 	position: relative;
 }
 
-
-/*  3. responsive ( 991px)
+/*  3.5. buttons
 -------------------------------------------------------*/
 
+/* Base styles for buttons */
+.button {
+	background-color: var(--color-peeppeablue);
+	display: inline-block;
+	padding: 10px 20px;
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 4px;
+	transition: background-color 0.3s ease, transform 0.3s ease;
+	cursor: pointer;
+}
+
+/* Large button specific styling */
+.lg {
+	padding: 15px 30px;
+}
+
+/* Solid button specific styling */
+.solid {
+	border: 2px solid transparent;
+	background-color: var(--color-peeppeaplue);
+	color: white;
+}
+
+/* Gold button specific styling */
+.gold {
+	background-color: var(--color-frenchtoast);
+	border: 2px solid var(--color-frenchtoast);
+}
+
+/* Hover effect for buttons */
+.button:hover {
+	background-color: var(--color-tidalwave);
+	/* Darker shade for hover */
+	transform: scale(1.05);
+	/* Slightly larger on hover */
+}
+
+/* Specific styles for PeepPeaPals button */
+.PeepPeaPals {
+	background-color: var(--color-seacaller);
+	/* Using your main color */
+	color: white;
+	border: 2px solid var(--color-tidalwave);
+	/* Border color */
+}
+
+/* Hover effect for PeepPeaPals button */
+.PeepPeaPals:hover {
+	background-color: var(--color-tidalwave);
+	/* Darker shade for hover */
+	transform: scale(1.05);
+	/* Slightly larger on hover */
+}
+
+/*  3. responsive (991px)
+-------------------------------------------------------*/
 @media (max-width: 991px) {
 	#hero {
 		margin-bottom: 40px;
@@ -262,6 +329,13 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		position: relative;
+		height: 100%;
+	}
+
+	.splide__slide .hero-image {
+		margin: 0 auto;
+		padding-bottom: 50px;
 	}
 
 	#hero .splide__slide.opaque {
@@ -288,15 +362,13 @@
 		min-width: 0;
 	}
 
-	/*  Big Star  */
-
+	/*  Peep-Pea  */
 	#hero .Peep-Pea {
 		padding-bottom: 32px;
 	}
 
 	#hero .Peep-Pea>.wrapper {
 		margin-top: 46px;
-		margin-top: 0;
 		width: auto;
 	}
 
@@ -307,39 +379,44 @@
 		height: auto;
 	}
 
-	/*  Sale  */
-
-	#hero .love  {
+	/*  Love  */
+	#hero .love {
 		padding-bottom: 66px;
 	}
 
-	#hero .love >.wrapper {
+	#hero .love>.wrapper {
 		margin-top: 31px;
 	}
 
-	#hero .love  .wrapper>p {
+	#hero .love .wrapper>p {
 		margin-top: 1rem;
 	}
 
-	#hero .love  .wrapper>.button {
+	#hero .love .wrapper>.button {
 		margin-top: 40px;
 	}
 
-	#hero .love >img {
+	#hero .love>img {
 		position: static;
 		margin-top: 30px;
 		width: min(335px, 100%);
 		height: auto;
 	}
 
-	/*  Gifts  */
-
+	/*  Fan  */
 	#hero .fan {
 		padding-bottom: 36px;
+		color: var(--color-greekgarden);
+	}
+
+	#hero .fan .wrapper>h2 {
+		margin-top: 1.1rem;
+		color: var(--color-greekgarden);
 	}
 
 	#hero .fan .wrapper>p {
 		margin-top: 1.1rem;
+		color: var(--color-greekgarden);
 	}
 
 	#hero .fan .wrapper p>br {

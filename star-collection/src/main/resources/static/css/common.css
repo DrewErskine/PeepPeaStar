@@ -8,13 +8,20 @@
 /*  0. Extra colors definitions yay
 -------------------------------------------------------*/
 :root {
-	--color-peeppeaplue: #467798;
-    --color-seacaller: #40858C;
-    --color-AquaSea: #66A3A6;
-    --color-battleship: #9a6847;
-    --color-offwhiteviolet: #f5f5dc9c;
-	--color-tidalwave: #355d78;
+    --color-offwhiteviolet: #f5f5dc9c; /* Border for White or Coldmorning */
+    --color-coldmorning: #e5e5e5; /* Background Main Color */
+    --color-peeppeaplue: #467798; /* Main Color */
+    --color-tidalwave: #355d78; /* Border for Peeppeaplue */
+    --color-babe: #e07b7b; /* Accent for Peeppeaplue */
+    --color-chinesebellflower: #495ba7; /* Secondary Accent or Header Text */
+    --color-seacaller: #40858C; /* Link Hover or Active State */
+    --color-aquasea: #66A3A6; /* Button Hover or Highlight */
+    --color-battleship: #9a6847; /* Warning or Alert Messages */
+    --color-mistyrose: #ffe4e1; /* Background Highlight or Subtle Accents */
+    --color-parisgreen: #4cd583; /* Success Messages or Positive Action Indicators */
+    --color-frenchtoast: #de8321; /* Highlight or Call-to-Action Elements */
 }
+
 
 /*  1. reset
 -------------------------------------------------------*/
@@ -137,7 +144,6 @@ html {
 	--color-peeppeaplue: #467798;
 	--color-gold: #fbd78a;
 	--color-grape: #733682;
-	--color-purpleviolet: #863690;
 	--color-violet: #2E1760;
 	--color-offwhiteviolet: #d7c6eb;
 	--color-dark: #191919;
@@ -145,8 +151,8 @@ html {
 	--color-silver: #999;
 	--color-whitesmoke: #f5f5f5;
 	--color-heading: var(--color-dark);
-	--color-link-static: var(--color-purpleviolet);
-	--color-link-hover: var(--color-purpleviolet);
+	--color-link-static: var(--color-peeppeablue);
+	--color-link-hover: var(--color-color-tidalwave);
 	--color-danger: #c00;
 	--color-border: #ccc;
 	--color-inactive: #767676;
@@ -269,6 +275,7 @@ a:is(:hover, :focus) {
 }
 
 
+
 /*  solid  */
 
 :where(.button).solid {
@@ -318,11 +325,11 @@ a:is(:hover, :focus) {
 }
 
 
-/*  bordered - violet  */
+/* bordered - violet */
 :where(.button.bordered).violet {
-	--color-background-hover: var(--color-whitesmoke);
-	color: var(--color-purpleviolet);
-	border: 1px solid var(--color-purpleviolet);
+    --color-background-hover: var(--color-coldmorning);
+    color: var(--color-chinesebellflower);
+    border: 1px solid var(--color-chinesebellflower);
 }
 
 
@@ -440,8 +447,9 @@ form [type="radio"]+label::before {
 }
 
 form [type="radio"]:checked+label::before {
-	background-color: var(--color-purpleviolet);
+    background-color: var(--color-chinesebellflower); 
 }
+
 
 form [type="radio"]:not(:checked)+label:hover::before {
 	border-color: var(--color-gray);
@@ -461,8 +469,8 @@ form [type="checkbox"]+label>svg>rect {
 }
 
 form [type="checkbox"]:checked+label>svg>rect {
-	stroke: var(--color-purpleviolet);
-	fill: var(--color-purpleviolet);
+    stroke: var(--color-chinesebellflower); 
+    fill: var(--color-chinesebellflower);
 }
 
 form [type="checkbox"]:not(:checked)+label:hover>svg>rect {
@@ -535,7 +543,7 @@ fieldset.invalid-inside>.error-message {
 }
 
 .single-line>select:is(:hover, :focus)+svg {
-	fill: var(--color-purpleviolet);
+	fill: var(--color-chinesebellflower);
 }
 
 textarea {
@@ -575,8 +583,8 @@ textarea {
 }
 
 .qty-widget>svg:hover {
-	fill: var(--color-purpleviolet);
-	stroke: var(--color-purpleviolet);
+	fill: var(--color-chinesebellflower);
+	stroke: var(--color-chinesebellflower);
 }
 
 .qty-widget>input {
@@ -680,7 +688,7 @@ main>nav[aria-label="Breadcrumb"] {
 	opacity: 0;
 	width: 100%;
 	height: 100%;
-	border: 1px solid var(--color-purpleviolet);
+	border: 1px solid var(--color-chinesebellflower);
 	border-radius: 6px;
 	transition-property: opacity;
 	transition-duration: var(--trans-dur);
@@ -1070,7 +1078,7 @@ body {
 
 #banner nav .wrapper>figure>ul {
 	--color-link-static: var(--color-body);
-	--color-link-hover: var(--color-purpleviolet);
+	--color-link-hover: var(--color-color-chinesebellflower);
 	display: grid;
 	grid-auto-flow: column;
 	grid-template-rows: repeat(5, 1fr);
@@ -1349,7 +1357,7 @@ body {
 }
 
 #wrapper-in-blog-header summary:is(:hover, :focus, [open] > summary) {
-	color: var(--color-purpleviolet);
+	color: var(--color-color-chinesebellflower);
 }
 
 #wrapper-in-blog-header details .content {
@@ -1390,13 +1398,13 @@ body {
 
 	/* for non-touch devices */
 	#wrapper-in-blog-header details label:hover {
-		color: var(--color-purpleviolet);
+		color: var(--color-color-chinesebellflower);
 		border-color: inherit;
 	}
 }
 
 #wrapper-in-blog-header details :is(:focus, :checked)+label {
-	color: var(--color-purpleviolet);
+	color: var(--color-chinesebellflower);
 	border-color: inherit;
 }
 
@@ -1424,7 +1432,7 @@ body {
 
 :is(:hover, :focus, [aria-expanded="true"])#btn-sort-by {
 	color: var(--color-grape);
-	fill: var(--color-purpleviolet);
+	fill: var(--color-chinesebellflower);
 }
 
 #btn-sort-by>span {
@@ -1471,8 +1479,9 @@ body {
 }
 
 #menu-sort-by li[aria-checked="true"] {
-	color: var(--color-purpleviolet);
+    color: var(--color-chinesebellflower); /* Updated to match your color scheme */
 }
+
 
 #blogs header .radio-menu-widget+button {
 	/* "Filter by" modal trigger for mobile */
@@ -1810,8 +1819,8 @@ body {
 	}
 
 	#nav-panel>ul>li>a[aria-expanded="true"] {
-		color: var(--color-purpleviolet);
-		fill: var(--color-purpleviolet);
+		color: var(--color-chinesebellflower);
+		fill: var(--color-chinesebellflower);
 	}
 
 	#nav-panel a>.icon-chevron-right {
@@ -2051,7 +2060,7 @@ body {
 
 	#btn-sort-by {
 		font-size: 0;
-		fill: var(--color-purpleviolet);
+		fill: var(--color-chinesebellflower);
 	}
 
 	#btn-sort-by>span {
@@ -2078,7 +2087,7 @@ body {
 
 	#blogs header .radio-menu-widget+button>svg {
 		margin-left: 0.8rem;
-		fill: var(--color-purpleviolet);
+		fill: var(--color-chinesebellflower);
 	}
 
 	#blogs .blog-list {

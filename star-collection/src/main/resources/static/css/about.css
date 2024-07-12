@@ -17,6 +17,10 @@
     --color-seacaller: #40858C; /* Link Hover or Active State */
     --color-aquasea: #66A3A6; /* Button Hover or Highlight */
     --color-battleship: #9a6847; /* Warning or Alert Messages */
+    --color-mistyrose: #ffe4e1; /* Background Highlight or Subtle Accents */
+    --color-parisgreen: #4cd583; /* Success Messages or Positive Action Indicators */
+    --color-frenchtoast: #de8321; /* Highlight or Call-to-Action Elements */
+	--color-greekgarden: #8bcc8e; /* Greek Garden */
 }
 
 /*  1. wrapper
@@ -57,7 +61,7 @@
     font-weight: 600;
     color: var(--color-aquasea);
     padding: 10px 20px;
-    border-left: 5px solid var(--color-peeppeaplue);
+    border-left: 5px solid var(--color-babe);
     background-color: rgba(255, 255, 255, 0.8);
     margin: 15px 0;
     display: inline-block;
@@ -586,26 +590,8 @@ nav[aria-label="Category"] {
 	}
 
 	.button.solid.peeppeaPlue {
-		--color-background-static: var(#467798);
-		--color-background-hover: #9a6847;
+		--color-background-static: var(--color-peeppeaplue);
+		--color-background-hover: var(--color-babe);
 		color: var(--color-dark);
-	}
-	
-	.peeppea-account-button {
-		background-color: #467798; /* Change this to the color you prefer */
-		border: none;
-		color: white;
-		padding: 10px 20px;
-		text-align: center;
-		text-decoration: none;
-		display: inline-block;
-		font-size: 16px;
-		margin-top: 1em;
-		cursor: pointer;
-		border-radius: 4px;
-	}
-	
-	.peeppea-account-button:hover {
-		background-color: #9a6847; /* Slightly darker shade for hover effect */
 	}
 }
