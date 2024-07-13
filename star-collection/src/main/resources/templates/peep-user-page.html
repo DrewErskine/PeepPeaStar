@@ -3,14 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <title>Peep User Page</title>
-    <!-- Include your CSS and other resources -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="This is the user dashboard for authenticated users in the Peep Pea Collectibles universe.">
+
+    <!-- favicons -->
+    <link rel="icon" sizes="57x57" href="/images/favicons/catFavicon.png">
+    <meta name="msapplication-TileColor" content="#d4d4d8">
+    <meta name="theme-color" content="#f4f1ec">
+
+    <!-- stylesheets -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,500;1,700&family=Roboto:wght@700&display=swap">
+    <link rel="stylesheet" href="/css/plugins.css">
+    <link rel="stylesheet" href="/css/common.css">
 </head>
 <body>
-    <div th:replace="~{fragments.html :: header}"></div>
-    <main>
-        <h1>Welcome to the Peep User Page</h1>
-        <p>This page is only accessible to logged-in users.</p>
+
+    <!--header -->
+    <div th:replace="~{fragments.html :: header}" />
+    <!-- /header -->
+
+    <main id="main">
+        <div id="wrapper-user-page" class="section-padding">
+            <section id="user-welcome">
+                <header class="section-header">
+                    <h1>Welcome, <span th:text="${user.name}">User</span>!</h1>
+                    <p>This page is only accessible to logged-in users. Here you can manage your settings, view your posts, and more.</p>
+                </header>
+            </section>
+
+            <section id="user-details">
+                <dl class="details-list">
+                    <dt>Email:</dt>
+                    <dd th:text="${user.email}">user@example.com</dd>
+                    <dt>Account Created:</dt>
+                    <dd th:text="${#dates.format(user.dateRegistered, 'MMMM dd, yyyy')}">January 01, 2022</dd>                    
+                </dl>
+            </section>
+
+            <section id="special-action">
+                <button type="button" id="special-info-btn">Get Important Info</button>
+                <div id="important-info" style="display: none;">
+                    <p><strong>Username:</strong> <span th:text="${user.name}"></span></p>
+                    <p><strong>Email:</strong> <span th:text="${user.email}"></span></p>
+                </div>                
+            </section>
+        </div>
     </main>
+
+    <!-- footer -->
     <div th:replace="~{fragments.html :: footer}"></div>
+    <!-- /footer -->
+
+    <script src="/js/plugins.js"></script>
+    <script src="/js/main.js"></script>
+    <script>
+        document.getElementById('special-info-btn').addEventListener('click', function() {
+            const infoDiv = document.getElementById('important-info');
+            if (infoDiv.style.display === 'none') {
+                infoDiv.style.display = 'block';
+            } else {
+                infoDiv.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>

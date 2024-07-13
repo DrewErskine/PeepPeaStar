@@ -49,25 +49,24 @@
       <section id="contact">
         <div class="wrapper">
           <h1>Login</h1>
-          <p th:if="${userSaved}" th:text="'User created, Welcome ' + ${name}" class="success" />
-          <form th:method="post" th:action="@{/saveUser}" th:object="${user}" novalidate>
+          <form th:action="@{/login-user}" method="post">
             <div>
-              <label for="user-name">Username <span aria-hidden="true">*</span></label>
+              <label for="username">Username: <span aria-hidden="true">*</span></label>
               <span class="single-line">
-                <input th:field="*{name}" id="user-name" type="text" required>
+                <input id="username" name="username" type="text" required>
               </span>
-              <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" th:errorclass="error" />
             </div>
             <div>
-              <label for="user-password">Password </label>
+              <label for="password">Password: <span aria-hidden="true">*</span></label>
               <span class="single-line">
-                <input th:field="*{password}" id="user-password" type="text">
+                <input id="password" name="password" type="password" required>
               </span>
-              <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" th:errorclass="error" />
             </div>
             <div>
-              <button type="submit" class="button lg solid peeppeaplue">Submit</button>
+              <button type="submit" class="button lg solid peeppeaplue">Log In</button>
             </div>
+            <p th:if="${param.error}" class="error">Invalid username or password.</p>
+            <p th:if="${param.logout}" class="success">You have been logged out.</p>
           </form>
         </div>
 

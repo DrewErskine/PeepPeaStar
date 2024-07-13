@@ -5,7 +5,7 @@ import jakarta.validation.constraints.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "\"peeppea_user\"")
+@Table(name = "peeppea_user")
 public class User {
 
     @Id
@@ -64,11 +64,11 @@ public class User {
         this.password = password;
     }
 
-    public String getBio() {  // Getter for bio
+    public String getBio() {
         return bio;
     }
 
-    public void setBio(String bio) {  // Setter for bio
+    public void setBio(String bio) {
         this.bio = bio;
     }
 
