@@ -17,45 +17,48 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 
     @Bean
-    SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/", "/home", "/login-user", "/register-user", "/contact-peeppea", "/peepuser-account", "/aboutPeepPea", "/peepuser-account", "/newUser", "/oldUser", 
-                                "/blog/{id}", "/blog-list", "/getAllBlogs",
-                                "/register-user",
-                                "/about", "/css/**", "/js/**", "/images/**")
-                        .permitAll()
-                        .requestMatchers("/newBlog", "/saveBlog", "/peep-user-page").authenticated()
-                        .anyRequest().authenticated())
-                .formLogin(form -> form
-                        .loginPage("/login-user")
-                        .defaultSuccessUrl("/home", true)
-                        .permitAll())
-                .logout(logout -> logout
-                        .logoutSuccessUrl("/login-user?logout")
-                        .permitAll());
+            .csrf(csrf -> csrf.disable())
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/", "/home", "/login-user", "/register-user", "/contact-peeppea", "/peepuser-account", "/aboutPeepPea", "/newUser", "/peepuser", "/peep-user-page",
+                        "/blog/{id}", "/blog-list", "/getAllBlogs", "/peeppea-crew/Peepville.html", "/characters/*",
+                        "/about", "/css/**", "/js/**", "/images/**")
+                .permitAll()
+                .requestMatchers("/newBlog", "/saveBlog", "/peep-user-page")
+                .authenticated()
+                .anyRequest()
+                .authenticated())
+            .formLogin(form -> form
+                .loginPage("/login-user")
+                .loginProcessingUrl("/login-user")
+                .defaultSuccessUrl("/peepuser", true)
+                .permitAll())
+            .logout(logout -> logout
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/login-user?logout")
+                .permitAll());
         return http.build();
     }
 
     @Bean
-    PasswordEncoder passwordEncoder() {
+    public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
     @Bean
-    UserDetailsService userDetailsService(PasswordEncoder passwordEncoder) {
+    public UserDetailsService userDetailsService(PasswordEncoder passwordEncoder) {
         User.UserBuilder users = User.builder().passwordEncoder(passwordEncoder::encode);
         UserDetails drew = users
-                .username("drew")
-                .password("peeppea33")
-                .roles("USER")
-                .build();
+            .username("drew")
+            .password("peeppea33")
+            .authorities("USER")
+            .build();
         UserDetails peeppea = users
-                .username("peeppea")
-                .password("peeppea33")
-                .roles("USER")
-                .build();
+            .username("peeppea")
+            .password("peeppea33")
+            .authorities("USER")
+            .build();
         return new InMemoryUserDetailsManager(drew, peeppea);
     }
 }

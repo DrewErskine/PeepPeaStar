@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Learn more about Cooper, the loyal but slightly annoying dog of Peepville.">
+    <title>Cooper | Peep Peas #1 Star</title>
+
+    <!-- favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/favicon-16x16.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" sizes="57x57" href="/images/favicons/catFavicon.png">
+    <meta name="msapplication-TileColor" content="#d4d4d8">
+    <meta name="theme-color" content="#f4f1ec">
+
+    <!-- stylesheets -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,500;1,700&display=swap">
+    <link rel="stylesheet" href="/css/plugins.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/about.css">
+    <link rel="stylesheet" href="/css/crew.css">
+</head>
+
+<body>
+
+    <div id="skip">
+        <a href="#main">Skip to main content</a>
+    </div>
+
+    <div th:replace="~{fragments.html :: header}" />
+
+    <main id="main">
+        <!-- Using about page wrapper IDs and classes -->
+        <div class="profile-wrapper">
+            <img src="/images/characters/details/pfp/cooper.jpg" alt="Full image of Cooper" class="character-image">
+            <blockquote>
+                <p>"Woof woof! Guarding PeepPea, no matter how annoying it gets!"</p>
+                <footer>Cooper, on his protective instincts</footer>
+            </blockquote>
+        </div>
+        <section id="wrapper-about" class="character-profile">
+            <header class="section-header character-header">
+                <div class="character-info">
+                    <h1>Cooper</h1>
+                    <p>Guardian and Playful Companion</p>
+                </div>
+            </header>
+            <p class="character-bio">Despite being a bit of a nuisance at times, Cooper is a cherished member of the Peepville community, known for his unwavering loyalty and occasional heroic deeds.</p>
+        </section><!-- / #character -->
+        <dl class="character-details">
+            <div>
+                <dt>Neighborhood of origin</dt>
+                <dd>West Peepville</dd>
+            </div>
+            <div>
+                <dt>Favorite snack</dt>
+                <dd>Bone-shaped biscuits</dd>
+            </div>
+            <div>
+                <dt>Favorite pastime</dt>
+                <dd>Chasing his tail</dd>
+            </div>
+        </dl>
+    </main>
+
+    <div th:replace="~{fragments.html :: footer}" />
+
+    <script src="../js/plugins.js"></script>
+    <script src="../js/main.js"></script>
+
+</body>
+
+</html>

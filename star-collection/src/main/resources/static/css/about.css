@@ -1,10 +1,15 @@
 /*-----------------------------------------------------
-
     Title :  Peep Pea Star
     Edited:  07-10-24
+-------------------------------------------------------*/
 
--------------------------------------------------------
-/*  1. wrapper
+/*-----------------------------------------------------
+    Colors - @import url('variables.css');
+-------------------------------------------------------*/
+@import url('colors.css');
+
+/*-----------------------------------------------------
+    1. Wrapper
 -------------------------------------------------------*/
 
 #wrapper-about {
@@ -17,91 +22,125 @@
 	width: var(--width-center-section);
 }
 
-
-
-/*  2. about pages content
--------------------------------------------------------*/
-
 #wrapper-about>section {
-	width: calc(100% - 300px);
+    width: calc(100% - 300px);
 }
 
 #wrapper-about>section:not(#contact) {
-	font-size: 2rem;
+    font-size: 2rem;
 }
 
 #wrapper-about section:not(#contact)>img {
-	display: block;
-	margin: 0 auto 46px;
-	text-align: center;
+    display: block;
+    margin: 0 auto 46px;
+    text-align: center;
 }
 
 #wrapper-about>section h1 {
-	font-weight: 400;
-	font-size: 4rem;
+    font-weight: 400;
+    font-size: 4rem;
 }
 
 #wrapper-about>section:not(#contact) h1~h1 {
-	margin-top: 5.5rem;
+    margin-top: 5.5rem;
 }
 
 #wrapper-about>section:not(#contact) h1~h1+p {
-	margin-top: 0.6rem;
+    margin-top: 0.6rem;
 }
 
 #wrapper-about>section:not(#contact)>section:first-of-type,
 #wrapper-about>section:not(#contact)>h2:first-of-type {
-	margin-top: -0.6rem;
+    margin-top: -0.6rem;
 }
 
 #wrapper-about>section:not(#contact) h2 {
-	margin-top: 5.2rem;
-	font-weight: 300;
-	font-size: 3.2rem;
+    margin-top: 5.2rem;
+    font-weight: 300;
+    font-size: 3.2rem;
 }
 
 #wrapper-about>section:not(#contact) p {
-	margin-top: 0.9rem;
+    margin-top: 0.9rem;
 }
 
 #wrapper-about>section:not(#contact) ul,
 #wrapper-about>section:not(#contact) ol {
-	counter-reset: item-number;
-	margin-top: 0.9rem;
-	padding-left: 3rem;
+    counter-reset: item-number;
+    margin-top: 0.9rem;
 }
 
 #wrapper-about>section:not(#contact) li {
-	position: relative;
+    position: relative;
 }
 
 #wrapper-about>section:not(#contact) ul>li::before {
-	content: "";
-	position: absolute;
-	top: 1rem;
-	left: -1.8rem;
-	width: 0.6rem;
-	height: 0.6rem;
-	background-color: var(--color-body);
-	border-radius: 50%;
-	clip-path: circle(50%);
+    content: "";
+    position: absolute;
+    top: 1rem;
+    left: -1.8rem;
+    width: 0.6rem;
+    height: 0.6rem;
+    background-color: var(--color-body);
+    border-radius: 50%;
+    clip-path: circle(50%);
 }
 
 #wrapper-about>section:not(#contact) ol>li::before {
-	content: counter(item-number) ".";
-	counter-increment: item-number;
-	position: absolute;
-	top: 0.09rem;
-	right: calc(100% + 0.7rem);
-	color: var(--color-dark);
-	font-weight: 700;
-	font-family: Roboto, sans-serif;
-	text-align: right;
+    content: counter(item-number) ".";
+    counter-increment: item-number;
+    position: absolute;
+    top: 0.09rem;
+    right: calc(100% + 0.7rem);
+    color: var(--color-offwhiteviolet);
+    font-weight: 700;
+    font-family: Roboto, sans-serif;
+    text-align: right;
 }
 
+/*-----------------------------------------------------
+    2. About Pages Content
+-------------------------------------------------------*/
 
+#about h1 {
+    font-size: 4.5rem;
+    font-weight: 700;
+    color: var(--color-seacaller);
+    background-color: var(--color-coldmorning);
+    padding: 20px 40px;
+    border-radius: 5px;
+    border-bottom: 4px solid var(--color-chinesebellflower);
+    box-shadow: 0 4px 6px var(--color-aquasea);
+    text-align: center;
+    margin: 20px 0;
+    transition: transform 0.3s ease-in-out;
+}
 
-/*  2.1. Contact us
+#about h2 {
+    font-size: 3.2rem;
+    font-weight: 600;
+    color: var(--color-aquasea);
+    padding: 10px 20px;
+    border-left: 5px solid var(--color-babe);
+    background-color: rgba(255, 255, 255, 0.8);
+    margin: 15px 0;
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
+}
+
+#about h1:hover, #about h2:hover {
+    transform: scale(1.01);
+    box-shadow: 0 6px 8px var(--color-chinesebellflower);
+}
+
+.tab {
+    display: inline-block;
+    margin-left: 4em;
+    padding: 1.3em;
+}
+
+/*-----------------------------------------------------
+    2.1. Contact Us
 -------------------------------------------------------*/
 
 #contact {
@@ -155,8 +194,8 @@
 }
 
 #contact .dragged-over {
-	background-color: #EBDAED;
-	border-color: var(--color-purpleviolet);
+	background-color: var(--color-coldmorning);
+	border-color: var(--color-seacaller);
 }
 
 #contact .drop-zone>p {
@@ -189,7 +228,7 @@
 	font-weight: 400;
 	font-size: 2rem;
 	text-align: center;
-	background-color: #EFEFEF;
+	background-color: var(--color-coldmorning);
 	border: 1px solid #767676;
 	border-radius: 4px;
 	transition-property: color, background-color;
@@ -282,50 +321,46 @@
 	margin-top: 2.5rem;
 }
 
-
-
-/*  3. category navigation
+/*-----------------------------------------------------
+    2.2. Bird Battle
 -------------------------------------------------------*/
 
-/* Old User Navigation Styles */
-nav[aria-label="oldUser"] {
-    --color-link-static: var(--color-dark);
-    --color-link-hover: var(--color-red); /* Example of changing color */
-    --text-deco-line: none;
-    --color-link-background-hover: transparent;
-    position: relative; /* Changed from sticky to relative */
-    top: auto; /* Removed sticky positioning */
-    width: 100%; /* Full width for better distinction */
-    border-bottom: 2px solid var(--color-red); /* Thicker and different colored border */
-    background-color: var(--color-light-grey); /* Light background for the section */
-    padding: 10px 20px; /* Added padding for better spacing */
+#observationsTitle {
+    color: #333;
+    font-family: 'Arial', sans-serif;
 }
 
-[aria-label="oldUser"] li {
-    border-top: 1px solid var(--color-red); /* Consistent color with section border */
-}
-
-[aria-label="oldUser"] a {
+.centered-line {
     display: block;
-    padding: 10px; /* Increased padding for better clickability */
-    cursor: pointer;
-    font-size: 1.4rem; /* Slightly smaller font for distinction */
-    color: var(--color-red); /* Red color links for visual distinction */
+    text-align: center;
+    color: #b15d5d;
+    margin: 10px 0;
+    font-weight: bold;
+	font-size: 1.3em;
 }
 
-[aria-label="oldUser"] a:hover {
-    background-color: var(--color-link-hover); /* Hover effect for links */
+.peeppea-stats {
+    display: block;
+    text-align: center;
+    color: #1b1b1b;
+    margin: 3px 0;
+    font-weight: 500;
+	font-size: .5em;
 }
 
-/* Ensure these variables are defined or replace them with actual color values */
-:root {
-    --color-red: #ff0000;
-    --color-light-grey: #f0f0f0;
+.centered-line::before {
+	font-size: 3em;
+    content: '🐦';
+    padding-right: .3em;
 }
+
+/*-----------------------------------------------------
+    3. Category Navigation
+-------------------------------------------------------*/
 
 nav[aria-label="Category"] {
 	--color-link-static: var(--color-dark);
-	--color-link-hover: var(--color-purpleviolet);
+	--color-link-hover: var(--color-seacaller);
 	--text-deco-line: none;
 	--color-link-background-hover: transparent;
 	position: sticky;
@@ -350,21 +385,64 @@ nav[aria-label="Category"] {
 	font-weight: 500;
 }
 
+/*-----------------------------------------------------
+    4. User Actions Navigation
+-------------------------------------------------------*/
 
+nav[aria-label="UserActions"] {
+    --color-link-static: var(--color-calicodress);
+    --color-link-hover: var(--color-peeppeaplue);
+    --text-deco-line: none;
+    --color-link-background-hover: transparent;
+    position: relative;
+    top: auto;
+    width: 100%;
+    border-bottom: 2px solid var(--color-peeppeaplue);
+    background-color: var(--color-light-offwhiteviolet);
+    padding: 10px 20px;
+}
 
-/*  4. responsive ( 991px)
+[aria-label="UserActions"] li {
+    border-top: 1px solid var(--color-peeppeaplue);
+}
+
+[aria-label="UserActions"] a {
+    display: block;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.4rem;
+    color: var(--color-peeppeaplue);
+}
+
+[aria-label="UserActions"] a:hover {
+    background-color: var(--color-link-hover);
+}
+
+/*-----------------------------------------------------
+    5. Company Info (991px)
+-------------------------------------------------------*/
+
+.company-info {
+    color: rgba(0, 0, 0, 0.7);
+    font-weight: 300;
+    font-size: 1.3rem;
+}
+
+.company-info h2 {
+    font-size: 1.8rem;
+    font-weight: 400;
+}
+
+/*-----------------------------------------------------
+    6. Responsive (991px)
 -------------------------------------------------------*/
 
 @media (max-width: 991px) {
 
-	/*  1. wrapper  */
-
+	/* Wrapper */
 	#wrapper-about {
 		display: block;
 	}
-
-
-	/*  2. about pages content  */
 
 	#wrapper-about>section {
 		width: auto;
@@ -408,9 +486,7 @@ nav[aria-label="Category"] {
 		right: calc(100% + 0.55rem);
 	}
 
-
-	/*  2.1. Contact us  */
-
+	/* Contact Us */
 	#contact {
 		display: block;
 		margin-top: -59px;
@@ -441,11 +517,37 @@ nav[aria-label="Category"] {
 		margin-top: 10.1rem;
 	}
 
-
-	/*  3. category navigation  */
-
+	/* Sidebar Navigation */
 	nav[aria-label="Category"] {
 		display: none;
 	}
 
+	.about-peeppea-sidebar {
+		padding: 1.3em;
+		padding-top: 30em;
+	}
+	
+	.about-peeppea-sidebar h1 {
+		font-size: 1.5em;
+		margin-bottom: 1em;
+	}
+	
+	.about-peeppea-sidebar ul {
+		list-style-type: none;
+		padding: 0;
+	}
+	
+	.about-peeppea-sidebar ul li {
+		margin-bottom: 0.5em;
+	}
+	
+	.about-peeppea-sidebar ul li a {
+		color: #40858C;
+		text-decoration: none;
+		font-weight: bold;
+	}
+	
+	.about-peeppea-sidebar ul li a:hover {
+		text-decoration: underline;
+	}
 }

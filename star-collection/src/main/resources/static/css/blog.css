@@ -1,134 +1,216 @@
 /*-----------------------------------------------------
+    Blog Section
+-------------------------------------------------------*/
 
-    Title :  Peep Pea Star
-    Edited:  07-10-24
-
--------------------------------------------------------
-/* General Blog Styles */
-body {
-    font-family: 'Ubuntu', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    margin: 0;
-    padding: 0;
+/* Blog List Container */
+#blogs {
+    display: grid;
+    grid-template-areas:
+        "blog-list";
+    margin-top: 21px;
+    padding-top: 40px;
+    border-top: 1px solid var(--color-border);
 }
 
-main.blog-detail-main {
+/* Blog List Pagination */
+#blogs>nav {
+    --color-link-static: var(--color-dark);
+    --color-link-hover: var(--color-dark);
+    --color-link-background-hover: var(--color-whitesmoke);
+    --text-deco-line: none;
+    grid-area: Pagination;
+    margin: 38px 0 -25px;
+    padding-top: 40px;
+    border-top: 1px solid var(--color-border);
+}
+
+#blogs>nav>ul {
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
-    width: 80%;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    max-width: 1200px;
+    cursor: default;
 }
 
-header.blog-detail-header {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-header h1 {
-    color: #333;
-    font-size: 24px;
-}
-
-.blog-detail-content {
+#blogs>nav li {
     display: flex;
-    width: 100%;
+    justify-content: center;
+}
+
+#blogs>nav li+li {
+    margin-left: -1px;
+}
+
+#blogs>nav li>a,
+#blogs>nav li>span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 12px;
+    padding: 0 10px;
+    min-width: 44px;
+    min-height: 44px;
+    font-size: 2rem;
+    border: 1px solid var(--color-border);
+}
+
+/* Disabled Pagination Links */
+#blogs>nav li[aria-hidden="true"]>a {
+    --color-link-static: var(--color-inactive);
+    --color-link-hover: var(--color-inactive);
+    --color-link-background-hover: transparent;
+    cursor: default;
+}
+
+#blogs>nav li>a[aria-current="page"] {
+    position: relative;
+    font-weight: 700;
+    border-color: currentColor;
+}
+
+/* Pagination Navigation (Previous and Next) */
+#blogs>nav li>a:is(.prev, .next) {
+    padding: 0 15px;
+    font-size: 1.6rem;
+}
+
+#blogs>nav li:first-child>a {
+    border-radius: 6px 0 0 6px;
+}
+
+#blogs>nav li:last-child>a {
+    border-radius: 0 6px 6px 0;
+}
+
+/* SVG Styles for Pagination */
+#blogs>nav a>svg {
+    margin-top: 1px;
+    fill: var(--color-dark);
+}
+
+#blogs>nav [aria-hidden="true"]>a>svg {
+    fill: var(--color-inactive);
+}
+
+/* Blog List */
+#blogs .blog-list {
+    grid-area: blog-list;
+}
+
+/* Filter Button (Mobile) */
+#blogs header .radio-menu-widget+button {
+    display: none;
 }
 
 .blog-image {
-    flex: 1;
-    max-width: 40%; /* Adjusted for better proportion */
-    padding: 20px;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;   
+    overflow: hidden;   
+    height: 420px;    
+    width: 100%;          
+    background-color: var( --color-offwhiteviolet);
+
 }
 
 .blog-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
+    max-width: 100%;    
+    max-height: 100%;     
+    height: auto;  
+    width: auto; 
 }
 
 .blog-text {
-    flex: 2;
+    margin-top: 20px;
+    background-color: #fff;
     padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+}
+
+.blog-detail-header h1 {
+    color: #333;
+    font-size: 1.75em;
+    margin-bottom: 0.5em;
+}
+
+.blog-metadata {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85em;
+    color: #666;
+    margin-bottom: 1em; 
+}
+
+.blog-metadata span {
+    background: #e8e8e8;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.blog-text p {
+    font-size: 1em; 
+    color: #444;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+/* Comment Posting Section */
+.post-comment {
+    background: #f9f9f9;
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.post-comment h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.post-comment form {
     display: flex;
     flex-direction: column;
 }
 
-.blog-metadata {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 20px;
-}
-
-.blog-metadata span {
-    display: block;
-    margin-top: 5px;
-}
-
-p {
-    margin-top: 20px;
-}
-
-/* Comment Section Styles */
-section.post-comment,
-section.comments {
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 1200px;
-    background-color: #f9f9f9;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.post-comment h2,
-.comments h2 {
-    color: #333;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #ccc;
-}
-
-.comments form {
-    margin-top: 20px;
-}
-
-.comments textarea {
-    width: 100%;
+.post-comment textarea {
+    font-family: 'Ubuntu', sans-serif;
+    padding: 10px;
     height: 100px;
-    margin-bottom: 10px;
+    border-radius: 5px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    resize: none; /* Disable resizing of the textarea */
 }
 
-.comments button {
-    background-color: #0056b3;
+.post-comment button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: var(--color-peeppeaplue); /* Green */
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.2s;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .blog-detail-content {
-        flex-direction: column;
-    }
+.post-comment button:hover {
+    background-color: var(--color-crushedviolets);
+}
 
-    .blog-image, .blog-text {
-        width: 100%;
-    }
+/* Comments Display Section */
+.comments {
+    margin-top: 20px;
+}
 
-    header h1 {
-        font-size: 20px;
-    }
+.comments .blog-post {
+    background: #ffffff;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
 
-    .comments, .post-comment {
-        width: 95%;
-    }
+.comments .blog-post:nth-child(odd) {
+    background: #f8f8f8; /* Slightly different background for odd items */
 }

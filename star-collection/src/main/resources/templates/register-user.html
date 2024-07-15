@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
-  <title>Contact us | Peep Pea Collectibles</title>
+  <title>Register | Peep Pea</title>
 
   <!-- favicons -->
   <link rel="icon" sizes="57x57" href="/images/favicons/catFavicon.png">
@@ -71,7 +71,7 @@
             <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error"/>
           </div>
           <div>
-            <button type="submit" class="button lg solid gold">Submit</button>
+            <button type="submit" class="button lg solid peeppeaplue">Submit</button>
           </div>
         </form>
       </div>
@@ -155,15 +155,15 @@
 
     <nav aria-label="Category">
       <div>
-        <nav aria-label="oldUser">
+        <nav aria-label="UserActions">
           <h1>Already have an account?</h1>
-          <li><a th:href="@{/oldUser}" class="button lg solid gold" style="text-align: center;">Login Here</a></li>
+          <li><a th:href="@{/oldUser}" class="button lg solid peeppeaplue" style="text-align: center;">Login Here</a></li>
         </nav>
       </div>
       <ul>
-        <li><a th:href="@{/about}">About Peep Pea Star</a></li>
-        <li><a th:href="@{/story}">Peep Pea story</a></li>
-        <li><a th:href="@{/army}">Peep Pea Army</a></li>
+        <li><a th:href="@{/aboutPeepPea}">About Peep Pea Star</a></li>
+        <li><a th:href="@{/home}">Peep Pea story</a></li>
+        <li><a th:href="@{/getAllBlogs}">Peep Pea Army</a></li>
         <li><a th:href="@{/faq}">FAQ</a></li>
       </ul>
     </nav>

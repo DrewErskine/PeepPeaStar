@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Explore the diverse blogs at Peep Pea Star, covering a range of topics from tech to personal stories.">
-    <title>Blog List | Peep Pea Star</title>
+    <title>Blog List | Peep Pea</title>
 
     <!-- favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-icon-180x180.png">
@@ -65,9 +65,8 @@
                         <span th:text="'Likes: ' + ${blog.likes}"></span>
                         <span th:text="'Comments: ' + ${blog.noOfComments}"></span>
                     </dd>
-                    <div><br></div>
                 </div>
-            </dl>
+            </dl>                     
         </section><!-- / #blogs -->
     </main>
     <div th:replace="~{fragments.html :: footer}"></div>
