@@ -79,7 +79,7 @@
             <header>
                 <img src="/images/Cats.svg" width="420" height="420" alt="Logo of Peepville">
                 <h1>Explore <span id="name-Peepville">Peepville</span></h1>
-                <a href="/peeppea-crew/Peepville.html" class="button bordered parisgreen-buttons" id="more-Peepville" aria-labelledby="more-Peepville name-Peepville">See all characters <span class="arrow" aria-hidden="true">&rarr;</span></a>
+                <a href="/Peepville.html" class="button bordered parisgreen-buttons" id="more-Peepville" aria-labelledby="more-Peepville name-Peepville">Meet the PeepPea Crew<span class="arrow" aria-hidden="true">&rarr;</span></a>
             </header>            
             <dl class="char-list" style="background-color: #a8d5ba1f">
                 <div data-full-img="/images/characters/Peepville-Nala.svg" class="character-container">
@@ -92,7 +92,7 @@
                         Nala, a computational genius, leverages her intellect to aid Peepville's businesses. She is currently developing a revolutionary web browser aimed at redefining internet navigation.
                     </dd>
                     <dd>
-                        <a th:href="@{/getCharacter/{charname} (charname='Character-Detail-Nala')}" id="more-Nala" aria-labelledby="more-Nala name-Nala">See bio</a>
+                        <a th:href="@{/getCharacter/{charname} (charname='Crew-Detail-Nala')}" id="more-Nala" aria-labelledby="more-Nala name-Nala">See bio</a>
                     </dd>
                 </div>
                 <div data-full-img="/images/characters/Peepville-PeepPea.svg">
@@ -105,7 +105,7 @@
                         PeepPea, the cherished sovereign of Peepville, is revered for her wisdom and benevolence. Her leadership has ushered in an era of peace and prosperity across the land.
                     </dd>
                     <dd>
-                        <a th:href="@{/getCharacter/{charname} (charname='Character-Detail-PeepPea')}" id="more-PeepPea" aria-labelledby="more-PeepPea name-PeepPea">See bio</a>
+                        <a th:href="@{/getCharacter/{charname} (charname='Crew-Detail-PeepPea')}" id="more-PeepPea" aria-labelledby="more-PeepPea name-PeepPea">See bio</a>
                     </dd>
                 </div>
                 <div data-full-img="/images/characters/Peepville-Cooper.svg">
@@ -118,7 +118,7 @@
                         Cooper's ingenuity has led to numerous advancements in Peepville, especially in sustainable living and technology. His efforts have significantly enhanced the quality of life for all its residents.
                     </dd>
                     <dd>
-                        <a th:href="@{/getCharacter/{charname} (charname='Character-Detail-Cooper')}" id="more-Cooper" aria-labelledby="more-Cooper name-Cooper">See bio</a>
+                        <a th:href="@{/getCharacter/{charname} (charname='Crew-Detail-Cooper')}" id="more-Cooper" aria-labelledby="more-Cooper name-Cooper">See bio</a>
                     </dd>
                 </div>
             </dl>
@@ -128,7 +128,7 @@
             <header>
                 <img src="/images/logo-peep.svg" width="220" height="220" alt="Logo of PeepPea Blog">
                 <h1>Explore <span id="name-PeepPea-Blogs">PeepPea Blog</span></h1>
-                <a th:href="@{/getAllBlogs}" class="button bordered seacaller-buttons" id="more-PeepPea-Blogs" aria-labelledby="more-PeepPea-Blogs name-PeepPea-Blogs">See all characters <span class="arrow" aria-hidden="true">&rarr;</span></a>
+                <a th:href="@{/getAllBlogs}" class="button bordered seacaller-buttons" id="more-PeepPea-Blogs" aria-labelledby="more-PeepPea-Blogs name-PeepPea-Blogs">See more blog posts! <span class="arrow" aria-hidden="true">&rarr;</span></a>
             </header>
             <dl class="char-list">
                 <!-- Blog Post: peeppeazzZ... -->
@@ -141,7 +141,7 @@
                             width="400" height="275" alt="Avatar of PeepPeaNap">
                     </dd>
                     <dd class="desc">Had a long nap while human made dumb click clack again... Wonder what dumb human click clacking about rn.</dd>
-                    <dd><a th:href="@{/getCharacter/{charname} (charname='Character-Detail-PeepPeaNap')}" id="more-PeepPeaNap" aria-labelledby="more-PeepPeaNap name-PeepPeaNap">See more from PeepPea - Bio</a></dd>
+                    <dd><a th:href="@{/getCharacter/{charname} (charname='Tail-Detail-PeepPeaNap')}" id="more-PeepPeaNap" aria-labelledby="more-PeepPeaNap name-PeepPeaNap">See more from PeepPea - Bio</a></dd>
                     <dd class="author" style="font-size: 20px; font-weight: bold;">By: PeepPea</dd>
                 </div>
         
@@ -153,7 +153,7 @@
                             srcset="/images/characters/PeepPea-Blogs-PeepPea.png 1x, /images/characters/PeepPea-Blogs-PeepPea@2x.png 2x, /images/characters/PeepPea-Blogs-PeepPea@3x.png 3x"
                             width="400" height="275" alt="Avatar of PeepPea"></dd>
                     <dd class="desc">Join PeepPea as she chronicles her journey as the beloved queen of Peepville. From her rise to power to the challenges she faces, PeepPea offers a candid look into the life of royalty in Peepville.</dd>
-                    <dd><a th:href="@{/getCharacter/{charname} (charname='Character-Detail-PeepPea')}" id="more-PeepPea" aria-labelledby="more-PeepPea name-PeepPea">See more from PeepPea - Bio</a></dd>
+                    <dd><a th:href="@{/getCharacter/{charname} (charname='Tail-Detail-PeepPea')}" id="more-PeepPea" aria-labelledby="more-PeepPea name-PeepPea">See more from PeepPea - Bio</a></dd>
                     <dd class="author" style="font-size: 20px; font-weight: bold;">By: PeepPea</dd>
                 </div>
         
@@ -165,7 +165,7 @@
                             srcset="/images/characters/PeepPea-Blogs-Nala.png 1x, /images/characters/PeepPea-Blogs-Nala@2x.png 2x, /images/characters/PeepPea-Blogs-Nala@3x.png 3x"
                             width="400" height="275" alt="Avatar of Nala"></dd>
                     <dd class="desc">Nala is a computational genius who performs calculations for various Peepville businesses and organizations. In her spare time, Nala has been noodling on the creation of the perfect web browser that will make all other browsers obsolete. We're rooting for you, Nala!</dd>
-                    <dd><a th:href="@{/getCharacter/{charname} (charname='Character-Detail-Nala')}" id="more-Nala" aria-labelledby="more-Nala name-Nala">See more from Nala - Bio</a></dd>
+                    <dd><a th:href="@{/getCharacter/{charname} (charname='Tail-Detail-Nala')}" id="more-Nala" aria-labelledby="more-Nala name-Nala">See more from Nala - Bio</a></dd>
                     <dd class="author" style="font-size: 20px; font-weight: bold;">By: PeepPea</dd>
                 </div>
         
@@ -177,7 +177,7 @@
                             srcset="/images/characters/PeepPea-Blogs-PeepPeaCharge.png 1x, /images/characters/PeepPea-Blogs-PeepPeaCharge@2x.png 2x, /images/characters/PeepPea-Blogs-PeepPeaCharge@3x.png 3x"
                             width="400" height="275" alt="Avatar of PeepPeaCharge"></dd>
                     <dd class="desc">PeepPeaCharge RAWRRRRRRRRRRRRRRRRRR RAAAHHHHHHHHHHH RAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH.</dd>
-                    <dd><a th:href="@{/getCharacter/{charname} (charname='Character-Detail-PeepPeaCharge')}" id="more-PeepPeaCharge" aria-labelledby="more-PeepPeaCharge name-PeepPeaCharge">See more from Cooper - Bio</a></dd>
+                    <dd><a th:href="@{/getCharacter/{charname} (charname='Tail-Detail-PeepPeaCharge')}" id="more-PeepPeaCharge" aria-labelledby="more-PeepPeaCharge name-PeepPeaCharge">See more from Cooper - Bio</a></dd>
                     <dd class="author" style="font-size: 20px; font-weight: bold;">By: Cooper</dd>
                 </div>
             </dl>

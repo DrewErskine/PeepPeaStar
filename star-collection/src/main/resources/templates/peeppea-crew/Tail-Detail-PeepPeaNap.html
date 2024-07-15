@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Follow PeepPeaNap's lazy adventures in Peepville.">
+    <title>peeppeazzZ... | Peep Peas #1 Star</title>
+
+    <!-- favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/favicon-16x16.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/css/plugins.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/crew.css">
+</head>
+
+<body>
+
+    <div id="skip">
+        <a href="#main">Skip to main content</a>
+    </div>
+
+    <div th:replace="~{fragments.html :: header}" />
+
+    <main id="main">
+        <section class="profile-wrapper">
+            <img src="/images/characters/details/pfp/peeppeanap.jpg" alt="PeepPeaNap - The Nap Master" class="character-image">
+            <div class="character-info">
+                <h1>peeppeazzZ...</h1>
+                <p>Had a long nap while human made dumb click clack again... Wonder what dumb human click clacking about rn.</p>
+            </div>
+        </section>
+    </main>
+
+    <div th:replace="~{fragments.html :: footer}" />
+
+    <script src="../js/plugins.js"></script>
+    <script src="../js/main.js"></script>
+
+</body>
+
+</html>

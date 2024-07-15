@@ -14,17 +14,6 @@
                 <li><a th:href="@{/home}" aria-current="page">Home</a></li>
                 <li><a th:href="@{/getAllBlogs}">Peep Pea Pets</a></li>
                 <li><a th:href="@{/aboutPeepPea}">About Peep</a></li>
-
-                <li th:if="${#authentication != null}">
-                    <a th:href="@{/peepuser}" th:text="${#authentication.principal.username}">
-                        <!-- Username will be displayed here -->
-                    </a>
-                </li>
-                              
-                
-                
-                
-                
             </ul>
             <button type="button"><img src="/images/icon-menu.svg" width="30" height="24" alt="Site Navigation Panel"></button>
         </nav>

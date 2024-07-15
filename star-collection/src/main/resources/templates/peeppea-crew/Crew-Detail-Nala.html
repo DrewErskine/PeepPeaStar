@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,86 +17,91 @@
 	<link rel="icon" sizes="57x57" href="/images/favicons/catFavicon.png">
 	<meta name="msapplication-TileColor" content="#d4d4d8">
 	<meta name="theme-color" content="#f4f1ec">
-	
 
 	<!-- stylesheets -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,500;1,700&display=swap">
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,500;1,700&display=swap">
 	<link rel="stylesheet" href="/css/plugins.css">
 	<link rel="stylesheet" href="/css/common.css">
-	<link rel="stylesheet" href="/css/character.css">
+	<link rel="stylesheet" href="/css/about.css">
+	<link rel="stylesheet" href="/css/crew.css">
 </head>
+
 <body>
 
 	<div id="skip">
 		<a href="#main">Skip to main content</a>
 	</div>
 
-	<div th:replace="~{fragments.html :: header}"/>
+	<div th:replace="~{fragments.html :: header}" />
 
 	<main id="main">
-
-		<section id="character">
-			<div class="wrapper">
-				<img src="/images/characters/Nala.svg" alt="Full image of Nala">
-				<blockquote>
-					<p>I nap, therefore I am.</p>
-				</blockquote>
-			</div>
-			<header>
-				<img src="/images/logo-peepville.svg" width="180" height="94" alt="Logo of Peepville">
-				<hgroup>
+		<!-- Using about page wrapper IDs and classes -->
+		<div class="profile-wrapper">
+			<img src="/images/characters/details/pfp/nala.jpg" alt="Full image of Nala" class="character-image">
+			<blockquote>
+				<p>"I nap, therefore I am."</p>
+				<footer>Nala, on her philosophical musings</footer>
+			</blockquote>			
+		</div>
+		<section id="wrapper-about" class="character-profile">
+			<header class="section-header character-header">
+				<div class="character-info">
 					<h1>Nala</h1>
 					<p>Forensic Accountant</p>
-				</hgroup>
+				</div>
 			</header>
-			<p>Nala is a computational genius who performs calculations for various Peepville businesses and organizations. In her spare time, Nala has been noodling on the creation of the perfect web browser that will make all other browsers obsolete. We're rooting for you, Nala!</p>
-			<dl>
-				<div>
-					<dt>Neighborhood of origin</dt>
-					<dd>East Peepville</dd>
-				</div>
-				<div>
-					<dt>Favorite food</dt>
-					<dd>tuna fish</dd>
-				</div>
-				<div>
-					<dt>Favorite music genre</dt>
-					<dd>Classical</dd>
-				</div>
-				<div>
-					<dt>Hobby</dt>
-					<dd>Solving complex puzzles</dd>
-				</div>
-				<div>
-					<dt>Favorite film</dt>
-					<dd>The Aristocats</dd>
-				</div>
-				<div>
-					<dt>Means of ambulation</dt>
-					<dd>graceful striding</dd>
-				</div>
-				<div>
-					<dt>Favorite footwear</dt>
-					<dd>prefers bare paws</dd>
-				</div>
-				<div>
-					<dt>Dream job</dt>
-					<dd>Chef at a seafood restaurant</dd>
-				</div>
-				<div>
-					<dt>Singing voice</dt>
-					<dd>mezzo-soprano</dd>
-				</div>
-			</dl>
+			<p class="character-bio">Nala is a computational genius who performs calculations for various Peepville
+				businesses and organizations. In her spare time, Nala has been noodling on the creation of the perfect
+				web browser that will make all other browsers obsolete. We're rooting for you, Nala!</p>
 		</section><!-- / #character -->
+		<dl class="character-details">
+			<div>
+				<dt>Neighborhood of origin</dt>
+				<dd>East Peepville</dd>
+			</div>
+			<div>
+				<dt>Favorite food</dt>
+				<dd>Tuna fish</dd>
+			</div>
+			<div>
+				<dt>Favorite music genre</dt>
+				<dd>Classical</dd>
+			</div>
+			<div>
+				<dt>Hobby</dt>
+				<dd>Solving complex puzzles</dd>
+			</div>
+			<div>
+				<dt>Favorite film</dt>
+				<dd>The Aristocats</dd>
+			</div>
+			<div>
+				<dt>Means of ambulation</dt>
+				<dd>Graceful striding</dd>
+			</div>
+			<div>
+				<dt>Favorite footwear</dt>
+				<dd>Prefers bare paws</dd>
+			</div>
+			<div>
+				<dt>Dream job</dt>
+				<dd>Chef at a seafood restaurant</dd>
+			</div>
+			<div>
+				<dt>Singing voice</dt>
+				<dd>Mezzo-soprano</dd>
+			</div>
+		</dl>
 	</main>
 
 	<div th:replace="~{fragments.html :: footer}" />
 
-	<script src="../js/plugins.js?ver=2209212222"></script>
-	<script src="../js/main.js?ver=2209301853"></script>
+	<script src="../js/plugins.js"></script>
+	<script src="../js/main.js"></script>
 
 </body>
+
 </html>
