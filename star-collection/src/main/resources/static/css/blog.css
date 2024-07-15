@@ -99,3 +99,118 @@
 #blogs header .radio-menu-widget+button {
     display: none;
 }
+
+.blog-image {
+    display: flex; 
+    justify-content: center; 
+    align-items: center;   
+    overflow: hidden;   
+    height: 420px;    
+    width: 100%;          
+    background-color: var( --color-offwhiteviolet);
+
+}
+
+.blog-image img {
+    max-width: 100%;    
+    max-height: 100%;     
+    height: auto;  
+    width: auto; 
+}
+
+.blog-text {
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+}
+
+.blog-detail-header h1 {
+    color: #333;
+    font-size: 1.75em;
+    margin-bottom: 0.5em;
+}
+
+.blog-metadata {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85em;
+    color: #666;
+    margin-bottom: 1em; 
+}
+
+.blog-metadata span {
+    background: #e8e8e8;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.blog-text p {
+    font-size: 1em; 
+    color: #444;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+/* Comment Posting Section */
+.post-comment {
+    background: #f9f9f9;
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.post-comment h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.post-comment form {
+    display: flex;
+    flex-direction: column;
+}
+
+.post-comment textarea {
+    font-family: 'Ubuntu', sans-serif;
+    padding: 10px;
+    height: 100px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    resize: none; /* Disable resizing of the textarea */
+}
+
+.post-comment button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: var(--color-peeppeaplue); /* Green */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.post-comment button:hover {
+    background-color: var(--color-crushedviolets);
+}
+
+/* Comments Display Section */
+.comments {
+    margin-top: 20px;
+}
+
+.comments .blog-post {
+    background: #ffffff;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.comments .blog-post:nth-child(odd) {
+    background: #f8f8f8; /* Slightly different background for odd items */
+}

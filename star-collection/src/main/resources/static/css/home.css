@@ -255,6 +255,14 @@
     margin-left: -5vw;
     overflow-x: hidden;
     position: relative;
+    background-color: var(--color-offwhiteviolet);
+}
+
+.collection.Peepville {
+    width: 110vw;
+    margin-left: -5vw;
+    overflow-x: hidden;
+    position: relative;
 }
 
 /*-----------------------------------------------------
