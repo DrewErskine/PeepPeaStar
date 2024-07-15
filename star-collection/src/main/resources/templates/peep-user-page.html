@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Peep User Page</title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="This is the user dashboard for authenticated users in the Peep Pea Collectibles universe.">
+    <meta name="description" content="Manage your profile and settings on Peep Pea">
+    <title>User Dashboard | Peep Pea</title>
 
     <!-- favicons -->
     <link rel="icon" sizes="57x57" href="/images/favicons/catFavicon.png">
@@ -14,59 +15,84 @@
     <!-- stylesheets -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,500;1,700&family=Roboto:wght@700&display=swap">
-    <link rel="stylesheet" href="/css/plugins.css">
-    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,500;1,700&family=Roboto:wght@700&display=swap">
+    <link rel="stylesheet" href="css/plugins.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/peepuser.css">
 </head>
+
 <body>
+
+    <div id="skip">
+        <a href="#main">Skip to main content</a>
+    </div>
 
     <!--header -->
     <div th:replace="~{fragments.html :: header}" />
     <!-- /header -->
 
     <main id="main">
-        <div id="wrapper-user-page" class="section-padding">
-            <section id="user-welcome">
-                <header class="section-header">
+        <div id="wrapper-about">
+            <section id="contact">
+                <div class="wrapper">
                     <h1>Welcome, <span th:text="${user.name}">User</span>!</h1>
-                    <p>This page is only accessible to logged-in users. Here you can manage your settings, view your posts, and more.</p>
-                </header>
-            </section>
+                    <p>Access your settings, view your posts, and more on your dashboard.</p>
+                </div>
 
-            <section id="user-details">
-                <dl class="details-list">
-                    <dt>Email:</dt>
-                    <dd th:text="${user.email}">user@example.com</dd>
-                    <dt>Account Created:</dt>
-                    <dd th:text="${#dates.format(user.dateRegistered, 'MMMM dd, yyyy')}">January 01, 2022</dd>                    
-                </dl>
-            </section>
-
-            <section id="special-action">
-                <button type="button" id="special-info-btn">Get Important Info</button>
-                <div id="important-info" style="display: none;">
-                    <p><strong>Username:</strong> <span th:text="${user.name}"></span></p>
-                    <p><strong>Email:</strong> <span th:text="${user.email}"></span></p>
+                <section id="user-details">
+                    <dl class="details-list" aria-label="Category" >
+                        <dt>Email:</dt>
+                        <dd th:text="${user.email}">user@example.com</dd>
+                        <dt>Account Created:</dt>
+                        <dd th:text="${#dates.format(user.dateRegistered, 'MMMM dd, yyyy')}">January 01, 2022</dd>
+                    </dl>
+                </section>
+                <div class="wrapper" style="padding-top: 13em;">
+                    <h1>Send a Message</h1>
+                    <!-- Display success message -->
+                    <p th:if="${messageSent}" th:text="'Your message has been sent successfully!'" class="success"></p>
+                    <form th:method="post" th:action="@{/sendMessage}" th:object="${messageForm}" novalidate>
+                        <div>
+                            <label for="contact-message">Message: <span aria-hidden="true">*</span></label>
+                            <span class="single-line">
+                                <textarea th:field="*{content}" id="contact-message" required></textarea>
+                            </span>
+                            <p th:if="${#fields.hasErrors('content')}" th:errors="*{content}" class="error"></p>
+                        </div>
+                        <div>
+                            <button type="submit" class="button lg solid peeppeablue">Submit</button>
+                        </div>
+                    </form>
                 </div>                
+                
+                
+                              
+
+                <nav aria-label="Category">
+                    <div>
+                        <nav aria-label="UserActions">
+                            <h1>Logout</h1>
+                            <li><a th:href="@{/logoutUser}" class="button lg solid peeppeaplue">Logout</a></li>
+                        </nav>
+                    </div>
+                    <ul>
+                        <li><a th:href="@{/aboutPeepPea}">About Peep Pea Star</a></li>
+                        <li><a th:href="@{/home}">Peep Pea story</a></li>
+                        <li><a th:href="@{/getAllBlogs}">Peep Pea Army</a></li>
+                        <li><a th:href="@{/faq}">FAQ</a></li>
+                    </ul>
+                </nav>
             </section>
-        </div>
+        </div><!-- / #wrapper-about -->
     </main>
 
-    <!-- footer -->
-    <div th:replace="~{fragments.html :: footer}"></div>
-    <!-- /footer -->
+    <div th:replace="~{fragments.html :: footer}" />
 
-    <script src="/js/plugins.js"></script>
-    <script src="/js/main.js"></script>
-    <script>
-        document.getElementById('special-info-btn').addEventListener('click', function() {
-            const infoDiv = document.getElementById('important-info');
-            if (infoDiv.style.display === 'none') {
-                infoDiv.style.display = 'block';
-            } else {
-                infoDiv.style.display = 'none';
-            }
-        });
-    </script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+
 </body>
+
 </html>

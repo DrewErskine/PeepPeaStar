@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Meet the Peepville Crew - Peep, Nala, and Cooper.">
+    <title>Peepville Crew | Peep Peas #1 Star</title>
+
+    <!-- favicons -->
+    <link rel="icon" sizes="57x57" href="/images/favicons/catFavicon.png">
+    <meta name="msapplication-TileColor" content="#d4d4d8">
+    <meta name="theme-color" content="#f4f1ec">
+
+    <!-- stylesheets -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,500;1,700&family=Roboto:wght@700&display=swap">
+    <link rel="stylesheet" href="/css/plugins.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/characters.css">
+</head>
+
+<body>
+    <!-- header -->
+    <div th:replace="~{fragments.html :: header}"></div>
+    <!-- /header -->
+
+    <main id="main">
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-container">
+                <img src="/images/hero-peepville.jpg" alt="Welcome to Peepville" class="hero-image">
+                <div class="hero-text">
+                    <h1>Welcome to Peepville</h1>
+                    <p>Meet the wonderful characters of Peepville - Peep, Nala, and Cooper.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Character Section -->
+        <section id="characters" class="characters-section">
+            <header>
+                <h2>Meet the Peepville Crew</h2>
+                <p>Get to know the amazing characters that make Peepville a special place.</p>
+            </header>
+
+            <div class="character-profiles">
+                <!-- Peep -->
+                <div class="character-profile">
+                    <img src="/images/characters/peep.jpg" alt="Peep" class="character-image">
+                    <div class="character-info">
+                        <h3>PeepPea</h3>
+                        <p><strong>Queen of Peepville</strong></p>
+                        <p>PeepPea, the cherished sovereign of Peepville, is revered for her wisdom and benevolence. Her leadership has ushered in an era of peace and prosperity across the land.</p>
+                        <a th:href="@{/getCharacter/{charname} (charname='Character-Detail-PeepPea')}" class="button bordered solid seacaller-buttons">See bio</a>
+                    </div>
+                </div>
+
+                <!-- Nala -->
+                <div class="character-profile">
+                    <img src="/images/characters/nala.jpg" alt="Nala" class="character-image">
+                    <div class="character-info">
+                        <h3>Nala</h3>
+                        <p><strong>Forensic Accountant</strong></p>
+                        <p>Nala, a computational genius, leverages her intellect to aid Peepville's businesses. She is currently developing a revolutionary web browser aimed at redefining internet navigation.</p>
+                        <a th:href="@{/getCharacter/{charname} (charname='Character-Detail-Nala')}" class="button bordered solid seacaller-buttons">See bio</a>
+                    </div>
+                </div>
+
+                <!-- Cooper -->
+                <div class="character-profile">
+                    <img src="/images/characters/cooper.jpg" alt="Cooper" class="character-image">
+                    <div class="character-info">
+                        <h3>Cooper</h3>
+                        <p><strong>Innovative Engineer</strong></p>
+                        <p>Cooper's ingenuity has led to numerous advancements in Peepville, especially in sustainable living and technology. His efforts have significantly enhanced the quality of life for all its residents.</p>
+                        <a th:href="@{/getCharacter/{charname} (charname='Character-Detail-Cooper')}" class="button bordered solid seacaller-buttons">See bio</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <div th:replace="~{fragments.html :: footer}"></div>
+        <!-- /footer -->
+
+        <!-- Quick View Modal -->
+        <div id="quick-view" role="dialog" aria-modal="true" aria-labelledby="label-quick-view" aria-describedby="desc-quick-view">
+            <button type="button"><img src="/images/icon-xmark.svg" width="24" height="24" alt="Close"></button>
+            <div class="wrapper">
+                <header>
+                    <h1 id="label-quick-view"></h1>
+                    <p id="desc-quick-view"></p>
+                </header>
+                <p></p>
+                <a href="" class="button bordered lg solid seacaller-buttons" id="more-quick-view" aria-labelledby="more-quick-view label-quick-view">See bio</a>
+            </div>
+            <div class="wrapper">
+                <img src="/images/logo-peep.svg" alt="">
+            </div>
+        </div><!-- / #quick-view -->
+    </main>
+
+    <!-- scripts -->
+    <script src="/js/plugins.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/characters.js"></script>
+</body>
+</html>

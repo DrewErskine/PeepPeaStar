@@ -1,0 +1,59 @@
+/* User Details Section Styles */
+#user-details {
+    background-color: var(--color-coldmorning);
+    padding: 20px;
+    border-radius: 5px;
+    border-bottom: 4px solid var(--color-chinesebellflower);
+    box-shadow: 0 4px 6px var(--color-aquasea);
+    margin: 20px 0;
+    transition: transform 0.3s ease-in-out;
+}
+
+#user-details:hover {
+    box-shadow: 0 6px 8px var(--color-chinesebellflower);
+}
+
+#user-details .details-list {
+    display: grid;
+    padding: 15px;
+    font-size: 1.6rem;
+}
+
+#user-details .details-list dt {
+    color: var(--color-chinesebellflower);
+    font-weight: 700;
+}
+
+#user-details .details-list dd {
+    color: var(--color-calicodress);
+    font-weight: 400;
+}
+
+#user-details .details-list dt, 
+#user-details .details-list dd {
+    padding: 5px 0;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    #user-details .details-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Applies to both navigation and details section styled as category */
+[aria-label="Category"] {
+    background-color: var(--color-coldmorning);
+    border-bottom: 2px solid var(--color-peeppeaplue);
+    padding: 10px 20px;
+}
+
+[aria-label="Category"] a, [aria-label="Category"] dd {
+    color: var(--color-calicodress);
+    display: block;
+    padding: 10px;
+}
+
+[aria-label="Category"] a:hover, [aria-label="Category"] dd:hover {
+    color: var(--color-dark);
+}

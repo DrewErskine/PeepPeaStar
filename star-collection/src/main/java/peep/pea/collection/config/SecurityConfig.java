@@ -22,7 +22,7 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/", "/home", "/login-user", "/register-user", "/contact-peeppea", "/peepuser-account", "/aboutPeepPea", "/newUser", "/peepuser", "/peep-user-page",
-                        "/blog/{id}", "/blog-list", "/getAllBlogs",
+                        "/blog/{id}", "/blog-list", "/getAllBlogs", "/peeppea-crew/Peepville",
                         "/about", "/css/**", "/js/**", "/images/**")
                 .permitAll()
                 .requestMatchers("/newBlog", "/saveBlog", "/peep-user-page")

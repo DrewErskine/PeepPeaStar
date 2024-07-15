@@ -386,42 +386,36 @@ nav[aria-label="Category"] {
 }
 
 /*-----------------------------------------------------
-    4. Old User Navigation
+    4. User Actions Navigation
 -------------------------------------------------------*/
 
-nav[aria-label="oldUser"] {
-    --color-link-static: var(--color-dark);
-    --color-link-hover: var(--color-red);
+nav[aria-label="UserActions"] {
+    --color-link-static: var(--color-calicodress);
+    --color-link-hover: var(--color-peeppeaplue);
     --text-deco-line: none;
     --color-link-background-hover: transparent;
     position: relative;
     top: auto;
     width: 100%;
-    border-bottom: 2px solid var(--color-red);
-    background-color: var(--color-light-grey);
+    border-bottom: 2px solid var(--color-peeppeaplue);
+    background-color: var(--color-light-offwhiteviolet);
     padding: 10px 20px;
 }
 
-[aria-label="oldUser"] li {
-    border-top: 1px solid var(--color-red);
+[aria-label="UserActions"] li {
+    border-top: 1px solid var(--color-peeppeaplue);
 }
 
-[aria-label="oldUser"] a {
+[aria-label="UserActions"] a {
     display: block;
     padding: 10px;
     cursor: pointer;
     font-size: 1.4rem;
-    color: var(--color-red);
+    color: var(--color-peeppeaplue);
 }
 
-[aria-label="oldUser"] a:hover {
+[aria-label="UserActions"] a:hover {
     background-color: var(--color-link-hover);
-}
-
-/* Ensure these variables are defined or replace them with actual color values */
-:root {
-    --color-red: #FF6F61;
-    --color-light-grey: #f0f0f0;
 }
 
 /*-----------------------------------------------------
