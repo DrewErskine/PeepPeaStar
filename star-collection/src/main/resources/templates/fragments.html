@@ -11,10 +11,10 @@
         <a th:href="@{/home}" style="padding: 1.3em;"><img src="/images/Peepville.svg" width="250" height="150" alt="PeepPea" style="background-color: #b9a8b2a9; padding: 1.3em;"></a>
         <nav aria-label="Site">
             <ul>
-                <li><a th:href="@{/home}" aria-current="page">Home</a></li>
-                <li><a th:href="@{/getAllBlogs}">Peep Pea Pets</a></li>
-                <li><a th:href="@{/aboutPeepPea}">About Peep</a></li>
-            </ul>
+                <li><a th:href="@{/home}" th:attr="aria-current=${currentURI == '/home' ? 'page' : null}">Home</a></li>
+                <li><a th:href="@{/getAllBlogs}" th:attr="aria-current=${currentURI == '/getAllBlogs' ? 'page' : null}">Peep Pea Pets</a></li>
+                <li><a th:href="@{/aboutPeepPea}" th:attr="aria-current=${currentURI == '/aboutPeepPea' ? 'page' : null}">About Peep</a></li>
+            </ul>                     
             <button type="button"><img src="/images/icon-menu.svg" width="30" height="24" alt="Site Navigation Panel"></button>
         </nav>
         <a th:href="@{/newUser}"><img src="/images/icon-user-v01-white.svg" width="36" height="36" alt="Account"></a>
