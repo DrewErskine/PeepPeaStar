@@ -21,17 +21,17 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/", "/home", "/login-user", "/register-user", "/contact-peeppea", "/peepuser-account", "/aboutPeepPea", "/newUser", "/peepuser", "/peep-user-page",
+                .requestMatchers("/", "/home", "/login-user", "/register-user", "/contact-peeppea", "/peepuser-account", "/aboutPeepPea", "/newUser", "/peepuser", "/peep-user-page", "/addComment",
                         "/blog/{id}", "/blog-list", "/getAllBlogs", "/peeppea-crew/Peepville.html", "/characters/*",
                         "/about", "/css/**", "/js/**", "/images/**")
                 .permitAll()
-                .requestMatchers("/newBlog", "/saveBlog", "/peep-user-page")
+                .requestMatchers("/newBlog", "/saveBlog", "/peep-user-page", "/addComment")
                 .authenticated()
                 .anyRequest()
                 .authenticated())
             .formLogin(form -> form
                 .loginPage("/login-user")
-                .loginProcessingUrl("/login-user")
+                .loginProcessingUrl("/login")
                 .defaultSuccessUrl("/peepuser", true)
                 .permitAll())
             .logout(logout -> logout

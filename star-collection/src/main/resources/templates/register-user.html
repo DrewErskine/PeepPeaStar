@@ -71,9 +71,16 @@
             <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error"/>
           </div>
           <div>
+            <label for="confirm-user-password">Confirm Password: <span aria-hidden="true">*</span></label>
+            <span class="single-line">
+              <input th:field="*{confirmPassword}" id="confirm-user-password" type="password" required>
+            </span>
+            <p th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}" class="error"/>
+          </div>
+          <div>
             <button type="submit" class="button lg solid peeppeaplue">Submit</button>
           </div>
-        </form>
+        </form>        
       </div>
       
 
@@ -157,7 +164,7 @@
       <div>
         <nav aria-label="UserActions">
           <h1>Already have an account?</h1>
-          <li><a th:href="@{/oldUser}" class="button lg solid peeppeaplue" style="text-align: center;">Login Here</a></li>
+          <li><a th:href="@{/login-user}" class="button lg solid peeppeaplue" style="text-align: center;">Login Here</a></li>
         </nav>
       </div>
       <ul>
@@ -174,8 +181,8 @@
 
 <div th:replace="~{fragments.html :: footer}"/>
 
-<script src="js/plugins.js?ver=2209212222"></script>
-<script src="js/main.js?ver=2209301853"></script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
 
 </body>
 </html>

@@ -4,8 +4,6 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import java.util.Date;
 
-import org.hibernate.mapping.List;
-
 @Entity
 @Table(name = "peeppea_user")
 public class User {

@@ -48,18 +48,26 @@
     </main>
     <section class="post-comment">
         <h2>Comments</h2>
-        <form method="post" action="/addComment">
-            <textarea name="comment" placeholder="Leave a comment" required></textarea>
+        <!-- Debug URL -->
+        <form th:method="post" th:action="@{/addPeepComment}" th:object="${comment}" novalidate>
+            <textarea name="content" placeholder="Leave a comment" required></textarea>
+            <input type="hidden" th:field="*{blog.id}" />
             <button type="submit">Submit</button>
         </form>
     </section>
     <section class="comments">
-        <div th:each="comment : ${coments}" class="blog-post"></div>
-    </section>
+        <div th:each="comment : ${comments}" class="comment">
+            <div class="comment-header">
+                <span th:text="${comment.author}"></span>
+                <span th:text="${#dates.format(comment.datePosted, 'dd MMM yyyy HH:mm')}"></span>
+            </div>
+            <p th:text="${comment.content}"></p>
+        </div>
+    </section>    
 
     <div th:replace="~{fragments.html :: footer}" />
-    <script src="/js/plugins.js?ver=2209212222"></script>
-    <script src="/js/main.js?ver=2209301853"></script>
+    <script src="/js/plugins.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 
 </html>

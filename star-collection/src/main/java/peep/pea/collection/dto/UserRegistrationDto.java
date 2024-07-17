@@ -19,7 +19,7 @@ public class UserRegistrationDto {
     private String password;
 
     @NotEmpty(message = "Confirm password cannot be empty")
-    @Size(min = 6, max = 20, message = "Confirm password must match password")
+    @Size(min = 6, max = 20, message = "Confirm password must be between 6 and 20 characters")
     private String confirmPassword;
 
     // Getters and Setters
@@ -54,5 +54,9 @@ public class UserRegistrationDto {
 
     public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
+    }
+
+    public boolean isPasswordMatching() {
+        return this.password != null && this.password.equals(this.confirmPassword);
     }
 }

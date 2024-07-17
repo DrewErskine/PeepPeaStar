@@ -48,19 +48,26 @@ public class UserController {
         if (result.hasErrors()) {
             return "register-user";
         }
-
+    
+        if (!userDto.isPasswordMatching()) {
+            result.rejectValue("confirmPassword", "error.user", "Passwords do not match");
+            return "register-user";
+        }
+    
         User user = new User();
         user.setName(userDto.getName());
         user.setEmail(userDto.getEmail());
         user.setPassword(passwordEncoder.encode(userDto.getPassword()));
         user.setDateRegistered(new Date());
-
+    
         userRepository.save(user);
-
+    
         model.addAttribute("userSaved", true);
         model.addAttribute("user", user);
         return "peep-user-page";
     }
+    
+    
 
     @GetMapping("/peepuser")
     public String redirectToPeepUserPage(Model model) {
