@@ -31,7 +31,7 @@ public class HomeController {
 
     @GetMapping("/message")
     public String showMessageForm(Model model) {
-        model.addAttribute("messageForm", new Message());
+        model.addAttribute("message", new Message());
         return "peep-user-page";
     }
 

@@ -1,5 +1,7 @@
 package peep.pea.collection.service;
 
+import java.util.Collections;
+
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -8,23 +10,18 @@ import peep.pea.collection.beans.User;
 import peep.pea.collection.dao.UserRepository;
 
 @Service
-public class UserDetailService implements UserDetailsService {
+public class PeepUserDetailsService implements UserDetailsService {
 
     private final UserRepository userRepository;
 
-    public UserDetailService(UserRepository userRepository) {
+    public PeepUserDetailsService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         User user = userRepository.findByEmail(email)
-            .orElseThrow(() -> new UsernameNotFoundException("User not found with email: " + email));
-
-        return org.springframework.security.core.userdetails.User
-                .withUsername(user.getEmail())
-                .password(user.getPassword())
-                .authorities("USER")
-                .build();
+                .orElseThrow(() -> new UsernameNotFoundException("User not found with email: " + email));
+        return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), Collections.emptyList());
     }
 }
