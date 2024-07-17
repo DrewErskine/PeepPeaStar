@@ -30,7 +30,7 @@
     </div>
 
     <!--header -->
-    <div th:replace="~{fragments.html :: header}" />
+    <div th:replace="fragments.html :: header"></div>
     <!-- /header -->
 
     <main id="main">
@@ -42,7 +42,7 @@
                 </div>
 
                 <section id="user-details">
-                    <dl class="details-list" aria-label="Category" >
+                    <dl class="details-list" aria-label="Category">
                         <dt>Email:</dt>
                         <dd th:text="${user.email}">user@example.com</dd>
                         <dt>Account Created:</dt>
@@ -54,7 +54,6 @@
 
                     <!-- Display success message -->
                     <p th:if="${messageSent}" th:text="'Your message has been sent successfully!'" class="success"></p>
-
 
                     <form th:action="@{/sendMessage}" th:object="${message}" th:method="post">
                         <label for="contact-message">Message </label>
@@ -69,7 +68,7 @@
                     <div>
                         <nav aria-label="UserActions">
                             <h1>Logout</h1>
-                            <li><a th:href="@{/logoutUser}" class="button lg solid peeppeaplue">Logout</a></li>
+                            <li><a th:href="@{/logoutUser}" class="button lg solid peeppeablue">Logout</a></li>
                         </nav>
                     </div>
                     <ul>
@@ -83,7 +82,7 @@
         </div><!-- / #wrapper-about -->
     </main>
 
-    <div th:replace="~{fragments.html :: footer}" />
+    <div th:replace="fragments.html :: footer"></div>
 
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>

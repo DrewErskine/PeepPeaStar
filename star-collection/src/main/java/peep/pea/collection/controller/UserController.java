@@ -68,17 +68,14 @@ public class UserController {
     public String redirectToPeepUserPage(Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication != null && authentication.isAuthenticated() && !"anonymousUser".equals(authentication.getPrincipal())) {
-            String username = authentication.getName();
-            User user = userRepository.findByName(username);
+            String email = authentication.getName();
+            User user = userRepository.findByEmail(email).orElse(null);
             if (user != null) {
                 model.addAttribute("user", user);
                 model.addAttribute("message", new Message());
                 return "peep-user-page";
-            } else {
-                return "redirect:/login-user";
             }
-        } else {
-            return "redirect:/login-user";
         }
+        return "redirect:/login-user";
     }
 }

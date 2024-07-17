@@ -35,16 +35,18 @@ public class MessageController {
     @PostMapping("/sendMessage")
     public String sendMessage(@ModelAttribute("messageForm") @Valid Message message, BindingResult result, Model model, Authentication authentication) {
         if (result.hasErrors()) {
+            System.out.println("Validation errors: " + result.getAllErrors());
             model.addAttribute("error", "Please correct the errors in the form!");
+            addUserToModel(authentication, model);
             return "peep-user-page";
         }
-
+    
         User user = userRepository.findByName(authentication.getName());
         if (user != null) {
             message.setUser(user);
             message.setDateSent(new Date());
             messageRepository.save(message);
-
+    
             model.addAttribute("statusMessage", "Message sent successfully!");
             model.addAttribute("user", user);
             return "redirect:/peepuser";
@@ -52,4 +54,14 @@ public class MessageController {
             return "redirect:/login-user";
         }
     }
+    
+    private void addUserToModel(Authentication authentication, Model model) {
+        if (authentication != null && authentication.isAuthenticated() && !"anonymousUser".equals(authentication.getPrincipal())) {
+            String username = authentication.getName();
+            User user = userRepository.findByName(username);
+            if (user != null) {
+                model.addAttribute("user", user);
+            }
+        }
+    }       
 }
