@@ -51,24 +51,19 @@
                 </section>
                 <div class="wrapper" style="padding-top: 13em;">
                     <h1>Send a Message</h1>
+
                     <!-- Display success message -->
                     <p th:if="${messageSent}" th:text="'Your message has been sent successfully!'" class="success"></p>
-                    <form th:method="post" th:action="@{/sendMessage}" th:object="${messageForm}" novalidate>
-                        <div>
-                            <label for="contact-message">Message: <span aria-hidden="true">*</span></label>
-                            <span class="single-line">
-                                <textarea th:field="*{content}" id="contact-message" required></textarea>
-                            </span>
-                            <p th:if="${#fields.hasErrors('content')}" th:errors="*{content}" class="error"></p>
-                        </div>
-                        <div>
-                            <button type="submit" class="button lg solid peeppeablue">Submit</button>
-                        </div>
+
+
+                    <form th:action="@{/sendMessage}" th:object="${message}" th:method="post">
+                        <label for="contact-message">Message </label>
+                        <textarea th:field="*{message}" placeholder="Write your message here..." id="contact-message"></textarea>
+                        <p th:if="${#fields.hasErrors('message')}" th:errors="*{message}" class="error"></p>
+
+                        <button type="submit" class="button lg solid peeppeablue">Submit</button>
                     </form>
-                </div>                
-                
-                
-                              
+                </div>
 
                 <nav aria-label="Category">
                     <div>

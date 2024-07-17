@@ -19,7 +19,7 @@ public class Comment {
     private Long user;
 
     @Column(nullable = false)
-    private String content;
+    private String comment;
 
     @Column(name = "date_posted", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
@@ -53,12 +53,12 @@ public class Comment {
         this.user = userId;
     }
 
-    public String getContent() {
-        return content;
+    public String getComment() {
+        return comment;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 
     public Date getDatePosted() {

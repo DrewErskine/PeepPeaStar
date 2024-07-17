@@ -9,12 +9,8 @@ CREATE TABLE IF NOT EXISTS "peeppea_user" (
 
 -- Inserting a new user Drew Erskine
 INSERT INTO "peeppea_user" (email, name, password, bio, date_registered)
-VALUES ('drew.erskine@example.com', 'drew', '$2a$10$sampleHashedPassword1', 'Solo developer driven by creating innovative web applications.', '2024-07-12');
+VALUES ('drew.erskine@example.com', 'drew', '$2a$10$wacCrw9g.mKrPO8WE1Grle8wRPFqczhb1gI9nIqZZVsCle6tS2cqO', 'Solo developer driven by creating innovative web applications.', '2024-07-12');
 
 -- Inserting a new user Peeppea
 INSERT INTO "peeppea_user" (email, name, password, bio, date_registered)
-VALUES ('peeppea@example.com', 'Peeppea', '$2a$10$sampleHashedPassword2', 'Peeppea the GOAT.', '2024-07-12');
-
--- Inserting a new user Nala
-INSERT INTO "peeppea_user" (email, name, password, bio, date_registered)
-VALUES ('nala@example.com', 'Nala', '$2a$10$sampleHashedPassword3', 'Swift as a snake, you can\'t catch me.', '2024-07-12');
+VALUES ('peeppea@example.com', 'Peeppea', '$2a$10$wacCrw9g.mKrPO8WE1Grle8wRPFqczhb1gI9nIqZZVsCle6tS2cqO', 'Peeppea the GOAT.', '2024-07-12');

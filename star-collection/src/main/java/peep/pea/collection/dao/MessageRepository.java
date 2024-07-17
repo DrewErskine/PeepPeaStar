@@ -7,5 +7,5 @@ import peep.pea.collection.beans.Message;
 
 @Repository
 public interface MessageRepository extends CrudRepository<Message, Integer> {
-    // Custom database queries can be added here if needed
+    
 }

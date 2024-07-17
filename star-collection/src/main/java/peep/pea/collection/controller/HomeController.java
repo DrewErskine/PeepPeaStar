@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import jakarta.servlet.http.HttpServletRequest;
+import peep.pea.collection.beans.Message;
 
 
 
@@ -27,7 +28,13 @@ public class HomeController {
     public String aboutPeepPea(Model model) {
         return "about-peeppea";
     }
-    
+
+    @GetMapping("/message")
+    public String showMessageForm(Model model) {
+        model.addAttribute("messageForm", new Message());
+        return "peep-user-page";
+    }
+
     @ModelAttribute("currentURI")
     public String getCurrentURI(HttpServletRequest request) {
         return request.getRequestURI();

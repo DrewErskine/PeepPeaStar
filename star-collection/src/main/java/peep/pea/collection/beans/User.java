@@ -14,16 +14,20 @@ public class User {
 
     @NotEmpty(message = "Email cannot be empty")
     @Email(message = "Should be a well-formed email address")
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
 
     @NotEmpty(message = "Name cannot be empty")
     @Size(min = 3, max = 20, message = "Size must be between 3 and 20")
+    @Column(name = "name", nullable = false)
     private String name;
 
     @NotEmpty(message = "Password cannot be empty")
-    @Size(min = 6, max = 20, message = "Size must be between 6 and 20")
+    @Size(min = 6, max = 255, message = "Size must be between 6 and 20")
+    @Column(name = "password", nullable = false)
     private String password;
 
+    @Column(name = "bio", nullable = true)
     private String bio;
 
     @Temporal(TemporalType.TIMESTAMP)

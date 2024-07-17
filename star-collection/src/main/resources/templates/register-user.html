@@ -48,39 +48,39 @@
       <div class="wrapper">
         <h1>Register with us</h1>
         <p th:if="${userSaved}" th:text="'User created, Welcome ' + ${name}" class="success"/>
-        <form th:method="post" th:action="@{/saveUser}" th:object="${user}" novalidate>
+        <form th:action="@{/saveUser}" th:object="${user}" method="post" novalidate>
           <div>
             <label for="contact-email">Email: <span aria-hidden="true">*</span></label>
             <span class="single-line">
               <input th:field="*{email}" id="contact-email" type="email" required>
             </span>
-            <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error"/>
+            <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error"></p>
           </div>
           <div>
             <label for="user-name">Name: <span aria-hidden="true">*</span></label>
             <span class="single-line">
               <input th:field="*{name}" id="user-name" type="text" required>
             </span>
-            <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error"/>
+            <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error"></p>
           </div>
           <div>
             <label for="user-password">Password: <span aria-hidden="true">*</span></label>
             <span class="single-line">
               <input th:field="*{password}" id="user-password" type="password" required>
             </span>
-            <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error"/>
+            <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error"></p>
           </div>
           <div>
             <label for="confirm-user-password">Confirm Password: <span aria-hidden="true">*</span></label>
             <span class="single-line">
               <input th:field="*{confirmPassword}" id="confirm-user-password" type="password" required>
             </span>
-            <p th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}" class="error"/>
+            <p th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}" class="error"></p>
           </div>
           <div>
             <button type="submit" class="button lg solid peeppeaplue">Submit</button>
           </div>
-        </form>        
+        </form>          
       </div>
       
 

@@ -1,6 +1,8 @@
 package peep.pea.collection.beans;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
+
 import java.util.Date;
 
 @Entity
@@ -15,8 +17,9 @@ public class Message {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @Column(name = "content", nullable = false, columnDefinition = "TEXT")
-    private String content;
+    @Column(name = "message", nullable = false, columnDefinition = "TEXT")
+    @Size(min = 3, max = 333, message = "not going to read it unless its between 3 and 333 moon-characters :3")
+    private String message;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "date_sent", nullable = false, updatable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
@@ -26,9 +29,9 @@ public class Message {
     public Message() {
     }
 
-    public Message(User user, String content) {
+    public Message(User user, String message) {
         this.user = user;
-        this.content = content;
+        this.message = message;
     }
 
     // Getters and Setters
@@ -48,12 +51,12 @@ public class Message {
         this.user = user;
     }
 
-    public String getContent() {
-        return content;
+    public String getmessage() {
+        return message;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setmessage(String message) {
+        this.message = message;
     }
 
     public Date getDateSent() {

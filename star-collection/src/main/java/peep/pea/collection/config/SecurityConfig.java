@@ -21,10 +21,31 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/", "/home", "/login-user", "/register-user", "/contact-peeppea", "/peepuser-account", "/aboutPeepPea", "/newUser", "/peepuser", "/peep-user-page", "/addComment",
-                        "/blog/{id}", "/blog-list", "/getAllBlogs", "/peeppea-crew/Peepville.html", "/characters/*",
-                        "/about", "/css/**", "/js/**", "/images/**")
-                .permitAll()
+            .requestMatchers(
+                "/",
+                "/home",
+                "/login-user",
+                "/register-user",
+                "/contact-peeppea",
+                "/peepuser-account",
+                "/aboutPeepPea",
+                "/newUser",
+                "/peepuser",
+                "/peep-user-page",
+                "/addPeepComment",
+                "/saveUser",
+                "/sendMessage",
+                "/blog/{id}",
+                "/blog-list",
+                "/getAllBlogs",
+                "/peeppea-crew/Peepville.html",
+                "/characters/*",
+                "/about",
+                "/css/**",
+                "/js/**",
+                "/images/**"
+            )
+            .permitAll()            
                 .requestMatchers("/newBlog", "/saveBlog", "/peep-user-page", "/addComment")
                 .authenticated()
                 .anyRequest()
@@ -55,8 +76,8 @@ public class SecurityConfig {
             .authorities("USER")
             .build();
         UserDetails peeppea = users
-            .username("peeppea")
-            .password("peeppea33")
+            .username("peep")
+            .password("password")
             .authorities("USER")
             .build();
         return new InMemoryUserDetailsManager(drew, peeppea);
