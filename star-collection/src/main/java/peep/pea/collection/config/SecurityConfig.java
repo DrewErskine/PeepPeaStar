@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -67,7 +68,15 @@ public class SecurityConfig {
             .logout(logout -> logout
                 .logoutUrl("/logout")
                 .logoutSuccessUrl("/login-user?logout")
-                .permitAll());
+                .permitAll())
+                .sessionManagement(session -> session
+            .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
+                .invalidSessionUrl("/login-user?invalid-session=true")
+                .maximumSessions(1)
+                .expiredUrl("/login-user?session-expired=true"))
+            .rememberMe(rememberMe -> rememberMe
+                .key("uniqueAndSecret")
+                .tokenValiditySeconds(1980)); // 33 mins
         return http.build();
     }
 

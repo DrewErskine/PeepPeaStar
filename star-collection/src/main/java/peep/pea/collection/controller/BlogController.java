@@ -4,6 +4,7 @@ import peep.pea.collection.beans.Blog;
 import peep.pea.collection.beans.Comment;
 import peep.pea.collection.dao.BlogRepository;
 import peep.pea.collection.dao.CommentRepository;
+import peep.pea.collection.dao.UserRepository;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,17 +23,16 @@ import java.util.List;
 import java.util.concurrent.Executor;
 
 @Controller
-public class BlogController {
+public class BlogController extends CommonController {
 
     private final Logger logger = LoggerFactory.getLogger(BlogController.class);
 
     private BlogRepository blogRepository;
-
     private CommentRepository commentRepository;
-
     private Executor asyncExecutor;
 
-    public BlogController(BlogRepository blogRepository, CommentRepository commentRepository, Executor asyncExecutor) {
+    public BlogController(UserRepository userRepository, BlogRepository blogRepository, CommentRepository commentRepository, Executor asyncExecutor) {
+        super(userRepository);
         this.blogRepository = blogRepository;
         this.commentRepository = commentRepository;
         this.asyncExecutor = asyncExecutor;
@@ -60,34 +60,30 @@ public class BlogController {
     }
 
     @PostMapping("/search")
-    public String search(@RequestParam("searchString") String keyword, Model model){
-
+    public String search(@RequestParam("searchString") String keyword, Model model) {
         List<Blog> blogs = blogRepository.searchByTitle(keyword);
         model.addAttribute("blogs", blogs);
         model.addAttribute("searchedFor", keyword);
-
         return "search-results";
     }
 
     @GetMapping("/getAllBlogs")
-    public DeferredResult<String> getAllBlogs(Model model){
+    public DeferredResult<String> getAllBlogs(Model model) {
         DeferredResult<String> deferredResult = new DeferredResult<>();
-        asyncExecutor.execute(()->{
+        asyncExecutor.execute(() -> {
             model.addAttribute("blogs", getBlogs());
             deferredResult.setResult("blog-list");
         });
         return deferredResult;
     }
 
-    private Iterable<Blog> getBlogs(){
-
+    private Iterable<Blog> getBlogs() {
         logger.info("Getting all blogs, using spring executor thread");
-        try{
+        try {
             Thread.sleep(3000);
-        }
-        catch (InterruptedException exception){
+        } catch (InterruptedException exception) {
             throw new RuntimeException();
         }
-        return  blogRepository.findAll();
+        return blogRepository.findAll();
     }
 }

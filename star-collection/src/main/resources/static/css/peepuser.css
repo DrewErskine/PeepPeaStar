@@ -48,12 +48,54 @@
     padding: 10px 20px;
 }
 
-[aria-label="Category"] a, [aria-label="Category"] dd {
+[aria-label="Category"] a, 
+[aria-label="Category"] dd {
     color: var(--color-calicodress);
     display: block;
     padding: 10px;
 }
 
-[aria-label="Category"] a:hover, [aria-label="Category"] dd:hover {
+[aria-label="Category"] a:hover, 
+[aria-label="Category"] dd:hover {
     color: var(--color-dark);
+}
+
+/* Submit Button Styles */
+.submitButton {
+    background-color: var(--color-peeppeaplue);
+    border: 2px solid var(--color-tidalwave);
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px; /* Rounded corners */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submitButton:hover {
+    background-color: var(--color-aquasea);
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+.submitButton:active {
+    background-color: var(--color-seacaller);
+    transform: translateY(0); /* Reset lift effect on click */
+}
+
+.submitButton.lg {
+    padding: 14px 28px;
+    font-size: 18px;
+}
+
+.submitButton.solid {
+    border: 2px solid var(--color-tidalwave);
+}
+
+.submitButton.peeppeaplue {
+    background-color: var(--color-peeppeaplue);
+    border-color: var(--color-tidalwave);
 }

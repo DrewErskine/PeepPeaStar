@@ -30,7 +30,7 @@
     </div>
 
     <!--header -->
-    <div th:replace="fragments.html :: header"></div>
+    <div th:replace="~{fragments.html :: header}" />
     <!-- /header -->
 
     <main id="main">
@@ -57,10 +57,11 @@
 
                     <form th:action="@{/sendMessage}" th:object="${message}" th:method="post">
                         <label for="contact-message">Message </label>
-                        <textarea th:field="*{message}" placeholder="Write your message here..." id="contact-message"></textarea>
+                        <textarea th:field="*{message}" placeholder="Write your message here..."
+                            id="contact-message"></textarea>
                         <p th:if="${#fields.hasErrors('message')}" th:errors="*{message}" class="error"></p>
 
-                        <button type="submit" class="button lg solid peeppeablue">Submit</button>
+                        <button type="submit" class="submitButton lg solid peeppeablue">Submit</button>
                     </form>
                 </div>
 
@@ -82,7 +83,9 @@
         </div><!-- / #wrapper-about -->
     </main>
 
-    <div th:replace="fragments.html :: footer"></div>
+    <!-- Footer -->
+    <div th:replace="~{fragments.html :: footer}" />
+    <!-- /footer -->
 
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>

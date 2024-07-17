@@ -5,14 +5,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import peep.pea.collection.dao.UserRepository;
 
 import jakarta.servlet.http.HttpServletRequest;
-import peep.pea.collection.beans.Message;
-
-
 
 @Controller
-public class HomeController {
+public class HomeController extends CommonController {
+
+    public HomeController(UserRepository userRepository) {
+        super(userRepository);
+    }
 
     @GetMapping("/home")
     public String displayHome(Model model) {
@@ -20,19 +22,13 @@ public class HomeController {
     }
 
     @GetMapping("/getCharacter/{charname}")
-    public String getCharacter(@PathVariable("charname") String charName){
-        return "/peeppea-crew/"+charName;
+    public String getCharacter(@PathVariable("charname") String charName) {
+        return "/peeppea-crew/" + charName;
     }
 
     @GetMapping("/aboutPeepPea")
     public String aboutPeepPea(Model model) {
         return "about-peeppea";
-    }
-
-    @GetMapping("/message")
-    public String showMessageForm(Model model) {
-        model.addAttribute("message", new Message());
-        return "peep-user-page";
     }
 
     @ModelAttribute("currentURI")

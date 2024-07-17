@@ -1,9 +1,9 @@
 package peep.pea.collection.controller;
 
 import java.util.Date;
-
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,7 +42,8 @@ public class UserController {
     }
 
     @PostMapping("/saveUser")
-    public String saveUser(@ModelAttribute("user") @Valid UserRegistrationDto userDto, BindingResult result, Model model) {
+    public String saveUser(@ModelAttribute("user") @Valid UserRegistrationDto userDto, BindingResult result,
+            Model model) {
         if (result.hasErrors()) {
             return "register-user";
         }
@@ -67,7 +68,8 @@ public class UserController {
     @GetMapping("/peepuser")
     public String redirectToPeepUserPage(Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication != null && authentication.isAuthenticated() && !"anonymousUser".equals(authentication.getPrincipal())) {
+        if (authentication != null && authentication.isAuthenticated()
+                && !"anonymousUser".equals(authentication.getPrincipal())) {
             String email = authentication.getName();
             User user = userRepository.findByEmail(email).orElse(null);
             if (user != null) {
@@ -77,5 +79,38 @@ public class UserController {
             }
         }
         return "redirect:/login-user";
+    }
+
+    @ModelAttribute
+    public void addUserToModel(Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null && authentication.isAuthenticated()
+                && !"anonymousUser".equals(authentication.getPrincipal())) {
+            String email = authentication.getName();
+            User user = userRepository.findByEmail(email).orElse(null);
+            if (user != null) {
+                model.addAttribute("loggedInUser", user);
+            }
+        }
+    }
+
+    @GetMapping("/account")
+    public String showUserAccount(Model model) {
+        model.addAttribute("message", new Message());
+        User loggedInUser = getLoggedInUser();
+        if (loggedInUser != null) {
+            model.addAttribute("user", loggedInUser);
+        }
+        return "peep-user-page";
+    }
+
+    @ModelAttribute("loggedInUser")
+    public User getLoggedInUser() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null && authentication.isAuthenticated() && !(authentication.getPrincipal() instanceof String)) {
+            String email = ((UserDetails) authentication.getPrincipal()).getUsername();
+            return userRepository.findByEmail(email).orElse(null);
+        }
+        return null;
     }
 }

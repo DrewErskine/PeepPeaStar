@@ -3,6 +3,48 @@
 -------------------------------------------------------*/
 @import url('colors.css');
 
+
+/*-----------------------------------------------------
+	0. Header
+-------------------------------------------------------*/
+
+.user-info {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+
+.user-icon {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	position: relative;
+}
+
+.user-icon img {
+	margin-bottom: 8px;
+}
+
+.user-name {
+	font-size: 2em;
+	font-weight: 500;
+	color: var(--color-babe);
+}
+
+#loggedin .top {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+#loggedin .bottom {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
 /*-----------------------------------------------------
 /*  1. reset
 -------------------------------------------------------*/

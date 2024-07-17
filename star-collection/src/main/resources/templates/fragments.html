@@ -1,25 +1,46 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/" lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Fragments | Peep Pea</title>
 </head>
+
 <body>
 
-	<!-- header -->
+    <!-- header -->
     <header id="banner">
-        <a th:href="@{/home}" style="padding: 1.3em;"><img src="/images/Peepville.svg" width="250" height="150" alt="PeepPea" style="background-color: #b9a8b2a9; padding: 1.3em;"></a>
+        <a th:href="@{/home}" style="padding: 1.3em;">
+            <img src="/images/Peepville.svg" width="250" height="150" alt="PeepPea" style="background-color: #b9a8b2a9; padding: 1.3em;">
+        </a>
         <nav aria-label="Site">
             <ul>
                 <li><a th:href="@{/home}" th:attr="aria-current=${currentURI == '/home' ? 'page' : null}">Home</a></li>
                 <li><a th:href="@{/getAllBlogs}" th:attr="aria-current=${currentURI == '/getAllBlogs' ? 'page' : null}">Peep Pea Pets</a></li>
                 <li><a th:href="@{/aboutPeepPea}" th:attr="aria-current=${currentURI == '/aboutPeepPea' ? 'page' : null}">About Peep</a></li>
-            </ul>                     
+            </ul>
             <button type="button"><img src="/images/icon-menu.svg" width="30" height="24" alt="Site Navigation Panel"></button>
         </nav>
-        <a th:href="@{/newUser}"><img src="/images/icon-user-v01-white.svg" width="36" height="36" alt="Account"></a>
-    </header>
-	<!-- /header -->
+        <div class="user-info">
+            <a th:if="${loggedInUser == null}" th:href="@{/newUser}">
+                <img src="/images/icon-user-v01-white.svg" width="36" height="36" alt="Account">
+            </a>
+            <a th:if="${loggedInUser != null}" th:href="@{/account}" class="user-icon">
+                <div id="loggedin">
+                    <div class="top" style="align-items: center;">
+                        <img src="/images/icon-user-v01-white.svg" width="27" height="27" alt="Account">
+                    </div>
+                    <div class="bottom">
+                        <span class="user-name">
+                            <span th:text="${loggedInUser.name}" style="font-size: 1.3em;">User</span>
+                        </span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </header>    
+    <!-- /header -->
+
 
     <!-- footer -->
     <footer id="continfo">
@@ -34,15 +55,21 @@
         <figure>
             <figcaption>Follow us</figcaption>
             <ul>
-                <li><a href="#" target="_blank"><img src="/images/icon-instagram-white.svg" width="30" height="30" alt="Instagram"></a></li>
-                <li><a href="#" target="_blank"><img src="/images/icon-facebook-white.svg" width="30" height="30" alt="Facebook"></a></li>
-                <li><a href="#" target="_blank"><img src="/images/icon-twitter-white.svg" width="30" height="30" alt="Twitter"></a></li>
-                <li><a href="#" target="_blank"><img src="/images/icon-youtube-white.svg" width="30" height="30" alt="YouTube"></a></li>
+                <li><a href="#" target="_blank"><img src="/images/icon-instagram-white.svg" width="30" height="30"
+                            alt="Instagram"></a></li>
+                <li><a href="#" target="_blank"><img src="/images/icon-facebook-white.svg" width="30" height="30"
+                            alt="Facebook"></a></li>
+                <li><a href="#" target="_blank"><img src="/images/icon-twitter-white.svg" width="30" height="30"
+                            alt="Twitter"></a></li>
+                <li><a href="#" target="_blank"><img src="/images/icon-youtube-white.svg" width="30" height="30"
+                            alt="YouTube"></a></li>
             </ul>
         </figure>
         <img src="/images/logo-peep.svg" width="120" height="65" alt="Logo of Big Star Collectibles">
-        <p><small>&copy; Peep Pea, LLC (no clue what LLC stands for mb). &nbsp;|&nbsp; <a href="#">Privacy</a> &nbsp;|&nbsp; <a href="#">Terms</a></small></p>
+        <p><small>&copy; Peep Pea, LLC (no clue what LLC stands for mb). &nbsp;|&nbsp; <a href="#">Privacy</a>
+                &nbsp;|&nbsp; <a href="#">Terms</a></small></p>
         <p><small>This is a fictitious company, "PeepPea", created by Drew Erskine ._.</small></p>
-    </footer>    
+    </footer>
 </body>
+
 </html>
