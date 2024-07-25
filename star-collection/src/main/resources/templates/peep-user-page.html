@@ -19,7 +19,7 @@
     <link rel="stylesheet" th:href="@{/css/plugins.css}">
     <link rel="stylesheet" th:href="@{/css/common.css}">
     <link rel="stylesheet" th:href="@{/css/about.css}">
-    <link rel="stylesheet" href="css/peepuser.css">
+    <link rel="stylesheet" th:href="@{/css/peepuser.css}">
 </head>
 
 <body>
@@ -36,9 +36,14 @@
         <div id="wrapper-about">
             <section id="contact">
                 <div class="wrapper">
-                    <h1>Welcome, <span th:text="${user.name}">User</span>!</h1>
+                    <h1>
+                        Welcome,
+                        <span th:if="${user != null}" th:text="${user.name}">User</span>
+                        <span th:unless="${user != null}">User</span>
+                        !
+                    </h1>
                     <p>Access your settings, view your posts, and more on your dashboard.</p>
-                </div>
+                </div>                
 
                 <section id="user-details">
                     <dl class="details-list" aria-label="Category">
@@ -48,12 +53,16 @@
                         <dd th:text="${#dates.format(user.dateRegistered, 'MMMM dd, yyyy')}">January 01, 2022</dd>
                     </dl>
                 </section>
-                <div class="wrapper" style="padding-top: 13em;">
+                
+                <div class="wrapper" style="padding-top: 23em;">
                     <h1>Send a Message</h1>
-
+                
                     <!-- Display success message -->
-                    <p th:if="${messageSent}" th:text="'Your message has been sent successfully!'" class="success"></p>
-
+                    <p th:if="${messageSent}" class="success">Your message has been sent successfully!</p>
+                
+                    <!-- Display error message -->
+                    <p th:if="${error}" th:text="${error}" class="error"></p>
+                
                     <form th:action="@{/sendMessage}" th:object="${peepMessage}" th:method="post">
                         <label for="contact-message">Message</label>
                         <textarea th:field="*{message}" placeholder="Write your message here..." id="contact-message"></textarea>
@@ -61,6 +70,7 @@
                         <button type="submit" class="submitButton lg solid peeppeablue">Submit</button>
                     </form>        
                 </div>
+                
 
                 <nav aria-label="Category">
                     <div>

@@ -18,6 +18,7 @@ import peep.pea.collection.dao.UserRepository;
 import peep.pea.collection.dto.UserMessageDto;
 
 import java.util.Date;
+import java.util.Optional;
 
 @Controller
 public class MessageController {
@@ -42,19 +43,25 @@ public class MessageController {
             model.addAttribute("error", "Please correct the errors in the form!");
             return "peep-user-page";
         }
-    
+
+        if (authentication == null || authentication.getName() == null) {
+            model.addAttribute("error", "User authentication required.");
+            return "redirect:/login-user";
+        }
+
         String username = authentication.getName();
-        User user = userRepository.findByName(username);
-        if (user != null) {
+        Optional<User> optionalUser = userRepository.findByEmail(username);
+        if (optionalUser.isPresent()) {
             try {
+                User user = optionalUser.get();
                 Message message = new Message();
                 message.setUser(user);
                 message.setMessage(messageDto.getMessage());
                 message.setDateSent(new Date());
                 messageRepository.save(message);
-    
-                redirectAttributes.addFlashAttribute("statusMessage", "Message sent successfully!");
-                return "redirect:/peepuser";
+
+                redirectAttributes.addFlashAttribute("messageSent", true);
+                return "redirect:/getAllBlogs";
             } catch (Exception e) {
                 // Log the exception with stack trace
                 e.printStackTrace();
@@ -62,18 +69,16 @@ public class MessageController {
                 return "peep-user-page";
             }
         } else {
-            return "redirect:/x.com";
+            model.addAttribute("error", "User not found.");
+            return "redirect:/login-user";
         }
     }
-    
 
     private void addUserToModel(Authentication authentication, Model model) {
         if (authentication != null && authentication.isAuthenticated() && !"anonymousUser".equals(authentication.getPrincipal())) {
             String username = authentication.getName();
-            User user = userRepository.findByName(username);
-            if (user != null) {
-                model.addAttribute("user", user);
-            }
+            Optional<User> optionalUser = userRepository.findByEmail(username);
+            optionalUser.ifPresent(user -> model.addAttribute("user", user));
         }
     }
 }
