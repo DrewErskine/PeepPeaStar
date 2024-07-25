@@ -15,6 +15,7 @@ import peep.pea.collection.beans.Message;
 import peep.pea.collection.beans.User;
 import peep.pea.collection.dao.UserRepository;
 import peep.pea.collection.dto.UserLoginDto;
+import peep.pea.collection.dto.UserMessageDto;
 import peep.pea.collection.dto.UserRegistrationDto;
 
 @Controller
@@ -71,7 +72,7 @@ public class UserController {
             User user = userRepository.findByEmail(email).orElse(null);
             if (user != null) {
                 model.addAttribute("user", user);
-                model.addAttribute("peepMessage", new Message());
+                model.addAttribute("peepMessage", new UserMessageDto());
                 return "peep-user-page";
             }
         }

@@ -31,33 +31,41 @@ public class MessageController {
     @GetMapping("/newMessage")
     public String showMessageForm(Model model, Authentication authentication) {
         addUserToModel(authentication, model);
-        model.addAttribute("messageForm", new UserMessageDto());
+        model.addAttribute("peepMessage", new UserMessageDto());
         return "peep-user-page";
     }
 
     @PostMapping("/sendMessage")
-    public String sendMessage(@ModelAttribute("messageForm") @Valid UserMessageDto messageDto, BindingResult result, Model model, Authentication authentication, RedirectAttributes redirectAttributes) {
+    public String sendMessage(@ModelAttribute("peepMessage") @Valid UserMessageDto messageDto, BindingResult result, Model model, Authentication authentication, RedirectAttributes redirectAttributes) {
         addUserToModel(authentication, model);
         if (result.hasErrors()) {
             model.addAttribute("error", "Please correct the errors in the form!");
             return "peep-user-page";
         }
-
+    
         String username = authentication.getName();
         User user = userRepository.findByName(username);
         if (user != null) {
-            Message message = new Message();
-            message.setUser(user);
-            message.setMessage(messageDto.getMessage());
-            message.setDateSent(new Date());
-            messageRepository.save(message);
-
-            redirectAttributes.addFlashAttribute("statusMessage", "Message sent successfully!");
-            return "redirect:/peepuser";
+            try {
+                Message message = new Message();
+                message.setUser(user);
+                message.setMessage(messageDto.getMessage());
+                message.setDateSent(new Date());
+                messageRepository.save(message);
+    
+                redirectAttributes.addFlashAttribute("statusMessage", "Message sent successfully!");
+                return "redirect:/peepuser";
+            } catch (Exception e) {
+                // Log the exception with stack trace
+                e.printStackTrace();
+                model.addAttribute("error", "An error occurred while sending the message.");
+                return "peep-user-page";
+            }
         } else {
-            return "redirect:/login-user";
+            return "redirect:/x.com";
         }
     }
+    
 
     private void addUserToModel(Authentication authentication, Model model) {
         if (authentication != null && authentication.isAuthenticated() && !"anonymousUser".equals(authentication.getPrincipal())) {

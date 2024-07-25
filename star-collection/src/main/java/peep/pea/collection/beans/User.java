@@ -3,6 +3,8 @@ package peep.pea.collection.beans;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import java.util.Date;
+import java.util.List;
+import java.util.ArrayList;
 
 @Entity
 @Table(name = "peeppea_user")
@@ -30,9 +32,11 @@ public class User {
     @Column(name = "bio", nullable = true)
     private String bio;
 
-    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "date_registered", nullable = false, updatable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Date dateRegistered;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Message> messages = new ArrayList<>();
 
     // Getters and Setters
 
@@ -82,5 +86,13 @@ public class User {
 
     public void setDateRegistered(Date dateRegistered) {
         this.dateRegistered = dateRegistered;
+    }
+
+    public List<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
     }
 }

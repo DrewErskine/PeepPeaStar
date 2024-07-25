@@ -31,23 +31,25 @@ public class UserControllerTest {
 
     @BeforeEach
     public void setup() {
+        // Check and add peepbot user if not exists
         userRepository.findByEmail("peepbot@peeppea.com")
-                      .ifPresent(user -> userRepository.delete(user));
+                      .orElseGet(() -> {
+                          User peepbot = new User();
+                          peepbot.setEmail("peepbot@peeppea.com");
+                          peepbot.setName("peepbot");
+                          peepbot.setPassword(passwordEncoder.encode("password"));
+                          return userRepository.save(peepbot);
+                      });
+
+        // Check and add cooper user if not exists
         userRepository.findByEmail("cooper@peeppea.com")
-                      .ifPresent(user -> userRepository.delete(user));
-
-        // Creating test users for login tests
-        User peepbot = new User();
-        peepbot.setEmail("peepbot@peeppea.com");
-        peepbot.setName("peepbot");
-        peepbot.setPassword(passwordEncoder.encode("password"));
-        userRepository.save(peepbot);
-
-        User cooper = new User();
-        cooper.setEmail("cooper@peeppea.com");
-        cooper.setName("cooper");
-        cooper.setPassword(passwordEncoder.encode("cooper3"));
-        userRepository.save(cooper);
+                      .orElseGet(() -> {
+                          User cooper = new User();
+                          cooper.setEmail("cooper@peeppea.com");
+                          cooper.setName("cooper");
+                          cooper.setPassword(passwordEncoder.encode("cooper3"));
+                          return userRepository.save(cooper);
+                      });
     }
 
     @Test
