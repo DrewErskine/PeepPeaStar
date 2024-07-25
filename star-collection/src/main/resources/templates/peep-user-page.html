@@ -54,14 +54,12 @@
                     <!-- Display success message -->
                     <p th:if="${messageSent}" th:text="'Your message has been sent successfully!'" class="success"></p>
 
-                    <form th:action="@{/sendMessage}" th:object="${message}" th:method="post">
-                        <label for="contact-message">Message </label>
-                        <textarea th:field="*{message}" placeholder="Write your message here..."
-                            id="contact-message"></textarea>
+                    <form th:action="@{/sendMessage}" th:object="${peepMessage}" th:method="post">
+                        <label for="contact-message">Message</label>
+                        <textarea th:field="*{message}" placeholder="Write your message here..." id="contact-message"></textarea>
                         <p th:if="${#fields.hasErrors('message')}" th:errors="*{message}" class="error"></p>
-
                         <button type="submit" class="submitButton lg solid peeppeablue">Submit</button>
-                    </form>
+                    </form>        
                 </div>
 
                 <nav aria-label="Category">
@@ -86,8 +84,8 @@
     <div th:replace="~{fragments.html :: footer}" />
     <!-- /footer -->
 
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
+    <script th:src="@{/js/plugins.js}"></script>
+    <script th:src="@{/js/main.js}"></script>
 
 </body>
 

@@ -25,7 +25,7 @@
             <a th:if="${loggedInUser == null}" th:href="@{/newUser}">
                 <img src="/images/icon-user-v01-white.svg" width="36" height="36" alt="Account">
             </a>
-            <a th:if="${loggedInUser != null}" th:href="@{/account}" class="user-icon">
+            <a th:if="${loggedInUser != null}" th:href="@{/peepuser}" class="user-icon">
                 <div id="loggedin">
                     <div class="top" style="align-items: center;">
                         <img src="/images/icon-user-v01-white.svg" width="27" height="27" alt="Account">

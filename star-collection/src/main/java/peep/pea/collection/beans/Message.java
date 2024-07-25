@@ -51,11 +51,11 @@ public class Message {
         this.user = user;
     }
 
-    public String getmessage() {
+    public String getMessage() {
         return message;
     }
 
-    public void setmessage(String message) {
+    public void setMessage(String message) {
         this.message = message;
     }
 

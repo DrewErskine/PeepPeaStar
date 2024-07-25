@@ -1,6 +1,6 @@
 package peep.pea.collection.controller;
 
-import java.util.Date;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,52 +8,57 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import jakarta.validation.Valid;
 import peep.pea.collection.beans.Message;
 import peep.pea.collection.beans.User;
 import peep.pea.collection.dao.MessageRepository;
 import peep.pea.collection.dao.UserRepository;
+import peep.pea.collection.dto.UserMessageDto;
+
+import java.util.Date;
 
 @Controller
 public class MessageController {
 
-    private final UserRepository userRepository;
-    private final MessageRepository messageRepository;
+    @Autowired
+    private UserRepository userRepository;
 
-    public MessageController(UserRepository userRepository, MessageRepository messageRepository) {
-        this.userRepository = userRepository;
-        this.messageRepository = messageRepository;
-    }
+    @Autowired
+    private MessageRepository messageRepository;
 
     @GetMapping("/newMessage")
-    public String showMessageForm(Model model) {
-        model.addAttribute("messageForm", new Message());
+    public String showMessageForm(Model model, Authentication authentication) {
+        addUserToModel(authentication, model);
+        model.addAttribute("messageForm", new UserMessageDto());
         return "peep-user-page";
     }
 
     @PostMapping("/sendMessage")
-    public String sendMessage(@ModelAttribute("messageForm") @Valid Message message, BindingResult result, Model model, Authentication authentication) {
+    public String sendMessage(@ModelAttribute("messageForm") @Valid UserMessageDto messageDto, BindingResult result, Model model, Authentication authentication, RedirectAttributes redirectAttributes) {
+        addUserToModel(authentication, model);
         if (result.hasErrors()) {
-            System.out.println("Validation errors: " + result.getAllErrors());
             model.addAttribute("error", "Please correct the errors in the form!");
-            addUserToModel(authentication, model);
             return "peep-user-page";
         }
-    
-        User user = userRepository.findByName(authentication.getName());
+
+        String username = authentication.getName();
+        User user = userRepository.findByName(username);
         if (user != null) {
+            Message message = new Message();
             message.setUser(user);
+            message.setMessage(messageDto.getMessage());
             message.setDateSent(new Date());
             messageRepository.save(message);
-    
-            model.addAttribute("statusMessage", "Message sent successfully!");
-            model.addAttribute("user", user);
+
+            redirectAttributes.addFlashAttribute("statusMessage", "Message sent successfully!");
             return "redirect:/peepuser";
         } else {
             return "redirect:/login-user";
         }
     }
-    
+
     private void addUserToModel(Authentication authentication, Model model) {
         if (authentication != null && authentication.isAuthenticated() && !"anonymousUser".equals(authentication.getPrincipal())) {
             String username = authentication.getName();
@@ -62,5 +67,5 @@ public class MessageController {
                 model.addAttribute("user", user);
             }
         }
-    }       
+    }
 }

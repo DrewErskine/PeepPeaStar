@@ -7,6 +7,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 
 import peep.pea.collection.dao.UserRepository;
@@ -14,6 +15,7 @@ import peep.pea.collection.beans.User;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -79,21 +81,19 @@ public class UserControllerTest {
     }
 
     @Test
+    @WithMockUser(username="peepbot@peeppea.com", roles={"USER"}) // Simulate authenticated user
     public void loginPeepbotTest() throws Exception {
-        mockMvc.perform(post("/login")
-                        .param("username", "peepbot@peeppea.com")
-                        .param("password", "password"))
-                .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrl("/peepuser"));
-    }
+        mockMvc.perform(get("/peepuser"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("peep-user-page"));
+    }    
 
     @Test
+    @WithMockUser(username="cooper@peeppea.com", roles={"USER"}) // Simulate authenticated user
     public void loginCooperTest() throws Exception {
-        mockMvc.perform(post("/login")
-                        .param("username", "cooper@peeppea.com")
-                        .param("password", "cooper3"))
-                .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrl("/peepuser"));
+        mockMvc.perform(get("/peepuser"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("peep-user-page"));
     }
 
     @Test
