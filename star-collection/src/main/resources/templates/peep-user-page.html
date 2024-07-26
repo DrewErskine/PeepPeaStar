@@ -15,11 +15,13 @@
     <!-- stylesheets -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,500;1,700&family=Roboto:wght@700&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,500;1,700&family=Roboto:wght@700&display=swap">
     <link rel="stylesheet" th:href="@{/css/plugins.css}">
     <link rel="stylesheet" th:href="@{/css/common.css}">
     <link rel="stylesheet" th:href="@{/css/about.css}">
     <link rel="stylesheet" th:href="@{/css/peepuser.css}">
+    <link rel="stylesheet" th:href="@{/css/messages.css}">
 </head>
 
 <body>
@@ -43,7 +45,7 @@
                         !
                     </h1>
                     <p>Access your settings, view your posts, and more on your dashboard.</p>
-                </div>                
+                </div>
 
                 <section id="user-details">
                     <dl class="details-list" aria-label="Category">
@@ -53,25 +55,24 @@
                         <dd th:text="${#dates.format(user.dateRegistered, 'MMMM dd, yyyy')}">January 01, 2022</dd>
                     </dl>
                 </section>
-                
+
                 <div class="wrapper" style="padding-top: 23em;">
                     <h1>Send a Message</h1>
-                
+
                     <!-- Display success message -->
                     <p th:if="${messageSent}" class="success">Your message has been sent successfully!</p>
-                
+
                     <!-- Display error message -->
                     <p th:if="${error}" th:text="${error}" class="error"></p>
-                
+
                     <form th:action="@{/sendMessage}" th:object="${peepMessage}" th:method="post">
                         <label for="contact-message">Message</label>
-                        <textarea th:field="*{message}" placeholder="Write your message here..." id="contact-message"></textarea>
+                        <textarea th:field="*{message}" placeholder="Write your message here..."
+                            id="contact-message"></textarea>
                         <p th:if="${#fields.hasErrors('message')}" th:errors="*{message}" class="error"></p>
                         <button type="submit" class="submitButton lg solid peeppeablue">Submit</button>
-                    </form>        
+                    </form>
                 </div>
-                
-
                 <nav aria-label="Category">
                     <div>
                         <nav aria-label="UserActions">
@@ -88,6 +89,28 @@
                 </nav>
             </section>
         </div><!-- / #wrapper-about -->
+        <!-- Table of Previous Messages -->
+        <div class="wrapper">
+            <h1>Previous Messages</h1>
+            <table class="message-table" th:if="${messages}">
+                <thead>
+                    <tr>
+                        <th scope="col" class="date-column">Date</th>
+                        <th scope="col" class="message-column">Message</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="msg : ${messages}">
+                        <td th:text="${#dates.format(msg.dateSent, 'dd MMM yyyy')}" class="date-cell"></td>
+                        <td th:text="${msg.message}" class="message-cell"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- Optional: Display a message when there are no messages -->
+            <div th:if="${#lists.isEmpty(messages)}" class="no-messages">
+                No messages to display.
+            </div>
+        </div>
     </main>
 
     <!-- Footer -->

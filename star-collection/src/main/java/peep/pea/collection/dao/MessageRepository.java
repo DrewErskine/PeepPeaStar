@@ -14,7 +14,7 @@ import peep.pea.collection.beans.User;
 public interface MessageRepository extends CrudRepository<Message, Integer> {
 
     @Query("SELECT m FROM Message m WHERE m.user.id = :userId")
-    List<Message> findByUserId(@Param("userId") int userId);
+    List<Message> findByUserId(@Param("userId") long userId);
     void deleteAllByUser(User user);
     
 }

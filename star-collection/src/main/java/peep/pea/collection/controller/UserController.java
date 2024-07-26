@@ -1,6 +1,8 @@
 package peep.pea.collection.controller;
 
 import java.util.Date;
+import java.util.List;
+
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import jakarta.validation.Valid;
 import peep.pea.collection.beans.Message;
 import peep.pea.collection.beans.User;
+import peep.pea.collection.dao.MessageRepository;
 import peep.pea.collection.dao.UserRepository;
 import peep.pea.collection.dto.UserLoginDto;
 import peep.pea.collection.dto.UserMessageDto;
@@ -22,11 +25,13 @@ import peep.pea.collection.dto.UserRegistrationDto;
 public class UserController {
 
     private final UserRepository userRepository;
+    private final MessageRepository messageRepository;
     private final PasswordEncoder passwordEncoder;
 
-    public UserController(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    public UserController(UserRepository userRepository, PasswordEncoder passwordEncoder, MessageRepository messageRepository) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
+        this.messageRepository = messageRepository;
     }
 
     @GetMapping("/newUser")
@@ -73,11 +78,15 @@ public class UserController {
             if (user != null) {
                 model.addAttribute("user", user);
                 model.addAttribute("peepMessage", new UserMessageDto());
+                // Fetch and add messages to the model
+                List<Message> messages = messageRepository.findByUserId(user.getId());
+                model.addAttribute("messages", messages);
                 return "peep-user-page";
             }
         }
         return "redirect:/login-user";
     }
+
     
 
     @GetMapping("/account")

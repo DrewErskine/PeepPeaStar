@@ -400,6 +400,7 @@ nav[aria-label="UserActions"] {
     border-bottom: 2px solid var(--color-peeppeaplue);
     background-color: var(--color-light-offwhiteviolet);
     padding: 10px 20px;
+	text-align: center;
 }
 
 [aria-label="UserActions"] li {

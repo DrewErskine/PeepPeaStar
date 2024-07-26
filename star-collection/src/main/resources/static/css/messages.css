@@ -1,0 +1,79 @@
+/* Global styles for message table */
+.message-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--color-coldmorning);
+    color: var(--color-calicodress);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0 15px;
+}
+
+/* Standard cell styles */
+.message-table th, .message-table td {
+    border: 1px solid var(--color-offwhiteviolet);
+    padding: 12px;
+    text-align: left;
+}
+
+/* Header cell styles */
+.message-table th {
+    background-color: var(--color-peeppeaplue);
+    color: var(--color-mistyrose);
+    font-size: 16px;
+}
+
+/* Body cell styles */
+.message-table td {
+    font-size: 14px;
+}
+
+/* Styling for the header row */
+.message-table thead th {
+    border-bottom: 3px solid var(--color-tidalwave);
+}
+
+/* Hover effects for table rows */
+.message-table tbody tr:hover {
+    background-color: var(--color-aquasea);
+    cursor: pointer;
+}
+
+/* Responsive adjustments for smaller screens */
+@media screen and (max-width: 600px) {
+    .message-table th, .message-table td {
+        padding: 10px;
+    }
+}
+
+/* Column-specific styling */
+.message-table .date-column {
+    font-weight: bold;
+    width: 20%;
+}
+
+.message-table .message-column {
+    max-width: 450px;
+    word-wrap: break-word;
+    width: 80%;
+}
+
+/* Styles for specific states like success or error messages */
+.message-success {
+    background-color: var(--color-parisgreen);
+    color: var(--color-calicodress);
+}
+
+.message-error {
+    background-color: var(--color-battleship);
+    color: var(--color-mistyrose);
+}
+
+/* Page header styling */
+.wrapper h1 {
+    font-size: 24px;
+    color: var(--color-chinesebellflower);
+    padding: 10px 0;
+    border-bottom: 2px solid var(--color-tidalwave);
+    text-align: center;
+    margin-bottom: 20px;
+}

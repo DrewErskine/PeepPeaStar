@@ -31,6 +31,11 @@ public class HomeController extends CommonController {
         return "about-peeppea";
     }
 
+    @GetMapping("/peepville")
+    public String getPeepille(Model model) {
+        return "peep-ville";
+    }
+
     @ModelAttribute("currentURI")
     public String getCurrentURI(HttpServletRequest request) {
         return request.getRequestURI();

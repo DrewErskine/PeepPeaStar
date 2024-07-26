@@ -40,6 +40,8 @@ public class SecurityConfig {
                     "/newUser",
                     "/peepuser",
                     "/peep-user-page",
+                    "/getPeepvile",
+                    "/Peepille",
                     "/addPeepComment",
                     "/sendMessage",
                     "/saveUser",

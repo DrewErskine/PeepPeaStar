@@ -41,13 +41,10 @@
                     <!-- 1 -->
                     <li class="splide__slide Peep-Pea">
                         <div class="wrapper">
-                            <img src="/images/logo-peep.svg" width="350" height="200" alt="Logo of PeepPea!"
-                                class="logo">
-                            <a href="Peep-List.html" class="button bordered lg solid dragonlordpurple-buttons">Peep Peep
-                                ._.</a>
+                            <img src="/images/logo-peep.svg" width="350" height="200" alt="Logo of PeepPea!"class="logo">
+                            <a th:href="@{/aboutPeepPea}" class="button bordered lg solid dragonlordpurple-buttons">Peep Peep._.</a>
                         </div>
-                        <img src="/images/hero-peep-pea.jpg"
-                            srcset="/images/hero-peep-pea.jpg 1x, /images/hero-peep-pea@2x.jpg 2x, /images/hero-peep-pea@3x.jpg 3x"
+                        <img src="/images/hero-peep-pea.jpg" srcset="/images/hero-peep-pea.jpg 1x, /images/hero-peep-pea@2x.jpg 2x, /images/hero-peep-pea@3x.jpg 3x"
                             width="600" height="550" alt="Hero Image of Peep Pea" class="hero-image"
                             style="padding-bottom: 10%;">
                     </li>
@@ -57,7 +54,7 @@
                         <div class="wrapper">
                             <h2>I Love PeepPea!</h2>
                             <p>PeepPea so cute.</p>
-                            <a href="Peep-List.html" class="button bordered lg solid coldmorning-buttons">PeepPea
+                            <a th:href="@{/getAllBlogs}" class="button bordered lg solid coldmorning-buttons">PeepPea
                                 Sleep</a>
                         </div>
                         <img src="/images/hero-more.jpg"
@@ -71,7 +68,7 @@
                             <h2>More PeepPea!</h2>
                             <p>Nala doesn't like Peep</p>
                             <p>Nala doesn't really do much imo.</p>
-                            <a th:href="Peep-List.html" class="button bordered mistyrose-buttons">PeepPeas #1 on
+                            <a th:href="@{/aboutPeepPea}" class="button bordered mistyrose-buttons">PeepPeas #1 on
                                 foenum</a>
                         </div>
                         <img src="/images/hero-nala.jpg"
@@ -86,7 +83,7 @@
             <header>
                 <img src="/images/Cats.svg" width="420" height="420" alt="Logo of Peepville">
                 <h1>Explore <span id="name-Peepville">Peepville</span></h1>
-                <a href="/Peepville.html" class="button bordered parisgreen-buttons" id="more-Peepville"
+                <a th:href="@{/peepville}" class="button bordered parisgreen-buttons" id="more-Peepville"
                     aria-labelledby="more-Peepville name-Peepville">Meet the PeepPea Crew<span class="arrow"
                         aria-hidden="true">&rarr;</span></a>
             </header>

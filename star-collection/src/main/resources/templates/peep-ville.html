@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Peepville Crew | Peep Peas #1 Star</title>
+    <link rel="icon" th:href="@{/images/favicons/catFavicon.png}" sizes="57x57">
+    <meta name="msapplication-TileColor" content="#d4d4d8">
+    <meta name="theme-color" content="#f4f1ec">
+
+    <!-- Stylesheets -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,500;1,700&family=Roboto:wght@700&display=swap">
+    <link rel="stylesheet" th:href="@{/css/plugins.css}">
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/about.css}">
+</head>
+
+<body>
+    <!-- Header -->
+    <div th:replace="~{fragments.html :: header}" />
+    <!-- /Header -->
+
+    <main id="main">
+        <article id="wrapper-about" style="padding-top: 2.3em;">
+            <section id="about">
+                <div class="hero-container">
+                    <img src="/images/MissHer.png" alt="Welcome to Peepville" class="hero-image">
+                    <h1>Welcome to Peepville</h1>
+                    <p>Meet the wonderful characters of Peepville - Peep, Nala, and Cooper.</p>
+                </div>
+                <div class="character-profiles">
+                    <div class="character-profile">
+                        <img src="/images/hero-peep-pea.jpg" alt="Peep" class="character-image">
+                        <h3>PeepPea</h3>
+                        <p><strong>Queen of Peepville</strong> - PeepPea, the cherished sovereign of Peepville, is revered for her wisdom and benevolence. Her leadership has ushered in an era of peace and prosperity across the land.</p>
+                        <a th:href="@{/getCharacter/{charname} (charname='Character-Detail-PeepPea')}" class="button bordered solid seacaller-buttons">See bio</a>
+                    </div>
+                    <div class="character-profile">
+                        <img src="/images/characters/PeepPea-Blogs-Nala.png" alt="Nala" class="character-image">
+                        <h3>Nala</h3>
+                        <p><strong>Forensic Accountant</strong> - Nala, a computational genius, leverages her intellect to aid Peepville's businesses. She is currently developing a revolutionary web browser aimed at redefining internet navigation.</p>
+                    </div>
+                    <div class="character-profile">
+                        <img src="/images/characters/details/pfp/cooper.jpg" alt="Cooper" class="character-image">
+                        <h3>Cooper</h3>
+                        <p><strong>Innovative Engineer</strong> - Cooper's ingenuity has led to numerous advancements in Peepville, especially in sustainable living and technology. His efforts have significantly enhanced the quality of life for all its residents.</p>
+                    </div>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <div th:replace="~{fragments.html :: footer}" />
+    <!-- /Footer -->
+
+    <script th:src="@{/js/plugins.js}"></script>
+    <script th:src="@{/js/main.js}"></script>
+</body>
+
+</html>
