@@ -19,32 +19,32 @@
 </head>
 
 <body>
-    <!-- Header -->
+    <!--header -->
     <div th:replace="~{fragments.html :: header}" />
-    <!-- /Header -->
+    <!-- /header -->
 
     <main id="main">
         <article id="wrapper-about" style="padding-top: 2.3em;">
-            <section id="about">
-                <div class="hero-container">
-                    <img src="/images/MissHer.png" alt="Welcome to Peepville" class="hero-image">
-                    <h1>Welcome to Peepville</h1>
+            <section id="about" class="container">
+                <div class="hero-container text-center">
+                    <img th:src="@{/images/MissHer.png}" alt="Welcome to Peepville" class="hero-image img-fluid">
+                    <h1 class="mt-3">Welcome to Peepville</h1>
                     <p>Meet the wonderful characters of Peepville - Peep, Nala, and Cooper.</p>
                 </div>
-                <div class="character-profiles">
-                    <div class="character-profile">
-                        <img src="/images/hero-peep-pea.jpg" alt="Peep" class="character-image">
+                <div class="character-profiles row mt-5">
+                    <div class="character-profile col-md-4 text-center">
+                        <img th:src="@{/images/hero-peep-pea.jpg}" alt="Peep" class="character-image img-fluid rounded-circle mb-3">
                         <h3>PeepPea</h3>
                         <p><strong>Queen of Peepville</strong> - PeepPea, the cherished sovereign of Peepville, is revered for her wisdom and benevolence. Her leadership has ushered in an era of peace and prosperity across the land.</p>
-                        <a th:href="@{/getCharacter/{charname} (charname='Character-Detail-PeepPea')}" class="button bordered solid seacaller-buttons">See bio</a>
+                        <a th:href="@{/getCharacter/Character-Detail-PeepPea}" class="btn btn-primary mt-2">See bio</a>
                     </div>
-                    <div class="character-profile">
-                        <img src="/images/characters/PeepPea-Blogs-Nala.png" alt="Nala" class="character-image">
+                    <div class="character-profile col-md-4 text-center">
+                        <img th:src="@{/images/characters/PeepPea-Blogs-Nala.png}" alt="Nala" class="character-image img-fluid rounded-circle mb-3">
                         <h3>Nala</h3>
                         <p><strong>Forensic Accountant</strong> - Nala, a computational genius, leverages her intellect to aid Peepville's businesses. She is currently developing a revolutionary web browser aimed at redefining internet navigation.</p>
                     </div>
-                    <div class="character-profile">
-                        <img src="/images/characters/details/pfp/cooper.jpg" alt="Cooper" class="character-image">
+                    <div class="character-profile col-md-4 text-center">
+                        <img th:src="@{/images/characters/details/pfp/cooper.jpg}" alt="Cooper" class="character-image img-fluid rounded-circle mb-3">
                         <h3>Cooper</h3>
                         <p><strong>Innovative Engineer</strong> - Cooper's ingenuity has led to numerous advancements in Peepville, especially in sustainable living and technology. His efforts have significantly enhanced the quality of life for all its residents.</p>
                     </div>
