@@ -6,23 +6,26 @@ PeepPeaStar is a Spring Boot application designed for managing blog content, use
 - **User Authentication**: Registration, login, and authentication using Spring Security.
 - **Character Profiles**: Display detailed profiles of "Peepville" characters.
 - **Responsive UI**: Front-end designed with HTML, CSS, and Thymeleaf templates for a responsive user experience.
-- **Database Integration**: Stores user, blog, and comment data in a MySQL database.
+- **Database Integration**: Stores user, blog, comment, and message data in a PostgreSQL database.
 
 # Project Structure
 - **Main Application**: `PeepPeaStarApplication.java` and `ServletInitializer.java`
-- **Beans**: `Blog.java`, `User.java`
-- **Configuration**: `SecurityConfig.java`
-- **Controllers**: `BlogController.java`, `HomeController.java`, `UserController.java`
-- **DAOs**: `BlogRepository.java`, `UserRepository.java`
-- **DTOs**: `UserRegistrationDto.java`
+- **Beans**: `Blog.java`, `User.java`, `Comment.java`, `Message.java`
+- **Configuration**: `AppConfig.java`, `SecurityConfig.java`
+- **Controllers**: `BlogController.java`, `CommonController.java`, `HomeController.java`, `MessageController.java`, `UserController.java`
+- **DAOs**: `BlogRepository.java`, `CommentRepository.java`, `MessageRepository.java`, `UserRepository.java`
+- **DTOs**: `UserLoginDto.java`, `UserMessageDto.java`, `UserRegistrationDto.java`
+- **Service**: `PeepUserDetailsService.java`
 - **Resources**:
   - **Static Files**: CSS, images, fonts, JavaScript
   - **Templates**: HTML templates for various pages (`index.html`, `blog-list.html`, `register-user.html`, etc.)
-- **Test**: `PeepPeaStarApplicationTests.java`
+- **Tests**: `PeepPeaStarApplicationTests.java`, `UserControllerTest.java`
 
 # Beans
 - **Blog**: Represents blog entries with fields for title, content, user, etc.
 - **User**: Represents users with fields for name, email, password, etc.
+- **Comment**: Represents comments on blog posts.
+- **Message**: Represents messages exchanged between users.
 
 # Endpoints
 - `/aboutPeepPea` (GET): About page for Peep Pea.
@@ -41,9 +44,11 @@ PeepPeaStar is a Spring Boot application designed for managing blog content, use
   - `UserController.java`: Manages user registration and authentication.
   - `BlogController.java`: Manages blog creation and listing.
   - `HomeController.java`: Handles home page requests.
-- **Database Files**: Contains SQL files for initializing the database tables for blogs, comments, and users.
+- **Database Files**: Contains SQL files for initializing the database tables for blogs, comments, messages, and users.
 
 # SQL Files
-- **peepepea_blog**: Table structure for storing blog posts.
-- **peeppea_comments**: Table structure for storing comments on blog posts.
-- **peeppea_user**: Table structure for storing user information.
+Located in the `psql_scripts` directory, these files are used to initialize the PostgreSQL database with the necessary tables:
+- `create_blog_table.sql`: Sets up the `peeppea_blog` table for storing blog posts.
+- `create_comments_table.sql`: Sets up the `peeppea_comments` table for storing comments on blog posts.
+- `create_message_table.sql`: Sets up the `peeppea_message` table for storing system messages.
+- `create_user_table.sql`: Sets up the `peeppea_user` table for storing user information.
