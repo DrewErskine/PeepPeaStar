@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org/" lang="en">
-
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Fragments | Peep Pea</title>
@@ -19,7 +18,9 @@
                 <li><a th:href="@{/getAllBlogs}" th:attr="aria-current=${currentURI == '/getAllBlogs' ? 'page' : null}">Peep Pea Pets</a></li>
                 <li><a th:href="@{/aboutPeepPea}" th:attr="aria-current=${currentURI == '/aboutPeepPea' ? 'page' : null}">About Peep</a></li>
             </ul>
-            <button type="button"><img src="/images/icon-menu.svg" width="30" height="24" alt="Site Navigation Panel"></button>
+            <button type="button">
+                <img src="/images/icon-menu.svg" width="30" height="24" alt="Site Navigation Panel">
+            </button>
         </nav>
         <div class="user-info">
             <a th:if="${loggedInUser == null}" th:href="@{/newUser}">
@@ -38,38 +39,33 @@
                 </div>
             </a>
         </div>
-    </header>    
+    </header>
     <!-- /header -->
-
 
     <!-- footer -->
     <footer id="continfo">
         <nav aria-label="Supplementary">
             <ul>
                 <li><a href="./">Home</a></li>
-                <li><a href="@{/blog-list.html}">PeepPeas</a></li>
-                <li><a href="@{/about-peeppea.html}">About Peep</a></li>
-                <li><a href="@{/contact-peeppea.html}">Contact Peep</a></li>
+                <li><a th:href="@{/blog-list.html}">PeepPeas</a></li>
+                <li><a th:href="@{/about-peeppea.html}">About Peep</a></li>
+                <li><a th:href="@{/contact-peeppea.html}">Contact Peep</a></li>
             </ul>
         </nav>
         <figure>
             <figcaption>Follow us</figcaption>
             <ul>
-                <li><a href="#" target="_blank"><img src="/images/icon-instagram-white.svg" width="30" height="30"
-                            alt="Instagram"></a></li>
-                <li><a href="#" target="_blank"><img src="/images/icon-facebook-white.svg" width="30" height="30"
-                            alt="Facebook"></a></li>
-                <li><a href="#" target="_blank"><img src="/images/icon-twitter-white.svg" width="30" height="30"
-                            alt="Twitter"></a></li>
-                <li><a href="#" target="_blank"><img src="/images/icon-youtube-white.svg" width="30" height="30"
-                            alt="YouTube"></a></li>
+                <li><a href="#" target="_blank"><img src="/images/icon-instagram-white.svg" width="30" height="30" alt="Instagram"></a></li>
+                <li><a href="#" target="_blank"><img src="/images/icon-facebook-white.svg" width="30" height="30" alt="Facebook"></a></li>
+                <li><a href="#" target="_blank"><img src="/images/icon-twitter-white.svg" width="30" height="30" alt="Twitter"></a></li>
+                <li><a href="#" target="_blank"><img src="/images/icon-youtube-white.svg" width="30" height="30" alt="YouTube"></a></li>
             </ul>
         </figure>
         <img src="/images/logo-peep.svg" width="120" height="65" alt="Logo of Big Star Collectibles">
-        <p><small>&copy; Peep Pea, LLC (no clue what LLC stands for mb). &nbsp;|&nbsp; <a href="#">Privacy</a>
-                &nbsp;|&nbsp; <a href="#">Terms</a></small></p>
-        <p><small>This is a fictitious company, "PeepPea", created by Drew Erskine ._.</small></p>
+        <p><small>&copy; Peep Pea, LLC. &nbsp;|&nbsp; <a href="#">Privacy</a> &nbsp;|&nbsp; <a href="#">Terms</a></small></p>
+        <p><small>This is a fictitious company, "PeepPea", created by Drew Erskine.</small></p>
     </footer>
-</body>
+    <!-- /footer -->
 
+</body>
 </html>
