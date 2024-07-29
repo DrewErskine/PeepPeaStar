@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,8 +15,13 @@
     <link rel="stylesheet" th:href="@{/css/plugins.css}">
     <link rel="stylesheet" th:href="@{/css/common.css}">
     <link rel="stylesheet" th:href="@{/css/about.css}">
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+    <link rel="stylesheet" th:href="@{/css/crew.css}">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .container { width: 100% !important; max-width: 100% !important; }
+    </style>
 </head>
-
 <body>
     <!--header -->
     <div th:replace="~{fragments.html :: header}" />
@@ -27,26 +31,26 @@
         <article id="wrapper-about" style="padding-top: 2.3em;">
             <section id="about" class="container">
                 <div class="hero-container text-center">
-                    <img th:src="@{/images/MissHer.png}" alt="Welcome to Peepville" class="hero-image img-fluid">
+                    <div class="wide-image">
+                        <img th:src="@{/images/MissHer.png}" alt="Welcome to Peepville" class="peeppea-the-hero-image img-fluid">
+                    </div>
                     <h1 class="mt-3">Welcome to Peepville</h1>
-                    <p>Meet the wonderful characters of Peepville - Peep, Nala, and Cooper.</p>
                 </div>
                 <div class="character-profiles row mt-5">
                     <div class="character-profile col-md-4 text-center">
-                        <img th:src="@{/images/hero-peep-pea.jpg}" alt="Peep" class="character-image img-fluid rounded-circle mb-3">
-                        <h3>PeepPea</h3>
-                        <p><strong>Queen of Peepville</strong> - PeepPea, the cherished sovereign of Peepville, is revered for her wisdom and benevolence. Her leadership has ushered in an era of peace and prosperity across the land.</p>
-                        <a th:href="@{/getCharacter/Character-Detail-PeepPea}" class="btn btn-primary mt-2">See bio</a>
+                        <img th:src="@{/images/characters/peepville/peep-16..9.jpg}" alt="Peep" class="character-image img-fluid rounded-circle mb-3">
+                        <h3 class="disc-highlight">PeepPea</h3>
+                        <p><strong class="highlight">Queen of Peepville</strong> - PeepPea, the cherished sovereign of Peepville, is revered for her wisdom and benevolence. Her leadership has ushered in an era of peace and prosperity across the land.</p>
                     </div>
                     <div class="character-profile col-md-4 text-center">
-                        <img th:src="@{/images/characters/PeepPea-Blogs-Nala.png}" alt="Nala" class="character-image img-fluid rounded-circle mb-3">
-                        <h3>Nala</h3>
-                        <p><strong>Forensic Accountant</strong> - Nala, a computational genius, leverages her intellect to aid Peepville's businesses. She is currently developing a revolutionary web browser aimed at redefining internet navigation.</p>
+                        <img th:src="@{/images/characters/peepville/Nala-16..9.jpg}" alt="Nala" class="character-image img-fluid rounded-circle mb-3">
+                        <h3 class="disc-highlight">Nala</h3>
+                        <p><strong class="highlight">Forensic Accountant</strong> - Nala, a computational genius, leverages her intellect to aid Peepville's businesses. She is currently developing a revolutionary web browser aimed at redefining internet navigation.</p>
                     </div>
                     <div class="character-profile col-md-4 text-center">
-                        <img th:src="@{/images/characters/details/pfp/cooper.jpg}" alt="Cooper" class="character-image img-fluid rounded-circle mb-3">
-                        <h3>Cooper</h3>
-                        <p><strong>Innovative Engineer</strong> - Cooper's ingenuity has led to numerous advancements in Peepville, especially in sustainable living and technology. His efforts have significantly enhanced the quality of life for all its residents.</p>
+                        <img th:src="@{/images/characters/peepville/cooper-16..9.jpg}" alt="Cooper" class="character-image img-fluid rounded-circle mb-3">
+                        <h3 class="disc-highlight">Cooper</h3>
+                        <p><strong class="highlight">Innovative Engineer</strong> - Cooper's ingenuity has led to numerous advancements in Peepville, especially in sustainable living and technology. His efforts have significantly enhanced the quality of life for all its residents.</p>
                     </div>
                 </div>
             </section>
@@ -57,8 +61,11 @@
     <div th:replace="~{fragments.html :: footer}" />
     <!-- /Footer -->
 
+    <!-- Including jQuery first -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script th:src="@{/js/plugins.js}"></script>
     <script th:src="@{/js/main.js}"></script>
-</body>
+    <script src="js/crew.js"></script>
 
+</body>
 </html>
