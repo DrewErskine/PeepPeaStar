@@ -1,9 +1,41 @@
-@import url('colors.css');
-
-body {
+html, body {
+    height: 100%;
+    overflow: auto;
     font-family: 'Ubuntu', sans-serif;
     color: var(--color-dark);
-    background: linear-gradient(to bottom, var(--color-coldmorning), var(--color-seacaller), var(--color-calicodress));
+    background: linear-gradient(to bottom, var(--color-coldmorning), var(--color-peeppeaplue), var(--color-seacaller));
+    position: relative;
+}
+
+body::before,
+body::after {
+    content: '';
+    position: absolute;
+    width: 50vw;
+    height: 50vh;
+    top: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
+    opacity: 0.5;
+    animation: float 15s infinite ease-in-out;
+    pointer-events: none;
+    z-index: -1;
+}
+
+body::after {
+    animation-duration: 20s;
+    animation-direction: reverse;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(50%, 50%) scale(1.5);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
 }
 
 main {
@@ -23,7 +55,7 @@ main {
 }
 
 .wide-image {
-    width: 140%; 
+    width: 140%;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
