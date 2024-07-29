@@ -1,14 +1,9 @@
-/*-----------------------------------------------------
-    Title: Peep Pea Star Crew CSS
-    Edited: 07-24-2024
--------------------------------------------------------*/
-
 @import url('colors.css');
 
 body {
     font-family: 'Ubuntu', sans-serif;
     color: var(--color-dark);
-    background: var(--color-whitesmoke);
+    background: linear-gradient(to bottom, var(--color-coldmorning), var(--color-seacaller), var(--color-calicodress));
 }
 
 main {
@@ -28,11 +23,11 @@ main {
 }
 
 .wide-image {
-    width: 140%; /* As previously set */
+    width: 140%; 
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    overflow: visible; /* Ensures no part of the image is hidden */
+    overflow: visible;
 }
 
 .peeppea-the-hero-image {
@@ -46,14 +41,14 @@ main {
     margin: auto;
     max-width: 75%;
     height: auto;
-    border: 3px solid #fff;
+    border: 3px solid var(--color-offwhite);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .character-profile {
-    border: 2px solid #ccc;
-    background-color: #f8f8f8;
+    border: 2px solid var(--color-calicodress);
+    background-color: var(--color-mistyrose);
     padding: 33px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -65,7 +60,7 @@ main {
 }
 
 .character-profile:hover {
-    border-color: #467798;
+    border-color: var(--color-peeppeaplue);
 }
 
 .character-profile::before {
@@ -85,8 +80,8 @@ main {
 
 .disc-highlight {
     border: 5px solid var(--color-seacaller);
-    color: #355d78;
-    text-shadow: 1px 1px 2px #467798;
+    color: var(--color-tidalwave);
+    text-shadow: 1px 1px 2px var(--color-peeppeaplue);
     font-weight: bold;
     text-align: center;
     margin-top: 20px;
@@ -97,7 +92,7 @@ main {
 
 .character-profile:hover .disc-highlight {
     transform: scale(1.04);
-    color: #40858C;
+    color: var(--color-seacaller);
     padding-left: 0.4em;
 }
 
@@ -147,6 +142,25 @@ blockquote footer {
         flex-direction: column;
         grid-template-columns: 1fr;
     }
+}
+
+a, button {
+    color: var(--color-peeppeaplue);
+    text-decoration: none;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+a:hover, button:hover {
+    color: var(--color-seacaller);
+    background-color: var(--color-seacaller);
+}
+
+button {
+    background-color: var(--color-peeppeaplue);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 #skip a {
