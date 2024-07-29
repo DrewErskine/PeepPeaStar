@@ -1,0 +1,115 @@
+/* Base page styling */
+body {
+    font-family: Arial, sans-serif; /* Ensures consistent font usage */
+    background-color: var(--color-offwhiteviolet); /* Light and neutral background */
+    color: #333; /* Dark grey color for text readability */
+    line-height: 1.6; /* Better readability and spacing between lines */
+}
+
+/* Blog detail styling */
+.blog-detail-content {
+    max-width: 800px; /* Restricts maximum width for readability */
+    margin: 2em auto; /* Centers the blog on the page with vertical margin */
+    padding: 1em; /* Padding around the content */
+    background-color: #fff; /* White background for content focus */
+    border-radius: 8px; /* Rounded corners for modern look */
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1); /* Soft shadow for depth */
+}
+
+.blog-image img {
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Rounded corners for the image */
+}
+
+.blog-text {
+    padding: 20px; /* Inner padding for text content */
+    text-align: left; /* Default alignment for text */
+}
+
+.blog-text h1 {
+    color: var(--color-chinesebellflower); /* Deep contrast for titles */
+    font-size: 2.5em; /* Larger font size for the blog title */
+}
+
+.blog-text p {
+    font-size: 1.2em; /* Appropriate font size for body text */
+}
+
+.blog-metadata {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between elements */
+    margin-top: 1em; /* Spacing after the content before metadata */
+    font-size: 1em; /* Uniform font size for metadata */
+    color: var(--color-dragonlordpurple); /* Subtle purple for less focus */
+}
+
+.like-button {
+    background-color: var(--color-parisgreen);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.like-button:hover {
+    background-color: var(--color-greekgarden); /* A slightly darker green on hover */
+}
+
+/* Comments section styling */
+.comments, .post-comment {
+    background-color: var(--color-mistyrose); /* Soft background color for comment sections */
+    margin: 2em auto; /* Center and add vertical spacing */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+}
+
+.comments h2, .post-comment h2 {
+    border-bottom: 2px solid var(--color-aquasea); /* Underline effect for headers */
+    padding-bottom: 10px; /* Spacing under the text */
+    margin-bottom: 20px; /* Spacing after the header before content starts */
+    text-align: center; /* Center aligns headers */
+    font-size: 24px; /* Makes headers distinctly larger */
+}
+
+.comment {
+    border-bottom: 1px solid #ccc; /* Subtle separation between comments */
+    padding-bottom: 10px; /* Spacing at the bottom of each comment */
+    margin-bottom: 10px; /* Spacing between comments */
+}
+
+.comment:last-child {
+    border-bottom: none; /* Removes border from the last comment */
+}
+
+.comment-header {
+    font-size: 0.9em;
+    color: #666;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .blog-detail-content, .comments, .post-comment {
+        margin: 1em;
+        padding: 10px;
+    }
+
+    .blog-text h1 {
+        font-size: 1.5em; /* Smaller font size for smaller screens */
+    }
+
+    .blog-text p, .comment p {
+        font-size: 1em; /* Adjusts font size for readability on small devices */
+    }
+
+    .comment-header {
+        flex-direction: column; /* Stacks the author and date for better space usage */
+        align-items: start;
+    }
+}

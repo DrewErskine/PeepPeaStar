@@ -23,7 +23,10 @@ public class Blog {
 
     @Column(name = "content", nullable = false, columnDefinition = "TEXT")
     private String content;
-    
+
+    @Column(name = "summary")  // Add this line
+    private String summary;    // And this line
+
     @Column(name = "likes", nullable = false)
     private int likes;
 
@@ -55,6 +58,22 @@ public class Blog {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getSummary() {  // Add this method
+        return summary;
+    }
+
+    public void setSummary(String summary) {  // And this method
+        this.summary = summary;
     }
 
     public int getLikes() {
@@ -95,13 +114,5 @@ public class Blog {
 
     public void setDateCreated(Date dateCreated) {
         this.dateCreated = dateCreated;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
     }
 }
