@@ -12,8 +12,6 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="/images/favicons/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/favicon-16x16.png">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="theme-color" content="#ffffff">
     <link rel="icon" sizes="57x57" href="/images/favicons/catFavicon.png">
     <meta name="msapplication-TileColor" content="#d4d4d8">
     <meta name="theme-color" content="#f4f1ec">
@@ -21,19 +19,14 @@
     <!-- stylesheets -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,500;1,700&family=Roboto:wght@700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,500;1,700&family=Roboto:wght@700&display=swap">
     <link rel="stylesheet" th:href="@{/css/plugins.css}">
     <link rel="stylesheet" th:href="@{/css/common.css}">
     <link rel="stylesheet" th:href="@{/css/about.css}">
     <link rel="stylesheet" th:href="@{/css/crew.css}"/>
-
 </head>
 
 <body>
-
-    <div id="skip">
-        <a href="#main">Skip to main content</a>
-    </div>
 
     <div th:replace="~{fragments.html :: header}" />
 
@@ -48,13 +41,17 @@
         </div>
         <section id="wrapper-about" class="character-profile">
             <header class="section-header character-header">
-                <div class="character-info">
-                    <h1>PeepPea</h1>
-                    <p>Assistant and Observer</p>
+                <div class="character-info-bio-container">
+                    <div class="character-info">
+                        <h1>PeepPea</h1>
+                        <p>Assistant and Observer</p>
+                    </div>
+                    <div class="divider"></div>
+                    <p class="character-bio">PeepPea, always watchful, ensures that everything in Peepville runs smoothly, keeping a close eye on the day-to-day operations from a perch near the computer.</p>
                 </div>
             </header>
-            <p class="character-bio">PeepPea, always watchful, ensures that everything in Peepville runs smoothly, keeping a close eye on the day-to-day operations from a perch near the computer.</p>
-        </section><!-- / #character -->
+        </section>
+        <!-- / #character -->
         <dl class="character-details">
             <div>
                 <dt>Neighborhood of origin</dt>

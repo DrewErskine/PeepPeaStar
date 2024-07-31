@@ -7,17 +7,10 @@ html, body {
     position: relative;
 }
 
-
 body > *:not(header):not(footer) {
     font-family: 'Ubuntu', sans-serif;
     font-size: 1em;
     color: var(--color-dark);
-}
-
-.disc-highlight {
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 1em;
-    color: var(--color-tidalwave);
 }
 
 body::before,
@@ -64,7 +57,6 @@ main {
     border-radius: 0.5em;
     box-shadow: 0 0.125em 0.3125em rgba(0, 0, 0, 0.1);
     text-align: center;
-    margin-left: 3em;
     font-size: 1.5em;
 }
 
@@ -96,7 +88,7 @@ main {
 }
 
 .character-profile {
-    width: 175%;
+    width: 133% !important;
     left: 50%;
     transform: translateX(-50%);
     border: 0.125em solid var(--color-calicodress);
@@ -150,8 +142,7 @@ main {
     -webkit-text-stroke: 0.0625em var(--color-chinesebellflower);
 }
 
-
-.character-bio, .character-info, blockquote {
+blockquote {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -159,6 +150,27 @@ main {
     text-align: center;
     font-size: 1.25em;
     padding: 1.3em;
+}
+
+.character-bio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.5em;
+    padding: 1.3em;
+}
+
+.character-info{
+    flex: 1;
+    background-color: var(--color-greekgarden);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    padding: 20px;
 }
 
 blockquote {
@@ -181,19 +193,31 @@ blockquote footer {
 .character-details {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2em; 
+    gap: 2em;
     margin-top: 2em;
-    align-items: start; 
-    padding: 0;
-    background: none;
+    align-items: start;
+    padding: 3em;
     border: none;
+    background: var(--color-light-aquasea);
+    font-size: 1.3em;
 }
 
-
 .character-details dd {
-    background: var(--color-light-grey);
+    background: var(--color-greekgarden);
     padding: 0.625em;
     border-radius: 0.3125em;
+    font-size: 1.3em; 
+    color: var(--color-dark);
+    font-weight: 600;
+}
+
+.character-details dt {
+    padding: 0.625em;
+    border-radius: 0.3125em;
+    font-size: 1.1em; 
+    color: var(--color-coldmorning);
+    font-weight: 400;
+    text-align: center;
 }
 
 @media (max-width: 48em) {
@@ -201,11 +225,6 @@ blockquote footer {
         flex-direction: column;
         grid-template-columns: 1fr;
     }
-}
-
-a, button {
-    text-decoration: none;
-    transition: color 0.3s, background-color 0.3s;
 }
 
 button {
@@ -216,16 +235,31 @@ button {
     cursor: pointer;
 }
 
-#skip a {
-    position: absolute;
-    top: -2.5em;
-    left: 0;
-    background: var(--color-seacaller);
-    color: white;
-    padding: 0.5em;
-    transition: top 0.3s;
-}
-
 #skip a:focus {
     top: 0;
+}
+
+.character-info-bio-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    position: relative;
+}
+
+.character-info-bio-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(50% - 1px);
+    width: 2px;
+}
+
+.divider {
+    width: 2px; /* Adjust the width of the divider */
+    background-color: var(--color-calicodress); /* Adjust the color of the divider */
+}
+
+h1{
+    font-size: 1.75em;
 }

@@ -26,9 +26,9 @@ public class HomeController extends CommonController {
         return "/peeppea-crew/" + charName;
     }
 
-    @GetMapping("/getCharacter/stories/{charname}")
-    public String getCharacterStories(@PathVariable("charname") String charName) {
-        return "peeppea-crew/stories/" + charName;
+    @GetMapping("/getStory/{storyname}")
+    public String getStories(@PathVariable("storyname") String storyName) {
+        return "peeppea-crew/stories/" + storyName;
     }
 
     @GetMapping("/aboutPeepPea")
