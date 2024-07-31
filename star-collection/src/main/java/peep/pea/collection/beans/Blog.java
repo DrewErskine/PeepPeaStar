@@ -24,8 +24,8 @@ public class Blog {
     @Column(name = "content", nullable = false, columnDefinition = "TEXT")
     private String content;
 
-    @Column(name = "summary")  // Add this line
-    private String summary;    // And this line
+    @Column(name = "summary")
+    private String summary;
 
     @Column(name = "likes", nullable = false)
     private int likes;

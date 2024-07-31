@@ -5,10 +5,13 @@ import peep.pea.collection.beans.Comment;
 import peep.pea.collection.dao.BlogRepository;
 import peep.pea.collection.dao.CommentRepository;
 import peep.pea.collection.dao.UserRepository;
+import peep.pea.collection.service.BlogService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,14 +19,20 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.async.DeferredResult;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.Executor;
 
 @Controller
 public class BlogController extends CommonController {
+
+    @Autowired
+    private BlogService blogService;
 
     private final Logger logger = LoggerFactory.getLogger(BlogController.class);
 
@@ -47,6 +56,15 @@ public class BlogController extends CommonController {
                 return "blog-detail";
             })
             .orElse("redirect:/blogs");
+    }
+
+    @PostMapping("/likeBlog/{id}")
+    @ResponseBody
+    public ResponseEntity<Map<String, Object>> likeBlog(@PathVariable Integer id) {
+        int likes = blogService.incrementLikes(id);
+        Map<String, Object> response = new HashMap<>();
+        response.put("likes", likes);
+        return ResponseEntity.ok(response);
     }
 
     @PostMapping("/addPeepComment")

@@ -30,8 +30,8 @@
                     <p th:text="${blog.content}">Blog content</p>
                     <div class="blog-metadata">
                         <time th:text="'Date: ' + ${#dates.format(blog.dateCreated, 'dd MMM yyyy')}">Date</time>
-                        <button class="like-button">Like</button>
-                        <span>Likes: <span th:text="${blog.likes}">0</span></span>
+                        <button class="like-button" th:onclick="'likeBlog(' + ${blog.id} + ')'">Like</button>
+                        <span>Likes: <span id="like-count" th:text="${blog.likes}">0</span></span>
                         <span>Comments: <span th:text="${blog.noOfComments}">0</span></span>
                     </div>                    
                 </header>
@@ -64,5 +64,16 @@
 
     <script th:src="@{/js/plugins.js}"></script>
     <script th:src="@{/js/main.js}"></script>
+    <script>
+        function likeBlog(blogId) {
+            fetch(`/likeBlog/${blogId}`, {
+                method: 'POST'
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('like-count').textContent = data.likes;
+            });
+        }
+    </script>
 </body>
 </html>
