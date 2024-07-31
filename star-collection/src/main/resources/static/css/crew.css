@@ -181,10 +181,14 @@ blockquote footer {
 .character-details {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.25em;
-    margin-top: 1.25em;
-    font-size: 1em;
+    gap: 2em; 
+    margin-top: 2em;
+    align-items: start; 
+    padding: 0;
+    background: none;
+    border: none;
 }
+
 
 .character-details dd {
     background: var(--color-light-grey);
