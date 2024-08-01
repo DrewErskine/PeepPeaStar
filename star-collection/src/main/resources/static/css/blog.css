@@ -138,14 +138,14 @@
     justify-content: space-between;
     font-size: 0.85em;
     color: #666;
-    margin-bottom: 1em; 
+    margin-bottom: 1em;
 }
 
 .blog-metadata span {
     background: #e8e8e8;
     padding: 5px 10px;
     border-radius: 5px;
-    margin-right: 10px;
+    font-size: 1.2em;
 }
 
 .blog-text p {

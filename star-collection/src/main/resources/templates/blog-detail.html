@@ -32,8 +32,8 @@
                         <time th:text="'Date: ' + ${#dates.format(blog.dateCreated, 'dd MMM yyyy')}">Date</time>
                         <button class="like-button" th:onclick="'likeBlog(' + ${blog.id} + ')'">Like</button>
                         <span>Likes: <span id="like-count" th:text="${blog.likes}">0</span></span>
-                        <span>Comments: <span th:text="${blog.noOfComments}">0</span></span>
-                    </div>                    
+                        <span>Comments: <span th:text="${blog.noOfComments}"></span></span>
+                    </div>
                 </header>
             </div>
         </article>
@@ -50,10 +50,10 @@
             <h2>Comments</h2>
             <div th:each="comment : ${comments}" class="comment">
                 <header class="comment-header">
-                    <span th:text="${comment.author}">Author</span>
                     <time th:text="${#dates.format(comment.datePosted, 'dd MMM yyyy HH:mm')}">Date</time>
+                    <span th:text="${comment.user.name}">Author Name</span>
                 </header>
-                <p th:text="${comment.content}">Comment content</p>
+                <p th:text="${comment.comment}">Comment content</p>
             </div>
         </section>
     </main>

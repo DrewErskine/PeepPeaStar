@@ -54,13 +54,17 @@ public class BlogController extends CommonController {
         return blogRepository.findById(id)
             .map(blog -> {
                 model.addAttribute("blog", blog);
+                List<Comment> comments = commentRepository.findByBlogIdWithUser(blog.getId());
+                model.addAttribute("comments", comments);
                 UserCommentDto commentDto = new UserCommentDto();
                 commentDto.setBlogId(blog.getId());
                 model.addAttribute("commentDto", commentDto);
+                blog.setNoOfComments(comments.size());
                 return "blog-detail";
             })
             .orElse("redirect:/blogs");
-    }    
+    }
+     
 
     @PostMapping("/likeBlog/{id}")
     @ResponseBody

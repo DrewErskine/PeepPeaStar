@@ -51,34 +51,45 @@ body {
     border-radius: 5px;
     padding: 8px 16px;
     cursor: pointer;
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    transition: background-color 0.3s; 
 }
 
 .like-button:hover {
-    background-color: var(--color-greekgarden); /* A slightly darker green on hover */
+    background-color: var(--color-greekgarden);
 }
 
 /* Comments section styling */
 .comments, .post-comment {
-    background-color: var(--color-mistyrose); /* Soft background color for comment sections */
-    margin: 2em auto; /* Center and add vertical spacing */
+    background-color: var(--color-mistyrose);
+    margin: 2em auto;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 15px rgba(0,0,0,0.05);
 }
 
 .comments h2, .post-comment h2 {
-    border-bottom: 2px solid var(--color-aquasea); /* Underline effect for headers */
-    padding-bottom: 10px; /* Spacing under the text */
-    margin-bottom: 20px; /* Spacing after the header before content starts */
-    text-align: center; /* Center aligns headers */
-    font-size: 24px; /* Makes headers distinctly larger */
+    border-bottom: 2px solid var(--color-aquasea);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.comment p {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.5;
+    margin: 10px 0;
+    padding: 5px;
+    background-color: var(--color-offwhiteviolet); 
+    border-radius: 4px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
 }
 
 .comment {
-    border-bottom: 1px solid #ccc; /* Subtle separation between comments */
-    padding-bottom: 10px; /* Spacing at the bottom of each comment */
-    margin-bottom: 10px; /* Spacing between comments */
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .comment:last-child {
