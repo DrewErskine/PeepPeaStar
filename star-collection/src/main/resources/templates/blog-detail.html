@@ -41,11 +41,11 @@
             <h2>Leave a Comment</h2>
             <form th:action="@{/addPeepComment}" th:object="${comment}" method="post">
                 <textarea th:field="*{comment}" placeholder="Your comment here..." required></textarea>
-                <input type="hidden" th:field="*{blog.id}" />
+                <input type="hidden" th:field="*{blog.id}" th:value="${blog.id}" />
                 <button type="submit" class="submit-button">Post Comment</button>
             </form>
             <div th:if="${#fields.hasErrors('comment')}" th:errors="*{comment}">Comment Error</div>
-        </section>        
+        </section>                              
         <section class="comments">
             <h2>Comments</h2>
             <div th:each="comment : ${comments}" class="comment">

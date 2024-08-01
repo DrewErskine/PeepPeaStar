@@ -1,5 +1,6 @@
 package peep.pea.collection.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -28,5 +29,9 @@ public class CommonController {
                 model.addAttribute("loggedInUser", user);
             }
         }
+    }
+
+    protected UserRepository getUserRepository() {
+        return userRepository;
     }
 }

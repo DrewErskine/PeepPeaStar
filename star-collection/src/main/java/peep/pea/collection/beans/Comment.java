@@ -15,8 +15,9 @@ public class Comment {
     @JoinColumn(name = "blog_id", nullable = false)
     private Blog blog;
 
-    @Column(name = "user_id")
-    private Long user;
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 
     @Column(nullable = false)
     private String comment;
@@ -45,12 +46,12 @@ public class Comment {
         this.blog = blog;
     }
 
-    public Long getUserId() {
+    public User getUser() {
         return user;
     }
 
-    public void setUserId(Long userId) {
-        this.user = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getComment() {

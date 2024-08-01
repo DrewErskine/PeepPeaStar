@@ -19,4 +19,8 @@ public class BlogService {
         System.out.println("Updated blog likes: " + savedBlog.getLikes());
         return savedBlog.getLikes();
     }
+
+    public Blog findById(Integer blogId) {
+        return blogRepository.findById(blogId).orElse(null);
+    }
 }

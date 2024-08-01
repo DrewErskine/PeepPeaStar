@@ -4,11 +4,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Column;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "peeppea_blog")
@@ -32,6 +34,9 @@ public class Blog {
 
     @Column(name = "no_of_comments", nullable = false)
     private int noOfComments;
+
+    @OneToMany(mappedBy = "blog")
+    private List<Comment> comments;
 
     @Column(name = "user_id", nullable = false)
     private int userId;
