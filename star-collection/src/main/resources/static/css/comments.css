@@ -97,8 +97,8 @@ body {
 }
 
 .comment-header {
-    font-size: 0.9em;
-    color: #666;
+    font-size: 1.33em;
+    color: var(--color-calicodress); 
     display: flex;
     justify-content: space-between;
     margin-bottom: 5px;
