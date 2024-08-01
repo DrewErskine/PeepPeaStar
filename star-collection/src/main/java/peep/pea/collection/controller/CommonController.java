@@ -12,7 +12,8 @@ import peep.pea.collection.dao.UserRepository;
 @Controller
 public class CommonController {
 
-    private final UserRepository userRepository;
+    @Autowired
+    protected UserRepository userRepository;
 
     public CommonController(UserRepository userRepository) {
         this.userRepository = userRepository;

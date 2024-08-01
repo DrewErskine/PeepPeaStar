@@ -6,6 +6,7 @@ import peep.pea.collection.beans.User;
 import peep.pea.collection.dao.BlogRepository;
 import peep.pea.collection.dao.CommentRepository;
 import peep.pea.collection.dao.UserRepository;
+import peep.pea.collection.dto.UserCommentDto;
 import peep.pea.collection.service.BlogService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,7 +23,6 @@ import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import jakarta.validation.Valid;
-
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -54,11 +54,13 @@ public class BlogController extends CommonController {
         return blogRepository.findById(id)
             .map(blog -> {
                 model.addAttribute("blog", blog);
-                model.addAttribute("comment", new Comment());
+                UserCommentDto commentDto = new UserCommentDto();
+                commentDto.setBlogId(blog.getId());
+                model.addAttribute("commentDto", commentDto);
                 return "blog-detail";
             })
             .orElse("redirect:/blogs");
-    }
+    }    
 
     @PostMapping("/likeBlog/{id}")
     @ResponseBody
@@ -70,40 +72,39 @@ public class BlogController extends CommonController {
     }
 
     @PostMapping("/addPeepComment")
-    public String addComment(@ModelAttribute("comment") @Valid Comment comment, BindingResult result, Model model, Authentication authentication, RedirectAttributes redirectAttributes) {
+    public String addComment(@ModelAttribute("commentDto") @Valid UserCommentDto commentDto, BindingResult result,
+                             Model model, Authentication authentication, RedirectAttributes redirectAttributes) {
         if (result.hasErrors()) {
-            model.addAttribute("error", "Please correct the errors in the form!");
-            return "blog-detail";
+            model.addAttribute("error", "Please correct the errors in the form.");
+            return getBlogDetails(commentDto.getBlogId(), model);
         }
 
-        if (authentication == null || authentication.getName() == null) {
-            model.addAttribute("error", "User authentication required.");
-            return "redirect:/login-user";
+        if (commentDto.getBlogId() == null) {
+            System.out.println("Blog ID is null");
+            model.addAttribute("error", "Blog ID is missing.");
+            return "redirect:/blogs";
         }
 
-        String username = authentication.getName();
-        Optional<User> optionalUser = getUserRepository().findByEmail(username);
-        if (optionalUser.isPresent()) {
-            try {
-                User user = optionalUser.get();
-                comment.setUser(user);
-                Blog blog = blogRepository.findById(comment.getBlog().getId())
-                    .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Blog not found"));
-                comment.setBlog(blog);
-                comment.setDatePosted(new Date());
-                commentRepository.save(comment);
+        Optional<User> userOpt = getUserRepository().findByEmail(authentication.getName());
+        Optional<Blog> blogOpt = blogRepository.findById(commentDto.getBlogId());
 
-                redirectAttributes.addFlashAttribute("commentAdded", true);
-                return "redirect:/blog/" + comment.getBlog().getId();
-            } catch (Exception e) {
-                // Log the exception with stack trace
-                e.printStackTrace();
-                model.addAttribute("error", "An error occurred while adding the comment.");
-                return "blog-detail";
-            }
+        if (userOpt.isPresent() && blogOpt.isPresent()) {
+            User user = userOpt.get();
+            Blog blog = blogOpt.get();
+
+            Comment comment = new Comment();
+            comment.setBlog(blog);
+            comment.setUser(user);
+            comment.setComment(commentDto.getComment());
+            comment.setDatePosted(new Date());
+
+            commentRepository.save(comment);
+
+            redirectAttributes.addFlashAttribute("message", "Comment added successfully.");
+            return "redirect:/blog/" + commentDto.getBlogId();
         } else {
-            model.addAttribute("error", "User not found.");
-            return "redirect:/login-user";
+            model.addAttribute("error", "Error adding comment. Please try again.");
+            return getBlogDetails(commentDto.getBlogId(), model);
         }
     }
 
