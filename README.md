@@ -52,3 +52,8 @@ Located in the `psql_scripts` directory, these files are used to initialize the 
 - `create_comments_table.sql`: Sets up the `peeppea_comments` table for storing comments on blog posts.
 - `create_message_table.sql`: Sets up the `peeppea_message` table for storing system messages.
 - `create_user_table.sql`: Sets up the `peeppea_user` table for storing user information.
+
+
+---
+
+# Docker
