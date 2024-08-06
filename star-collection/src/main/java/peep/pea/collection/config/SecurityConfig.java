@@ -48,7 +48,6 @@ public class SecurityConfig {
                     "/blog/{id}",
                     "/blog-list",
                     "/getAllBlogs",
-                    "/peeppea-crew/Peepville.html",
                     "/characters/*",
                     "/about",
                     "/css/**",
