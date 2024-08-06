@@ -57,3 +57,16 @@ Located in the `psql_scripts` directory, these files are used to initialize the 
 ---
 
 # Docker
+
+docker stop peeppea-star
+docker rm peeppea-star
+
+docker-compose up --build
+
+```docker network create peeppea-network```
+
+```docker run --name peeppea_db --network peeppea-network -e POSTGRES_DB=stars -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=peeppea33 -p 5433:5432 -d postgres:latest```
+
+```docker build -t peeppea-star .```
+
+```docker run --name peeppea-star --network peeppea-network -p 8080:8080 peeppea-star:latest```
