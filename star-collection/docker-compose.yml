@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   peeppea_db:
     image: postgres:16
