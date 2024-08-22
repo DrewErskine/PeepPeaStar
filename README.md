@@ -1,12 +1,14 @@
 # Overview
 PeepPeaStar is a Spring Boot application designed for managing blog content, user authentication, and character profiles. The application has a playful theme centered around "Peepville" characters, offering various features for users to explore blogs, characters, and other related content.
 
+
 # Key Features
 - **Blog Management**: Create, read, and list blogs with support for comments and user interactions.
 - **User Authentication**: Registration, login, and authentication using Spring Security.
 - **Character Profiles**: Display detailed profiles of "Peepville" characters.
 - **Responsive UI**: Front-end designed with HTML, CSS, and Thymeleaf templates for a responsive user experience.
 - **Database Integration**: Stores user, blog, comment, and message data in a PostgreSQL database.
+
 
 # Project Structure
 - **Main Application**: `PeepPeaStarApplication.java` and `ServletInitializer.java`
@@ -20,6 +22,7 @@ PeepPeaStar is a Spring Boot application designed for managing blog content, use
   - **Static Files**: CSS, images, fonts, JavaScript
   - **Templates**: HTML templates for various pages (`index.html`, `blog-list.html`, `register-user.html`, etc.)
 - **Tests**: `PeepPeaStarApplicationTests.java`, `UserControllerTest.java`
+
 
 # Beans
 - **Blog**: Represents blog entries with fields for title, content, user, etc.
@@ -38,6 +41,7 @@ PeepPeaStar is a Spring Boot application designed for managing blog content, use
 - `/saveUser` (POST): Handle user registration.
 - `/search` (POST): Search functionality.
 
+
 # Important Files
 - **Configuration**: `SecurityConfig.java` - Configures Spring Security settings, including permitted URLs and authentication requirements.
 - **Controller Logic**:
@@ -45,6 +49,7 @@ PeepPeaStar is a Spring Boot application designed for managing blog content, use
   - `BlogController.java`: Manages blog creation and listing.
   - `HomeController.java`: Handles home page requests.
 - **Database Files**: Contains SQL files for initializing the database tables for blogs, comments, messages, and users.
+
 
 # SQL Files
 Located in the `psql_scripts` directory, these files are used to initialize the PostgreSQL database with the necessary tables:
