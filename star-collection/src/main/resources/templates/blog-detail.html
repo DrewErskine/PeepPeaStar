@@ -16,35 +16,37 @@
 </head>
 <body>
     <!-- Header -->
-    <div th:replace="~{fragments.html :: header}" />
+    <div th:replace="~{fragments.html :: header}"></div>
     <!-- /Header -->
 
-    <main>
+    <main class="container mt-5">
         <article class="blog-detail-content">
-            <figure class="blog-image">
-                <img th:if="${blog.imagePath}" th:src="@{'/' + ${blog.imagePath}}" alt="Blog Image">
+            <figure class="blog-image mb-4">
+                <img th:if="${blog.imagePath}" th:src="@{'/' + ${blog.imagePath}}" class="img-fluid rounded" alt="Blog Image">
             </figure>
             <div class="blog-text">
                 <header>
-                    <h1 th:text="${blog.title}">Blog Title</h1>
-                    <p th:text="${blog.content}">Blog content</p>
-                    <div class="blog-metadata">
-                        <time th:text="'Date: ' + ${#dates.format(blog.dateCreated, 'dd MMM yyyy')}">Date</time>
+                    <h1 class="display-4" th:text="${blog.title}">Blog Title</h1>
+                    <p class="lead" th:text="${blog.content}">Blog content</p>
 
-                        <!-- Like Button and Comment Section for Authenticated Users -->
+                    <!-- Like and Comment Section -->
+                    <div class="like-comment-box">
+                        <span>Likes: <span id="like-count" th:text="${blog.likes}">0</span></span>
+                        
+                        <!-- Like Button for Authenticated Users -->
                         <div sec:authorize="isAuthenticated()">
-                            <button class="like-button" th:onclick="'likeBlog(' + ${blog.id} + ')'">Like</button>
-                            <span>Likes: <span id="like-count" th:text="${blog.likes}">0</span></span>
+                            <button class="btn btn-primary like-button" th:onclick="'likeBlog(' + ${blog.id} + ')'">Like</button>
                         </div>
 
                         <!-- Message for Anonymous Users -->
                         <div sec:authorize="isAnonymous()">
-                            <p class="error-message" style="color: red;">You must be logged in to like this post.</p>
-                            <a href="/login">Login</a> or <a href="/register">Register</a> to participate.
+                            <p class="error-message mb-0">You must be logged in to like this post.</p>
+                            <a href="/login" class="btn btn-link">Login</a> or 
+                            <a href="/register" class="btn btn-link">Register</a> to participate.
                         </div>
-
-                        <span>Comments: <span th:text="${blog.noOfComments}"></span></span>
                     </div>
+
+                    <span class="d-block mt-4">Comments: <span th:text="${blog.noOfComments}"></span></span>
                 </header>
             </div>
         </article>
@@ -53,34 +55,37 @@
         <section class="post-comment" sec:authorize="isAuthenticated()">
             <h2>Leave a Comment</h2>
             <form th:action="@{/addPeepComment}" th:object="${commentDto}" method="post">
-                <input type="hidden" th:field="*{blogId}" />
-                <textarea th:field="*{comment}" placeholder="Add your comment here"></textarea>
-                <button type="submit">Submit</button>
+                <input type="hidden" th:field="*{blogId}">
+                <div class="form-group mb-3">
+                    <textarea class="form-control" th:field="*{comment}" placeholder="Add your comment here"></textarea>
+                </div>
+                <button type="submit" class="btn btn-success">Submit</button>
             </form>
-            <div th:if="${#fields.hasErrors('commentDto')}" th:errors="*{commentDto}">Comment Error</div>
+            <div th:if="${#fields.hasErrors('commentDto')}" th:errors="*{commentDto}" class="text-danger mt-2">Comment Error</div>
         </section>
 
         <!-- Message for Anonymous Users Trying to Comment -->
         <section class="post-comment" sec:authorize="isAnonymous()">
-            <p class="error-message" style="color: red;">You must be logged in to leave a comment.</p>
-            <a href="/login">Login</a> or <a href="/register">Register</a> to participate.
+            <p class="error-message">You must be logged in to leave a comment.</p>
+            <a href="/login" class="btn btn-link">Login</a> or 
+            <a href="/register" class="btn btn-link">Register</a> to participate.
         </section>
 
         <!-- Comments Section -->
-        <section class="comments">
-            <h2>Comments</h2>
+        <section class="comments mt-5">
+            <h2 class="h4">Comments</h2>
             <div th:each="comment : ${comments}" class="comment">
-                <header class="comment-header">
+                <header class="comment-header d-flex justify-content-between">
                     <time th:text="${#dates.format(comment.datePosted, 'dd MMM yyyy HH:mm')}">Date</time>
                     <span th:text="${comment.user.name}">Author Name</span>
                 </header>
-                <p th:text="${comment.comment}">Comment content</p>
+                <p th:text="${comment.comment}" class="mt-2">Comment content</p>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <div th:replace="~{fragments.html :: footer}" />
+    <div th:replace="~{fragments.html :: footer}"></div>
     <!-- /Footer -->
 
     <script th:src="@{/js/plugins.js}"></script>
@@ -90,9 +95,18 @@
             fetch(`/likeBlog/${blogId}`, {
                 method: 'POST'
             })
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
             .then(data => {
                 document.getElementById('like-count').textContent = data.likes;
+            })
+            .catch(error => {
+                console.error('Error while liking the blog:', error);
+                alert('An error occurred while liking the blog. Please try again.');
             });
         }
     </script>

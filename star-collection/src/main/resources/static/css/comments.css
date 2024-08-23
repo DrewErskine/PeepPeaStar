@@ -6,14 +6,14 @@ body {
     line-height: 1.6; /* Better readability and spacing between lines */
 }
 
-/* Blog detail styling */
+/* Blog detail content styling */
 .blog-detail-content {
     max-width: 800px; /* Restricts maximum width for readability */
     margin: 2em auto; /* Centers the blog on the page with vertical margin */
     padding: 1em; /* Padding around the content */
     background-color: #fff; /* White background for content focus */
     border-radius: 8px; /* Rounded corners for modern look */
-    box-shadow: 0 2px 15px rgba(0,0,0,0.1); /* Soft shadow for depth */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
 }
 
 .blog-image img {
@@ -35,6 +35,7 @@ body {
     font-size: 1.2em; /* Appropriate font size for body text */
 }
 
+/* Blog metadata styling */
 .blog-metadata {
     display: flex;
     align-items: center;
@@ -44,6 +45,7 @@ body {
     color: var(--color-dragonlordpurple); /* Subtle purple for less focus */
 }
 
+/* Like button styling */
 .like-button {
     background-color: var(--color-parisgreen);
     color: white;
@@ -51,20 +53,24 @@ body {
     border-radius: 5px;
     padding: 8px 16px;
     cursor: pointer;
-    transition: background-color 0.3s; 
+    transition: background-color 0.3s, transform 0.1s; /* Smooth transitions */
+}
+
+.like-button:active {
+    transform: scale(0.98); /* Slight scaling effect when clicked */
 }
 
 .like-button:hover {
-    background-color: var(--color-greekgarden);
+    background-color: var(--color-greekgarden); /* Change background color on hover */
 }
 
-/* Comments section styling */
+/* Comments and post-comment section styling */
 .comments, .post-comment {
     background-color: var(--color-mistyrose);
     margin: 2em auto;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
 }
 
 .comments h2, .post-comment h2 {
@@ -75,17 +81,22 @@ body {
     font-size: 24px;
 }
 
-.comment p {
-    font-size: 16px;
-    color: #333;
-    line-height: 1.5;
-    margin: 10px 0;
-    padding: 5px;
-    background-color: var(--color-offwhiteviolet); 
-    border-radius: 4px;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+/* Submit button styling in the post-comment section */
+.post-comment button[type="submit"] {
+    background-color: var(--color-parisgreen);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
+.post-comment button[type="submit"]:hover {
+    background-color: var(--color-greekgarden); /* Change background color on hover */
+}
+
+/* Individual comment styling */
 .comment {
     border-bottom: 1px solid #ccc;
     padding-bottom: 10px;
@@ -96,6 +107,18 @@ body {
     border-bottom: none; /* Removes border from the last comment */
 }
 
+.comment p {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.5;
+    margin: 10px 0;
+    padding: 5px;
+    background-color: var(--color-offwhiteviolet);
+    border-radius: 4px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Comment header styling */
 .comment-header {
     font-size: 1.33em;
     color: var(--color-calicodress); 
@@ -104,7 +127,22 @@ body {
     margin-bottom: 5px;
 }
 
-/* Responsiveness */
+/* Error message and link styling */
+.error-message a {
+    background-color: var(--color-parisgreen);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-right: 5px;
+    transition: background-color 0.3s;
+}
+
+.error-message a:hover {
+    background-color: var(--color-greekgarden); /* Change background color on hover */
+}
+
+/* Responsiveness for small devices */
 @media (max-width: 768px) {
     .blog-detail-content, .comments, .post-comment {
         margin: 1em;
@@ -122,5 +160,13 @@ body {
     .comment-header {
         flex-direction: column; /* Stacks the author and date for better space usage */
         align-items: start;
+    }
+}
+
+/* Responsiveness for larger screens */
+@media (min-width: 1200px) {
+    .blog-detail-content, .comments, .post-comment {
+        margin: 3em auto;
+        padding: 2em;
     }
 }

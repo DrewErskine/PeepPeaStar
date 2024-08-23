@@ -61,17 +61,29 @@ Located in the `psql_scripts` directory, these files are used to initialize the 
 
 ---
 
-# Docker
+# Deployment
 
-docker stop peeppea-star
-docker rm peeppea-star
+## 1. Check Docker Setup
 
-docker-compose up --build
+`docker-compose down` # Stop any running containers`
+`docker-compose up --build` # Rebuild and start the containers
 
-```docker network create peeppea-network```
+## 2. Run Database Connection Tests
 
-```docker run --name peeppea_db --network peeppea-network -e POSTGRES_DB=stars -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=peeppea33 -p 5433:5432 -d postgres:latest```
+`mvn clean test -Dspring.profiles.active=test`
 
-```docker build -t peeppea-star .```
+## 3. Unit and Integration Tests
 
-```docker run --name peeppea-star --network peeppea-network -p 8080:8080 peeppea-star:latest```
+`mvn clean verify`
+
+## 4. Build project
+
+`mvn clean package -DskipTests`
+
+## 5. Build docker image
+
+`docker build -t PeepPeaDotCom .`
+
+## 6. Test docker image 
+
+`docker ps`
