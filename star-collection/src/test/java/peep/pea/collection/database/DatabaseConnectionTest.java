@@ -1,10 +1,14 @@
 package peep.pea.collection.database;
 
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
+import org.springframework.test.context.ActiveProfiles;
 
 @Component
+@AutoConfigureMockMvc
+@ActiveProfiles("test")
 public class DatabaseConnectionTest implements CommandLineRunner {
     private final JdbcTemplate jdbcTemplate;
 
