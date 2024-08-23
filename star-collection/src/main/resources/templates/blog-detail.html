@@ -30,22 +30,43 @@
                     <p th:text="${blog.content}">Blog content</p>
                     <div class="blog-metadata">
                         <time th:text="'Date: ' + ${#dates.format(blog.dateCreated, 'dd MMM yyyy')}">Date</time>
-                        <button class="like-button" th:onclick="'likeBlog(' + ${blog.id} + ')'">Like</button>
-                        <span>Likes: <span id="like-count" th:text="${blog.likes}">0</span></span>
+
+                        <!-- Like Button and Comment Section for Authenticated Users -->
+                        <div sec:authorize="isAuthenticated()">
+                            <button class="like-button" th:onclick="'likeBlog(' + ${blog.id} + ')'">Like</button>
+                            <span>Likes: <span id="like-count" th:text="${blog.likes}">0</span></span>
+                        </div>
+
+                        <!-- Message for Anonymous Users -->
+                        <div sec:authorize="isAnonymous()">
+                            <p class="error-message" style="color: red;">You must be logged in to like this post.</p>
+                            <a href="/login">Login</a> or <a href="/register">Register</a> to participate.
+                        </div>
+
                         <span>Comments: <span th:text="${blog.noOfComments}"></span></span>
                     </div>
                 </header>
             </div>
         </article>
-        <section class="post-comment">
+
+        <!-- Comment Form for Authenticated Users -->
+        <section class="post-comment" sec:authorize="isAuthenticated()">
             <h2>Leave a Comment</h2>
-            <form action="#" th:action="@{/addPeepComment}" th:object="${commentDto}" method="post">
+            <form th:action="@{/addPeepComment}" th:object="${commentDto}" method="post">
                 <input type="hidden" th:field="*{blogId}" />
                 <textarea th:field="*{comment}" placeholder="Add your comment here"></textarea>
                 <button type="submit">Submit</button>
-            </form>            
+            </form>
             <div th:if="${#fields.hasErrors('commentDto')}" th:errors="*{commentDto}">Comment Error</div>
-        </section>        
+        </section>
+
+        <!-- Message for Anonymous Users Trying to Comment -->
+        <section class="post-comment" sec:authorize="isAnonymous()">
+            <p class="error-message" style="color: red;">You must be logged in to leave a comment.</p>
+            <a href="/login">Login</a> or <a href="/register">Register</a> to participate.
+        </section>
+
+        <!-- Comments Section -->
         <section class="comments">
             <h2>Comments</h2>
             <div th:each="comment : ${comments}" class="comment">

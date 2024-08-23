@@ -1,24 +1,32 @@
 package peep.pea.collection.database;
 
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Component;
-import org.springframework.test.context.ActiveProfiles;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.DynamicPropertyRegistry;
+import org.springframework.test.context.DynamicPropertySource;
+import org.testcontainers.containers.PostgreSQLContainer;
 
-@Component
-@AutoConfigureMockMvc
-@ActiveProfiles("test")
-public class DatabaseConnectionTest implements CommandLineRunner {
-    private final JdbcTemplate jdbcTemplate;
+@SpringBootTest
+public class DatabaseConnectionTest {
 
-    public DatabaseConnectionTest(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
+    static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>("postgres:16")
+            .withDatabaseName("stars")
+            .withUsername("postgres")
+            .withPassword("peeppea33");
+
+    static {
+        postgres.start();
     }
 
-    @Override
-    public void run(String... args) throws Exception {
-        jdbcTemplate.queryForObject("SELECT 1", Integer.class);
-        System.out.println("Successfully connected to the database.");
+    @DynamicPropertySource
+    static void registerPgProperties(DynamicPropertyRegistry registry) {
+        registry.add("spring.datasource.url", postgres::getJdbcUrl);
+        registry.add("spring.datasource.username", postgres::getUsername);
+        registry.add("spring.datasource.password", postgres::getPassword);
+    }
+
+    @Test
+    public void testDatabaseConnection() {
+        // Your test logic here
     }
 }

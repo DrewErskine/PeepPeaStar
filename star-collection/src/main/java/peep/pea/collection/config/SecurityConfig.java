@@ -55,7 +55,7 @@ public class SecurityConfig {
                     "/images/**"
                 )
                 .permitAll()
-                .requestMatchers("/newBlog", "/saveBlog", "/peep-user-page", "/addComment", "/sendMessage")
+                .requestMatchers("/newBlog", "/saveBlog", "/peep-user-page", "/addComment", "/sendMessage", "/likeBlog/**", "/addPeepComment")
                 .authenticated()
                 .anyRequest()
                 .authenticated())
