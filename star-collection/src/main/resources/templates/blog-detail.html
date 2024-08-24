@@ -15,40 +15,38 @@
     <link rel="stylesheet" th:href="@{/css/comments.css}">
 </head>
 <body>
-    <!-- Header -->
-    <div th:replace="~{fragments.html :: header}"></div>
-    <!-- /Header -->
+    <!--header -->
+    <div th:replace="~{fragments.html :: header}" />
+    <!-- /header -->
 
     <main class="container mt-5">
         <article class="blog-detail-content">
             <figure class="blog-image mb-4">
-                <img th:if="${blog.imagePath}" th:src="@{'/' + ${blog.imagePath}}" class="img-fluid rounded" alt="Blog Image">
+                <img th:if="${blog.imagePath}" th:src="@{'/' + ${blog.imagePath}}" alt="Blog Image" loading="lazy">
             </figure>
             <div class="blog-text">
-                <header>
-                    <h1 class="display-4" th:text="${blog.title}">Blog Title</h1>
-                    <p class="lead" th:text="${blog.content}">Blog content</p>
-
-                    <!-- Like and Comment Section -->
-                    <div class="like-comment-box">
-                        <span>Likes: <span id="like-count" th:text="${blog.likes}">0</span></span>
-                        
-                        <!-- Like Button for Authenticated Users -->
-                        <div sec:authorize="isAuthenticated()">
-                            <button class="btn btn-primary like-button" th:onclick="'likeBlog(' + ${blog.id} + ')'">Like</button>
-                        </div>
-
-                        <!-- Message for Anonymous Users -->
-                        <div sec:authorize="isAnonymous()">
-                            <p class="error-message mb-0">You must be logged in to like this post.</p>
-                            <a href="/login" class="btn btn-link">Login</a> or 
-                            <a href="/register" class="btn btn-link">Register</a> to participate.
+                <header class="blog-detail-header">
+                    <h1 th:text="${blog.title}">Blog Title</h1>
+            
+                    <div class="blog-metadata">
+                        <time th:text="'Posted on: ' + ${#dates.format(blog.dateCreated, 'dd MMM yyyy')}">Date</time>
+                        <div>
+                            <span>Likes: <span id="like-count" th:text="${blog.likes}">0</span></span>
+                            <span>Comments: <span th:text="${blog.noOfComments}"></span></span>
                         </div>
                     </div>
-
-                    <span class="d-block mt-4">Comments: <span th:text="${blog.noOfComments}"></span></span>
                 </header>
-            </div>
+            
+                <!-- Content and Interaction Elements -->
+                <p th:text="${blog.content}">Blog content</p>
+            
+                <!-- Like and Comment Section -->
+                <div class="like-comment-box">
+                    <div sec:authorize="isAuthenticated()">
+                        <button class="btn btn-primary like-button" th:onclick="'likeBlog(' + ${blog.id} + ')'" aria-label="Like this blog">Like</button>
+                    </div>
+                </div>
+            </div>            
         </article>
 
         <!-- Comment Form for Authenticated Users -->
@@ -57,24 +55,24 @@
             <form th:action="@{/addPeepComment}" th:object="${commentDto}" method="post">
                 <input type="hidden" th:field="*{blogId}">
                 <div class="form-group mb-3">
-                    <textarea class="form-control" th:field="*{comment}" placeholder="Add your comment here"></textarea>
+                    <textarea class="form-control" th:field="*{comment}" placeholder="Add your comment here" required></textarea>
                 </div>
-                <button type="submit" class="btn btn-success">Submit</button>
+                <button type="submit" class="blog-btn blog-btn-success">Submit</button>
             </form>
-            <div th:if="${#fields.hasErrors('commentDto')}" th:errors="*{commentDto}" class="text-danger mt-2">Comment Error</div>
+            <div th:if="${#fields.hasErrors('commentDto')}" th:errors="*{commentDto}" class="alert alert-danger mt-2">Comment Error</div>
         </section>
 
         <!-- Message for Anonymous Users Trying to Comment -->
         <section class="post-comment" sec:authorize="isAnonymous()">
-            <p class="error-message">You must be logged in to leave a comment.</p>
-            <a href="/login" class="btn btn-link">Login</a> or 
-            <a href="/register" class="btn btn-link">Register</a> to participate.
+            <p class="error-message text-center">You must be logged in to leave a comment.</p>
+            <a href="/login" class="blog-btn blog-btn-outline-primary">Login</a>
+            <a href="/register" class="blog-btn blog-btn-outline-primary">Register</a>
         </section>
 
         <!-- Comments Section -->
         <section class="comments mt-5">
             <h2 class="h4">Comments</h2>
-            <div th:each="comment : ${comments}" class="comment">
+            <div th:each="comment : ${comments}" class="comment blog-post">
                 <header class="comment-header d-flex justify-content-between">
                     <time th:text="${#dates.format(comment.datePosted, 'dd MMM yyyy HH:mm')}">Date</time>
                     <span th:text="${comment.user.name}">Author Name</span>
@@ -84,12 +82,13 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <div th:replace="~{fragments.html :: footer}"></div>
-    <!-- /Footer -->
+    <!--footer -->
+    <div th:replace="~{fragments.html :: footer}" />
+    <!-- /footer -->
 
     <script th:src="@{/js/plugins.js}"></script>
     <script th:src="@{/js/main.js}"></script>
+
     <script>
         function likeBlog(blogId) {
             fetch(`/likeBlog/${blogId}`, {

@@ -149,7 +149,6 @@
 }
 
 .blog-text p {
-    font-size: 1em; 
     color: #444;
     line-height: 1.6;
     text-align: justify;
@@ -213,4 +212,28 @@
 
 .comments .blog-post:nth-child(odd) {
     background: #f8f8f8; /* Slightly different background for odd items */
+}
+
+.blog-metadata time {
+    font-size: 1.1em; /* Increase the font size for the date */
+    color: #666; /* Slightly lighter color for metadata */
+}
+
+.blog-metadata div span {
+    margin-right: 15px; /* Adds space between likes and comments */
+}
+
+/* Blog-specific button styles */
+.blog-btn {
+    padding: 10px 20px; /* Add more padding for larger clickable area */
+    transition: background-color 0.3s ease; /* Smooth transition for hover */
+}
+
+.blog-btn-submit:hover {
+    background-color: #218838; /* Darken the green on hover */
+}
+
+.blog-btn-outline-primary:hover {
+    background-color: #007bff;
+    color: white;
 }
