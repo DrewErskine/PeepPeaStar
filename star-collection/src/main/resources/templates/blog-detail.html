@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,7 +14,9 @@
     <link rel="stylesheet" th:href="@{/css/about.css}">
     <link rel="stylesheet" th:href="@{/css/blog.css}">
     <link rel="stylesheet" th:href="@{/css/comments.css}">
+    <link rel="stylesheet" th:href="@{/css/colors.css}">
 </head>
+
 <body>
     <!--header -->
     <div th:replace="~{fragments.html :: header}" />
@@ -27,7 +30,10 @@
             <div class="blog-text">
                 <header class="blog-detail-header">
                     <h1 th:text="${blog.title}">Blog Title</h1>
-            
+
+                    <!-- Blog Content -->
+                    <p class="blog-content" th:text="${blog.content}">Blog content</p>
+
                     <div class="blog-metadata">
                         <time th:text="'Posted on: ' + ${#dates.format(blog.dateCreated, 'dd MMM yyyy')}">Date</time>
                         <div>
@@ -36,18 +42,25 @@
                         </div>
                     </div>
                 </header>
-            
-                <!-- Content and Interaction Elements -->
-                <p th:text="${blog.content}">Blog content</p>
-            
+
                 <!-- Like and Comment Section -->
                 <div class="like-comment-box">
                     <div sec:authorize="isAuthenticated()">
-                        <button class="btn btn-primary like-button" th:onclick="'likeBlog(' + ${blog.id} + ')'" aria-label="Like this blog">Like</button>
+                        <button class="blog-btn blog-btn-submit" th:onclick="'likeBlog(' + ${blog.id} + ')'"
+                            aria-label="Like this blog">Like</button>
                     </div>
                 </div>
-            </div>            
+            </div>
         </article>
+
+        <!-- Message for Anonymous Users Trying to Comment -->
+        <section class="post-comment " sec:authorize="isAnonymous()">
+            <p class="error-message" style="font-size: 1.5em;">You must be logged in to leave a comment.</p>
+            <div class="blog-button-container">
+                <a href="/login" class="blog-btn blog-btn-outline-primary">Login</a>
+                <a href="/register" class="blog-btn blog-btn-outline-primary">Register</a>
+            </div>            
+        </section>
 
         <!-- Comment Form for Authenticated Users -->
         <section class="post-comment" sec:authorize="isAuthenticated()">
@@ -55,18 +68,14 @@
             <form th:action="@{/addPeepComment}" th:object="${commentDto}" method="post">
                 <input type="hidden" th:field="*{blogId}">
                 <div class="form-group mb-3">
-                    <textarea class="form-control" th:field="*{comment}" placeholder="Add your comment here" required></textarea>
+                    <textarea class="form-control comment-textarea" th:field="*{comment}"
+                        placeholder="Add your comment here" maxlength="500" required></textarea>
+                    <small class="text-muted comment-char-counter">0 / 500 characters</small>
                 </div>
-                <button type="submit" class="blog-btn blog-btn-success">Submit</button>
+                <button type="submit" class="blog-btn blog-btn-submit">Submit</button>
             </form>
-            <div th:if="${#fields.hasErrors('commentDto')}" th:errors="*{commentDto}" class="alert alert-danger mt-2">Comment Error</div>
-        </section>
-
-        <!-- Message for Anonymous Users Trying to Comment -->
-        <section class="post-comment" sec:authorize="isAnonymous()">
-            <p class="error-message text-center">You must be logged in to leave a comment.</p>
-            <a href="/login" class="blog-btn blog-btn-outline-primary">Login</a>
-            <a href="/register" class="blog-btn blog-btn-outline-primary">Register</a>
+            <div th:if="${#fields.hasErrors('commentDto')}" th:errors="*{commentDto}" class="alert alert-danger mt-2">
+                Comment Error</div>
         </section>
 
         <!-- Comments Section -->
@@ -94,20 +103,38 @@
             fetch(`/likeBlog/${blogId}`, {
                 method: 'POST'
             })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                document.getElementById('like-count').textContent = data.likes;
-            })
-            .catch(error => {
-                console.error('Error while liking the blog:', error);
-                alert('An error occurred while liking the blog. Please try again.');
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    document.getElementById('like-count').textContent = data.likes;
+                })
+                .catch(error => {
+                    console.error('Error while liking the blog:', error);
+                    alert('An error occurred while liking the blog. Please try again.');
+                });
+        }
+
+        // Initialize Character Counter on Load
+        document.addEventListener('DOMContentLoaded', function () {
+            const textarea = document.querySelector('.comment-textarea');
+            const counter = document.querySelector('.comment-char-counter');
+            updateCounter(textarea, counter);
+
+            textarea.addEventListener('input', function () {
+                updateCounter(this, counter);
             });
+        });
+
+        function updateCounter(textarea, counter) {
+            const maxLength = 500;
+            const currentLength = textarea.value.length;
+            counter.textContent = `${currentLength} / ${maxLength} characters`;
         }
     </script>
 </body>
+
 </html>
