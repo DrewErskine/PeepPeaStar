@@ -54,12 +54,12 @@
         </article>
 
         <!-- Message for Anonymous Users Trying to Comment -->
-        <section class="post-comment " sec:authorize="isAnonymous()">
-            <p class="error-message" style="font-size: 1.5em;">You must be logged in to leave a comment.</p>
+        <section class="post-comment" sec:authorize="isAnonymous()">
+            <p class="error-message" style="font-size: 3em;">You must be logged in to leave a comment.</p>
             <div class="blog-button-container">
                 <a href="/login" class="blog-btn blog-btn-outline-primary">Login</a>
                 <a href="/register" class="blog-btn blog-btn-outline-primary">Register</a>
-            </div>            
+            </div>
         </section>
 
         <!-- Comment Form for Authenticated Users -->

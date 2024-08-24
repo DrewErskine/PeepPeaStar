@@ -185,14 +185,19 @@
     margin-top: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 70%; /* Slightly smaller width for the post comment section */
+    margin-left: auto;
+    margin-right: auto; /* Center the post-comment section */
 }
 
 .post-comment p {
-    background: var(--color-mistyrose); /* Soft Background */
+    background: var(--color-mistyrose);
     padding: 20px;
-    margin-top: 30px;
+    margin: 30px auto; /* Center the element horizontally */
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 50%; /* Set a width to center the element */
 }
 
 .post-comment h2 {
@@ -207,14 +212,16 @@
 
 .post-comment textarea {
     font-family: 'Ubuntu', sans-serif;
-    padding: 10px;
-    height: 100px;
+    padding: 10px; /* Consistent padding */
+    height: 100px; /* Adjust height for better visibility */
     border-radius: 5px;
-    border: 1px solid var(--color-tidalwave); /* Adjusted Border */
-    resize: none;
+    border: 1px solid var(--color-tidalwave);
+    resize: none; /* Disable resizing */
     outline: none;
-    border-color: var(--color-seacaller); /* Highlight on focus */
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Subtle glow */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Highlight effect */
+    text-align: left; /* Standard left alignment for text */
+    margin: 20px auto; /* Center horizontally with margin auto */
+    width: 50%; /* Define width and center */
 }
 
 .post-comment textarea:focus {
@@ -223,6 +230,21 @@
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.3); /* Softer glow effect */
 }
 
+.like-comment-box {
+    display: flex;
+    justify-content: center; /* Centers the like button horizontally */
+    align-items: center; /* Centers the content vertically */
+    padding: .5em;
+    margin-top: 20px;
+    background-color: var(--color-offwhiteviolet); /* Adjust background color */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+}
+
+.like-comment-box .blog-btn-submit {
+    width: auto; /* Allows the button to fit its content */
+    text-align: center;
+}
 
 .post-comment button {
     padding: 10px 20px;
@@ -258,21 +280,32 @@
 
 /* Blog Button Styles */
 .blog-btn {
-    align-items: center;
-    padding: 10px 20px;
-    transition: background-color 0.3s ease;
+    padding: 15px 30px; /* Increase padding for larger buttons */
+    font-size: 2em; /* Increase font size */
+    border-radius: 8px; /* Slightly rounder corners */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Smooth transitions for hover, click, and shadow effects */
+    background-color: antiquewhite;
 }
 
-.button-container {
+.blog-button-container {
     display: flex;
     justify-content: center; /* Center the buttons horizontally */
     gap: 10px; /* Adds space between the buttons */
     margin-top: 20px; /* Adds top margin for spacing */
 }
 
+.blog-btn:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Add shadow effect on hover for better emphasis */
+}
 
 .blog-btn:active {
     transform: scale(0.98); /* Slight button shrink effect */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Decrease shadow for active state */
+}
+
+.blog-btn:focus {
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); /* Add a focus glow for accessibility */
 }
 
 .blog-btn-submit:hover {
