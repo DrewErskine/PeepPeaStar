@@ -11,7 +11,7 @@
   <link rel="icon" sizes="57x57" href="/images/favicons/catFavicon.png">
   <meta name="msapplication-TileColor" content="#d4d4d8">
   <meta name="theme-color" content="#f4f1ec">
-  <meta name="description" content="Welcome to Peep Peas #1 Star, your ticket 2 Peepville.">
+  <meta name="description" content="Welcome to Peep Pea's #1 Star, your ticket to Peepville.">
 
   <!-- stylesheets -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,7 +41,7 @@
   </div>
 
   <!--header -->
-  <div th:replace="~{fragments.html :: header}" />
+  <div th:replace="~{fragments.html :: header}"></div>
   <!-- /header -->
 
   <main id="main">
@@ -70,7 +70,6 @@
           </form>
         </div>
 
-
         <section id="hq" itemprop="branchOf" itemscope itemtype="https://schema.org/Corporation">
           <h2>Headquarters</h2>
           <p>
@@ -78,10 +77,10 @@
             <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
               <span itemprop="streetAddress">Nala Street</span><br>
               <span itemprop="addressLocality">Grand Rapids</span>, <span itemprop="addressRegion">CA</span> <span
-                itemprop="postalCode">555</span>
+                itemprop="postalCode">55555</span>
             </span>
           </p>
-          <a href="tel:888-111-1111" aria-label="Phone number of Peep Pea Headquarters: 8 8 8. 1 1 1. 1 1 1 1."><span
+          <a href="tel:123-456-7890" aria-label="Phone number of Peep Pea Headquarters: 1 2 3. 4 5 6. 7 8 9 0."><span
               itemprop="telephone">(123) 456-7890</span></a>
           <figure>
             <figcaption>Follow us</figcaption>
@@ -119,18 +118,19 @@
             </ul>
           </figure>
         </section>
+
         <section>
-          <h2>Peep locations</h2>
+          <h2>Peep Pea Locations</h2>
           <dl>
             <div itemscope itemtype="https://schema.org/LocalBusiness" itemref="hq">
-              <dt itemprop="name">Peep Pea</dt>
+              <dt itemprop="name">Peep Pea New York</dt>
               <dd itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
                 <span itemprop="streetAddress">Times Square</span><br>
                 <span itemprop="addressLocality">New York City</span>, <span itemprop="addressRegion">NY</span> <span
-                  itemprop="postalCode">12345</span>
+                  itemprop="postalCode">10036</span>
               </dd>
-              <dd><a href="tel:888-777-7777"
-                  aria-label="Phone number of Peep Pea New York City: 8 8 8. 7 7 7. 7 7 7 7."><span
+              <dd><a href="tel:123-456-7890"
+                  aria-label="Phone number of Peep Pea New York: 1 2 3. 4 5 6. 7 8 9 0."><span
                     itemprop="telephone">(123) 456-7890</span></a></dd>
             </div>
           </dl>
@@ -147,7 +147,7 @@
         </div>
         <ul>
           <li><a th:href="@{/aboutPeepPea}">About Peep Pea Star</a></li>
-          <li><a th:href="@{/home}">Peep Pea story</a></li>
+          <li><a th:href="@{/home}">Peep Pea Story</a></li>
           <li><a th:href="@{/getAllBlogs}">Peep Pea Army</a></li>
           <li><a th:href="@{/aboutPeepPea}">FAQ</a></li>
         </ul>
@@ -158,7 +158,7 @@
   </main>
 
   <!-- Footer -->
-  <div th:replace="~{fragments.html :: footer}" />
+  <div th:replace="~{fragments.html :: footer}"></div>
   <!-- /footer -->
 
   <script src="js/plugins.js"></script>

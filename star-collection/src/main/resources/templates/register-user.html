@@ -11,15 +11,16 @@
   <link rel="icon" sizes="57x57" href="/images/favicons/catFavicon.png">
   <meta name="msapplication-TileColor" content="#d4d4d8">
   <meta name="theme-color" content="#f4f1ec">
-  <meta name="description" content="Welcome to Peep Peas #1 Star, your ticket to Peepville.">
+  <meta name="description" content="Welcome to Peep Pea's #1 Star, your ticket to Peepville.">
 
-    <!-- stylesheets -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,500;1,700&family=Roboto:wght@700&display=swap">
-    <link rel="stylesheet" th:href="@{/css/plugins.css}">
-    <link rel="stylesheet" th:href="@{/css/common.css}">
-    <link rel="stylesheet" th:href="@{/css/about.css}">
+  <!-- stylesheets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,500;1,700&family=Roboto:wght@700&display=swap">
+  <link rel="stylesheet" th:href="@{/css/plugins.css}">
+  <link rel="stylesheet" th:href="@{/css/common.css}">
+  <link rel="stylesheet" th:href="@{/css/about.css}">
 </head>
 
 <body>
@@ -40,7 +41,7 @@
   </div>
 
   <!--header -->
-  <div th:replace="~{fragments.html :: header}" />
+  <div th:replace="~{fragments.html :: header}"></div>
   <!-- /header -->
 
   <main id="main">
@@ -48,7 +49,7 @@
       <section id="contact">
         <div class="wrapper">
           <h1>Register with us</h1>
-          <p th:if="${userSaved}" th:text="'User created, Welcome ' + ${name}" class="success" />
+          <p th:if="${userSaved}" th:text="'User created, Welcome ' + ${name}" class="success"></p>
           <form th:action="@{/saveUser}" th:object="${user}" method="post" novalidate>
             <div>
               <label for="contact-email">Email: <span aria-hidden="true">*</span></label>
@@ -84,68 +85,68 @@
           </form>
         </div>
 
-
         <section id="hq" itemprop="branchOf" itemscope itemtype="https://schema.org/Corporation">
           <h2>Headquarters</h2>
           <p>
             <span itemprop="name">Peep Pea Headquarters</span><br>
             <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-              <span itemprop="streetAddress">123 Rode Road</span><br>
-              <span itemprop="addressLocality">Los Angeles</span>, <span itemprop="addressRegion">CA</span> <span
-                itemprop="postalCode">90000</span>
+              <span itemprop="streetAddress">Nala Street</span><br>
+              <span itemprop="addressLocality">Grand Rapids</span>, <span itemprop="addressRegion">CA</span> <span
+                itemprop="postalCode">55555</span>
             </span>
           </p>
-          <a href="tel:888-111-1111" aria-label="Phone number of Peep Pea Headquarters: 8 8 8. 1 1 1. 1 1 1 1."><span
-              itemprop="telephone">(888) 111-1111</span></a>
-              <figure>
-                <figcaption>Follow us</figcaption>
-                <ul>
-                  <li>
-                    <a href="https://www.linkedin.com/in/erskinedrew/" target="_blank" itemprop="sameAs">
-                      <svg width="30" height="30" viewBox="0 0 24 24" role="img">
-                        <title>LinkedIn</title>
-                        <path aria-hidden="true"
-                          d="M17.291,19.073h-3.007v-4.709c0-1.123-0.02-2.568-1.564-2.568c-1.566,0-1.806,1.223-1.806,2.487v4.79H7.908V9.389h2.887v1.323h0.04c0.589-1.006,1.683-1.607,2.848-1.564c3.048,0,3.609,2.005,3.609,4.612L17.291,19.073z M4.515,8.065c-0.964,0-1.745-0.781-1.745-1.745c0-0.964,0.781-1.745,1.745-1.745c0.964,0,1.745,0.781,1.745,1.745C6.26,7.284,5.479,8.065,4.515,8.065L4.515,8.065 M6.018,19.073h-3.01V9.389h3.01V19.073z M18.79,1.783H1.497C0.68,1.774,0.01,2.429,0,3.246V20.61c0.01,0.818,0.68,1.473,1.497,1.464H18.79c0.819,0.01,1.492-0.645,1.503-1.464V3.245c-0.012-0.819-0.685-1.474-1.503-1.463"
-                          stroke-width="0" />
-                      </svg>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://x.com/AmvLuf" target="_blank" itemprop="sameAs">
-                      <svg width="30" height="30" viewBox="0 0 24 21" role="img">
-                        <title>Twitter</title>
-                        <path aria-hidden="true"
-                          d="M24 3.15015C23.1007 3.54359 22.1639 3.80589 21.171 3.9183C22.1827 3.31877 22.9696 2.34453 23.3255 1.20167C22.37 1.76374 21.3208 2.17591 20.2155 2.40074C19.3162 1.44523 18.0234 0.845703 16.6183 0.845703C13.9016 0.845703 11.7096 3.05648 11.7096 5.75437C11.7096 6.14781 11.7471 6.52252 11.822 6.87849C7.7377 6.69114 4.12178 4.72392 1.68618 1.745C1.25527 2.47568 1.01171 3.31877 1.01171 4.21807C1.01171 5.92299 1.89227 7.42181 3.20375 8.30238C2.41686 8.28364 1.62998 8.05882 0.974239 7.70284C0.974239 7.72158 0.974239 7.74032 0.974239 7.75905C0.974239 10.1572 2.67916 12.1244 4.90867 12.5928C4.51522 12.7052 4.06557 12.7614 3.61593 12.7614C3.29742 12.7614 2.97892 12.7427 2.67916 12.6865C3.31616 14.6349 5.11475 16.0588 7.26932 16.115C5.60187 17.4265 3.46604 18.2134 1.18033 18.2134C0.76815 18.2134 0.393443 18.1946 0 18.1384C2.19204 19.5249 4.77752 20.3305 7.56909 20.3305C16.6183 20.3305 21.5644 12.8363 21.5644 6.33516C21.5644 6.11034 21.5644 5.90425 21.5457 5.69816C22.5199 5.00495 23.3255 4.14313 24 3.15015Z"
-                          stroke-width="0" />
-                      </svg>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.youtube.com/@KingLuf" target="_blank" itemprop="sameAs">
-                      <svg width="30" height="30" viewBox="0 0 24 18" role="img">
-                        <title>YouTube</title>
-                        <path aria-hidden="true"
-                          d="M23.0048 2.36448C22.348 1.20111 21.6537 0.9947 20.2089 0.919644C18.7641 0.807059 15.1426 0.769531 12.009 0.769531C8.87541 0.769531 5.25394 0.807059 3.82787 0.90088C2.38304 0.9947 1.67 1.20111 1.01326 2.36448C0.337753 3.50909 0 5.51684 0 9.02573C0 12.5158 0.337753 14.5236 1.01326 15.6682C1.67 16.8316 2.38304 17.038 3.80911 17.1318C5.25394 17.2256 8.87541 17.2819 12.009 17.2819C15.1426 17.2819 18.7641 17.2256 20.1901 17.1506C21.635 17.0568 22.3293 16.8503 22.986 15.687C23.6615 14.5424 23.9993 12.5346 23.9993 9.04449C24.018 5.51684 23.6803 3.50909 23.0048 2.36448ZM9.00676 13.5291V4.52235L16.5124 9.02573L9.00676 13.5291Z"
-                          stroke-width="0" />
-                      </svg>
-                    </a>
-                  </li>
-                </ul>
-              </figure>              
+          <a href="tel:123-456-7890" aria-label="Phone number of Peep Pea Headquarters: 1 2 3. 4 5 6. 7 8 9 0."><span
+              itemprop="telephone">(123) 456-7890</span></a>
+          <figure>
+            <figcaption>Follow us</figcaption>
+            <ul>
+              <li>
+                <a href="https://www.linkedin.com/in/erskinedrew/" target="_blank" itemprop="sameAs">
+                  <svg width="30" height="30" viewBox="0 0 24 24" role="img">
+                    <title>LinkedIn</title>
+                    <path aria-hidden="true"
+                      d="M17.291,19.073h-3.007v-4.709c0-1.123-0.02-2.568-1.564-2.568c-1.566,0-1.806,1.223-1.806,2.487v4.79H7.908V9.389h2.887v1.323h0.04c0.589-1.006,1.683-1.607,2.848-1.564c3.048,0,3.609,2.005,3.609,4.612L17.291,19.073z M4.515,8.065c-0.964,0-1.745-0.781-1.745-1.745c0-0.964,0.781-1.745,1.745-1.745c0.964,0,1.745,0.781,1.745,1.745C6.26,7.284,5.479,8.065,4.515,8.065L4.515,8.065 M6.018,19.073h-3.01V9.389h3.01V19.073z M18.79,1.783H1.497C0.68,1.774,0.01,2.429,0,3.246V20.61c0.01,0.818,0.68,1.473,1.497,1.464H18.79c0.819,0.01,1.492-0.645,1.503-1.464V3.245c-0.012-0.819-0.685-1.474-1.503-1.463"
+                      stroke-width="0" />
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a href="https://x.com/AmvLuf" target="_blank" itemprop="sameAs">
+                  <svg width="30" height="30" viewBox="0 0 24 21" role="img">
+                    <title>Twitter</title>
+                    <path aria-hidden="true"
+                      d="M24 3.15015C23.1007 3.54359 22.1639 3.80589 21.171 3.9183C22.1827 3.31877 22.9696 2.34453 23.3255 1.20167C22.37 1.76374 21.3208 2.17591 20.2155 2.40074C19.3162 1.44523 18.0234 0.845703 16.6183 0.845703C13.9016 0.845703 11.7096 3.05648 11.7096 5.75437C11.7096 6.14781 11.7471 6.52252 11.822 6.87849C7.7377 6.69114 4.12178 4.72392 1.68618 1.745C1.25527 2.47568 1.01171 3.31877 1.01171 4.21807C1.01171 5.92299 1.89227 7.42181 3.20375 8.30238C2.41686 8.28364 1.62998 8.05882 0.974239 7.70284C0.974239 7.72158 0.974239 7.74032 0.974239 7.75905C0.974239 10.1572 2.67916 12.1244 4.90867 12.5928C4.51522 12.7052 4.06557 12.7614 3.61593 12.7614C3.29742 12.7614 2.97892 12.7427 2.67916 12.6865C3.31616 14.6349 5.11475 16.0588 7.26932 16.115C5.60187 17.4265 3.46604 18.2134 1.18033 18.2134C0.76815 18.2134 0.393443 18.1946 0 18.1384C2.19204 19.5249 4.77752 20.3305 7.56909 20.3305C16.6183 20.3305 21.5644 12.8363 21.5644 6.33516C21.5644 6.11034 21.5644 5.90425 21.5457 5.69816C22.5199 5.00495 23.3255 4.14313 24 3.15015Z"
+                      stroke-width="0" />
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/@KingLuf" target="_blank" itemprop="sameAs">
+                  <svg width="30" height="30" viewBox="0 0 24 18" role="img">
+                    <title>YouTube</title>
+                    <path aria-hidden="true"
+                      d="M23.0048 2.36448C22.348 1.20111 21.6537 0.9947 20.2089 0.919644C18.7641 0.807059 15.1426 0.769531 12.009 0.769531C8.87541 0.769531 5.25394 0.807059 3.82787 0.90088C2.38304 0.9947 1.67 1.20111 1.01326 2.36448C0.337753 3.50909 0 5.51684 0 9.02573C0 12.5158 0.337753 14.5236 1.01326 15.6682C1.67 16.8316 2.38304 17.038 3.80911 17.1318C5.25394 17.2256 8.87541 17.2819 12.009 17.2819C15.1426 17.2819 18.7641 17.2256 20.1901 17.1506C21.635 17.0568 22.3293 16.8503 22.986 15.687C23.6615 14.5424 23.9993 12.5346 23.9993 9.04449C24.018 5.51684 23.6803 3.50909 23.0048 2.36448ZM9.00676 13.5291V4.52235L16.5124 9.02573L9.00676 13.5291Z"
+                      stroke-width="0" />
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </figure>              
         </section>
+
         <section>
-          <h2>Retail locations</h2>
+          <h2>Peep Pea Locations</h2>
           <dl>
             <div itemscope itemtype="https://schema.org/LocalBusiness" itemref="hq">
-              <dt itemprop="name">Peep Pea</dt>
+              <dt itemprop="name">Peep Pea New York</dt>
               <dd itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-                <span itemprop="streetAddress">789 Cart Court</span><br>
+                <span itemprop="streetAddress">Times Square</span><br>
                 <span itemprop="addressLocality">New York City</span>, <span itemprop="addressRegion">NY</span> <span
-                  itemprop="postalCode">12345</span>
+                  itemprop="postalCode">10036</span>
               </dd>
-              <dd><a href="tel:888-777-7777"
-                  aria-label="Phone number of Peep Pea New York City: 8 8 8. 7 7 7. 7 7 7 7."><span
-                    itemprop="telephone">(888) 777-7777</span></a></dd>
+              <dd><a href="tel:123-456-7890"
+                  aria-label="Phone number of Peep Pea New York: 1 2 3. 4 5 6. 7 8 9 0."><span
+                    itemprop="telephone">(123) 456-7890</span></a></dd>
             </div>
           </dl>
         </section>
@@ -161,7 +162,7 @@
         </div>
         <ul>
           <li><a th:href="@{/aboutPeepPea}">About Peep Pea Star</a></li>
-          <li><a th:href="@{/home}">Peep Pea story</a></li>
+          <li><a th:href="@{/home}">Peep Pea Story</a></li>
           <li><a th:href="@{/getAllBlogs}">Peep Pea Army</a></li>
           <li><a th:href="@{/aboutPeepPea}">FAQ</a></li>
         </ul>
@@ -172,7 +173,7 @@
   </main>
 
   <!-- Footer -->
-  <div th:replace="~{fragments.html :: footer}" />
+  <div th:replace="~{fragments.html :: footer}"></div>
   <!-- /footer -->
 
   <script src="js/plugins.js"></script>
