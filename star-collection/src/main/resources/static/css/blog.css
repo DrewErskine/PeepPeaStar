@@ -12,7 +12,7 @@
 }
 
 /* Blog List Pagination */
-#blogs > nav {
+#blogs>nav {
     --color-link-static: var(--color-peeppeaplue);
     --color-link-hover: var(--color-seacaller);
     --color-link-background-hover: var(--color-coldmorning);
@@ -23,23 +23,23 @@
     border-top: 1px solid var(--color-tidalwave);
 }
 
-#blogs > nav > ul {
+#blogs>nav>ul {
     display: flex;
     justify-content: center;
     cursor: default;
 }
 
-#blogs > nav li {
+#blogs>nav li {
     display: flex;
     justify-content: center;
 }
 
-#blogs > nav li + li {
+#blogs>nav li+li {
     margin-left: -1px;
 }
 
-#blogs > nav li > a,
-#blogs > nav li > span {
+#blogs>nav li>a,
+#blogs>nav li>span {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -52,44 +52,50 @@
     color: var(--color-peeppeaplue);
 }
 
-#blogs > nav li[aria-hidden="true"] > a {
+/* Disabled Pagination Links */
+#blogs>nav li[aria-hidden="true"]>a {
     --color-link-static: var(--color-calicodress);
     --color-link-hover: var(--color-calicodress);
     --color-link-background-hover: transparent;
     cursor: default;
 }
 
-#blogs > nav li > a[aria-current="page"] {
+#blogs>nav li>a[aria-current="page"] {
     position: relative;
     font-weight: 700;
     border-color: currentColor;
 }
 
-#blogs > nav li > a:is(.prev, .next) {
+#blogs>nav li>a:is(.prev, .next) {
     padding: 0 15px;
     font-size: 1.6rem;
 }
 
-#blogs > nav li:first-child > a {
+#blogs>nav li:first-child>a {
     border-radius: 6px 0 0 6px;
 }
 
-#blogs > nav li:last-child > a {
+#blogs>nav li:last-child>a {
     border-radius: 0 6px 6px 0;
 }
 
-#blogs > nav a > svg {
+#blogs>nav a>svg {
     margin-top: 1px;
     fill: var(--color-peeppeaplue);
 }
 
-#blogs > nav [aria-hidden="true"] > a > svg {
+#blogs>nav [aria-hidden="true"]>a>svg {
     fill: var(--color-calicodress);
 }
 
 /* Blog List */
 #blogs .blog-list {
     grid-area: blog-list;
+}
+
+/* Filter Button (Mobile) */
+#blogs header .radio-menu-widget+button {
+    display: none;
 }
 
 /* Blog Content Styling */
@@ -201,6 +207,7 @@
     margin-right: auto;
 }
 
+/* Comment Section Styling */
 .post-comment p {
     background: var(--color-mistyrose);
     padding: 20px;
@@ -281,7 +288,7 @@
     font-size: 2em;
     border-radius: 8px;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    background-color: var(--color-calicodress);
+    background-color: antiquewhite;
 }
 
 .blog-button-container {
@@ -326,9 +333,7 @@
         padding: 10px 15px;
     }
 
-    .blog-content,
-    .post-comment textarea,
-    .post-comment p {
+    .blog-content, .post-comment textarea, .post-comment p {
         width: 100%;
     }
 
@@ -358,8 +363,7 @@
         margin-top: 10px;
     }
 
-    .blog-btn-submit,
-    .blog-btn-outline-primary {
+    .blog-btn-submit, .blog-btn-outline-primary {
         font-size: 1.5em;
     }
 
