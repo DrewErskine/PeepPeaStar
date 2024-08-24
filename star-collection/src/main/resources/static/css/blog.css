@@ -8,7 +8,7 @@
     grid-template-areas: "blog-list";
     margin-top: 21px;
     padding-top: 40px;
-    border-top: 1px solid var(--color-tidalwave); /* Accent Border Color */
+    border-top: 1px solid var(--color-tidalwave);
 }
 
 /* Blog List Pagination */
@@ -48,7 +48,7 @@
     min-width: 44px;
     min-height: 44px;
     font-size: 2rem;
-    border: 1px solid var(--color-tidalwave); /* Button Border */
+    border: 1px solid var(--color-tidalwave);
     color: var(--color-peeppeaplue);
 }
 
@@ -66,7 +66,6 @@
     border-color: currentColor;
 }
 
-/* Pagination Navigation (Previous and Next) */
 #blogs>nav li>a:is(.prev, .next) {
     padding: 0 15px;
     font-size: 1.6rem;
@@ -80,7 +79,6 @@
     border-radius: 0 6px 6px 0;
 }
 
-/* SVG Styles for Pagination */
 #blogs>nav a>svg {
     margin-top: 1px;
     fill: var(--color-peeppeaplue);
@@ -119,7 +117,7 @@
     overflow: hidden;
     height: 420px;
     width: 100%;
-    background-color: var(--color-offwhiteviolet); /* Subtle Background */
+    background-color: var(--color-offwhiteviolet);
     border-radius: 8px;
 }
 
@@ -133,75 +131,95 @@
 
 /* Blog Text Section */
 .blog-text {
-
     margin-top: 20px;
-    background-color: #fff;
+    background-color: var(--color-offwhiteviolet);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     font-family: 'Arial', sans-serif;
 }
 
+/* Blog Detail Header */
 .blog-detail-header h1 {
-    color: var(--color-chinesebellflower); /* Strong Header Color */
+    color: var(--color-chinesebellflower);
     font-size: 1.75em;
     margin-bottom: 0.5em;
 }
 
+/* Blog Metadata Section */
 .blog-metadata {
     display: flex;
     justify-content: space-between;
     font-size: 1em;
-    color: var(--color-calicodress); /* Main Text Color */
+    color: var(--color-calicodress);
     margin-bottom: 1em;
-    background-color: var(--color-coldmorning); /* Soft Background */
+    background-color: var(--color-coldmorning);
     padding: 10px;
     border-radius: 5px;
 }
 
 .blog-metadata time {
     font-size: 1.2em;
-    color: var(--color-calicodress); /* Emphasized Date */
+    color: var(--color-calicodress);
 }
 
 .blog-metadata span {
-    background: var(--color-mistyrose); /* Soft Background for Counts */
+    background: var(--color-mistyrose);
     padding: 5px;
     border-radius: 5px;
     font-size: 1.2em;
     margin-right: 15px;
 }
 
+/* Blog Paragraph Styling */
 .blog-text p {
-    color: var(--color-calicodress); /* Adjusted Text Color */
+    color: var(--color-calicodress);
     line-height: 1.6;
+    text-align: center;
+}
+
+/* Like and Comment Box Styling */
+.like-comment-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5em;
+    margin-top: 20px;
+    background-color: var(--color-offwhiteviolet);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.like-comment-box .blog-btn-submit {
+    width: auto;
     text-align: center;
 }
 
 /* Comment Posting Section */
 .post-comment {
-    background: var(--color-mistyrose); /* Soft Background */
+    background: var(--color-mistyrose);
     padding: 20px;
     margin-top: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 70%; /* Slightly smaller width for the post comment section */
+    width: 70%;
     margin-left: auto;
-    margin-right: auto; /* Center the post-comment section */
+    margin-right: auto;
 }
 
+/* Comment Section Styling */
 .post-comment p {
     background: var(--color-mistyrose);
     padding: 20px;
-    margin: 30px auto; /* Center the element horizontally */
+    margin: 30px auto;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 50%; /* Set a width to center the element */
+    width: 50%;
 }
 
 .post-comment h2 {
-    color: var(--color-chinesebellflower); /* Strong Heading Color */
+    color: var(--color-chinesebellflower);
     margin-bottom: 15px;
 }
 
@@ -210,46 +228,32 @@
     flex-direction: column;
 }
 
+/* Comment Textarea Styling */
 .post-comment textarea {
     font-family: 'Ubuntu', sans-serif;
-    padding: 10px; /* Consistent padding */
-    height: 100px; /* Adjust height for better visibility */
+    padding: 10px;
+    height: 100px;
     border-radius: 5px;
     border: 1px solid var(--color-tidalwave);
-    resize: none; /* Disable resizing */
+    resize: none;
     outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Highlight effect */
-    text-align: left; /* Standard left alignment for text */
-    margin: 20px auto; /* Center horizontally with margin auto */
-    width: 50%; /* Define width and center */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    text-align: left;
+    margin: 20px auto;
+    width: 50%;
 }
 
 .post-comment textarea:focus {
     outline: none;
-    border-color: var(--color-seacaller); /* Focus border color */
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3); /* Softer glow effect */
+    border-color: var(--color-seacaller);
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
 }
 
-.like-comment-box {
-    display: flex;
-    justify-content: center; /* Centers the like button horizontally */
-    align-items: center; /* Centers the content vertically */
-    padding: .5em;
-    margin-top: 20px;
-    background-color: var(--color-offwhiteviolet); /* Adjust background color */
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
-}
-
-.like-comment-box .blog-btn-submit {
-    width: auto; /* Allows the button to fit its content */
-    text-align: center;
-}
-
+/* Comment Submission Button */
 .post-comment button {
     padding: 10px 20px;
     margin-top: 10px;
-    background-color: var(--color-peeppeaplue); /* Button Color */
+    background-color: var(--color-peeppeaplue);
     color: white;
     border: none;
     border-radius: 5px;
@@ -258,7 +262,7 @@
 }
 
 .post-comment button:hover {
-    background-color: var(--color-seacaller); /* Button Hover */
+    background-color: var(--color-seacaller);
 }
 
 /* Comments Display Section */
@@ -267,7 +271,7 @@
 }
 
 .comments .blog-post {
-    background: var(--color-offwhiteviolet); /* Slightly Different Background */
+    background: var(--color-offwhiteviolet);
     padding: 15px;
     margin-top: 10px;
     border-radius: 5px;
@@ -275,45 +279,45 @@
 }
 
 .comments .blog-post:nth-child(odd) {
-    background: var(--color-coldmorning); /* Alternate Background for Odd Items */
+    background: var(--color-coldmorning);
 }
 
 /* Blog Button Styles */
 .blog-btn {
-    padding: 15px 30px; /* Increase padding for larger buttons */
-    font-size: 2em; /* Increase font size */
-    border-radius: 8px; /* Slightly rounder corners */
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Smooth transitions for hover, click, and shadow effects */
+    padding: 15px 30px;
+    font-size: 2em;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     background-color: antiquewhite;
 }
 
 .blog-button-container {
     display: flex;
-    justify-content: center; /* Center the buttons horizontally */
-    gap: 10px; /* Adds space between the buttons */
-    margin-top: 20px; /* Adds top margin for spacing */
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
 }
 
 .blog-btn:hover {
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Add shadow effect on hover for better emphasis */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .blog-btn:active {
-    transform: scale(0.98); /* Slight button shrink effect */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Decrease shadow for active state */
+    transform: scale(0.98);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .blog-btn:focus {
-    outline: none; /* Remove default outline */
-    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); /* Add a focus glow for accessibility */
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
 }
 
 .blog-btn-submit:hover {
-    background-color: var(--color-parisgreen); /* Success Button Hover */
+    background-color: var(--color-parisgreen);
 }
 
 .blog-btn-outline-primary:hover {
-    background-color: var(--color-seacaller); /* Outline Button Hover */
+    background-color: var(--color-seacaller);
     color: white;
 }
 
@@ -327,5 +331,44 @@
         flex-direction: column;
         align-items: flex-start;
         padding: 10px 15px;
+    }
+
+    .blog-content, .post-comment textarea, .post-comment p {
+        width: 100%;
+    }
+
+    .post-comment {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .like-comment-box {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .blog-btn {
+        font-size: 1.5em;
+        padding: 10px 20px;
+        width: 100%;
+    }
+
+    .blog-image {
+        height: auto;
+        width: 100%;
+    }
+
+    .comments .blog-post {
+        padding: 10px;
+        margin-top: 10px;
+    }
+
+    .blog-btn-submit, .blog-btn-outline-primary {
+        font-size: 1.5em;
+    }
+
+    .blog-button-container {
+        flex-direction: column;
+        gap: 15px;
     }
 }
