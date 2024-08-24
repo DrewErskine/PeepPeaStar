@@ -52,7 +52,6 @@
     color: var(--color-peeppeaplue);
 }
 
-/* Disabled Pagination Links */
 #blogs>nav li[aria-hidden="true"]>a {
     --color-link-static: var(--color-calicodress);
     --color-link-hover: var(--color-calicodress);
@@ -207,7 +206,6 @@
     margin-right: auto;
 }
 
-/* Comment Section Styling */
 .post-comment p {
     background: var(--color-mistyrose);
     padding: 20px;
@@ -288,7 +286,7 @@
     font-size: 2em;
     border-radius: 8px;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    background-color: antiquewhite;
+    background-color: var(--color-greekgarden);
 }
 
 .blog-button-container {
@@ -321,7 +319,7 @@
     color: white;
 }
 
-/* Responsiveness */
+/* Responsiveness for Small Devices (Mobile) */
 @media (max-width: 768px) {
     .blog-detail-header h1 {
         font-size: 1.5em;
@@ -333,7 +331,9 @@
         padding: 10px 15px;
     }
 
-    .blog-content, .post-comment textarea, .post-comment p {
+    .blog-content,
+    .post-comment textarea,
+    .post-comment p {
         width: 100%;
     }
 
@@ -363,12 +363,87 @@
         margin-top: 10px;
     }
 
-    .blog-btn-submit, .blog-btn-outline-primary {
+    .blog-btn-submit,
+    .blog-btn-outline-primary {
         font-size: 1.5em;
     }
 
     .blog-button-container {
         flex-direction: column;
         gap: 15px;
+    }
+}
+
+/* Responsiveness for Tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .blog-detail-header h1 {
+        font-size: 1.75em;
+    }
+
+    .blog-content,
+    .post-comment textarea,
+    .post-comment p {
+        width: 90%;
+    }
+
+    .post-comment {
+        width: 80%;
+    }
+
+    .blog-btn {
+        font-size: 1.8em;
+        padding: 12px 25px;
+    }
+
+    .comments .blog-post {
+        padding: 12px;
+        margin-top: 12px;
+    }
+
+    .blog-btn-submit,
+    .blog-btn-outline-primary {
+        font-size: 1.8em;
+    }
+
+    .blog-button-container {
+        flex-direction: row;
+        gap: 15px;
+    }
+}
+
+/* Responsiveness for Large Devices (Desktops) */
+@media (min-width: 1025px) {
+    .blog-detail-header h1 {
+        font-size: 2em;
+    }
+
+    .blog-content,
+    .post-comment textarea,
+    .post-comment p {
+        width: 85%;
+    }
+
+    .post-comment {
+        width: 75%;
+    }
+
+    .blog-btn {
+        font-size: 2em;
+        padding: 15px 30px;
+    }
+
+    .comments .blog-post {
+        padding: 15px;
+        margin-top: 15px;
+    }
+
+    .blog-btn-submit,
+    .blog-btn-outline-primary {
+        font-size: 2em;
+    }
+
+    .blog-button-container {
+        flex-direction: row;
+        gap: 20px;
     }
 }

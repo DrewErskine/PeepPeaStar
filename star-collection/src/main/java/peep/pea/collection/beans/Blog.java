@@ -73,11 +73,11 @@ public class Blog {
         this.content = content;
     }
 
-    public String getSummary() {  // Add this method
+    public String getSummary() {
         return summary;
     }
 
-    public void setSummary(String summary) {  // And this method
+    public void setSummary(String summary) { 
         this.summary = summary;
     }
 
