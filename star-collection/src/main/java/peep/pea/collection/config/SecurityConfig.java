@@ -52,7 +52,8 @@ public class SecurityConfig {
                     "/about",
                     "/css/**",
                     "/js/**",
-                    "/images/**"
+                    "/images/**",
+                    "/getCharacter/peep"
                 )
                 .permitAll()
                 .requestMatchers("/newBlog", "/saveBlog", "/peep-user-page", "/addComment", "/sendMessage", "/likeBlog/**", "/addPeepComment")
@@ -70,8 +71,8 @@ public class SecurityConfig {
                 .logoutUrl("/logout")
                 .logoutSuccessUrl("/login-user?logout")
                 .permitAll())
-                .sessionManagement(session -> session
-            .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
+            .sessionManagement(session -> session
+                .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
                 .invalidSessionUrl("/login-user?invalid-session=true")
                 .maximumSessions(1)
                 .expiredUrl("/login-user?session-expired=true"))

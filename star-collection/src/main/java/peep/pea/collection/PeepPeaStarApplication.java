@@ -24,5 +24,4 @@ public class PeepPeaStarApplication {
         threadPoolTaskExecutor.initialize();
         return threadPoolTaskExecutor;
     }
-
 }

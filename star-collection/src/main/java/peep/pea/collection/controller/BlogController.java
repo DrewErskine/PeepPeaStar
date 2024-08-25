@@ -133,7 +133,7 @@ public class BlogController extends CommonController {
     private Iterable<Blog> getBlogs() {
         logger.info("Getting all blogs, using spring executor thread");
         try {
-            Thread.sleep(3000);
+            Thread.sleep(1000);
         } catch (InterruptedException exception) {
             throw new RuntimeException();
         }
