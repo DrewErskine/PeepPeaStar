@@ -24,7 +24,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: dmurphyerskine/peeppea:PeepPeaBlog
     depends_on:
       - peeppea_db
     ports:

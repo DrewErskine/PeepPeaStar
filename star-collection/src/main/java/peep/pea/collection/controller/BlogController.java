@@ -50,7 +50,8 @@ public class BlogController extends CommonController {
     }
 
     @GetMapping("/blog/{id}")
-    public String getBlogDetails(@PathVariable("id") int id, Model model) {
+    public String getBlogDetails(@PathVariable("id") int id, Model model, Authentication authentication) {
+        model.addAttribute("isAuthenticated", authentication != null && authentication.isAuthenticated());
         return blogRepository.findById(id)
             .map(blog -> {
                 model.addAttribute("blog", blog);
@@ -63,7 +64,7 @@ public class BlogController extends CommonController {
                 return "blog-detail";
             })
             .orElse("redirect:/blogs");
-    }
+    }    
      
 
     @PostMapping("/likeBlog/{id}")
@@ -78,39 +79,48 @@ public class BlogController extends CommonController {
     @PostMapping("/addPeepComment")
     public String addComment(@ModelAttribute("commentDto") @Valid UserCommentDto commentDto, BindingResult result,
                              Model model, Authentication authentication, RedirectAttributes redirectAttributes) {
+        // Log authentication details
+        logger.info("Authentication details: {}", authentication);
+    
+        // Check if the user is authenticated
+        if (authentication == null || !authentication.isAuthenticated()) {
+            model.addAttribute("error", "You must be logged in to add a comment.");
+            return "redirect:/login-user"; 
+        }
+    
         if (result.hasErrors()) {
             model.addAttribute("error", "Please correct the errors in the form.");
-            return getBlogDetails(commentDto.getBlogId(), model);
+            return getBlogDetails(commentDto.getBlogId(), model, authentication);
         }
-
+    
         if (commentDto.getBlogId() == null) {
-            System.out.println("Blog ID is null");
+            logger.warn("Blog ID is null");
             model.addAttribute("error", "Blog ID is missing.");
             return "redirect:/blogs";
         }
-
+    
         Optional<User> userOpt = getUserRepository().findByEmail(authentication.getName());
         Optional<Blog> blogOpt = blogRepository.findById(commentDto.getBlogId());
-
+    
         if (userOpt.isPresent() && blogOpt.isPresent()) {
             User user = userOpt.get();
             Blog blog = blogOpt.get();
-
+    
             Comment comment = new Comment();
             comment.setBlog(blog);
             comment.setUser(user);
             comment.setComment(commentDto.getComment());
             comment.setDatePosted(new Date());
-
+    
             commentRepository.save(comment);
-
+    
             redirectAttributes.addFlashAttribute("message", "Comment added successfully.");
             return "redirect:/blog/" + commentDto.getBlogId();
         } else {
             model.addAttribute("error", "Error adding comment. Please try again.");
-            return getBlogDetails(commentDto.getBlogId(), model);
+            return getBlogDetails(commentDto.getBlogId(), model, authentication);
         }
-    }
+    }    
 
     @PostMapping("/search")
     public String search(@RequestParam("searchString") String keyword, Model model) {

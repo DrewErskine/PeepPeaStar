@@ -1,7 +1,7 @@
-FROM amazoncorretto:21
+FROM amazoncorretto:22
 
 # Install necessary packages
-RUN yum install -y tar which gzip openssh-clients
+RUN yum install -y tar which gzip openssh-clients findutils
 
 # Set up Maven environment
 ENV MAVEN_HOME=/usr/share/maven
