@@ -42,7 +42,6 @@ public class SecurityConfig {
                     "/peep-user-page",
                     "/getPeepvile",
                     "/Peepille",
-                    "/addPeepComment",
                     "/sendMessage",
                     "/saveUser",
                     "/blog/{id}",
@@ -54,12 +53,11 @@ public class SecurityConfig {
                     "/js/**",
                     "/images/**",
                     "/getCharacter/peep"
-                )
-                .permitAll()
-                .requestMatchers("/newBlog", "/saveBlog", "/peep-user-page", "/addComment", "/sendMessage", "/likeBlog/**", "/addPeepComment")
+                ).permitAll()
+                .requestMatchers("/peepuser", "/newBlog", "/saveBlog", "/peep-user-page", "/addComment", "/sendMessage", "/likeBlog/**", "/addPeepComment")
                 .authenticated()
-                .anyRequest()
-                .authenticated())
+                .anyRequest().authenticated())
+        
             .formLogin(form -> form
                 .loginPage("/login-user")
                 .loginProcessingUrl("/login")
