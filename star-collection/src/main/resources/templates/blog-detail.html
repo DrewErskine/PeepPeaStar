@@ -49,6 +49,9 @@
                         <button class="blog-btn blog-btn-submit" th:onclick="'likeBlog(' + ${blog.id} + ')'"
                             aria-label="Like this blog">Like</button>
                     </div>
+                    <div sec:authorize="isAnonymous()">
+                        <p class="error-message">You must be logged in to like this post.</p>
+                    </div>
                 </div>
             </div>
         </article>

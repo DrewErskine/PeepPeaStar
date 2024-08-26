@@ -14,7 +14,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 public class PeepPeaStarApplicationTests {
 
     @Container
-    public static PostgreSQLContainer<?> postgresContainer = new PostgreSQLContainer<>("postgres:latest")
+    public static PostgreSQLContainer<?> postgresContainer = new PostgreSQLContainer<>("postgres:16")
             .withDatabaseName("testdb")
             .withUsername("postgres")
             .withPassword("password");

@@ -33,7 +33,7 @@ public class UserControllerTest {
     private UserRepository userRepository;
 
     @Container
-    public static PostgreSQLContainer<?> postgresContainer = new PostgreSQLContainer<>("postgres:latest")
+    public static PostgreSQLContainer<?> postgresContainer = new PostgreSQLContainer<>("postgres:16")
             .withDatabaseName("testdb")
             .withUsername("postgres")
             .withPassword("password");
