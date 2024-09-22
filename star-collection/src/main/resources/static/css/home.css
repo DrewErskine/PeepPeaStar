@@ -18,6 +18,7 @@
     height: 460px;
 }
 
+/* Hero - Splide Arrows */
 #hero .splide__arrow {
     position: absolute;
     top: 0;
@@ -29,7 +30,7 @@
 }
 
 #hero:hover .splide__arrow,
-#hero :focus-within>.splide__arrow {
+#hero:focus-within > .splide__arrow {
     opacity: 1;
 }
 
@@ -39,32 +40,50 @@
     transform: scaleX(-1);
 }
 
-#hero .splide__arrow>img {
+#hero .splide__arrow > img {
     display: block;
-    padding: 0 24px 0 23px;
+    padding: 0 24px;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.2);
 }
 
-#hero .splide__arrow:is(:hover, :focus)>img {
+#hero .splide__arrow:is(:hover, :focus) > img {
     background-color: rgba(0, 0, 0, 0.3);
 }
 
+/* Hero - Splide Slides */
 #hero .splide__track {
     height: 100%;
 }
 
 #hero .splide__slide {
-    padding: 0 var(--padding-inline-center-content);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
+    opacity: 0;
+    z-index: 0;
+    background-color: inherit;
+    transition: opacity 0.8s ease-in-out, background-color 0s;
+}
+
+#hero .splide__slide.is-active {
+    opacity: 1;
+    z-index: 1;
+}
+
+#hero .splide__slide:not(.is-active) {
+    z-index: 0;
 }
 
 #hero .splide__slide.opaque {
     opacity: 1 !important;
 }
 
-#hero .splide__slide>.wrapper {
+/* Hero - Text and Button */
+#hero .splide__slide > .wrapper {
     position: absolute;
     left: calc(var(--padding-inline-center-content) + (100% - 2 * var(--padding-inline-center-content)) * 0.034);
     z-index: 2;
@@ -82,102 +101,93 @@
     line-height: 1.1489;
 }
 
-#hero .wrapper>p {
+#hero .wrapper > p {
     font-weight: 400;
     font-size: 2.6rem;
     line-height: 1.1488;
 }
 
-#hero .splide__slide .wrapper>.button {
+#hero .splide__slide .wrapper > .button {
     min-width: 282px;
 }
 
+/* Hero - Pagination */
 #hero .splide__pagination {
-    margin-top: 3.3em;
-    background-color: rgba(53, 93, 120, 0.33); /* Darker background with lowered opacity */
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%); /* Center the pagination */
-    gap: 2em;
-    width: auto;
-    padding-bottom: 1.3em;
-    display: flex;
-    justify-content: center;
-    border-radius: 10px; /* Added border radius for smoother edges */
-    padding: 10px; /* Added padding for better appearance */
-    bottom: -5em; /* Positioned lower below the hero section */
+    margin-top: 1rem;
+    bottom: 1rem;
 }
 
 #hero .splide__pagination__page {
-    display: block;
-    width: 16px;
-    height: 16px;
-    background-color: rgba(70, 119, 152, 0.7); /* Consistent with main color and lowered opacity */
-    border: 2px solid var(--color-chinesebellflower); /* Added border */
-    border-radius: 50%;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
+    width: 12px;
+    height: 12px;
+    margin: 0 0.5rem;
 }
 
-#hero :is(:hover, :focus, .is-active).splide__pagination__page {
-    background-color: var(--color-aquasea); /* Highlight for active state */
-    transform: scale(1.2); /* Slightly enlarge the active button */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhance the shadow on hover/active */
-    border-color: var(--color-crushedviolets); /* Change border color on active/hover */
+#hero :is(:hover, :focus, .is-active) .splide__pagination__page {
+    background-color: var(--color-aquasea);
+    transform: scale(1.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-color: var(--color-crushedviolets);
 }
 
-/* Hero - Peep-Pea */
+/*-----------------------------------------------------
+    2. Hero Slide - Peep Pea
+-------------------------------------------------------*/
+
 #hero .Peep-Pea {
     background-color: var(--color-offwhiteviolet);
 }
 
-#hero .Peep-Pea>.wrapper {
+#hero .Peep-Pea > .wrapper {
     top: 77px;
     left: calc(var(--padding-inline-center-content) + (100% - 2 * var(--padding-inline-center-content)) * 0.1195);
     width: 298px;
 }
 
-#hero .Peep-Pea .wrapper>img {
-    margin-bottom: 47px;
-}
-
-#hero .Peep-Pea>img {
+#hero .Peep-Pea > img {
     position: absolute;
-    top: 72px;
     left: calc(var(--padding-inline-center-content) + (100% - 2 * var(--padding-inline-center-content)) * 0.549);
+    margin-bottom: 3em;
+    align-content: center;
 }
 
-/* Hero - Love */
+
+/*-----------------------------------------------------
+    3. Hero Slide - Love
+-------------------------------------------------------*/
+
 #hero .love {
     color: var(--color-aquasea);
     background-color: var(--color-mistyrose);
 }
 
-#hero .love>.wrapper {
+#hero .love > .wrapper {
     top: 105px;
 }
 
-#hero .love .wrapper>p {
+#hero .love .wrapper > p {
     margin-top: 1.2rem;
 }
 
-#hero .love .wrapper>.button {
+#hero .love .wrapper > .button {
     margin-top: 62px;
 }
 
-#hero .love>img {
+#hero .love > img {
     position: absolute;
-    top: 47px;
     left: calc(var(--padding-inline-center-content) + (100% - 2 * var(--padding-inline-center-content)) * 0.543);
 }
 
-/* Hero - Fan */
+/*-----------------------------------------------------
+    4. Hero Slide - Fan
+-------------------------------------------------------*/
+
 #hero .fan {
     color: var(--color-greekgarden);
     background-color: var(--color-offwhiteviolet);
 }
 
-#hero .fan>.wrapper {
+#hero .fan > .wrapper {
     top: 99px;
     left: calc(var(--padding-inline-center-content) + (100% - 2 * var(--padding-inline-center-content)) * 0.009);
     width: 541px;
@@ -187,27 +197,158 @@
     font-size: 5.6rem;
 }
 
-#hero .fan .wrapper>p {
+#hero .fan .wrapper > p {
     margin-top: 1.4rem;
     max-width: 340px;
 }
 
-#hero .fan .wrapper p>br {
+#hero .fan .wrapper p > br {
     display: none;
 }
 
-#hero .fan .wrapper>.button {
+#hero .fan .wrapper > .button {
     margin-top: 48px;
 }
 
-#hero .fan>img {
+#hero .fan > img {
     position: absolute;
-    top: -57px;
     left: calc(var(--padding-inline-center-content) + (100% - 2 * var(--padding-inline-center-content)) * 0.521);
 }
 
 /*-----------------------------------------------------
-    2. Collections
+    5. Responsive Adjustments
+-------------------------------------------------------*/
+
+@media (max-width: 768px) {
+    #hero .fan {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #hero .fan > .wrapper {
+        width: 100%;
+        text-align: center;
+        padding-right: 0;
+    }
+
+    #hero .fan > img {
+        max-width: 80%;
+        position: static;
+        align-items: center;
+    }
+}
+
+@media (max-width: 414px) {
+    #hero .fan h2 {
+        font-size: 3.6rem;
+    }
+
+    #hero .fan .wrapper > p {
+        font-size: 1.6rem;
+    }
+
+    #hero .fan > img {
+        max-width: 100%;
+        padding: 10px;
+    }
+}
+
+/*-----------------------------------------------------
+    Responsive (991px and Below) - General Breakpoints
+-------------------------------------------------------*/
+
+@media (max-width: 991px) {
+    #hero {
+        margin-top: 20px;
+        margin-bottom: 40px;
+        height: auto;
+    }
+
+    #hero .splide__list {
+        display: block;
+    }
+
+    #hero .splide__slide {
+        position: static;
+        width: 100%;
+        height: auto;
+        opacity: 1;
+        padding: 20px 0;
+        border-bottom: 2px solid black;
+    }
+
+    #hero .splide__slide:last-child {
+        border-bottom: none;
+    }
+
+    .splide__slide .hero-image {
+        display: none;
+    }
+
+    #hero .splide__slide > .wrapper {
+        position: static;
+        width: 90%;
+        max-width: 100%;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    #hero .splide__slide h2 {
+        font-size: 4rem;
+        line-height: 1.3;
+    }
+
+    #hero .wrapper > p {
+        font-size: 1.6rem;
+        line-height: 1.5;
+    }
+
+    #hero .splide__slide .wrapper > .button {
+        width: 100%;
+        max-width: 240px;
+        margin-top: 20px;
+    }
+}
+
+/*-----------------------------------------------------
+    Pagination Styles for Splide
+-------------------------------------------------------*/
+
+.splide__pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    bottom: 1rem;
+}
+
+.splide__pagination__page {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 0.5rem;
+    background-color: #cccccc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.splide__pagination__page.is-active {
+    background-color: var(--color-aquasea);
+    transform: scale(1.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-color: var(--color-crushedviolets);
+}
+
+.splide__pagination--ltr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+/*-----------------------------------------------------
+    6. Collections
 -------------------------------------------------------*/
 
 .collection {
@@ -215,11 +356,11 @@
     padding: 40px var(--padding-inline-center-content) 31px;
 }
 
-.collection+.collection {
+.collection + .collection {
     padding-top: 61px;
 }
 
-.collection+.collection::before {
+.collection + .collection::before {
     content: "";
     position: absolute;
     top: 0;
@@ -229,7 +370,7 @@
     border-top: 1px solid var(--color-coldmorning);
 }
 
-.collection>header {
+.collection > header {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -246,30 +387,22 @@
     line-height: 1.1458;
 }
 
-.collection header>.button {
+.collection header > .button {
     min-width: 242px;
 }
 
-.collection.PeepPea-Blogs {
-    width: 110vw;
-    margin-left: -5vw;
+.collection.PeepPea-Blogs,
+.collection.Peepville {
+    width: 100%;
     overflow-x: hidden;
     position: relative;
     background-color: var(--color-offwhiteviolet);
 }
 
-.collection.Peepville {
-    width: 110vw;
-    margin-left: -5vw;
-    overflow-x: hidden;
-    position: relative;
-}
-
 /*-----------------------------------------------------
-    3.5. Buttons
+    7. Buttons
 -------------------------------------------------------*/
 
-/* Base styles for buttons */
 .button {
     background-color: var(--color-peeppeaplue);
     display: inline-block;
@@ -283,174 +416,16 @@
     cursor: pointer;
 }
 
-/* Large button specific styling */
 .lg {
     padding: 15px 30px;
 }
 
-/* Solid button specific styling */
 .solid {
     border: 2px solid transparent;
     background-color: var(--color-peeppeaplue);
     color: white;
 }
 
-/* Hover effect for buttons */
 .button:hover {
     transform: scale(1.05);
-}
-
-/*-----------------------------------------------------
-    4. Responsive (991px)
--------------------------------------------------------*/
-
-@media (max-width: 991px) {
-    #hero {
-        margin-bottom: 40px;
-        height: 640px;
-    }
-
-    #hero .splide__arrow {
-        display: none;
-    }
-
-    #hero .splide__slide {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        height: 100%;
-    }
-
-    .splide__slide .hero-image {
-        margin: 0 auto;
-        padding-bottom: 50px;
-    }
-
-    #hero .splide__slide.opaque {
-        opacity: 1 !important;
-    }
-
-    #hero .splide__slide>.wrapper {
-        position: static;
-        width: auto;
-    }
-
-    #hero .splide__slide h2 {
-        font-size: 5.8rem;
-        line-height: 1.17;
-    }
-
-    #hero .wrapper>p {
-        font-size: 1.8rem;
-        line-height: 1.1667;
-    }
-
-    #hero .splide__slide .wrapper>.button {
-        width: min(282px, 100%);
-        min-width: 0;
-    }
-
-    /* Hero - Peep-Pea */
-    #hero .Peep-Pea {
-        padding-bottom: 32px;
-    }
-
-    #hero .Peep-Pea>.wrapper {
-        margin-top: 46px;
-        width: auto;
-    }
-
-    #hero .Peep-Pea>img {
-        position: static;
-        margin-top: 30px;
-        width: min(335px, 100%);
-        height: auto;
-    }
-
-    /* Hero - Love */
-    #hero .love {
-        padding-bottom: 66px;
-    }
-
-    #hero .love>.wrapper {
-        margin-top: 31px;
-    }
-
-    #hero .love .wrapper>p {
-        margin-top: 1rem;
-    }
-
-    #hero .love .wrapper>.button {
-        margin-top: 40px;
-    }
-
-    #hero .love>img {
-        position: static;
-        margin-top: 30px;
-        width: min(335px, 100%);
-        height: auto;
-    }
-
-    /* Hero - Fan */
-    #hero .fan {
-        padding-bottom: 36px;
-        color: var(--color-greekgarden);
-    }
-
-    #hero .fan .wrapper>h2 {
-        margin-top: 1.1rem;
-        color: var(--color-greekgarden);
-    }
-
-    #hero .fan .wrapper>p {
-        margin-top: 1.1rem;
-        color: var(--color-greekgarden);
-    }
-
-    #hero .fan .wrapper p>br {
-        display: inline;
-    }
-
-    #hero .fan .wrapper>.button {
-        margin-top: 19px;
-    }
-
-    #hero .fan>img {
-        position: static;
-        margin: 5px -178px 0 0;
-        max-width: 436px;
-        height: auto;
-    }
-
-    .collection {
-        padding-bottom: 28px;
-    }
-
-    .collection+.collection {
-        padding-top: 41px;
-    }
-
-    .collection>header {
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 17px;
-    }
-
-    .collection h1 {
-        margin-top: -1px;
-        margin-right: 0;
-        padding-right: 0;
-        font-size: 2.8rem;
-    }
-
-    .collection header>.button {
-        margin-top: -2px;
-    }
-
-    .right-align {
-        float: right;
-        margin-left: 20px;
-    }
 }
