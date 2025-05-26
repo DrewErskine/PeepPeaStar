@@ -1,4 +1,3 @@
-# Live site - https://peeppea.com
 # Docker Repository Found here - https://hub.docker.com/r/dmurphyerskine/peeppeablog
 
 
