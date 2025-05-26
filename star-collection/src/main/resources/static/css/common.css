@@ -1,69 +1,48 @@
 /*-----------------------------------------------------
-    Modern Design System
--------------------------------------------------------*/
-@import url('colors.css');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
-/*-----------------------------------------------------
     Colors - @import url('variables.css');
 -------------------------------------------------------*/
+@import url('colors.css');
+
 
 /*-----------------------------------------------------
 	0. Header
 -------------------------------------------------------*/
 
-.header {
-    background-color: var(--color-surface);
-    box-shadow: 0 1px 3px var(--color-shadow);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    padding: var(--spacing-md) 0;
-}
-
 .user-info {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-md);
-    padding: var(--spacing-sm) var(--spacing-md);
-    background-color: var(--color-surface);
-    border-radius: var(--radius-lg);
-    box-shadow: 0 2px 4px var(--color-shadow);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
 }
 
 .user-icon {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--spacing-xs);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	position: relative;
 }
 
 .user-icon img {
-    width: 40px;
-    height: 40px;
-    border-radius: var(--radius-full);
-    object-fit: cover;
-    border: 2px solid var(--color-primary-light);
+	margin-bottom: 8px;
 }
 
 .user-name {
-    font-size: var(--font-size-sm);
-    font-weight: 600;
-    color: var(--color-primary);
+	font-size: 2em;
+	font-weight: 500;
+	color: var(--color-babe);
 }
 
-#loggedin {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
+#loggedin .top {
+	display: flex;
+	justify-content: center;
+	width: 100%;
 }
 
-#loggedin .top,
 #loggedin .bottom {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    gap: var(--spacing-md);
+	display: flex;
+	justify-content: center;
+	width: 100%;
 }
 
 /*-----------------------------------------------------
@@ -151,8 +130,6 @@ input[type="number"] {
 select {
 	-webkit-appearance: none;
 	-moz-appearance: none;
-	-ms-appearance: none;
-	-o-appearance: none;
 	appearance: none;
 	cursor: pointer;
 }
@@ -165,10 +142,6 @@ select {
 
 textarea {
 	-webkit-appearance: none;
-	-moz-appearance: none;
-	-ms-appearance: none;
-	-o-appearance: none;
-	appearance: none;
 	overflow: auto;
 	resize: vertical;
 	border-radius: 0;
@@ -293,44 +266,17 @@ a:is(:hover, :focus) {
     Buttons
 -------------------------------------------------------*/
 
-/* Modern Button Styles */
+/* Base styles for buttons */
 .button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: var(--spacing-sm) var(--spacing-lg);
-    font-size: var(--font-size-sm);
-    font-weight: 600;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
     text-align: center;
     text-decoration: none;
-    border-radius: var(--radius-md);
+    border-radius: 4px;
+    transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
     cursor: pointer;
-    transition: all 0.2s ease;
-    background: linear-gradient(to right, var(--color-gradient-start), var(--color-gradient-end));
-    color: white;
-    border: none;
-    box-shadow: 0 2px 4px var(--color-shadow);
-}
-
-.button:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 6px var(--color-shadow-darker);
-}
-
-.button:active {
-    transform: translateY(0);
-    box-shadow: 0 1px 2px var(--color-shadow);
-}
-
-.button.bordered {
-    background: transparent;
-    border: 2px solid var(--color-primary);
-    color: var(--color-primary);
-}
-
-.button.bordered:hover {
-    background: var(--color-primary);
-    color: white;
 }
 
 /* Large button specific styling */
@@ -856,16 +802,11 @@ main>nav[aria-label="Breadcrumb"] {
 }
 
 .blog-list .desc {
-	-webkit-line-clamp: 3;
-	-moz-line-clamp: 3;
-	-ms-line-clamp: 3;
-	-o-line-clamp: 3;
-	line-clamp: 3;
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
-	overflow: hidden;
-	text-overflow: ellipsis;
+	-webkit-line-clamp: 3;
 	margin: 1.2rem 0 auto;
+	overflow: hidden;
 	font-size: 1.6rem;
 }
 
