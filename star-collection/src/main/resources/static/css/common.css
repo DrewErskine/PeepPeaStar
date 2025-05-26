@@ -13,21 +13,57 @@
 -------------------------------------------------------*/
 
 .header {
-	background-color: var(--color-coldmorning);
-	padding: 10px 0;
+    background-color: var(--color-surface);
+    box-shadow: 0 1px 3px var(--color-shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: var(--spacing-md) 0;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--color-surface);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 2px 4px var(--color-shadow);
+}
+
+.user-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.user-icon img {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    object-fit: cover;
+    border: 2px solid var(--color-primary-light);
+}
+
+.user-name {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-primary);
 }
 
 #loggedin {
-	display: flex;
-	flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
 }
 
 #loggedin .top,
 #loggedin .bottom {
-	display: flex;
-	justify-content: center;
-	width: 100%;
-	gap: 10px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: var(--spacing-md);
 }
 
 /*-----------------------------------------------------
@@ -520,9 +556,6 @@ legend {
 [type="checkbox"] {
 	position: absolute;
 	-webkit-appearance: none;
-	-moz-appearance: none;
-	-ms-appearance: none;
-	-o-appearance: none;
 	appearance: none;
 	margin-top: 0.2rem;
 	pointer-events: none;
@@ -718,14 +751,9 @@ textarea {
 /*  3.6. breadcrumb
 -------------------------------------------------------*/
 
-main {
-	position: relative;
-	padding-bottom: 120px;
-}
-
-section {
+main>nav[aria-label="Breadcrumb"] {
 	margin: 0 auto;
-	padding: 80px 0;
+	padding-top: 80px;
 	width: var(--width-center-section);
 }
 
